@@ -5793,7 +5793,7 @@ def _mode_rag() -> None:
         if _needs_semantic:
             rag_bp = st.slider("Breakpoint threshold", 50, 99, 95, 1, key="rag_bp_mode")
             rag_cs, rag_co = 1500, 300
-                if _needs_llm:
+            if _needs_llm:
                 _ctx_model = _render_model_selector(
                     "Context LLM",
                     session_key="model_rag_context",
