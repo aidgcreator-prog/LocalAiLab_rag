@@ -45,6 +45,11 @@ def coerce_message_content_to_text(content: Any) -> str:
     return str(content)
 
 
+def extract_text_from_path(path: Path) -> str:
+    """Extract text from a local file path using the same OCR-aware logic."""
+    return _extract_text_from_path(path)
+
+
 def sanitize_history_pairs(history: list[tuple[str, Any]]) -> list[tuple[str, str]]:
     """Return a text-only history list safe for text-only chat models."""
     return [(role, coerce_message_content_to_text(content)) for role, content in history]

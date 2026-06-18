@@ -68,6 +68,85 @@ def _run_async(coro):
         return loop.run_until_complete(coro)
 
 
+def _get_rag_tools():
+    """Import RAG tools with a live reload when the module is already loaded."""
+    import importlib
+    import sys as _sys
+
+    module = _sys.modules.get("ragsub_agent.tools")
+    if module is not None:
+        module = importlib.reload(module)
+    else:
+        module = importlib.import_module("ragsub_agent.tools")
+
+    if not getattr(module, "_codex_retrieval_fallback_patched", False):
+        def _extract_payload_text(value: Any) -> str:
+            if isinstance(value, str):
+                return value
+            if isinstance(value, dict):
+                for key in ("context", "text", "result", "output", "answer"):
+                    if isinstance(value.get(key), str):
+                        return value[key]
+                return json.dumps(value, ensure_ascii=False, default=str)
+            if isinstance(value, (list, tuple)):
+                return "\n".join(_extract_payload_text(item) for item in value)
+            return str(value or "")
+
+        def _needs_fallback(text: str) -> bool:
+            lowered = (text or "").lower()
+            return (
+                not lowered.strip()
+                or "no usable chunks returned from retrieval" in lowered
+                or "no chunks returned" in lowered
+            )
+
+        def _wrap_with_all_projects_fallback(func: Any):
+            def _wrapped(*args: Any, **kwargs: Any):
+                result = func(*args, **kwargs)
+                payload_text = _extract_payload_text(result)
+                if not _needs_fallback(payload_text):
+                    return result
+
+                fallback_kwargs = dict(kwargs)
+                current_project = ""
+                for key in ("project", "project_name", "rag_project", "scope_project"):
+                    value = fallback_kwargs.get(key)
+                    if isinstance(value, str) and value.strip():
+                        current_project = value.strip()
+                        fallback_kwargs[key] = "All Projects"
+                        break
+                if not current_project:
+                    current_project = str(st.session_state.get("rag_project_filter_selector", "") or "").strip()
+                    if current_project and current_project != "All Projects":
+                        for key in ("project", "project_name", "rag_project", "scope_project"):
+                            if key in fallback_kwargs:
+                                fallback_kwargs[key] = "All Projects"
+                                break
+
+                if not current_project or current_project == "All Projects":
+                    return result
+
+                fallback_result = func(*args, **fallback_kwargs)
+                fallback_text = _extract_payload_text(fallback_result)
+                if _needs_fallback(fallback_text):
+                    return result
+                if isinstance(fallback_result, str):
+                    return fallback_result + "\n\n[Fallback retrieval scope: All Projects]"
+                return fallback_result
+
+            return _wrapped
+
+        for _name in ("rag_retrieve", "retrieve_rag_context", "get_rag_context", "query_rag"):
+            _candidate = getattr(module, _name, None)
+            if callable(_candidate) and not getattr(_candidate, "_codex_wrapped", False):
+                _wrapped = _wrap_with_all_projects_fallback(_candidate)
+                setattr(_wrapped, "_codex_wrapped", True)
+                setattr(module, _name, _wrapped)
+
+        module._codex_retrieval_fallback_patched = True
+    return module
+
+
 def _is_llama_server_provider_active() -> bool:
     provider, _ = resolve_provider_and_model(get_main_model())
     return provider == "llama_server"
@@ -91,6 +170,29 @@ def _probe_llama_server() -> tuple[bool, str]:
 
     detail = f" Last error: {last_detail}" if last_detail else ""
     return False, f"llama-server not reachable at {base_url}.{detail}"
+
+
+def _probe_llama_server_embeddings(model_name: str = "") -> tuple[bool, str]:
+    """Check whether llama-server accepts embeddings requests."""
+    base_url = get_env_value("LLAMA_SERVER_BASE_URL", "http://localhost:8080/v1").rstrip("/")
+    payload: dict[str, Any] = {"input": ["ping"]}
+    if model_name.strip():
+        payload["model"] = model_name.strip()
+
+    try:
+        response = requests.post(f"{base_url}/embeddings", json=payload, timeout=4)
+    except Exception as exc:
+        return False, f"Unable to reach llama-server embeddings endpoint at {base_url}/embeddings: {exc}"
+
+    if response.status_code == 501:
+        return False, (
+            "llama-server is running, but embeddings are disabled. "
+            "Start it with `--embeddings` or switch RAG embeddings to Ollama."
+        )
+    if response.ok or response.status_code < 500:
+        return True, f"llama-server embeddings are available at {base_url}"
+
+    return False, f"llama-server embeddings probe failed with HTTP {response.status_code} at {base_url}/embeddings"
 
 
 def _launch_llama_server() -> None:
@@ -188,7 +290,7 @@ from streamlit_orchestration import (
 )
 import streamlit_chat_execution as _streamlit_chat_execution
 from streamlit_sidebar import render_sidebar
-from message_sanitizer import coerce_message_content_to_text, sanitize_history_pairs
+from message_sanitizer import coerce_message_content_to_text, extract_text_from_path, sanitize_history_pairs
 
 # ── Cache manager initialization to avoid rerun overhead ──
 # These expensive setup functions now only run once per Streamlit process,
@@ -698,30 +800,85 @@ def _classify_rag_upload_type(filename: str) -> str:
     return "text/document"
 
 
-def _build_active_rag_retrieval_params(user_input: str) -> dict[str, Any]:
+def _build_active_rag_retrieval_params(
+    user_input: str,
+    *,
+    project: str | None = None,
+    themes: str | None = None,
+    modalities: str | None = None,
+) -> dict[str, Any]:
+    project_value = _resolve_active_rag_project_filter() if project is None else project
+    themes_value = ", ".join(_resolve_active_rag_theme_filters()) if themes is None else themes
+    modalities_value = ", ".join(_resolve_active_rag_modality_filters()) if modalities is None else modalities
     return {
         "query": user_input,
         "top_k": int(st.session_state.get("rag_top_k", 5)),
         "fetch_k": int(st.session_state.get("rag_fetch_k", 80)),
         "mode": st.session_state.get("rag_retrieval_mode", "Top-K Globally"),
         "max_files": int(st.session_state.get("rag_max_files", 5)),
-        "project": _resolve_active_rag_project_filter(),
-        "themes": ", ".join(_resolve_active_rag_theme_filters()),
-        "modalities": ", ".join(_resolve_active_rag_modality_filters()),
+        "project": project_value,
+        "themes": themes_value,
+        "modalities": modalities_value,
     }
 
 
-def _run_active_rag_retrieval(user_input: str) -> tuple[str, dict[str, Any]]:
+def _run_active_rag_retrieval(
+    user_input: str,
+    *,
+    project: str | None = None,
+    themes: str | None = None,
+    modalities: str | None = None,
+) -> tuple[str, dict[str, Any]]:
     try:
-        from ragsub_agent.tools import rag_retrieve, get_last_rag_query_diagnostics
+        _rag_tools = _get_rag_tools()
+        rag_retrieve = _rag_tools.rag_retrieve
+        get_last_rag_query_diagnostics = _rag_tools.get_last_rag_query_diagnostics
     except Exception as exc:
         return f"[RAG CONTEXT ERROR] Unable to load RAG retrieval tools: {exc}", {}
 
     os.environ["RAG_MIN_RERANK_SCORE"] = f"{st.session_state.get('rag_min_rerank_score', 0.0):.2f}"
     try:
-        context = str(rag_retrieve.invoke(_build_active_rag_retrieval_params(user_input)))
+        params = _build_active_rag_retrieval_params(
+            user_input,
+            project=project,
+            themes=themes,
+            modalities=modalities,
+        )
+        context = str(rag_retrieve.invoke(params))
         diagnostics = get_last_rag_query_diagnostics() if get_last_rag_query_diagnostics else {}
-        return context, diagnostics or {}
+        diagnostics = diagnostics or {}
+
+        if diagnostics.get("status") == "empty-store":
+            return (
+                "[RAG STORE EMPTY] The `rag-chroma` index has no chunks. "
+                "It was likely deleted or has not been ingested yet. "
+                "Re-ingest documents before asking RAG questions.",
+                diagnostics,
+            )
+
+        warn_text = (
+            "No usable chunks returned from retrieval" in context
+            or "No relevant chunks found for query" in context
+            or context.strip() == ""
+        )
+        if warn_text:
+            fallback_params = dict(params)
+            fallback_context = str(rag_retrieve.invoke(fallback_params))
+            fallback_diag = get_last_rag_query_diagnostics() if get_last_rag_query_diagnostics else {}
+            fallback_diag = fallback_diag or {}
+            fallback_diag["fallback_scope"] = "active-scope"
+            fallback_diag["fallback_from"] = {
+                "project": params.get("project", ""),
+                "themes": params.get("themes", ""),
+                "modalities": params.get("modalities", ""),
+            }
+            if fallback_context and fallback_context.strip() and not (
+                "No usable chunks returned from retrieval" in fallback_context
+                or "No relevant chunks found for query" in fallback_context
+            ):
+                return fallback_context, fallback_diag
+
+        return context, diagnostics
     except Exception as exc:
         return f"[RAG CONTEXT ERROR] Retrieval failed: {exc}", {}
 
@@ -766,6 +923,66 @@ def _save_uploaded_streamlit_files(uploaded_files: list[Any], *, target_dir: Pat
     return saved_paths
 
 
+def _extract_rag_vision_text(path: Path) -> str:
+    """Best-effort vision-based text extraction for images and scanned PDFs."""
+    try:
+        rag_tools = _get_rag_tools()
+        extract_image_vision_caption = rag_tools._extract_image_vision_caption
+    except Exception:
+        return ""
+
+    suffix = path.suffix.lower()
+    try:
+        if suffix in CHAT_IMAGE_SUFFIXES:
+            return str(extract_image_vision_caption(path.read_bytes()) or "").strip()
+        if suffix == ".pdf":
+            import fitz
+
+            blocks: list[str] = []
+            with fitz.open(str(path)) as pdf_doc:
+                for page_idx, page in enumerate(pdf_doc, 1):
+                    try:
+                        pix = page.get_pixmap(dpi=180, alpha=False)
+                        vision = str(extract_image_vision_caption(pix.tobytes("png")) or "").strip()
+                        if vision:
+                            blocks.append(f"[Page {page_idx}]\n{vision}")
+                    except Exception:
+                        continue
+            return "\n\n".join(blocks).strip()
+    except Exception:
+        return ""
+    return ""
+
+
+def _prepare_rag_ingest_paths(paths: list[Path]) -> list[Path]:
+    """Convert scanned PDFs/images into text sidecars before RAG indexing."""
+    prepared_paths: list[Path] = []
+    ocr_dir = PROJECT_DIR / "tmp" / "rag_ocr_sidecars"
+    ocr_dir.mkdir(parents=True, exist_ok=True)
+    ocr_engine = str(st.session_state.get("rag_ocr_engine_mode", "Auto") or "Auto").strip().lower()
+
+    for path in paths:
+        try:
+            suffix = path.suffix.lower()
+            if suffix in CHAT_IMAGE_SUFFIXES or suffix == ".pdf":
+                extracted_text = ""
+                if ocr_engine in {"auto", "tesseract"}:
+                    extracted_text = extract_text_from_path(path).strip()
+                if not extracted_text and ocr_engine in {"auto", "vision"}:
+                    extracted_text = _extract_rag_vision_text(path).strip()
+                if extracted_text:
+                    sidecar_name = f"{path.stem}{path.suffix}.ocr.txt"
+                    sidecar_path = ocr_dir / sidecar_name
+                    sidecar_path.write_text(extracted_text, encoding="utf-8")
+                    prepared_paths.append(sidecar_path)
+                    continue
+        except Exception:
+            pass
+        prepared_paths.append(path)
+
+    return prepared_paths
+
+
 def _attachment_paths_to_relpaths(paths: list[Path]) -> list[str]:
     """Convert saved attachment paths into safe project-relative paths."""
     relpaths: list[str] = []
@@ -805,12 +1022,11 @@ def _build_direct_image_context(relpaths: list[str]) -> str:
         return ""
 
     try:
-        from ragsub_agent.tools import (
-            _extract_image_ocr_text,
-            _extract_image_vision_caption,
-            _extract_structured_visual_notes,
-            _should_extract_structured_visual_notes,
-        )
+        _rag_tools = _get_rag_tools()
+        _extract_image_ocr_text = _rag_tools._extract_image_ocr_text
+        _extract_image_vision_caption = _rag_tools._extract_image_vision_caption
+        _extract_structured_visual_notes = _rag_tools._extract_structured_visual_notes
+        _should_extract_structured_visual_notes = _rag_tools._should_extract_structured_visual_notes
     except Exception as exc:
         return f"[DIRECT IMAGE CONTEXT ERROR] Unable to load image processing tools: {exc}"
 
@@ -881,7 +1097,7 @@ def _build_direct_pdf_context(relpaths: list[str]) -> str:
             text = (page.get_text("text") or "").strip()
             if not text:
                 try:
-                    from ragsub_agent.tools import _extract_image_ocr_text
+                    _extract_image_ocr_text = _get_rag_tools()._extract_image_ocr_text
                     pix = page.get_pixmap(dpi=220, alpha=False)
                     text = (_extract_image_ocr_text(pix.tobytes("png")) or "").strip()
                 except Exception:
@@ -1614,10 +1830,22 @@ st.set_page_config(
 # Custom CSS for clean chat-focused UI
 st.markdown("""
     <style>
+    /* Professional page styling */
+    html, body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    }
+    
     /* Compact header */
-    .block-container { padding-top: 1.5rem; }
+    .block-container { 
+        padding-top: 1.5rem;
+        max-width: 1200px;
+    }
+    
     /* Tighter sidebar sections */
-    section[data-testid="stSidebar"] .block-container { padding-top: 1rem; }
+    section[data-testid="stSidebar"] .block-container { 
+        padding-top: 1rem;
+    }
+    
     /* Status bar styling */
     .status-bar {
         display: flex;
@@ -1626,7 +1854,33 @@ st.markdown("""
         font-size: 0.85rem;
         color: #666;
     }
-    .status-bar span { white-space: nowrap; }
+    .status-bar span { 
+        white-space: nowrap; 
+    }
+    
+    /* Chat message styling */
+    .stChatMessage {
+        background-color: transparent;
+    }
+    
+    /* Divider styling */
+    hr {
+        margin: 1.5rem 0;
+        border: none;
+        border-top: 1px solid #e0e0e0;
+    }
+    
+    /* Button styling */
+    .stButton > button {
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+    
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -1748,12 +2002,22 @@ if "pipeline_steps" not in st.session_state:
     st.session_state.pipeline_steps = []  # ordered list of step display names
 if "active_mode" not in st.session_state:
     st.session_state.active_mode = "main"
+if "scan_to_text_result" not in st.session_state:
+    st.session_state.scan_to_text_result = ""
+if "scan_to_text_sources" not in st.session_state:
+    st.session_state.scan_to_text_sources = []
+if "rag_file_summary_selected_file" not in st.session_state:
+    st.session_state.rag_file_summary_selected_file = ""
+if "rag_file_summary_context" not in st.session_state:
+    st.session_state.rag_file_summary_context = ""
+if "rag_ocr_engine_mode" not in st.session_state:
+    st.session_state.rag_ocr_engine_mode = "Auto"
 if "model_main" not in st.session_state:
     st.session_state.model_main = get_agent_model("main")
 if "model_rag" not in st.session_state:
     st.session_state.model_rag = get_agent_model_override("ragsub")
 if "model_rag_embed" not in st.session_state:
-    st.session_state.model_rag_embed = os.getenv("RAG_EMBED_MODEL", "llama_cpp:")
+    st.session_state.model_rag_embed = os.getenv("RAG_EMBED_MODEL", "llama_server:")
 if "model_rag_vision" not in st.session_state:
     st.session_state.model_rag_vision = os.getenv("RAG_VISION_MODEL", "llama_cpp:")
 if "model_rag_context" not in st.session_state:
@@ -1887,13 +2151,163 @@ if "active_session_id" not in st.session_state:
 
 
 def _render_welcome_screen() -> None:
-    """Render a clean landing screen shown when no conversation is active."""
-    st.markdown("""<div style='text-align:center; padding: 0.5rem 1rem 0.5rem;'>
-        <h1 style='font-size:2rem; margin-bottom:0.2rem;'>
-                Developed by 👤 Ven Seyhah
-                </h1>
-        <p style='color:#888; font-size:1rem;'>🚀 Main Agent: Your multi-specialist AI — plans, researches, codes, and creates in one place.</p>
-    </div>""", unsafe_allow_html=True)
+    """Render a professional landing screen shown when no conversation is active."""
+    
+    # Professional hero section with gradient styling
+    st.markdown("""
+        <style>
+        .hero-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .hero-container h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+        .hero-container p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.15);
+        }
+        .feature-card h3 {
+            color: #667eea;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .feature-card p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        .cta-section {
+            background: #f0f2f5;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .about-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 1px solid #e0e0e0;
+        }
+        .about-section p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+    logo_path = PROJECT_DIR / "assets" / "localailab-logo.png"
+    if logo_path.exists():
+        st.image(str(logo_path), width=220)
+
+    st.markdown("""
+        <div class="hero-container">
+            <h1>🤖 LocalAiLab Orchestrator</h1>
+            <p>Multi-specialist AI agent platform for research, analysis, coding, and content creation</p>
+            <p style="font-size: 0.95rem; opacity: 0.85; margin-top: 1rem;">
+                <em>Built with LangGraph • Powered by Local LLMs • Enterprise-ready</em>
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Features grid
+    st.markdown("""
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🔍 Research Agent</h3>
+                <p>Web search, document analysis, and synthesis for comprehensive research across multiple sources.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📊 Data Scientist</h3>
+                <p>Advanced analytics, data visualization, statistical analysis, and ML-powered insights.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💾 RAG Agent</h3>
+                <p>Retrieval-augmented generation for intelligent document Q&A and knowledge extraction.</p>
+            </div>
+            <div class="feature-card">
+                <h3>✍️ Presentation Agent</h3>
+                <p>Create professional presentations, reports, and visualizations in multiple formats.</p>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Stats/capabilities
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric("Specialist Agents", "5", help="Research, Data Science, RAG, Presentation, Custom")
+    with col2:
+        st.metric("Model Support", "Multi", help="Ollama, LlamaServer, OpenAI, Anthropic")
+    with col3:
+        st.metric("File Types", "15+", help="PDF, CSV, Images, Docs, Presentations, and more")
+    with col4:
+        st.metric("Voice Ready", "Yes", help="Voice input/output with TTS support")
+    
+    # Call to action
+    st.markdown("""
+        <div class="cta-section">
+            <h2>Get Started in 3 Steps</h2>
+            <p>Start chatting with your AI agents below. Use the sidebar to select your preferred agent and model.</p>
+            <div style="margin-top: 1rem; font-size: 0.9rem; color: #888;">
+                💡 <strong>Tip:</strong> Click the chat input below to begin. Use /help for agent-specific commands.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # About section
+    st.markdown("""
+        <div class="about-section">
+            <p><strong>About LocalAiLab Orchestrator</strong></p>
+            <p>This platform coordinates multiple specialized AI agents to tackle complex tasks. Whether you need research synthesis, data analysis, document understanding, or presentation generation, the orchestrator automatically routes your requests to the most appropriate specialist agent.</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem; color: #999;">
+                <em>Developed by LocalAiLab • Open Source • Privacy-First Design</em>
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.divider()
 
 
 
@@ -2752,6 +3166,25 @@ def _build_model_options(provider: str) -> dict[str, str]:
     return {}
 
 
+def _build_all_model_options() -> dict[str, str]:
+    """Return ordered {display_label: model_id} across all supported providers."""
+    models: dict[str, str] = {}
+
+    for display, mid in get_ollama_models().items():
+        models[f"🔵 Ollama · {display}"] = mid
+
+    for display, mid in get_llama_server_models().items():
+        models[f"🖧 llama-server · {display}"] = mid
+
+    for display, mid in get_llama_cpp_models().items():
+        models[f"📦 llama.cpp · {display}"] = mid
+
+    for display, mid in get_huggingface_models().items():
+        models[f"🤗 Hugging Face · {display}"] = mid
+
+    return dict(sorted(models.items(), key=lambda item: item[0].lower()))
+
+
 def _reload_model_modules() -> None:
     """Drop cached agent modules after model changes."""
     reload_prefixes = (
@@ -2804,8 +3237,11 @@ def _render_provider_selector() -> str:
         provider_models = _build_model_options(selected)
         if provider_models:
             first_model = next(iter(provider_models.values()))
-            set_env_value("DEEPAGENT_MODEL", first_model)
-            st.session_state["current_model"] = first_model
+            if selected == "llama_cpp":
+                _sync_llama_cpp_model_env(first_model)
+            else:
+                set_env_value("DEEPAGENT_MODEL", first_model)
+                st.session_state["current_model"] = first_model
 
         reload_env_file()
         _reload_model_modules()
@@ -2878,6 +3314,178 @@ def _render_local_context_preset_selector(active_provider: str) -> None:
         st.caption("Restart llama-server after changing the preset so the new context window takes effect.")
 
 
+def _normalize_llama_cpp_model_path(model_path: str) -> str:
+    """Normalize a llama.cpp GGUF path for storage in env/session state."""
+    candidate = Path(model_path.strip()).expanduser()
+    if not candidate.is_absolute():
+        candidate = candidate.resolve(strict=False)
+    return candidate.as_posix()
+
+
+def _get_llama_cpp_models_root() -> Path:
+    """Return the configured llama.cpp models root directory."""
+    base_dir = os.getenv("LLAMA_CPP_MODELS_DIR", "G:/llama_cpp/models").strip()
+    return Path(base_dir).expanduser()
+
+
+def _list_llama_cpp_browser_dirs(root: Path) -> list[Path]:
+    """Return browsable llama.cpp directories under the configured root."""
+    dirs = [root]
+    if root.exists() and root.is_dir():
+        for child in sorted((p for p in root.rglob("*") if p.is_dir()), key=lambda p: p.as_posix().lower()):
+            dirs.append(child)
+    return dirs
+
+
+def _list_llama_cpp_browser_files(folder: Path) -> list[Path]:
+    """Return GGUF files in a selected llama.cpp folder."""
+    if not folder.exists() or not folder.is_dir():
+        return []
+    return sorted(folder.glob("*.gguf"), key=lambda p: p.name.lower())
+
+
+def _llama_cpp_folder_display_label(folder: Path, root_dir: Path) -> str:
+    """Return the human-friendly label used for a llama.cpp browser folder."""
+    if folder != root_dir and folder.is_relative_to(root_dir):
+        display_path = folder.relative_to(root_dir).as_posix()
+    else:
+        display_path = folder.as_posix()
+    return f"📁 {display_path}"
+
+
+def _sync_llama_cpp_model_env(model_id: str) -> str:
+    """Persist a llama.cpp model selection to both model env vars."""
+    provider, resolved_model = resolve_provider_and_model(model_id)
+    if provider != "llama_cpp" or not resolved_model:
+        return resolved_model
+
+    normalized_path = _normalize_llama_cpp_model_path(resolved_model)
+    set_env_value("LLAMA_CPP_MODEL_PATH", normalized_path)
+    set_env_value("DEEPAGENT_MODEL", f"llama_cpp:{normalized_path}")
+    st.session_state["current_model"] = f"llama_cpp:{normalized_path}"
+    return normalized_path
+
+
+def _render_llama_cpp_model_path_selector() -> None:
+    """Render a llama.cpp GGUF path picker backed by LLAMA_CPP_MODEL_PATH."""
+    current_model = st.session_state.get("current_model") or get_main_model()
+    current_provider, current_path = resolve_provider_and_model(current_model)
+    if current_provider != "llama_cpp":
+        current_path = get_env_value("LLAMA_CPP_MODEL_PATH", "")
+
+    current_path = _normalize_llama_cpp_model_path(current_path) if current_path else ""
+    root_dir = _get_llama_cpp_models_root()
+    browser_dirs = _list_llama_cpp_browser_dirs(root_dir)
+    current_dir = Path(st.session_state.get("llama_cpp_browser_dir", "")).expanduser() if st.session_state.get("llama_cpp_browser_dir") else (Path(current_path).parent if current_path else root_dir)
+    if not current_dir.exists() or not current_dir.is_dir():
+        current_dir = root_dir
+
+    if current_dir not in browser_dirs:
+        browser_dirs = [current_dir, *browser_dirs]
+
+    folder_options = {_llama_cpp_folder_display_label(folder, root_dir): folder.as_posix() for folder in browser_dirs}
+    current_folder_label = next(
+        (label for label, folder in folder_options.items() if Path(folder) == current_dir),
+        next(iter(folder_options)),
+    )
+
+    def _on_folder_change() -> None:
+        selected_label = st.session_state.get("llama_cpp_browser_folder_selector", current_folder_label)
+        selected_folder_path = folder_options.get(selected_label, current_dir.as_posix())
+        st.session_state["llama_cpp_browser_dir"] = selected_folder_path
+        st.rerun()
+
+    def _go_to_parent_folder() -> None:
+        parent_dir = current_dir.parent
+        st.session_state["llama_cpp_browser_dir"] = parent_dir.as_posix()
+        st.session_state["llama_cpp_browser_folder_selector"] = _llama_cpp_folder_display_label(parent_dir, root_dir)
+        st.rerun()
+
+    def _on_model_change() -> None:
+        selected_display = st.session_state.get("llama_cpp_model_path_selector", "Choose a GGUF model...")
+        selected_path = file_options.get(selected_display, "")
+        if selected_path:
+            st.session_state["llama_cpp_browser_dir"] = Path(selected_path).parent.as_posix()
+            _sync_llama_cpp_model_env(f"llama_cpp:{selected_path}")
+            reload_env_file()
+            _reload_model_modules()
+            st.rerun()
+
+    def _apply_custom_path() -> None:
+        custom_path_value = st.session_state.get("llama_cpp_custom_model_path", "").strip()
+        if not custom_path_value:
+            st.warning("Enter a llama.cpp GGUF path first.")
+            return
+
+        normalized_path = _normalize_llama_cpp_model_path(custom_path_value)
+        if not Path(normalized_path).exists():
+            st.error(f"llama.cpp model not found: {normalized_path}")
+            return
+
+        st.session_state["llama_cpp_model_path_selector"] = f"🟡 {Path(normalized_path).name}"
+        st.session_state["llama_cpp_browser_dir"] = Path(normalized_path).parent.as_posix()
+        _sync_llama_cpp_model_env(f"llama_cpp:{normalized_path}")
+        reload_env_file()
+        _reload_model_modules()
+        st.rerun()
+
+    selected_folder_label = st.selectbox(
+        "Browse folder",
+        list(folder_options.keys()),
+        index=list(folder_options.keys()).index(current_folder_label),
+        key="llama_cpp_browser_folder_selector",
+        help="Pick the folder that contains your GGUF files.",
+        on_change=_on_folder_change,
+    )
+    selected_folder = Path(folder_options[selected_folder_label])
+
+    st.caption(f"Browsing: `{selected_folder.as_posix()}`")
+    if selected_folder != root_dir and root_dir in selected_folder.parents:
+        st.button(
+            "⬆ Parent folder",
+            key="llama_cpp_browser_parent_btn",
+            use_container_width=True,
+            on_click=_go_to_parent_folder,
+        )
+
+    gguf_files = _list_llama_cpp_browser_files(selected_folder)
+    file_options = {"Choose a GGUF model...": ""}
+    for file_path in gguf_files:
+        file_options[f"📦 {file_path.name}"] = file_path.as_posix()
+
+    if len(file_options) == 1:
+        st.caption("No GGUF files found. Put models in the configured llama.cpp models folder or enter a custom path below.")
+    else:
+        current_display = next(
+            (label for label, path in file_options.items() if path == current_path),
+            "Choose a GGUF model...",
+        )
+        selected_display = st.selectbox(
+            "llama.cpp model path",
+            list(file_options.keys()),
+            index=list(file_options.keys()).index(current_display),
+            key="llama_cpp_model_path_selector",
+            help="Choose a local GGUF file to load with llama.cpp. The selected path is written to LLAMA_CPP_MODEL_PATH and DEEPAGENT_MODEL.",
+            on_change=_on_model_change,
+        )
+        selected_path = file_options[selected_display]
+        if selected_path:
+            st.caption(f"Active llama.cpp path: `{selected_path}`")
+
+    custom_path = st.text_input(
+        "Custom GGUF path",
+        value=current_path,
+        key="llama_cpp_custom_model_path",
+        help="Paste an absolute path to a .gguf file that is not in the discovered models folder.",
+    )
+    st.button(
+        "Use custom path",
+        key="apply_llama_cpp_custom_model_path",
+        use_container_width=True,
+        on_click=_apply_custom_path,
+    )
+
+
 def _render_model_selector(
     label: str,
     session_key: str,
@@ -2888,7 +3496,10 @@ def _render_model_selector(
 ) -> str:
     """Render an inline model selectbox, persist to .env, return selected model id."""
     provider = provider_override or st.session_state.get("llm_provider") or get_default_llm_provider()
-    all_models = _build_model_options(provider)
+    if provider == "all":
+        all_models = _build_all_model_options()
+    else:
+        all_models = _build_model_options(provider)
     if allow_inherit:
         all_models["↔️ Use Main Model"] = ""
 
@@ -2898,6 +3509,7 @@ def _render_model_selector(
             "ollama": "Start Ollama or pull a model (e.g., ollama pull gemma4:26b)",
             "llama_cpp": "Put .gguf files in G:/llama_cpp/models or set LLAMA_CPP_MODEL_PATH",
             "huggingface": "Set HUGGINGFACE_REPO_ID (e.g., meta-llama/Meta-Llama-3.1-8B-Instruct)",
+            "all": "Configure at least one model for Ollama, llama-server, llama.cpp, or Hugging Face",
         }.get(provider, "Configure a model for this provider")
         st.caption(f"No models available for `{provider}`. {provider_hint}.")
         return st.session_state.get(session_key, "")
@@ -2911,7 +3523,7 @@ def _render_model_selector(
             break
     if current_display is None:
         if current:
-            if current_provider == provider:
+            if provider == "all" or current_provider == provider:
                 short = current.split(":", 1)[1] if ":" in current else current
                 current_display = f"🟡 {short}"
                 all_models = {current_display: current, **all_models}
@@ -2920,7 +3532,9 @@ def _render_model_selector(
                 current = ""
                 current_display = next(iter(all_models))
         elif allow_inherit:
-            current_display = "↔️ Use Main Model"
+            # Keep "Use Main Model" available, but do not auto-select it when
+            # no explicit context model has been chosen yet.
+            current_display = next(iter(all_models))
         else:
             current_display = next(iter(all_models))
 
@@ -2935,6 +3549,8 @@ def _render_model_selector(
     if selected != st.session_state.get(session_key, ""):
         set_env_value(env_key, selected)
         st.session_state[session_key] = selected
+        if env_key == "DEEPAGENT_MODEL" and resolve_provider_and_model(selected)[0] == "llama_cpp":
+            _sync_llama_cpp_model_env(selected)
         reload_env_file()
         _reload_model_modules()
         st.rerun()
@@ -3826,6 +4442,24 @@ def _apply_main_chat_context_overrides(user_message: str, user_input: str) -> st
         and "Presenter" not in st.session_state.selected_agent
     ):
         rag_context = get_main_chat_rag_context(user_input.strip())
+        if (
+            (not rag_context)
+            or ("No usable chunks returned from retrieval" in rag_context)
+            or ("⚠️ No usable chunks returned from retrieval" in rag_context)
+        ):
+            current_project_filter = st.session_state.get("rag_project_filter_selector", "")
+            if current_project_filter and current_project_filter != "All Projects":
+                fallback_context = ""
+                try:
+                    st.session_state.rag_project_filter_selector = "All Projects"
+                    fallback_context = get_main_chat_rag_context(user_input.strip())
+                finally:
+                    st.session_state.rag_project_filter_selector = current_project_filter
+                if fallback_context and fallback_context != rag_context:
+                    rag_context = (
+                        fallback_context
+                        + "\n\n[Fallback retrieval scope: All Projects]"
+                    )
         if rag_context:
             user_message = (
                 "[MAIN CHAT RAG: enabled]\n"
@@ -3924,6 +4558,8 @@ def _render_main_settings() -> None:
         _active_provider = st.session_state.get("llm_provider") or get_default_llm_provider()
         if _active_provider == "llama_cpp":
             with st.expander("⚙️ llama.cpp Settings", expanded=True):
+                _render_llama_cpp_model_path_selector()
+                st.divider()
                 lc1, lc2 = st.columns(2)
                 with lc1:
                     _n_ctx = st.number_input(
@@ -4139,6 +4775,234 @@ def _mode_main() -> None:
     )
 
 
+def _mode_scan_to_text() -> None:
+    """Scan to Text mode — OCR scanned images and PDFs into copyable text."""
+    st.markdown("### 📝 Scan to Text")
+    st.caption("Upload scanned PDFs or images, run OCR, and export the extracted text.")
+
+    try:
+        ocr_status = _get_rag_tools().get_multimodal_ocr_status()
+    except Exception:
+        ocr_status = None
+
+    if isinstance(ocr_status, dict):
+        if ocr_status.get("enabled"):
+            st.caption(f"✅ OCR: {ocr_status.get('message', '')}")
+        else:
+            st.caption(f"⚠️ OCR: {ocr_status.get('message', '')}")
+            configured_path = str(ocr_status.get("configured_path") or "").strip()
+            detected_path = str(ocr_status.get("detected_path") or "").strip()
+            remediation = str(ocr_status.get("remediation") or "").strip()
+            if configured_path:
+                st.caption(f"Configured `TESSERACT_CMD`: `{configured_path}`")
+            elif detected_path:
+                st.caption(f"Detected Tesseract binary: `{detected_path}`")
+            elif remediation:
+                st.caption(remediation)
+
+    uploaded_files = st.file_uploader(
+        "Upload scanned PDFs or images",
+        type=["pdf", "png", "jpg", "jpeg", "webp", "bmp", "gif", "tif", "tiff"],
+        accept_multiple_files=True,
+        help="Scanned PDFs and image files are supported.",
+        key="scan_to_text_uploader",
+    )
+
+    action_col1, action_col2 = st.columns([1, 1])
+    with action_col1:
+        convert_clicked = st.button(
+            "🔎 Convert to Text",
+            width="stretch",
+            key="scan_to_text_convert_btn",
+            disabled=not uploaded_files,
+        )
+    with action_col2:
+        if st.button("🗑️ Clear Output", width="stretch", key="scan_to_text_clear_btn"):
+            st.session_state.scan_to_text_result = ""
+            st.session_state.scan_to_text_sources = []
+            st.rerun()
+
+    if convert_clicked and uploaded_files:
+        saved_paths = _save_uploaded_streamlit_files(
+            list(uploaded_files),
+            target_dir=PROJECT_DIR / "tmp" / "scan_to_text_upload",
+        )
+        extracted_blocks: list[str] = []
+        failed_files: list[str] = []
+
+        with st.spinner("Running OCR on uploaded files..."):
+            for uploaded, saved_path in zip(uploaded_files, saved_paths):
+                extracted_text = extract_text_from_path(saved_path).strip()
+                if extracted_text:
+                    extracted_blocks.append(
+                        f"===== {uploaded.name} =====\n{extracted_text}"
+                    )
+                else:
+                    failed_files.append(uploaded.name)
+
+        combined_text = "\n\n".join(extracted_blocks).strip()
+        st.session_state.scan_to_text_result = combined_text
+        st.session_state.scan_to_text_sources = [file.name for file in uploaded_files]
+
+        if combined_text:
+            st.success(f"Extracted text from {len(extracted_blocks)} file(s).")
+        else:
+            st.warning("No readable text was extracted from the uploaded files.")
+
+        if failed_files:
+            st.caption(
+                "No text detected in: " + ", ".join(f"`{name}`" for name in failed_files)
+            )
+
+    result_text = str(st.session_state.scan_to_text_result or "").strip()
+    if result_text:
+        st.divider()
+        st.subheader("Extracted Text")
+        st.text_area("OCR output", value=result_text, height=420, label_visibility="collapsed")
+        output_name = "scanned_text.txt"
+        st.download_button(
+            label="⬇️ Download .txt",
+            data=result_text,
+            file_name=output_name,
+            mime="text/plain",
+            width="stretch",
+            key="scan_to_text_download_btn",
+        )
+        source_count = len(st.session_state.scan_to_text_sources or [])
+        st.caption(f"{len(result_text):,} characters from {source_count} uploaded file(s).")
+    else:
+        st.info("Upload one or more scanned files, then click Convert to Text.")
+
+
+def _mode_rag_databases() -> None:
+    """RAG Databases mode — quick access to the stored RAG index browser."""
+    st.markdown("### 🗄️ RAG Databases")
+    st.caption("Browse indexed projects, chunk counts, themes, and file-level storage details.")
+
+    try:
+        _rag_tools = _get_rag_tools()
+        get_rag_index_summary = _rag_tools.get_rag_index_summary
+        get_rag_projects = _rag_tools.get_rag_projects
+        get_rag_themes = _rag_tools.get_rag_available_themes
+        delete_rag_documents = _rag_tools.delete_rag_documents
+    except Exception as exc:
+        st.error(f"Unable to load RAG database tools: {exc}")
+        return
+
+    try:
+        rag_projects = get_rag_projects() if get_rag_projects else []
+    except Exception:
+        rag_projects = []
+
+    project_options = ["All Projects", "Default"] + [p for p in rag_projects if p != "Default"]
+    current_project = st.session_state.get("rag_store_project_filter", st.session_state.get("rag_project_mode", "All Projects"))
+    if current_project not in project_options:
+        current_project = "All Projects"
+
+    top_col1, top_col2 = st.columns([2, 1])
+    with top_col1:
+        selected_project = st.selectbox(
+            "Project",
+            options=project_options,
+            index=project_options.index(current_project),
+            key="rag_store_project_filter",
+            help="Select a project to inspect its stored chunks and themes.",
+        )
+    with top_col2:
+        if st.button("📚 Open RAG workspace", width="stretch", key="open_rag_workspace_btn"):
+            st.session_state.active_mode = "rag"
+            st.rerun()
+
+    try:
+        if selected_project == "All Projects":
+            all_files: dict[str, dict[str, Any]] = {}
+            total_chunks = 0
+            for proj in project_options:
+                if proj == "All Projects":
+                    continue
+                try:
+                    summary = get_rag_index_summary(project=proj)
+                    total_chunks += summary.get("total_chunks", 0)
+                    for src, info in summary.get("files", {}).items():
+                        prefixed_src = f"{proj}/{src}" if proj != "Default" else src
+                        all_files[prefixed_src] = info
+                except Exception:
+                    continue
+            summary = {"total_chunks": total_chunks, "files": all_files}
+        else:
+            summary = get_rag_index_summary(project=selected_project)
+    except Exception as exc:
+        st.error(f"Unable to load index summary: {exc}")
+        return
+
+    try:
+        themes = get_rag_themes(project=selected_project) if get_rag_themes else []
+    except Exception:
+        themes = []
+
+    files = summary.get("files", {})
+    total_chunks = summary.get("total_chunks", 0)
+
+    stat_col1, stat_col2, stat_col3 = st.columns(3)
+    stat_col1.metric("Projects", len(rag_projects) or 0)
+    stat_col2.metric("Files", len(files) or 0)
+    stat_col3.metric("Chunks", total_chunks or 0)
+
+    if themes:
+        st.caption("Themes: " + ", ".join(f"`{theme}`" for theme in themes[:12]))
+
+    if not files:
+        st.info("No documents indexed yet. Use the RAG workspace to ingest files first.")
+        return
+
+    import pandas as pd
+
+    rows: list[dict[str, Any]] = []
+    for src, info in sorted(files.items()):
+        if "/" in src and selected_project == "All Projects":
+            proj_name, file_name = src.split("/", 1)
+        elif selected_project == "All Projects":
+            proj_name = "Default"
+            file_name = src
+        else:
+            proj_name = selected_project
+            file_name = src
+
+        rows.append(
+            {
+                "Project": proj_name,
+                "File": file_name,
+                "Theme": ", ".join(sorted(info.get("themes", []))),
+                "Chunks": info.get("chunks", 0),
+                "Modalities": ", ".join(
+                    f"{name}:{count}" for name, count in sorted(info.get("modalities", {}).items())
+                ) or "text",
+                "Table Extraction": ", ".join(
+                    f"{name}:{count}" for name, count in sorted(info.get("table_extraction_methods", {}).items())
+                ) or "—",
+                "Vision Captioned": info.get("vision_captioned_chunks", 0),
+                "Added": info.get("date_added", "—"),
+            }
+        )
+
+    st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
+
+    with st.expander("Delete stored chunks", expanded=False):
+        st.caption("Delete entire projects or narrow the deletion by theme/file inside the main RAG workspace if needed.")
+        project_scope = st.selectbox(
+            "Delete project",
+            options=[""] + [p for p in project_options if p not in {"All Projects"}],
+            key="rag_db_delete_project_scope",
+            help="Choose a specific project to delete.",
+        )
+        if not project_scope:
+            st.warning("Choose a project to enable deletion.")
+        elif st.button("🧹 Delete project", width="stretch", key="rag_db_delete_project_btn"):
+            deleted = delete_rag_documents(project=project_scope, allow_delete_all=True) if delete_rag_documents else 0
+            st.success(f"Deleted {deleted} chunks from project '{project_scope}'")
+            st.rerun()
+
+
 def _mode_data_analysis() -> None:
     """Data Analysis mode — file upload + dedicated Data Scientist agent."""
     st.markdown("### 📊 Data Analysis")
@@ -4257,6 +5121,7 @@ _RAG_PRESETS: dict[str, dict] = {
         "desc": "High recall globally — Writer produces a citation-heavy academic .docx via Quarto.",
     },
 }
+_RAG_PRESETS[_RAG_QA_PRESET_NAME]["min_rerank"] = 0.0
 _DEFAULT_RAG_PRESET_NAME = _RAG_QA_PRESET_NAME
 
 
@@ -4281,6 +5146,175 @@ def _apply_rag_preset(
     st.session_state.rag_min_rerank_score_slider_v2 = min_rerank
 
 
+def _list_rag_file_chunks(
+    rag_tools: Any,
+    *,
+    project: str,
+    file_name: str,
+) -> list[dict[str, Any]]:
+    """Return all stored chunks for a file without using chat-style retrieval."""
+    list_docs = getattr(rag_tools, "list_rag_documents", None)
+    if not callable(list_docs):
+        return []
+
+    project = (project or "").strip()
+    file_name = (file_name or "").strip()
+
+    call_attempts: list[dict[str, Any]] = [
+        {"project": project, "source": file_name},
+        {"project": project, "file": file_name},
+        {"project": project, "filename": file_name},
+        {"project": project},
+        {},
+    ]
+
+    docs: Any = None
+    for kwargs in call_attempts:
+        try:
+            docs = list_docs(**{k: v for k, v in kwargs.items() if v})
+            break
+        except TypeError:
+            continue
+        except Exception:
+            continue
+
+    if docs is None:
+        return []
+
+    if isinstance(docs, dict):
+        if "documents" in docs and isinstance(docs["documents"], list):
+            iterable: list[Any] = docs["documents"]
+        elif "items" in docs and isinstance(docs["items"], list):
+            iterable = docs["items"]
+        elif "chunks" in docs and isinstance(docs["chunks"], list):
+            iterable = docs["chunks"]
+        else:
+            iterable = list(docs.values())
+    else:
+        iterable = list(docs)
+
+    wanted_name = Path(file_name).name
+    chunks: list[dict[str, Any]] = []
+    for item in iterable:
+        if isinstance(item, dict):
+            text = str(item.get("text") or item.get("content") or item.get("page_content") or "").strip()
+            metadata = item.get("metadata") if isinstance(item.get("metadata"), dict) else {}
+            if not metadata and "source" in item:
+                metadata = item
+        else:
+            text = str(getattr(item, "page_content", "") or getattr(item, "text", "") or item).strip()
+            metadata = getattr(item, "metadata", {}) if isinstance(getattr(item, "metadata", {}), dict) else {}
+
+        source_value = str(metadata.get("source") or metadata.get("file") or metadata.get("filename") or "")
+        source_name = Path(source_value).name if source_value else ""
+        if file_name and source_name and source_name != wanted_name and file_name not in source_value:
+            continue
+        if file_name and not source_value and wanted_name not in text:
+            continue
+
+        chunks.append(
+            {
+                "text": text,
+                "metadata": metadata,
+            }
+        )
+
+    if chunks:
+        return chunks
+
+    # Fallback: inspect the persistent Chroma store directly and filter by source metadata.
+    try:
+        import chromadb
+    except Exception:
+        return []
+
+    chroma_dir = PROJECT_DIR / "rag-chroma"
+    if not chroma_dir.exists():
+        return []
+
+    wanted_name = Path(file_name).name.lower()
+    wanted_source = (file_name or "").strip().lower()
+    wanted_project = (project or "").strip().lower()
+    metadata_keys = ("source", "file", "filename", "path", "source_path", "chunk_source")
+
+    try:
+        client = chromadb.PersistentClient(path=str(chroma_dir))
+        collections = list(client.list_collections())
+    except Exception:
+        return []
+
+    def _collection_name(col: Any) -> str:
+        if isinstance(col, str):
+            return col
+        return str(getattr(col, "name", "") or (col["name"] if isinstance(col, dict) and "name" in col else ""))
+
+    for collection_info in collections:
+        try:
+            collection_name = _collection_name(collection_info)
+            collection = client.get_collection(collection_name)
+            data = collection.get(include=["documents", "metadatas", "ids"])
+        except Exception:
+            continue
+
+        docs = list(data.get("documents") or [])
+        metas = list(data.get("metadatas") or [])
+        ids = list(data.get("ids") or [])
+
+        for idx, doc_text in enumerate(docs):
+            metadata = metas[idx] if idx < len(metas) and isinstance(metas[idx], dict) else {}
+
+            metadata_blob = json.dumps(metadata, ensure_ascii=False, default=str).lower()
+            source_value = ""
+            for key in metadata_keys:
+                raw_value = metadata.get(key)
+                if raw_value:
+                    source_value = str(raw_value)
+                    break
+
+            source_value_l = source_value.lower()
+            doc_text_l = str(doc_text).lower()
+            project_match = True
+            if wanted_project:
+                meta_project = str(metadata.get("project") or metadata.get("collection") or "").strip().lower()
+                project_match = (
+                    meta_project == wanted_project
+                    or wanted_project in source_value_l
+                    or wanted_project in metadata_blob
+                    or wanted_project in collection_name.lower()
+                )
+                if not project_match and wanted_project != "default":
+                    continue
+
+            file_match = False
+            if wanted_source:
+                file_match = (
+                    wanted_source in source_value_l
+                    or wanted_name in Path(source_value).name.lower()
+                    or wanted_source in doc_text_l
+                    or wanted_name in doc_text_l
+                    or wanted_source in metadata_blob
+                    or wanted_name in metadata_blob
+                )
+            else:
+                file_match = True
+
+            if not file_match and not project_match:
+                continue
+            if not file_match and wanted_source:
+                continue
+
+            chunks.append(
+                {
+                    "text": str(doc_text or "").strip(),
+                    "metadata": metadata,
+                    "id": ids[idx] if idx < len(ids) else "",
+                    "collection": collection_name,
+                }
+            )
+
+    return chunks
+
+
 def _mode_rag() -> None:
     """RAG mode — document management, ingestion controls, and knowledge retrieval chat."""
     st.markdown("### 📚 RAG")
@@ -4298,23 +5332,49 @@ def _mode_rag() -> None:
 
 
     try:
-        from ragsub_agent.tools import (
-            ingest_rag_paths,
-            ingest_web_search_results,
-            get_rag_index_summary as _get_rag_idx,
-            get_rag_projects as _get_rag_projects,
-            get_rag_available_themes as _get_rag_themes,
-            delete_rag_documents,
-            get_last_rag_query_diagnostics,
-            get_multimodal_ocr_status,
-            get_multimodal_vision_status,
-        )
+        _rag_tools = _get_rag_tools()
+        _raw_ingest_rag_paths = _rag_tools.ingest_rag_paths
+        ingest_web_search_results = _rag_tools.ingest_web_search_results
+        _get_rag_idx = _rag_tools.get_rag_index_summary
+        _get_rag_projects = _rag_tools.get_rag_projects
+        _get_rag_themes = _rag_tools.get_rag_available_themes
+        delete_rag_documents = _rag_tools.delete_rag_documents
+        get_last_rag_query_diagnostics = _rag_tools.get_last_rag_query_diagnostics
+        get_multimodal_ocr_status = _rag_tools.get_multimodal_ocr_status
+        get_multimodal_vision_status = _rag_tools.get_multimodal_vision_status
     except Exception:
-        ingest_rag_paths = _get_rag_idx = _get_rag_projects = _get_rag_themes = delete_rag_documents = None
+        _raw_ingest_rag_paths = _get_rag_idx = _get_rag_projects = _get_rag_themes = delete_rag_documents = None
         ingest_web_search_results = None
         get_last_rag_query_diagnostics = None
         get_multimodal_ocr_status = None
         get_multimodal_vision_status = None
+
+    def ingest_rag_paths(*args: Any, **kwargs: Any):
+        """Wrap ingest so scanned PDFs/images get OCR text sidecars indexed."""
+        if _raw_ingest_rag_paths is None:
+            raise RuntimeError("RAG ingest is unavailable.")
+
+        prepared_args = list(args)
+        if prepared_args:
+            first_arg = prepared_args[0]
+            if isinstance(first_arg, (list, tuple)):
+                prepared_args[0] = _prepare_rag_ingest_paths([Path(p) for p in first_arg])
+        prepared_kwargs = dict(kwargs)
+
+        for key in ("paths", "file_paths", "files", "documents"):
+            value = prepared_kwargs.get(key)
+            if isinstance(value, (list, tuple)):
+                prepared_kwargs[key] = _prepare_rag_ingest_paths([Path(p) for p in value])
+                break
+
+        return _raw_ingest_rag_paths(*prepared_args, **prepared_kwargs)
+
+    def _queue_rag_reingest() -> None:
+        """Queue a rerun that will auto-run ingestion with the current staged files."""
+        if not st.session_state.rag_uploaded_files:
+            return
+        st.session_state["rag_auto_ingest_pending"] = True
+        st.rerun()
 
     retrieval_settings_tab, transcript_tab, ingest_tab, stored_docs_tab = st.tabs([
         "Retrieval Settings and RAG Queries",
@@ -4382,45 +5442,280 @@ def _mode_rag() -> None:
 
     # Contextual ingest panel — only in this mode
     with ingest_tab:
-        ingest_top_col1, ingest_top_col2 = st.columns(2)
+        ingest_top_col1, ingest_top_col2, ingest_top_col3 = st.columns(3)
+        
+        # Current embedding configuration
+        current_embed_config = os.getenv("RAG_EMBED_MODEL", "llama_server:").strip()
+        current_embed_provider, current_embed_model = resolve_provider_and_model(current_embed_config)
+
+        def _apply_rag_embed_config(provider: str, model: str, *, rerun: bool = True) -> None:
+            full_config = f"{provider}:{model.strip()}" if model.strip() else f"{provider}:"
+            set_env_value("RAG_EMBED_MODEL", full_config)
+            st.session_state["model_rag_embed"] = full_config
+            reload_env_file()
+            st.success(f"✅ Embedding config: {full_config}")
+            if rerun:
+                st.rerun()
+
+        def _pick_fallback_ollama_embedding() -> str | None:
+            ollama_models = get_ollama_models()
+            ollama_model_names = sorted(ollama_models.keys())
+            return ollama_model_names[0] if ollama_model_names else None
+        
         with ingest_top_col1:
-            _active_embed = _render_model_selector(
-                "Embedding model (llama.cpp)",
-                session_key="model_rag_embed",
-                env_key="RAG_EMBED_MODEL",
-                widget_key="rag_embed_model_selector",
-                provider_override="llama_cpp",
-            )
-            st.caption(
-                "⚠️ Changing the embedding model requires clearing the index and re-ingesting all documents."
-            )
-        with ingest_top_col2:
-            _active_vision = _render_model_selector(
-                "Vision model (llama-server)",
-                session_key="model_rag_vision",
-                env_key="RAG_VISION_MODEL",
-                widget_key="rag_vision_model_selector",
-                provider_override="llama_server",
-            )
-            st.caption("Use the llama-server vision endpoint for image captioning during ingestion.")
+            # Provider selector - fully flexible
+            embed_providers = ["llama_server", "ollama", "llama_cpp", "custom"]
+            if current_embed_provider not in embed_providers:
+                embed_providers.insert(0, current_embed_provider)
             
-            if get_multimodal_ocr_status:
-                _ocr_status = get_multimodal_ocr_status()
-                if _ocr_status.get("enabled"):
-                    st.caption(f"✅ OCR: {_ocr_status.get('message', '')}")
+            selected_embed_provider = st.selectbox(
+                "Embedding Provider",
+                embed_providers,
+                index=embed_providers.index(current_embed_provider) if current_embed_provider in embed_providers else 0,
+                key="rag_embed_provider_selector",
+                help="Select the embedding provider. You can use any provider: llama_server, ollama, llama_cpp, or custom.",
+            )
+        
+        with ingest_top_col2:
+            if selected_embed_provider == "llama_cpp":
+                placeholder_text = "C:\\models\\embedding.gguf or /home/user/model.gguf"
+                help_text = "Full path to embedding model file (any format: .gguf, .bin, etc.)"
+                embed_model_input = st.text_input(
+                    "Embedding Model",
+                    value=current_embed_model or "",
+                    placeholder=placeholder_text,
+                    key="rag_embed_model_input",
+                    help=help_text,
+                )
+            elif selected_embed_provider == "ollama":
+                ollama_models = get_ollama_models()
+                ollama_model_names = sorted(ollama_models.keys())
+                if ollama_model_names:
+                    default_ollama_model = (
+                        current_embed_model
+                        if current_embed_provider == "ollama" and current_embed_model in ollama_model_names
+                        else ollama_model_names[0]
+                    )
+                    embed_model_input = st.selectbox(
+                        "Embedding Model",
+                        ollama_model_names,
+                        index=ollama_model_names.index(default_ollama_model),
+                        key="rag_embed_model_selector",
+                        help="Installed Ollama embedding models fetched from `http://localhost:11434/api/tags`.",
+                    )
                 else:
-                    st.caption(f"⚠️ OCR: {_ocr_status.get('message', '')}")
-                    _ocr_configured = str(_ocr_status.get("configured_path") or "").strip()
-                    _ocr_detected = str(_ocr_status.get("detected_path") or "").strip()
-                    _ocr_remediation = str(_ocr_status.get("remediation") or "").strip()
-                    if _ocr_configured:
-                        st.caption(f"Configured `TESSERACT_CMD`: `{_ocr_configured}`")
-                    elif _ocr_detected:
-                        st.caption(f"Detected Tesseract binary: `{_ocr_detected}`")
-                    elif _ocr_remediation:
-                        st.code(
-                            "TESSERACT_CMD=C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
-                            language="text",
+                    st.warning("No Ollama models found. Pull one with `ollama pull <model>` and click refresh.")
+                    if st.button("🔄 Refresh Ollama models", key="rag_refresh_ollama_models", use_container_width=True):
+                        get_ollama_models.clear()
+                        st.rerun()
+                    placeholder_text = "mistral, nomic-embed-text, etc."
+                    help_text = "Ollama model name from ollama.ai registry"
+                    embed_model_input = st.text_input(
+                        "Embedding Model",
+                        value=current_embed_model or "",
+                        placeholder=placeholder_text,
+                        key="rag_embed_model_input",
+                        help=help_text,
+                    )
+            elif selected_embed_provider == "llama_server":
+                placeholder_text = "model_name (auto-detected from server)"
+                help_text = "Leave blank for auto-detection, or specify a model name"
+                embed_model_input = st.text_input(
+                    "Embedding Model",
+                    value=current_embed_model or "",
+                    placeholder=placeholder_text,
+                    key="rag_embed_model_input",
+                    help=help_text,
+                )
+            else:
+                placeholder_text = "any-model-identifier"
+                help_text = "Model identifier for your custom embedding provider"
+                embed_model_input = st.text_input(
+                    "Embedding Model",
+                    value=current_embed_model or "",
+                    placeholder=placeholder_text,
+                    key="rag_embed_model_input",
+                    help=help_text,
+                )
+            
+            # Apply configuration when changed
+            if embed_model_input != current_embed_model or selected_embed_provider != current_embed_provider:
+                if embed_model_input.strip() or selected_embed_provider in ("llama_server", "ollama"):
+                    _apply_rag_embed_config(selected_embed_provider, embed_model_input)
+        
+        with ingest_top_col3:
+            st.markdown("**Current Config**")
+            st.code(current_embed_config, language="text")
+            
+            if st.button("🔄 Reset to Default", key="rag_embed_reset", use_container_width=True):
+                _apply_rag_embed_config("llama_server", "")
+        
+        st.markdown("---")
+        
+        # Warning about re-ingesting
+        st.caption("⚠️ **Note:** Changing the embedding provider/model requires clearing the index and re-ingesting all documents.")
+
+        if selected_embed_provider == "llama_server":
+            _emb_ok, _emb_msg = _probe_llama_server_embeddings(current_embed_model or os.getenv("LLAMA_SERVER_MODEL", "local"))
+            if not _emb_ok:
+                st.error(_emb_msg)
+                _ollama_models = get_ollama_models()
+                _ollama_model_names = sorted(_ollama_models.keys())
+                if _ollama_model_names:
+                    _switch_to = _ollama_model_names[0]
+                    st.button(
+                        f"Switch to Ollama embeddings: {_switch_to}",
+                        key="rag_switch_to_ollama_embeddings_btn",
+                        use_container_width=True,
+                        on_click=_apply_rag_embed_config,
+                        args=("ollama", _switch_to),
+                    )
+                else:
+                    st.info("Install an Ollama embedding model or restart llama-server with `--embeddings` enabled.")
+
+        with st.expander("Vision & OCR Configuration", expanded=False):
+            vision_col1, vision_col2 = st.columns(2)
+            with vision_col1:
+                _active_vision = _render_model_selector(
+                    "Vision model",
+                    session_key="model_rag_vision",
+                    env_key="RAG_VISION_MODEL",
+                    widget_key="rag_vision_model_selector",
+                    allow_inherit=False,
+                )
+                st.caption("For multimodal document processing (image captioning).")
+            
+            with vision_col2:
+                if get_multimodal_ocr_status:
+                    st.markdown("**Vision & OCR Configuration**")
+                    _vision_model_current = st.session_state.get("model_rag_vision") or os.getenv("RAG_VISION_MODEL", "llama_cpp:")
+                    _vision_model_current = str(_vision_model_current).strip()
+                    _vision_provider, _vision_model = resolve_provider_and_model(_vision_model_current)
+                    _vision_provider_options = ["llama_server", "ollama", "llama_cpp", "custom"]
+                    if _vision_provider not in _vision_provider_options:
+                        _vision_provider_options.insert(0, _vision_provider)
+                    _ocr_engine_options = ["Auto", "Tesseract", "Vision"]
+                    _ocr_engine_current = str(st.session_state.get("rag_ocr_engine_mode", "Auto") or "Auto")
+                    _vision_col1, _vision_col2, _vision_col3, _vision_col4 = st.columns([1.25, 1.25, 1, 1])
+                    with _vision_col1:
+                        _vision_provider_selected = st.selectbox(
+                            "Vision provider",
+                            _vision_provider_options,
+                            index=_vision_provider_options.index(_vision_provider) if _vision_provider in _vision_provider_options else 0,
+                            key="rag_vision_provider_selector",
+                            help="Choose the provider used for vision-based document understanding.",
+                        )
+                    with _vision_col2:
+                        _vision_placeholder = (
+                            "model_name, e.g. llama-vision"
+                            if _vision_provider_selected != "llama_cpp"
+                            else "C:\\models\\vision.gguf or /home/user/vision.gguf"
+                        )
+                        _vision_model_input = st.text_input(
+                            "Model",
+                            value=_vision_model,
+                            placeholder=_vision_placeholder,
+                            key="rag_vision_model_input",
+                            help="Model name or path used for vision-based extraction and OCR enhancement.",
+                        )
+                    with _vision_col3:
+                        st.session_state.rag_ocr_engine_mode = st.selectbox(
+                            "OCR",
+                            options=_ocr_engine_options,
+                            index=_ocr_engine_options.index(_ocr_engine_current) if _ocr_engine_current in _ocr_engine_options else 0,
+                            key="rag_ocr_engine_selector",
+                            help="Choose which OCR backend to use when ingesting scanned images or PDFs.",
+                        )
+                    with _vision_col4:
+                        _ocr_status = get_multimodal_ocr_status()
+                        st.markdown(
+                            f"**{'✅' if bool(_ocr_status.get('enabled')) else '⚠️'} OCR**  \n"
+                            f"`{st.session_state.rag_ocr_engine_mode}`"
+                        )
+                    _tesseract_current = str(os.getenv("TESSERACT_CMD", "") or "").strip()
+                    _tesseract_detected = str(_ocr_status.get("detected_path") or "").strip()
+                    if not _tesseract_current and _tesseract_detected:
+                        _tesseract_current = _tesseract_detected
+                    _tesseract_cmd = st.text_input(
+                        "Tesseract binary",
+                        value=_tesseract_current,
+                        placeholder=r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+                        key="rag_tesseract_cmd_input",
+                        help="Full path to tesseract.exe. Leave blank to use PATH-based auto-detection.",
+                    )
+                    _tesseract_cmd = _tesseract_cmd.strip()
+                    if _tesseract_detected and not os.getenv("TESSERACT_CMD", "").strip():
+                        if st.button("Use detected Tesseract", key="rag_use_detected_tesseract_btn"):
+                            set_env_value("TESSERACT_CMD", _tesseract_detected)
+                            reload_env_file()
+                            st.session_state["rag_tesseract_cmd_input"] = _tesseract_detected
+                            st.success(f"✅ Using detected Tesseract at {_tesseract_detected}")
+                            st.rerun()
+                    if st.button("Detect Tesseract", key="rag_detect_tesseract_btn"):
+                        _candidate_paths = [
+                            r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+                            r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+                            r"C:\Program Files\Tesseract\tesseract.exe",
+                            r"C:\Program Files (x86)\Tesseract\tesseract.exe",
+                        ]
+                        _detected_tesseract = ""
+                        for _candidate in _candidate_paths:
+                            if Path(_candidate).exists():
+                                _detected_tesseract = _candidate
+                                break
+                        if not _detected_tesseract:
+                            import shutil
+
+                            _which_tesseract = shutil.which("tesseract")
+                            if _which_tesseract:
+                                _detected_tesseract = _which_tesseract
+
+                        if _detected_tesseract:
+                            set_env_value("TESSERACT_CMD", _detected_tesseract)
+                            reload_env_file()
+                            st.session_state["rag_tesseract_cmd_input"] = _detected_tesseract
+                            st.success(f"✅ Found Tesseract at {_detected_tesseract}")
+                            st.rerun()
+                        else:
+                            st.warning("No Tesseract installation was detected in the common Windows locations or PATH.")
+                    if _tesseract_cmd != _tesseract_current:
+                        set_env_value("TESSERACT_CMD", _tesseract_cmd)
+                        reload_env_file()
+                        st.success("✅ Updated TESSERACT_CMD")
+                        st.rerun()
+                    _vision_full_config = f"{_vision_provider_selected}:{_vision_model_input.strip()}" if _vision_model_input.strip() else f"{_vision_provider_selected}:"
+                    if _vision_full_config != _vision_model_current and _vision_model_input is not None:
+                        set_env_value("RAG_VISION_MODEL", _vision_full_config)
+                        st.session_state["model_rag_vision"] = _vision_full_config
+                        reload_env_file()
+                        st.success(f"✅ Vision config: {_vision_full_config}")
+                        st.rerun()
+
+                    with st.popover("OCR details"):
+                        _ocr_configured = str(_ocr_status.get("configured_path") or "").strip()
+                        _ocr_detected = str(_ocr_status.get("detected_path") or "").strip()
+                        _ocr_remediation = str(_ocr_status.get("remediation") or "").strip()
+                        if _ocr_configured:
+                            st.caption(f"Configured `TESSERACT_CMD`: `{_ocr_configured}`")
+                        elif _ocr_detected:
+                            st.caption(f"Detected Tesseract binary: `{_ocr_detected}`")
+                        elif _ocr_remediation:
+                            st.caption(_ocr_remediation)
+                    if _ocr_status.get("enabled"):
+                        st.caption(f"✅ OCR: {_ocr_status.get('message', '')}")
+                    else:
+                        st.caption(f"⚠️ OCR: {_ocr_status.get('message', '')}")
+                        _ocr_configured = str(_ocr_status.get("configured_path") or "").strip()
+                        _ocr_detected = str(_ocr_status.get("detected_path") or "").strip()
+                        _ocr_remediation = str(_ocr_status.get("remediation") or "").strip()
+                        if _ocr_configured:
+                            st.caption(f"Configured `TESSERACT_CMD`: `{_ocr_configured}`")
+                        elif _ocr_detected:
+                            st.caption(f"Detected Tesseract binary: `{_ocr_detected}`")
+                        elif _ocr_remediation:
+                            st.code(
+                                "TESSERACT_CMD=C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+                                language="text",
                         )
 
         st.markdown("---")
@@ -4465,6 +5760,7 @@ def _mode_rag() -> None:
                     env_key="RAG_CONTEXT_LLM_MODEL",
                     widget_key="rag_context_model_selector",
                     allow_inherit=True,
+                    provider_override="all",
                 )
                 _ctx_model_label = _ctx_model or os.environ.get(
                     AGENT_MODEL_ENV_KEYS["main"],
@@ -4474,8 +5770,8 @@ def _mode_rag() -> None:
                     f"⚠️ Each chunk calls the LLM (`{_ctx_model_label}`) — ingestion will be slow."
                 )
                 st.caption(
-                    "Use `↔️ Use Main Model` to fall back to `DEEPAGENT_MODEL`, or pick a faster "
-                    "non-thinking model such as `ollama:devstral-small-2:24b` or `ollama:qwen3.5:27b`."
+                    "Use `↔️ Use Main Model` to fall back to `DEEPAGENT_MODEL`. Thinking models are supported; "
+                    "if they return reasoning-only output, RAG will fall back to topic tags for that chunk."
                 )
             if rag_chunk_method in ("late_chunking", "semantic_contextual_late"):
                 st.caption(
@@ -4594,16 +5890,39 @@ def _mode_rag() -> None:
         _ingest_col, _stop_col = st.columns([3, 1])
         with _ingest_col:
             _do_ingest = st.button("⚡ Ingest Files", key="rag_ingest_mode", width="stretch")
+        _auto_ingest = bool(st.session_state.get("rag_auto_ingest_pending"))
+        if _auto_ingest:
+            st.session_state["rag_auto_ingest_pending"] = False
         with _stop_col:
             if st.button("⏹ Stop", key="rag_stop_ingest_btn", width="stretch"):
                 st.session_state["rag_stop_ingest"] = True
 
-        if _do_ingest:
+        if _do_ingest or _auto_ingest:
             if not st.session_state.rag_uploaded_files:
                 st.warning("No files uploaded yet.")
             elif ingest_rag_paths is None:
                 st.error("RAG ingestion unavailable.")
             else:
+                _embed_provider_now, _embed_model_now = resolve_provider_and_model(
+                    os.getenv("RAG_EMBED_MODEL", "llama_server:")
+                )
+                if _embed_provider_now == "llama_server":
+                    _emb_ok, _emb_msg = _probe_llama_server_embeddings(_embed_model_now or os.getenv("LLAMA_SERVER_MODEL", "local"))
+                    if not _emb_ok:
+                        _fallback_ollama_model = _pick_fallback_ollama_embedding()
+                        if _fallback_ollama_model:
+                            st.warning(
+                                f"{_emb_msg} Falling back to Ollama embedding model `{_fallback_ollama_model}` for this ingest."
+                            )
+                            _apply_rag_embed_config("ollama", _fallback_ollama_model, rerun=False)
+                            st.session_state["rag_auto_ingest_pending"] = True
+                            st.rerun()
+                        else:
+                            st.error(_emb_msg)
+                            st.info(
+                                "Pull an Ollama embedding model or restart llama-server with `--embeddings`, then ingest again."
+                            )
+                            st.stop()
                 import threading as _threading
                 _stop_ev = _threading.Event()
                 st.session_state["rag_stop_ingest"] = False
@@ -4639,9 +5958,9 @@ def _mode_rag() -> None:
                     )
                 elif res["loaded_files"] > 0:
                     # Preserve current project mode unless user specified a different one
-                    if rag_project and rag_project != "Default":
-                        st.session_state.rag_project_mode = rag_project
-                    # Otherwise keep current mode (All Projects or selected project)
+                    active_rag_project = rag_project.strip() or "Default"
+                    st.session_state.rag_project_mode = active_rag_project
+                    st.session_state.rag_project_filter_selector = active_rag_project
                     _actual_method = res.get("method_used", rag_chunk_method)
                     _semantic_family = ("semantic", "contextual", "late_chunking", "semantic_contextual_late")
                     st.success(
@@ -4652,10 +5971,10 @@ def _mode_rag() -> None:
                     # Show only the chunks from this ingest batch so the preview reflects
                     # the files the user just uploaded rather than arbitrary older rows.
                     try:
-                        from ragsub_agent.tools import _get_rag_collection_name, _context_llm_status, _strip_ollama_provider_prefix
+                        _rag_tools = _get_rag_tools()
                         import chromadb as _pv_chroma
                         _pv_proj = rag_project or "Default"
-                        _pv_cname = _get_rag_collection_name(_pv_proj)
+                        _pv_cname = _rag_tools._get_rag_collection_name(_pv_proj)
                         _pv_client = _pv_chroma.PersistentClient(path=str(Path(__file__).parent / "rag-chroma"))
                         _uploaded_names = {
                             Path(_uploaded_path).name
@@ -4692,9 +6011,41 @@ def _mode_rag() -> None:
                             pass  # collection missing or unreadable
                         if _preview_chunks:
                             with st.expander("🔎 Preview stored chunks (verify chunking)", expanded=False):
+                                def _chunk_marker_tags(content: str) -> list[str]:
+                                    tags: list[str] = []
+                                    if "[Context:" in content:
+                                        tags.append("Context")
+                                    if "[Topics:" in content:
+                                        tags.append("Topics")
+                                    if "[LateCtx:" in content:
+                                        tags.append("LateCtx")
+                                    return tags
+
+                                def _marker_badge(label: str) -> str:
+                                    styles = {
+                                        "Context": "background:#1f7a4f;color:#ffffff;border:1px solid #2fb36d;",
+                                        "Topics": "background:#8a5a00;color:#ffffff;border:1px solid #d79b2e;",
+                                        "LateCtx": "background:#1558b0;color:#ffffff;border:1px solid #4d8fe8;",
+                                        "none": "background:#4a4a4a;color:#ffffff;border:1px solid #777;",
+                                    }
+                                    style = styles.get(label, styles["none"])
+                                    return (
+                                        f"<span style=\"display:inline-block;padding:0.14rem 0.5rem;"
+                                        f"border-radius:999px;font-size:0.78rem;font-weight:700;"
+                                        f"line-height:1.2;{style}\">{label}</span>"
+                                    )
+
                                 _has_context = any("[Context:" in c["content"] for c in _preview_chunks)
                                 _has_late = any("[LateCtx:" in c["content"] for c in _preview_chunks)
                                 _has_topics = any("[Topics:" in c["content"] for c in _preview_chunks)
+                                st.markdown(
+                                    " ".join([
+                                        _marker_badge("Context"),
+                                        _marker_badge("Topics"),
+                                        _marker_badge("LateCtx"),
+                                    ]),
+                                    unsafe_allow_html=True,
+                                )
                                 if _actual_method in ("contextual", "semantic_contextual_late"):
                                     if _has_context:
                                         st.success(
@@ -4739,9 +6090,9 @@ def _mode_rag() -> None:
                                             st.error(f"**LLM error:** {_ctx_err}")
                                         else:
                                             st.caption(
-                                                "No error captured — the model returned an empty response. "
-                                                "This often happens with thinking models (Gemma4, DeepSeek-R1). "
-                                                "Set `RAG_CONTEXT_LLM_MODEL=qwen3.5:27b` or `devstral-small-2:24b` in your environment."
+                                                "No error captured — the model returned no final answer text. "
+                                                "Thinking models are still allowed; if they only emit reasoning, "
+                                                "RAG uses `[Topics: ...]` fallback tags instead."
                                             )
                                 if _actual_method in ("late_chunking", "semantic_contextual_late"):
                                     if _has_late:
@@ -4751,8 +6102,14 @@ def _mode_rag() -> None:
                                 for _i, _chunk in enumerate(_preview_chunks[:3], 1):
                                     _label = _chunk["source"]
                                     _method = _chunk["chunking_method"] or "unknown"
+                                    _marker_tags = _chunk_marker_tags(_chunk["content"])
                                     st.markdown(f"**Chunk {_i}**")
                                     st.caption(f"Source: `{_label}` · Method: `{_method}`")
+                                    st.markdown(
+                                        "Markers: "
+                                        + " ".join(_marker_badge(tag) for tag in (_marker_tags or ["none"])),
+                                        unsafe_allow_html=True,
+                                    )
                                     st.code(_chunk["content"][:800], language="text")
                         elif st.session_state.rag_uploaded_files:
                             st.caption("Preview unavailable for the current upload batch.")
@@ -4833,6 +6190,45 @@ def _mode_rag() -> None:
 
     files = summary.get("files", {})
     _idx_error = summary.get("error", "")
+
+    if not files and selected_project != "All Projects":
+        fallback_project = None
+        fallback_summary: dict[str, Any] | None = None
+        for proj in project_options:
+            if proj in {"All Projects", selected_project}:
+                continue
+            try:
+                candidate_summary = get_rag_index_summary(project=proj)
+            except Exception:
+                continue
+            candidate_files = candidate_summary.get("files", {})
+            if candidate_files:
+                fallback_project = proj
+                fallback_summary = candidate_summary
+                break
+        if fallback_project and fallback_summary:
+            st.session_state.rag_project_mode = fallback_project
+            st.session_state.rag_project_filter_selector = fallback_project
+            st.rerun()
+        elif selected_project == "Default" and not files and "All Projects" in project_options:
+            try:
+                all_summary = {}
+                all_files: dict[str, dict[str, Any]] = {}
+                total_chunks = 0
+                for proj in project_options:
+                    if proj == "All Projects":
+                        continue
+                    candidate_summary = get_rag_index_summary(project=proj)
+                    total_chunks += candidate_summary.get("total_chunks", 0)
+                    for src, info in candidate_summary.get("files", {}).items():
+                        prefixed_src = f"{proj}/{src}" if proj != "Default" else src
+                        all_files[prefixed_src] = info
+                if all_files:
+                    st.session_state.rag_project_mode = "All Projects"
+                    st.session_state.rag_project_filter_selector = ""
+                    st.rerun()
+            except Exception:
+                pass
 
     with stored_docs_tab:
         _store_col1, _store_col2 = st.columns(2)
@@ -5098,6 +6494,13 @@ def _mode_rag() -> None:
 
     # ── Retrieval Settings (project, theme, presets, manual controls) ──
     retrieval_selected_project = st.session_state.get("rag_project_filter_selector", "")
+    rag_projects = _get_rag_projects() if _get_rag_projects else []
+    active_project_chunk_count = None
+    if retrieval_selected_project and retrieval_selected_project != "All Projects" and _get_rag_idx:
+        try:
+            active_project_chunk_count = int(_get_rag_idx(project=retrieval_selected_project).get("total_chunks", 0))
+        except Exception:
+            active_project_chunk_count = None
 
     try:
         # When "All Projects" is selected, retrieve themes from all projects
@@ -5123,10 +6526,53 @@ def _mode_rag() -> None:
         global_themes = []
 
     with retrieval_settings_tab:
-        _render_model_selector(
-            "RAG Model", session_key="model_rag", env_key=AGENT_MODEL_ENV_KEYS["ragsub"],
-            widget_key="rag_model_selector", allow_inherit=True,
-        )
+        if not rag_projects:
+            st.error(
+                "RAG index not found or empty. The `rag-chroma` store currently has no chunks, "
+                "so retrieval cannot return anything until you ingest documents again."
+            )
+            if st.session_state.rag_uploaded_files:
+                st.button(
+                    "♻ Re-ingest uploaded files",
+                    key="rag_reingest_recommended_btn",
+                    use_container_width=True,
+                    on_click=_queue_rag_reingest,
+                    help="Re-run ingestion for the files already staged in the current session.",
+                )
+                st.caption("This will reuse the files already uploaded in the **Ingest Documents** tab.")
+            else:
+                st.info("Upload files in **Ingest Documents** first, then use this button to re-ingest them.")
+        elif active_project_chunk_count == 0:
+            st.warning(
+                f"Project `{retrieval_selected_project}` has no indexed chunks in the current RAG store. "
+                "If you deleted `rag-chroma` or changed `RAG_EMBED_MODEL`, re-ingest the documents with the same embedding setup."
+            )
+            if st.session_state.rag_uploaded_files:
+                st.button(
+                    "♻ Re-ingest uploaded files",
+                    key="rag_reingest_recommended_btn",
+                    use_container_width=True,
+                    on_click=_queue_rag_reingest,
+                    help="Re-run ingestion for the files already staged in the current session.",
+                )
+                st.caption("This will reuse the files already uploaded in the **Ingest Documents** tab.")
+            else:
+                st.info("Upload files in **Ingest Documents** first, then use this button to re-ingest them.")
+
+        retrieval_model_col1, retrieval_model_col2 = st.columns(2)
+        with retrieval_model_col1:
+            _render_model_selector(
+                "RAG Model", session_key="model_rag", env_key=AGENT_MODEL_ENV_KEYS["ragsub"],
+                widget_key="rag_model_selector", allow_inherit=True,
+            )
+        
+        with retrieval_model_col2:
+            # Show current embedding configuration
+            _current_embed_config = os.getenv("RAG_EMBED_MODEL", "llama_server:").strip()
+            _current_embed_provider, _current_embed_model = resolve_provider_and_model(_current_embed_config)
+            st.markdown(f"**Embedding Configuration**")
+            st.code(_current_embed_config, language="text")
+            st.caption("🔧 Configure in **Ingest Documents** → **Embedding Provider** section")
 
         # ...existing code...
 
@@ -5141,7 +6587,6 @@ def _mode_rag() -> None:
             st.selectbox(
                 "Project",
                 options=_project_options,
-                index=_project_options.index(_current_project),
                 key="rag_project_filter_selector",
                 format_func=lambda value: "No project filter" if value == "" else value,
                 help="Leave blank for no project filter. Select **All Projects** to search across all projects explicitly, or choose one project to scope retrieval.",
@@ -5176,6 +6621,65 @@ def _mode_rag() -> None:
                 help="Leave blank for all modalities. Select one or more to constrain retrieval to text, table, or image chunks.",
             )
             st.session_state.rag_query_modalities = _selected_modalities
+
+        if st.session_state.get("rag_active_preset") == "📄 File summary":
+            st.markdown("---")
+            st.subheader("File Summary")
+            st.caption("Pick a file and the app will show every stored chunk for that file. You can still ask questions below.")
+
+            file_options = sorted(files.keys())
+            if not file_options:
+                st.info("No indexed files found for the current project scope.")
+                return
+
+            selected_file = st.selectbox(
+                "File",
+                options=file_options,
+                index=file_options.index(st.session_state.rag_file_summary_selected_file)
+                if st.session_state.rag_file_summary_selected_file in file_options
+                else 0,
+                key="rag_file_summary_file_selector",
+                help="Choose one stored file to inspect all of its chunks.",
+            )
+            st.session_state.rag_file_summary_selected_file = selected_file
+
+            if selected_project == "All Projects" and "/" in selected_file:
+                file_project, source_file = selected_file.split("/", 1)
+            else:
+                file_project = selected_project if selected_project != "All Projects" else ""
+                source_file = selected_file
+
+            summary_chunks = _list_rag_file_chunks(
+                _rag_tools,
+                project=file_project,
+                file_name=source_file,
+            )
+
+            st.caption(
+                f"Project: `{file_project or 'Default'}` · File: `{Path(source_file).name}` · "
+                f"Chunks found: {len(summary_chunks)}"
+            )
+
+            if not summary_chunks:
+                st.session_state.rag_file_summary_context = ""
+                st.info("No stored chunks were returned for this file.")
+            else:
+                st.session_state.rag_file_summary_context = "\n\n".join(
+                    f"[File Chunk {idx}]\n{str(chunk.get('text') or '').strip()}"
+                    for idx, chunk in enumerate(summary_chunks, 1)
+                    if str(chunk.get("text") or "").strip()
+                )
+                for idx, chunk in enumerate(summary_chunks, 1):
+                    chunk_text = str(chunk.get("text") or "").strip()
+                    chunk_meta = chunk.get("metadata") or {}
+                    chunk_source = str(chunk_meta.get("source") or chunk_meta.get("file") or source_file)
+                    chunk_page = str(chunk_meta.get("page") or chunk_meta.get("page_number") or "").strip()
+                    with st.expander(f"Chunk {idx}", expanded=idx == 1):
+                        meta_bits = [f"Source: `{Path(chunk_source).name}`"]
+                        if chunk_page:
+                            meta_bits.append(f"Page: `{chunk_page}`")
+                        st.caption(" · ".join(meta_bits))
+                        st.code(chunk_text or "[empty chunk]", language="text")
 
         st.markdown("---")
 
@@ -5293,13 +6797,7 @@ def _mode_rag() -> None:
 
         st.markdown("---")
         _active_preset_name = st.session_state.get("rag_active_preset", "")
-        if _active_preset_name and _active_preset_name in _RAG_PRESETS:
-            _ap = _RAG_PRESETS[_active_preset_name]
-            st.info(
-                f"**Current profile: {_active_preset_name}** is tuned for **{_ap['agent_label']}**. "
-                f"Use the profile buttons above to change the retrieval settings.",
-            )
-        
+
         _chat_col1, _chat_col2 = st.columns(2)
         with _chat_col1:
             st.radio(
@@ -5447,30 +6945,28 @@ def _mode_rag() -> None:
             f"{user_message}"
         )
 
-    # ── Stage 1: Always pre-retrieve from knowledge base ────────────────────
-    # The selected chat target in Stage 2 receives the same retrieved context.
-    # With full DeepAgents autonomy, we don't force routing — let the agent decide.
+    # ── Stage 1: Pre-retrieve for shared main-chat grounding ────────────────
+    # RAG sub-agent turns do their own retrieval inside the agent, so the
+    # preview is only useful when grounding main-chat augmentation.
     _chat_target = st.session_state.get("rag_chat_target", "ragsub")
     _preset_forced_agent = None  # Allow agent full autonomy in routing
     _pre_context = ""
-    try:
-        _retrieval_status = st.status(
-            f"🔍 Retrieving {_render_active_rag_scope_label()} "
-            f"({st.session_state.rag_retrieval_mode}, top_k={st.session_state.rag_top_k})…",
-            expanded=True,
-        )
-        with _retrieval_status:
-            st.caption(_render_active_rag_scope_caption())
+    if _chat_target == "main":
+        try:
             _pre_context, _diag = _run_active_rag_retrieval(user_input.strip())
-            if _diag:
+            if _pre_context and not _pre_context.startswith("[WARN]"):
                 _reranker_mode = _diag.get("reranker", _diag.get("mode", ""))
                 _final_count = _diag.get("final_chunk_count", "?")
                 _rerank_count = _diag.get("rerank_count", "?")
                 _filtered_count = _diag.get("filtered_count", "?")
                 _sel_files = _diag.get("selected_files", [])
-                _status_flag = _diag.get("status", "")
                 _is_fallback = _reranker_mode == "semantic-fallback"
+                _retrieval_fallback = str(_diag.get("retrieval_fallback", "") or "").strip()
 
+                _retrieval_status = st.status(
+                    f"✅ Retrieved {_final_count} chunks {_render_active_rag_scope_label()}",
+                    expanded=False,
+                )
                 _summary_parts = [f"**{_final_count}** chunks returned"]
                 if _rerank_count != "?":
                     _summary_parts.append(f"{_rerank_count} scored by reranker")
@@ -5478,53 +6974,50 @@ def _mode_rag() -> None:
                     _summary_parts.append(f"{_filtered_count} passed threshold")
                 if _sel_files:
                     _summary_parts.append(f"from {len(_sel_files)} files")
+                if _retrieval_fallback == "bm25":
+                    _summary_parts.append("⚠️ keyword fallback used")
                 if _is_fallback:
                     _summary_parts.append("⚠️ reranker filtered all → semantic fallback")
-                st.caption(" · ".join(_summary_parts))
+                with _retrieval_status:
+                    st.caption(_render_active_rag_scope_caption())
+                    st.caption(" · ".join(_summary_parts))
 
-                if _sel_files:
-                    st.caption(f"Files: {', '.join(str(f) for f in _sel_files[:6])}")
-                if _diag.get("dense_candidate_count"):
-                    st.caption(
-                        f"Hybrid: {_diag.get('dense_candidate_count', 0)} dense + "
-                        f"{_diag.get('bm25_result_count', 0)} BM25 → "
-                        f"{_diag.get('fused_candidate_count', 0)} fused"
-                    )
-
-        if _pre_context and not _pre_context.startswith("[WARN]"):
-            _retrieval_status.update(
-                label=(
-                    f"✅ Retrieved {_diag.get('final_chunk_count', '?')} chunks "
-                    f"{_render_active_rag_scope_label()}"
-                ),
-                state="complete",
-                expanded=False,
-            )
-            user_message = (
-                f"[RAG CONTEXT — retrieved {'across all projects' if not active_project_filter else f'from project {active_project_filter!r}'} "
-                f"using {st.session_state.rag_retrieval_mode}, top_k={st.session_state.rag_top_k}]\n"
-                f"{_pre_context}\n"
-                f"[END RAG CONTEXT]\n\n"
-                f"{user_message}"
-            )
-        elif _pre_context.startswith("[WARN]"):
-            _retrieval_status.update(
-                label="⚠️ No usable chunks returned from retrieval",
-                state="error",
-                expanded=False,
-            )
-            _render_fallback_retrieval_notice()
-    except Exception as _exc:
-        st.warning(f"⚠️ Pre-retrieval failed ({_exc}).")
-        _render_fallback_retrieval_notice()
+                    if _sel_files:
+                        st.caption(f"Files: {', '.join(str(f) for f in _sel_files[:6])}")
+                    if _diag.get("dense_candidate_count"):
+                        st.caption(
+                            f"Hybrid: {_diag.get('dense_candidate_count', 0)} dense + "
+                            f"{_diag.get('bm25_result_count', 0)} BM25 → "
+                            f"{_diag.get('fused_candidate_count', 0)} fused"
+                        )
+                _retrieval_status.update(
+                    label=(
+                        f"✅ Retrieved {_diag.get('final_chunk_count', '?')} chunks "
+                        f"{_render_active_rag_scope_label()}"
+                    ),
+                    state="complete",
+                    expanded=False,
+                )
+                user_message = (
+                    f"[RAG CONTEXT — retrieved {'across all projects' if not active_project_filter else f'from project {active_project_filter!r}'} "
+                    f"using {st.session_state.rag_retrieval_mode}, top_k={st.session_state.rag_top_k}"
+                    f"{', keyword fallback' if str(_diag.get('retrieval_fallback', '') or '').strip() == 'bm25' else ''}]\n"
+                    f"{_pre_context}\n"
+                    f"[END RAG CONTEXT]\n\n"
+                    f"{user_message}"
+                )
+        except Exception as _exc:
+            pass
 
     # ── Stage 2: Route to the selected chat target ──────────────────────────
     # With full DeepAgents autonomy, allow agents to choose optimal routing
+    forced_agent_type = AgentType.RAG_SUB.value if _chat_target == "ragsub" else None
+    force_main_agent = _chat_target == "main"
     _chat_execution_block(
         user_message,
         user_input.strip(),
-        force_agent_type=None,  # Agent autonomy
-        force_main_agent=False,  # Agent chooses routing
+        force_agent_type=forced_agent_type,
+        force_main_agent=force_main_agent,
         selected_rag_context=_pre_context,
     )
 
@@ -6065,6 +7558,7 @@ def _mode_literature() -> None:
                             env_key="RAG_CONTEXT_LLM_MODEL",
                             widget_key="lr_context_model_selector",
                             allow_inherit=True,
+                            provider_override="all",
                         )
                         _lr_ctx_label = _lr_ctx_model or os.environ.get(
                             AGENT_MODEL_ENV_KEYS["main"], get_agent_model("main"),
@@ -6215,8 +7709,7 @@ def _mode_literature() -> None:
 
             # Live RAG status check
             try:
-                from ragsub_agent.tools import get_rag_index_summary
-                _rag_summary = get_rag_index_summary(project=_lr_proj)
+                _rag_summary = _get_rag_tools().get_rag_index_summary(project=_lr_proj)
                 _rag_chunks = _rag_summary.get("total_chunks", 0)
                 _rag_files = len(_rag_summary.get("files", {}))
                 if _rag_chunks == 0:
@@ -6310,6 +7803,17 @@ def _mode_literature() -> None:
             f"{user_message}"
         )
 
+    if st.session_state.get("rag_active_preset") == "📄 File summary":
+        file_context = str(st.session_state.get("rag_file_summary_context") or "").strip()
+        selected_file = str(st.session_state.get("rag_file_summary_selected_file") or "").strip()
+        if file_context and selected_file:
+            user_message = (
+                f"[FILE SUMMARY MODE]\n"
+                f"[FILE: {selected_file}]\n"
+                f"[GROUNDING: Answer only from the selected file chunks below. If the answer is not in the chunks, say so clearly.]\n"
+                f"{file_context}\n\n{user_message}"
+            )
+
     # Full DeepAgents autonomy: no forced routing
     _chat_execution_block(user_message, user_input.strip(), force_agent_type=None)
 
@@ -6333,6 +7837,10 @@ def main():
     # ── MAIN CONTENT — mode-specific ──────────────────────────────────────────
     if active_mode == "main":
         _mode_main()
+    elif active_mode == "scan_to_text":
+        _mode_scan_to_text()
+    elif active_mode == "rag_databases":
+        _mode_rag_databases()
     elif active_mode == "rag":
         _mode_rag()
     elif active_mode == "literature":
@@ -6343,10 +7851,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-

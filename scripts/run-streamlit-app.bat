@@ -40,9 +40,9 @@ if not exist ".venv\Scripts\python.exe" (
 
 set "LLAMA_CPP_FLASH_ATTN=1"
 
-REM ── Auto-start llama-server if not already running ──────────────────────────
-echo Checking if llama-server is running on port 8080...
-powershell -NoProfile -Command "try { $r = Invoke-WebRequest -Uri 'http://127.0.0.1:8080/health' -TimeoutSec 2 -UseBasicParsing -ErrorAction Stop; Write-Host '  llama-server already running.' } catch { Write-Host '  Starting llama-server in a new window...'; Start-Process cmd -ArgumentList '/k', '"%~dp0run-llama-server.bat"'; Start-Sleep -Seconds 3 }"
+REM Note: llama-server is not automatically started
+REM If you need llama-server, run it manually:
+REM   scripts\run-llama-server.bat
 echo.
 
 echo Using interpreter:

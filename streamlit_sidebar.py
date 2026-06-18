@@ -42,8 +42,14 @@ def render_sidebar(
         """
         )
 
-        mode_labels = ["💬 Agent", "📚 RAG", "🔬 Literature", "📊 Data Analysis"]
-        mode_keys = ["main", "rag", "literature", "data_analysis"]
+        mode_labels = [
+            "💬 Agent",
+            "📝 Scan to Text",
+            "📚 RAG",
+            "🔬 Literature",
+            "📊 Data Analysis",
+        ]
+        mode_keys = ["main", "scan_to_text", "rag", "literature", "data_analysis"]
         mode_idx = mode_keys.index(session_state.active_mode) if session_state.active_mode in mode_keys else 0
         chosen_label = st.radio(
             "Navigation",

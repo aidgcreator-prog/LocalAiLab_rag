@@ -29,7 +29,7 @@ VIDEO_FILE_SUFFIXES = {".mp4", ".mov", ".mkv", ".avi", ".webm"}
 IMAGE_FILE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".bmp", ".gif", ".tif", ".tiff"}
 
 # ── Query-level result cache ─────────────────────────────────────────────
-# TTL-based cache keyed on (query, project, themes, mode, top_k, fetch_k).
+# TTL-based cache keyed on the full retrieval request.
 # Avoids re-running the full pipeline for identical interactive queries.
 _retrieve_cache: dict[str, tuple[float, str]] = {}
 _RETRIEVE_CACHE_TTL = float(os.getenv("RAG_CACHE_TTL_SECONDS", "120"))
@@ -37,8 +37,17 @@ _RETRIEVE_CACHE_MAX = 64
 _retrieve_cache_lock = threading.Lock()
 
 
-def _cache_key(query: str, project: str, themes: str, mode: str, top_k: int, fetch_k: int) -> str:
-    raw = f"{query}|{project}|{themes}|{mode}|{top_k}|{fetch_k}"
+def _cache_key(
+    query: str,
+    project: str,
+    themes: str,
+    modalities: str,
+    mode: str,
+    top_k: int,
+    fetch_k: int,
+    max_files: int,
+) -> str:
+    raw = f"{query}|{project}|{themes}|{modalities}|{mode}|{top_k}|{fetch_k}|{max_files}"
     return hashlib.sha256(raw.encode()).hexdigest()[:24]
 
 
@@ -207,16 +216,40 @@ def _decompose_query(query: str) -> list[str]:
 
 
 def _get_rag_collection_name(project: str = "Default") -> str:
-    """Return a stable Chroma collection name scoped to project and embed model.
+    """Return a stable Chroma collection name scoped to project and embed backend.
 
-    Format: rag__{project}__{model_hash}
+    Format: rag__{project}__{backend_hash}
     - project is normalised to alphanumeric+underscore, max 20 chars.
-    - model_hash is the first 8 hex chars of SHA-1(embed_model_name).
+    - backend_hash captures the effective provider, model, and backend URL so
+      switching providers does not collide with a different vector space.
     """
-    embed_model = os.getenv("RAG_EMBED_MODEL", "llama_cpp:").strip()
-    model_hash = hashlib.sha1(embed_model.encode("utf-8")).hexdigest()[:8]
+    embed_model = os.getenv("RAG_EMBED_MODEL", "llama_server:").strip()
+    provider, resolved_model = resolve_provider_and_model(embed_model)
+    llama_server_base_url = os.getenv("LLAMA_SERVER_BASE_URL", "http://localhost:8080/v1").rstrip("/")
+    ollama_base_url = os.getenv("RAG_OLLAMA_BASE_URL", "http://localhost:11434").rstrip("/")
+    if provider == "llama_cpp" and not resolved_model:
+        provider = "llama_server"
+        resolved_model = os.getenv("LLAMA_SERVER_MODEL", "local").strip() or "local"
+    if provider == "llama_server":
+        source = f"{provider}|{resolved_model or os.getenv('LLAMA_SERVER_MODEL', 'local').strip() or 'local'}|{llama_server_base_url}"
+    elif provider == "ollama":
+        source = f"{provider}|{resolved_model or embed_model}|{ollama_base_url}"
+    else:
+        source = f"{provider}|{resolved_model or embed_model}"
+    model_hash = hashlib.sha1(source.encode("utf-8")).hexdigest()[:8]
     proj_normalized = re.sub(r"[^a-zA-Z0-9]+", "_", project).strip("_").lower()[:20]
     return f"rag__{proj_normalized}__{model_hash}"
+
+
+def _get_legacy_rag_collection_suffix() -> str:
+    """Return the historical suffix based on the raw embed model string."""
+    embed_model = os.getenv("RAG_EMBED_MODEL", "llama_server:").strip()
+    return hashlib.sha1(embed_model.encode("utf-8")).hexdigest()[:8]
+
+
+def _get_rag_collection_suffixes() -> set[str]:
+    """Return the current and legacy suffixes accepted for RAG collections."""
+    return {_get_rag_collection_name("_probe").rsplit("__", 1)[-1], _get_legacy_rag_collection_suffix()}
 
 
 class _LlamaCppEmbeddingFunction:
@@ -283,12 +316,19 @@ class _LlamaCppEmbeddingFunction:
     def embed_query(self, text: str) -> list[float]:
         return self.__call__([text])[0]
 
+    def name(self) -> str:
+        """Return a name for this embedding function (required by ChromaDB)."""
+        import os
+        model_name = os.path.basename(self.model_path) if self.model_path else "llama_cpp"
+        return f"llama_cpp-{model_name}"
+
 
 class _LangChainEmbeddingAdapter:
     """Chroma-compatible wrapper around LangChain embedding models."""
 
-    def __init__(self, embeddings: Any) -> None:
+    def __init__(self, embeddings: Any, *, name: str = "langchain-embeddings") -> None:
         self.embeddings = embeddings
+        self._name = name
 
     def __call__(self, input: list[str]) -> list[list[float]]:
         texts = [str(item) for item in input]
@@ -306,6 +346,29 @@ class _LangChainEmbeddingAdapter:
         except Exception as exc:
             raise RuntimeError(f"Failed to generate query embedding: {exc}") from exc
 
+    def name(self) -> str:
+        """Return a stable name for this embedding function (required by ChromaDB)."""
+        return self._name
+
+    def get_config(self) -> dict[str, Any]:
+        """Return a minimal config that can be stored in Chroma metadata."""
+        return {"name": self._name}
+
+    @staticmethod
+    def build_from_config(config: dict[str, Any]) -> "_LangChainEmbeddingAdapter":
+        """Build a placeholder adapter from a persisted config."""
+        return _LangChainEmbeddingAdapter(_NullEmbeddings(), name=str(config.get("name") or "langchain-embeddings"))
+
+
+class _NullEmbeddings:
+    """Placeholder used when reconstructing the adapter from config only."""
+
+    def embed_documents(self, texts: list[str]) -> list[list[float]]:
+        raise RuntimeError("Embedding backend is not attached to this adapter instance.")
+
+    def embed_query(self, text: str) -> list[float]:
+        raise RuntimeError("Embedding backend is not attached to this adapter instance.")
+
 
 @lru_cache(maxsize=8)
 def _get_rag_embedding_function(
@@ -316,22 +379,35 @@ def _get_rag_embedding_function(
     llama_cpp_n_gpu_layers: int,
     llama_cpp_flash_attn: bool,
 ):
-    """Return the configured embedding backend for RAG ingestion and retrieval."""
+    """Return the configured embedding backend for RAG ingestion and retrieval.
+    
+    Supports flexible provider/model combinations:
+    - llama_cpp:/path/to/model.gguf (local llama.cpp model)
+    - llama_server:model_name (llama-server API endpoint)
+    - ollama:model_name (Ollama local models)
+    - custom:any_identifier (custom implementations)
+    """
     provider, resolved_model = resolve_provider_and_model(embedding_model)
 
     if provider == "llama_cpp":
         if not resolved_model:
-            raise ValueError(
-                "llama.cpp embeddings require a GGUF model path. Set RAG_EMBED_MODEL "
-                "to `llama_cpp:/absolute/path/to/model.gguf`."
+            # Fallback to llama_server if llama_cpp model path is not configured
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.warning(
+                "llama.cpp embedding model not configured. Falling back to llama_server. "
+                "To use llama.cpp, set RAG_EMBED_MODEL to 'llama_cpp:/path/to/model'"
             )
-        return _LlamaCppEmbeddingFunction(
-            resolved_model,
-            n_ctx=llama_cpp_n_ctx,
-            n_batch=llama_cpp_n_batch,
-            n_gpu_layers=llama_cpp_n_gpu_layers,
-            flash_attn=llama_cpp_flash_attn,
-        )
+            # Fall through to llama_server below
+            provider = "llama_server"
+        else:
+            return _LlamaCppEmbeddingFunction(
+                resolved_model,
+                n_ctx=llama_cpp_n_ctx,
+                n_batch=llama_cpp_n_batch,
+                n_gpu_layers=llama_cpp_n_gpu_layers,
+                flash_attn=llama_cpp_flash_attn,
+            )
 
     if provider == "llama_server":
         try:
@@ -340,15 +416,45 @@ def _get_rag_embedding_function(
             raise RuntimeError(
                 "llama-server embeddings require the `langchain-openai` package."
             ) from exc
+        effective_model = resolved_model or os.getenv("LLAMA_SERVER_MODEL", "local").strip() or "local"
+        fingerprint_source = f"llama_server|{effective_model}|{llama_server_base_url}"
+        backend_name = f"rag-embeddings__llama_server__{hashlib.sha1(fingerprint_source.encode('utf-8')).hexdigest()[:8]}"
 
         return _LangChainEmbeddingAdapter(
             OpenAIEmbeddings(
                 base_url=llama_server_base_url,
                 api_key="llama-server",
-                model=resolved_model or os.getenv("LLAMA_SERVER_MODEL", "local").strip() or "local",
-            )
+                model=effective_model,
+            ),
+            name=backend_name,
         )
 
+    if provider == "ollama":
+        try:
+            from langchain_ollama import OllamaEmbeddings
+        except Exception as exc:
+            raise RuntimeError(
+                "Ollama embeddings require the `langchain-ollama` package: pip install langchain-ollama"
+            ) from exc
+        effective_model = resolved_model or embedding_model
+        fingerprint_source = f"ollama|{effective_model}|{os.getenv('RAG_OLLAMA_BASE_URL', 'http://localhost:11434').rstrip('/')}"
+        backend_name = f"rag-embeddings__ollama__{hashlib.sha1(fingerprint_source.encode('utf-8')).hexdigest()[:8]}"
+
+        return _LangChainEmbeddingAdapter(
+            OllamaEmbeddings(
+                model=effective_model,
+                base_url=os.getenv("RAG_OLLAMA_BASE_URL", "http://localhost:11434"),
+            ),
+            name=backend_name,
+        )
+    
+    # Fallback for unknown/custom providers - try Ollama as last resort
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.warning(
+        f"Unknown embedding provider '{provider}'. Attempting Ollama fallback with model '{resolved_model}'"
+    )
+    
     try:
         from langchain_ollama import OllamaEmbeddings
     except Exception as exc:
@@ -356,12 +462,16 @@ def _get_rag_embedding_function(
             "RAG embeddings require either llama.cpp support or the Ollama "
             "embedding wrapper."
         ) from exc
+    effective_model = resolved_model or embedding_model
+    fingerprint_source = f"ollama|{effective_model}|{os.getenv('RAG_OLLAMA_BASE_URL', 'http://localhost:11434').rstrip('/')}"
+    backend_name = f"rag-embeddings__ollama__{hashlib.sha1(fingerprint_source.encode('utf-8')).hexdigest()[:8]}"
 
     return _LangChainEmbeddingAdapter(
         OllamaEmbeddings(
-            model=resolved_model or embedding_model,
+            model=effective_model,
             base_url=os.getenv("RAG_OLLAMA_BASE_URL", "http://localhost:11434"),
-        )
+        ),
+        name=backend_name,
     )
 
 
@@ -612,10 +722,33 @@ def _dedupe_multimodal_payloads(
 
 @lru_cache(maxsize=1)
 def _tesseract_available() -> bool:
+    return _detect_tesseract_cmd() is not None
+
+
+@lru_cache(maxsize=1)
+def _detect_tesseract_cmd() -> str | None:
+    """Return a usable Tesseract executable path if one can be found."""
     configured = os.getenv("TESSERACT_CMD", "").strip()
     if configured and Path(configured).exists():
-        return True
-    return shutil.which("tesseract") is not None
+        return configured
+
+    resolved = shutil.which("tesseract")
+    if resolved:
+        return resolved
+
+    if os.name == "nt":
+        candidates = [
+            r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+            r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+            r"C:\Program Files\Tesseract\tesseract.exe",
+            r"C:\Program Files (x86)\Tesseract\tesseract.exe",
+            r"C:\Program Files\Tesseract-OCR\bin\tesseract.exe",
+            r"C:\Program Files (x86)\Tesseract-OCR\bin\tesseract.exe",
+        ]
+        for candidate in candidates:
+            if Path(candidate).exists():
+                return candidate
+    return None
 
 
 def _get_tesseract_ocr_languages() -> str:
@@ -649,17 +782,17 @@ def get_multimodal_ocr_status() -> dict[str, str | bool]:
         pytesseract_ok = False
 
     configured = os.getenv("TESSERACT_CMD", "").strip()
+    detected = _detect_tesseract_cmd()
     if configured:
         cmd_ok = Path(configured).exists()
         cmd_label = configured
         configured_label = configured
-        detected_label = ""
+        detected_label = detected or ""
     else:
-        resolved = shutil.which("tesseract")
-        cmd_ok = resolved is not None
-        cmd_label = resolved or ""
+        cmd_ok = detected is not None
+        cmd_label = detected or ""
         configured_label = ""
-        detected_label = resolved or ""
+        detected_label = detected or ""
 
     remediation = (
         "Install Tesseract and set "
@@ -1843,6 +1976,133 @@ def _extract_pdf_image_records(
     return docs_payload, metas_payload, ids_payload
 
 
+def _extract_scanned_pdf_page_records(
+    file_path: Path,
+    pages: list[Any],
+    *,
+    project_name: str,
+    theme_name: str,
+    source_fingerprint: str,
+    date_added: str,
+    doc_meta: dict[str, str],
+    extra_meta: dict[str, str] | None = None,
+) -> tuple[list[str], list[dict[str, str]], list[str]]:
+    """Render PDF pages to images and build retrieval records for scanned PDFs."""
+    docs_payload: list[str] = []
+    metas_payload: list[dict[str, str]] = []
+    ids_payload: list[str] = []
+
+    try:
+        import fitz
+    except Exception:
+        return docs_payload, metas_payload, ids_payload
+
+    asset_dir = RAG_ASSET_DIR / source_fingerprint
+    asset_dir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        pdf = fitz.open(str(file_path))
+    except Exception:
+        return docs_payload, metas_payload, ids_payload
+
+    try:
+        for page_idx in range(len(pdf)):
+            page = pdf.load_page(page_idx)
+            page_number = str(page_idx + 1)
+            page_text = ""
+            if page_idx < len(pages):
+                page_text = getattr(pages[page_idx], "page_content", "") or ""
+
+            try:
+                pix = page.get_pixmap(dpi=180, alpha=False)
+                image_bytes = pix.tobytes("png")
+            except Exception:
+                continue
+
+            quality = _assess_image_asset_quality(image_bytes)
+            if not quality.get("keep"):
+                continue
+
+            asset_path = asset_dir / f"page_{page_number}_scan.png"
+            if not asset_path.exists():
+                asset_path.write_bytes(image_bytes)
+
+            vision_caption = _extract_image_vision_caption(image_bytes)
+            ocr_text = _extract_image_ocr_text(image_bytes)
+            structured_notes = ""
+            if _should_extract_structured_visual_notes(page_text, ocr_text, vision_caption, file_path.name):
+                structured_notes = _extract_structured_visual_notes(
+                    image_bytes,
+                    source=file_path.name,
+                    page_number=page_number,
+                    vision_caption=vision_caption,
+                    ocr_text=ocr_text,
+                )
+
+            retrieval_text, topics_str = _build_visual_summary(
+                image_bytes,
+                source=file_path.name,
+                page_number=page_number,
+                image_index=1,
+                page_text=page_text,
+                ocr_text=ocr_text,
+                vision_caption=vision_caption,
+                structured_notes=structured_notes,
+            )
+            section = f"Scanned PDF page {page_number}"
+            chunk_fingerprint = _build_chunk_fingerprint(
+                retrieval_text,
+                index=page_idx * 1000 + 1,
+                section=section,
+                page_number=page_number,
+            )
+            chunk_meta: dict[str, str] = {
+                "project": project_name,
+                "source": file_path.name,
+                "theme": theme_name,
+                "chunking_method": "scanned_pdf_page",
+                "file_path": str(file_path),
+                "source_fingerprint": source_fingerprint,
+                "chunk_fingerprint": chunk_fingerprint,
+                "section": section,
+                "topics": topics_str[:200],
+                "date_added": date_added,
+                "page_number": page_number,
+                "modality": "image",
+                "asset_path": _safe_asset_relative_path(asset_path),
+                "image_filter_reason": str(quality.get("reason", "")),
+                "image_width": str(quality.get("width", "")),
+                "image_height": str(quality.get("height", "")),
+                "image_pixels": str(quality.get("pixel_count", "")),
+                "vision_caption": vision_caption[:500],
+                "vision_caption_source": "llama_cpp" if vision_caption else "",
+                "ocr_text": ocr_text[:500],
+                "structured_visual_notes": structured_notes[:700],
+                "visual_summary": retrieval_text[:500],
+                "doc_title": doc_meta.get("doc_title", "")[:300],
+                "doc_authors": doc_meta.get("doc_authors", "")[:300],
+                "doc_year": doc_meta.get("doc_year", ""),
+            }
+            if extra_meta:
+                for k, v in extra_meta.items():
+                    chunk_meta[k] = str(v)[:300]
+
+            docs_payload.append(retrieval_text)
+            metas_payload.append(chunk_meta)
+            ids_payload.append(
+                _build_chunk_id(
+                    project=project_name,
+                    theme=theme_name,
+                    source_fingerprint=source_fingerprint,
+                    chunk_fingerprint=chunk_fingerprint,
+                )
+            )
+    finally:
+        pdf.close()
+
+    return docs_payload, metas_payload, ids_payload
+
+
 def _infer_chunking_method_from_document(
     document_text: str,
     metadata: dict[str, Any] | None = None,
@@ -2151,9 +2411,26 @@ def _extract_text_from_llm_response(response: Any) -> str:
 
 
 def _extract_text_from_content(content: Any) -> str:
+    def _strip_reasoning_markup(text: str) -> str:
+        cleaned = text.strip()
+        cleaned = re.sub(r"(?is)<think>.*?</think>", "", cleaned)
+        cleaned = re.sub(r"(?is)<analysis>.*?</analysis>", "", cleaned)
+        cleaned = re.sub(r"(?is)<reasoning>.*?</reasoning>", "", cleaned)
+        cleaned = re.sub(r"(?im)^\s*(thinking|analysis|reasoning)\s*:\s*.*$", "", cleaned)
+        for marker in ("Final:", "FINAL:", "Answer:", "ANSWER:"):
+            if marker in cleaned:
+                cleaned = cleaned.rsplit(marker, 1)[-1].strip()
+        return cleaned.strip()
+
     if isinstance(content, str):
-        return content.strip()
+        return _strip_reasoning_markup(content)
     if isinstance(content, list):
+        def _is_reasoning_block(block: Any) -> bool:
+            if not isinstance(block, dict):
+                return False
+            block_type = str(block.get("type", "")).lower()
+            return block_type in {"thinking", "reasoning", "analysis"}
+
         parts = [
             block.get("text", "")
             for block in content
@@ -2161,12 +2438,14 @@ def _extract_text_from_content(content: Any) -> str:
         ]
         joined = " ".join(p.strip() for p in parts if p.strip())
         if joined:
-            return joined
+            return _strip_reasoning_markup(joined)
         for block in content:
-            if isinstance(block, dict):
+            if isinstance(block, dict) and not _is_reasoning_block(block):
                 for v in block.values():
                     if isinstance(v, str) and v.strip():
-                        return v.strip()
+                        candidate = _strip_reasoning_markup(v)
+                        if candidate:
+                            return candidate
         return ""
     return str(content).strip() if content is not None else ""
 
@@ -2189,7 +2468,8 @@ def _generate_chunk_context(full_doc_text: str, chunk_text: str) -> str:
         "</chunk>\n"
         "Please give a short succinct context to situate this chunk within the overall document "
         "for the purposes of improving search retrieval of the chunk. "
-        "Answer only with the succinct context and nothing else."
+        "Do not include reasoning, analysis, or chain-of-thought. "
+        "If you think step by step internally, keep that hidden and return only the final context sentence."
     )
     try:
         llm = _get_context_llm()
@@ -2201,7 +2481,7 @@ def _generate_chunk_context(full_doc_text: str, chunk_text: str) -> str:
         else:
             _context_llm_status["error"] = (
                 f"Model '{_context_llm_status['model']}' returned an empty response. "
-                "If this is a thinking model, check that Ollama supports its output format."
+                "If this is a thinking model, the reasoning blocks may not include a final text answer."
             )
             _context_llm_status["state"] = "empty-response"
         return ctx[:500]
@@ -2237,7 +2517,7 @@ def _build_splitter(
     if _uses_semantic:
         try:
             from langchain_experimental.text_splitter import SemanticChunker
-            embed_model = os.getenv("RAG_EMBED_MODEL", "llama_cpp:").strip()
+            embed_model = os.getenv("RAG_EMBED_MODEL", "llama_server:").strip()
             llama_server_base_url = os.getenv("LLAMA_SERVER_BASE_URL", "http://localhost:8080/v1").rstrip("/")
             llama_cpp_n_ctx = int(os.getenv("RAG_LLAMA_CPP_N_CTX", os.getenv("LLAMA_CPP_N_CTX", "8192")))
             llama_cpp_n_batch = int(os.getenv("RAG_LLAMA_CPP_N_BATCH", os.getenv("LLAMA_CPP_N_BATCH", "256")))
@@ -2540,6 +2820,7 @@ def ingest_rag_paths(
     failures: list[str] = []
     stale_chunks_deleted = 0
     total_files = len(paths)
+    date_added = datetime.now().strftime("%Y-%m-%d")
 
     for file_idx, path in enumerate(paths):
         if _stopped():
@@ -2550,14 +2831,40 @@ def ingest_rag_paths(
 
         _progress("ingest", file_idx + 1, total_files, f"Loading: {path.name}…")
         try:
-            docs, doc_meta = _load_documents(path)
-            if not docs:
+            raw_docs, doc_meta = _load_documents(path)
+            if not raw_docs:
                 failures.append(f"{path} -> no extractable document content found")
                 continue
 
             # Drop empty pages/sections before splitting to avoid empty upsert payloads.
-            docs = [d for d in docs if (getattr(d, "page_content", "") or "").strip()]
+            docs = [d for d in raw_docs if (getattr(d, "page_content", "") or "").strip()]
             if not docs:
+                if path.suffix.lower() == ".pdf":
+                    scanned_docs, scanned_metas, scanned_ids = _extract_scanned_pdf_page_records(
+                        path,
+                        raw_docs,
+                        project_name=project_name,
+                        theme_name=theme_name,
+                        source_fingerprint=_build_source_fingerprint(path),
+                        date_added=date_added,
+                        doc_meta=doc_meta,
+                        extra_meta=extra_meta,
+                    )
+                    if scanned_docs and scanned_metas and scanned_ids:
+                        collection.upsert(
+                            documents=scanned_docs,
+                            metadatas=scanned_metas,
+                            ids=scanned_ids,
+                        )
+                        loaded_files += 1
+                        added_chunks += len(scanned_docs)
+                        _progress(
+                            "ingest",
+                            file_idx + 1,
+                            total_files,
+                            f"[{file_idx + 1}/{total_files}] {path.name} — {len(scanned_docs)} scanned-page chunks",
+                        )
+                        continue
                 failures.append(
                     f"{path} -> no extractable text found (file may be image-only/scanned)"
                 )
@@ -2565,6 +2872,32 @@ def ingest_rag_paths(
 
             splits = splitter.split_documents(docs)
             if not splits:
+                if path.suffix.lower() == ".pdf":
+                    scanned_docs, scanned_metas, scanned_ids = _extract_scanned_pdf_page_records(
+                        path,
+                        raw_docs,
+                        project_name=project_name,
+                        theme_name=theme_name,
+                        source_fingerprint=_build_source_fingerprint(path),
+                        date_added=date_added,
+                        doc_meta=doc_meta,
+                        extra_meta=extra_meta,
+                    )
+                    if scanned_docs and scanned_metas and scanned_ids:
+                        collection.upsert(
+                            documents=scanned_docs,
+                            metadatas=scanned_metas,
+                            ids=scanned_ids,
+                        )
+                        loaded_files += 1
+                        added_chunks += len(scanned_docs)
+                        _progress(
+                            "ingest",
+                            file_idx + 1,
+                            total_files,
+                            f"[{file_idx + 1}/{total_files}] {path.name} — {len(scanned_docs)} scanned-page chunks",
+                        )
+                        continue
                 failures.append(f"{path} -> no chunks produced after splitting")
                 continue
 
@@ -2573,7 +2906,6 @@ def ingest_rag_paths(
                 (getattr(d, "page_content", "") or "") for d in docs
             )
             headings = _extract_section_headings(full_text)
-            date_added = datetime.now().strftime("%Y-%m-%d")
 
             # Track character offset for heading context mapping
             # We rebuild offset from splits since langchain doesn't expose source offsets
@@ -2886,15 +3218,62 @@ def _safe_collection_snapshot(collection: Any, include: list[str] | None = None)
     return data or {}
 
 
-def _list_rag_collections() -> list:
-    """List all ChromaDB collections for the current embed model across all projects (B2)."""
+def _collection_name_value(collection: Any) -> str:
+    """Return a Chroma collection name from either a real object or a test double."""
+    return collection.name if hasattr(collection, "name") else str(collection)
+
+
+def _is_rag_collection_name(name: str) -> bool:
+    """Return True for any RAG collection name, regardless of embedding suffix."""
+    return str(name).startswith("rag__")
+
+
+def _project_collection_prefix(project: str) -> str:
+    """Return the stable Chroma collection prefix for a normalised project name."""
+    return f"rag__{_normalize_project(project)}__"
+
+
+def _list_rag_project_collections(project: str) -> list:
+    """List non-empty RAG collections for a specific project, regardless of suffix."""
     try:
         import chromadb
 
-        embed_model = os.getenv("RAG_EMBED_MODEL", "llama_cpp:").strip()
-        model_hash = hashlib.sha1(embed_model.encode("utf-8")).hexdigest()[:8]
+        prefix = _project_collection_prefix(project)
         client = chromadb.PersistentClient(path=str(RAG_CHROMA_DIR))
-        return [c for c in client.list_collections() if c.name.endswith(f"__{model_hash}")]
+        collections = []
+        for c in client.list_collections():
+            name = _collection_name_value(c)
+            if not name.startswith(prefix):
+                continue
+            try:
+                if c.count() == 0:
+                    continue
+            except Exception:
+                continue
+            collections.append(c)
+        return collections
+    except Exception:
+        return []
+
+
+def _list_rag_collections() -> list:
+    """List all non-empty RAG collections across all projects, regardless of suffix."""
+    try:
+        import chromadb
+
+        client = chromadb.PersistentClient(path=str(RAG_CHROMA_DIR))
+        collections = []
+        for c in client.list_collections():
+            name = _collection_name_value(c)
+            if not _is_rag_collection_name(name):
+                continue
+            try:
+                if c.count() == 0:
+                    continue
+            except Exception:
+                continue
+            collections.append(c)
+        return collections
     except Exception:
         return []
 
@@ -2914,14 +3293,31 @@ def get_rag_index_summary(project: str = "Default") -> dict[str, Any]:
         "total_chunks": 0,
         "files": {},
     }
+    documents: list[str] = []
+    metadatas: list[dict[str, Any]] = []
 
     try:
-        collection = _get_vector_collection(project_name)
-        total = collection.count()
-        if total == 0:
+        collections = _list_rag_project_collections(project_name)
+        if not collections:
             return summary
-        data = _safe_collection_snapshot(collection, include=["metadatas", "documents"])
-        if not data:
+        seen_ids: set[str] = set()
+        for collection in collections:
+            data = _safe_collection_snapshot(collection, include=["metadatas", "documents"])
+            if not data:
+                continue
+            ids = list((data.get("ids") or []))
+            docs = list((data.get("documents") or []))
+            metas = list((data.get("metadatas") or []))
+            for idx, meta in enumerate(metas):
+                meta = meta or {}
+                doc_id = str(ids[idx]) if idx < len(ids) else ""
+                if doc_id and doc_id in seen_ids:
+                    continue
+                if doc_id:
+                    seen_ids.add(doc_id)
+                metadatas.append(meta)
+                documents.append(docs[idx] if idx < len(docs) else "")
+        if not metadatas:
             return summary
     except Exception:
         # Fallback: read directly from Chroma without requiring embedding services.
@@ -2932,7 +3328,12 @@ def get_rag_index_summary(project: str = "Default") -> dict[str, Any]:
             try:
                 collection = client.get_collection(name=collection_name)
             except Exception:
-                return summary
+                legacy_collection_name = f"rag__{re.sub(r'[^a-zA-Z0-9]+', '_', project_name).strip('_').lower()[:20]}__{_get_legacy_rag_collection_suffix()}"
+                try:
+                    collection = client.get_collection(name=legacy_collection_name)
+                    collection_name = legacy_collection_name
+                except Exception:
+                    return summary
             total = collection.count()
             if total == 0:
                 return summary
@@ -2947,8 +3348,7 @@ def get_rag_index_summary(project: str = "Default") -> dict[str, Any]:
         except Exception:
             return summary
 
-    documents = data.get("documents", [])
-    for idx, meta in enumerate(data.get("metadatas", [])):
+    for idx, meta in enumerate(metadatas):
         meta = meta or {}
         document_text = documents[idx] if idx < len(documents) else ""
         source = meta.get("source", "unknown")
@@ -3013,18 +3413,16 @@ def get_rag_projects() -> list[str]:
     projects: set[str] = set()
     try:
         import chromadb
-        embed_model = os.getenv("RAG_EMBED_MODEL", "llama_cpp:").strip()
-        model_hash = hashlib.sha1(embed_model.encode("utf-8")).hexdigest()[:8]
-        suffix = f"__{model_hash}"
         client = chromadb.PersistentClient(path=str(RAG_CHROMA_DIR))
         for c in client.list_collections():
-            if not c.name.endswith(suffix):
+            name = _collection_name_value(c)
+            if not _is_rag_collection_name(name):
                 continue
             # Extract project slug from "rag__{slug}__{hash}"
             prefix = "rag__"
-            if not c.name.startswith(prefix):
+            if not name.startswith(prefix):
                 continue
-            slug = c.name[len(prefix):-len(suffix)]
+            slug = name[len(prefix):].rsplit("__", 1)[0]
             if not slug:
                 continue
             try:
@@ -3094,7 +3492,7 @@ _vector_collection_model: str = ""
 def _get_vector_collection(project: str = "Default"):
     """Return the ChromaDB collection for a project; rebuilds cache on embed model change (B2)."""
     global _vector_collection_cache, _vector_collection_model
-    current_model = os.getenv("RAG_EMBED_MODEL", "llama_cpp:").strip()
+    current_model = _get_rag_collection_name("_probe").rsplit("__", 1)[-1]
     if current_model != _vector_collection_model:
         _vector_collection_cache.clear()
         _vector_collection_model = current_model
@@ -3111,7 +3509,7 @@ def _create_vector_collection(project: str = "Default"):
             "RAG dependencies missing. Install: chromadb"
         ) from e
 
-    embedding_model = os.getenv("RAG_EMBED_MODEL", "llama_cpp:").strip()
+    embedding_model = os.getenv("RAG_EMBED_MODEL", "llama_server:").strip()
     llama_server_base_url = os.getenv("LLAMA_SERVER_BASE_URL", "http://localhost:8080/v1").rstrip("/")
     llama_cpp_n_ctx = int(os.getenv("RAG_LLAMA_CPP_N_CTX", os.getenv("LLAMA_CPP_N_CTX", "8192")))
     llama_cpp_n_batch = int(os.getenv("RAG_LLAMA_CPP_N_BATCH", os.getenv("LLAMA_CPP_N_BATCH", "256")))
@@ -3306,10 +3704,16 @@ def _bm25_search(
             scores = cosine_similarity(q_vec, mat)[0]
 
         ranked_idx = np.argsort(scores)[::-1][:top_k]
-        return [
+        positive_results = [
             (documents[int(i)], metadatas[int(i)], ids[int(i)])
             for i in ranked_idx
             if scores[int(i)] > 0
+        ]
+        if positive_results:
+            return positive_results
+        return [
+            (documents[int(i)], metadatas[int(i)], ids[int(i)])
+            for i in ranked_idx
         ]
     except Exception:
         return []
@@ -3349,7 +3753,7 @@ def _query_all_matching_collections(
     try:
         import chromadb
 
-        embedding_model = os.getenv("RAG_EMBED_MODEL", "llama_cpp:").strip()
+        embedding_model = os.getenv("RAG_EMBED_MODEL", "llama_server:").strip()
         llama_server_base_url = os.getenv("LLAMA_SERVER_BASE_URL", "http://localhost:8080/v1").rstrip("/")
         llama_cpp_n_ctx = int(os.getenv("RAG_LLAMA_CPP_N_CTX", os.getenv("LLAMA_CPP_N_CTX", "8192")))
         llama_cpp_n_batch = int(os.getenv("RAG_LLAMA_CPP_N_BATCH", os.getenv("LLAMA_CPP_N_BATCH", "256")))
@@ -3358,7 +3762,6 @@ def _query_all_matching_collections(
             "RAG_LLAMA_CPP_FLASH_ATTN",
             os.getenv("LLAMA_CPP_FLASH_ATTN", "true"),
         ).strip().lower() in {"1", "true", "yes", "on"}
-        model_hash = hashlib.sha1(embedding_model.encode("utf-8")).hexdigest()[:8]
         ef = _get_rag_embedding_function(
             embedding_model,
             llama_server_base_url,
@@ -3369,15 +3772,25 @@ def _query_all_matching_collections(
         )
         client = chromadb.PersistentClient(path=str(RAG_CHROMA_DIR))
 
-        matching_colls = [
-            c for c in client.list_collections()
-            if (c.name if hasattr(c, "name") else str(c)).endswith(f"__{model_hash}")
-        ]
+        matching_colls = []
+        if where_filter and isinstance(where_filter, dict) and "project" in where_filter:
+            # Best-effort prefix filter when the caller already scoped to one project.
+            project_clause = where_filter.get("project", {})
+            project_name = ""
+            if isinstance(project_clause, dict):
+                project_name = str(project_clause.get("$eq", "") or "").strip()
+            if project_name:
+                matching_colls = _list_rag_project_collections(project_name)
+        if not matching_colls:
+            matching_colls = [
+                c for c in client.list_collections()
+                if _is_rag_collection_name(_collection_name_value(c))
+            ]
         if not matching_colls:
             return [], [], []
 
         def _query_single(coll_meta: Any) -> list[tuple[str, dict, str]]:
-            coll_name = coll_meta.name if hasattr(coll_meta, "name") else str(coll_meta)
+            coll_name = _collection_name_value(coll_meta)
             try:
                 coll = client.get_collection(coll_name, embedding_function=ef)
                 count = coll.count()
@@ -3697,7 +4110,7 @@ def _apply_mmr(
         try:
             chunk_ids = [doc_id for _, _, doc_id, _ in candidates]
             import chromadb
-            embedding_model = os.getenv("RAG_EMBED_MODEL", "llama_cpp:").strip()
+            embedding_model = os.getenv("RAG_EMBED_MODEL", "llama_server:").strip()
             llama_server_base_url = os.getenv("LLAMA_SERVER_BASE_URL", "http://localhost:8080/v1").rstrip("/")
             llama_cpp_n_ctx = int(os.getenv("RAG_LLAMA_CPP_N_CTX", os.getenv("LLAMA_CPP_N_CTX", "8192")))
             llama_cpp_n_batch = int(os.getenv("RAG_LLAMA_CPP_N_BATCH", os.getenv("LLAMA_CPP_N_BATCH", "256")))
@@ -3715,12 +4128,12 @@ def _apply_mmr(
                 llama_cpp_flash_attn,
             )
             client = chromadb.PersistentClient(path=str(RAG_CHROMA_DIR))
-            model_hash = hashlib.sha1(embedding_model.encode("utf-8")).hexdigest()[:8]
+            suffixes = _get_rag_collection_suffixes()
             # Gather embeddings from matching collections
             embeddings_map: dict[str, list[float]] = {}
             for coll_meta in client.list_collections():
                 coll_name = coll_meta.name if hasattr(coll_meta, "name") else str(coll_meta)
-                if not coll_name.endswith(f"__{model_hash}"):
+                if not any(coll_name.endswith(f"__{suffix}") for suffix in suffixes):
                     continue
                 needed = [cid for cid in chunk_ids if cid not in embeddings_map]
                 if not needed:
@@ -4180,7 +4593,7 @@ def rag_retrieve(
     }
 
     # --- Result cache check ---
-    cache_key = _cache_key(query, project, themes, mode, top_k, fetch_k)
+    cache_key = _cache_key(query, project, themes, modalities, mode, top_k, fetch_k, max_files)
     if use_cache:
         cached = _cache_get(cache_key)
         if cached is not None:
@@ -4241,7 +4654,14 @@ def rag_retrieve(
     # Check that at least one collection has data before querying
     all_collections = _list_rag_collections()
     if not all_collections or all(c.count() == 0 for c in all_collections):
-        _store_diagnostics(status="empty-store", candidate_count=0)
+        _store_diagnostics(
+            status="empty-store",
+            candidate_count=0,
+            rerank_count=0,
+            filtered_count=0,
+            final_chunk_count=0,
+            final_chunk_ids=[],
+        )
         return "[WARN] RAG store is empty. Ingest documents first."
 
     # Query across ALL matching collections — handles migration from old collection names
@@ -4268,8 +4688,73 @@ def rag_retrieve(
     diagnostics["candidate_count"] = len(docs)
 
     if not docs:
-        _store_diagnostics(status="no-match", candidate_count=0)
-        return "[WARN] No relevant chunks found for query."
+        # Dense retrieval can fail when the collection was built with a different
+        # embedding backend than the current runtime. Fall back to a keyword pass
+        # over the stored chunks so already-ingested content stays reachable.
+        fallback_docs: list[str] = []
+        fallback_metas: list[dict[str, Any]] = []
+        fallback_ids: list[str] = []
+        try:
+            import chromadb
+
+            client = chromadb.PersistentClient(path=str(RAG_CHROMA_DIR))
+            for coll_meta in all_collections:
+                coll_name = coll_meta.name if hasattr(coll_meta, "name") else str(coll_meta)
+                try:
+                    coll = client.get_collection(coll_name)
+                    data = _safe_collection_snapshot(coll, include=["documents", "metadatas"])
+                except Exception:
+                    continue
+
+                docs_data = list((data.get("documents") or []))
+                metas_data = list((data.get("metadatas") or []))
+                ids_data = list((data.get("ids") or []))
+                for idx, doc_text in enumerate(docs_data):
+                    meta = metas_data[idx] if idx < len(metas_data) else {}
+                    if where_filter and not _meta_matches_filter(meta or {}, where_filter):
+                        continue
+                    fallback_docs.append(str(doc_text))
+                    fallback_metas.append(meta or {})
+                    fallback_ids.append(str(ids_data[idx]) if idx < len(ids_data) else f"{coll_name}:{idx}")
+        except Exception:
+            fallback_docs = []
+            fallback_metas = []
+            fallback_ids = []
+
+        if fallback_docs:
+            bm25_results = _bm25_search(
+                query=query,
+                documents=fallback_docs,
+                metadatas=fallback_metas,
+                ids=fallback_ids,
+                top_k=fetch_k,
+            )
+            if bm25_results:
+                docs = [d for d, _, _ in bm25_results]
+                metas = [m for _, m, _ in bm25_results]
+                ids = [i for _, _, i in bm25_results]
+                diagnostics["candidate_count"] = len(docs)
+                diagnostics["retrieval_fallback"] = "bm25"
+            else:
+                _store_diagnostics(
+                    status="no-match",
+                    candidate_count=0,
+                    rerank_count=0,
+                    filtered_count=0,
+                    final_chunk_count=0,
+                    final_chunk_ids=[],
+                )
+                return "[WARN] No relevant chunks found for query."
+        else:
+            _store_diagnostics(
+                status="no-match",
+                candidate_count=0,
+                rerank_count=0,
+                filtered_count=0,
+                final_chunk_count=0,
+                final_chunk_ids=[],
+            )
+            return "[WARN] No relevant chunks found for query."
 
     # B1: Hybrid mode — fuse dense (cross-collection) + BM25 results via RRF,
     # then pass the merged pool to CrossEncoder reranking.
