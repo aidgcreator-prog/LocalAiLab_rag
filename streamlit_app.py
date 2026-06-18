@@ -1821,65 +1821,160 @@ def get_runtime_feature_status() -> dict:
 
 # Page configuration
 st.set_page_config(
-    page_title="DeepAgents",
+    page_title="LocalAiLab Orchestrator",
     page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# Custom CSS for clean chat-focused UI
+# Custom CSS for a cleaner, more professional product UI
 st.markdown("""
     <style>
-    /* Professional page styling */
-    html, body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    :root {
+        --app-bg: #f6f8fb;
+        --panel-bg: rgba(255, 255, 255, 0.92);
+        --panel-border: rgba(148, 163, 184, 0.20);
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --text-muted: #64748b;
+        --accent: #2563eb;
+        --accent-soft: rgba(37, 99, 235, 0.10);
     }
-    
-    /* Compact header */
-    .block-container { 
-        padding-top: 1.5rem;
-        max-width: 1200px;
+
+    html, body, [class*="stApp"] {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+            Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        color: var(--text-primary);
+        background:
+            radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 24%),
+            linear-gradient(180deg, #fbfdff 0%, var(--app-bg) 100%);
     }
-    
-    /* Tighter sidebar sections */
-    section[data-testid="stSidebar"] .block-container { 
+
+    .block-container {
+        padding-top: 1.35rem;
+        padding-bottom: 2rem;
+        max-width: 1280px;
+    }
+
+    section[data-testid="stSidebar"] .block-container {
         padding-top: 1rem;
     }
-    
-    /* Status bar styling */
-    .status-bar {
+
+    [data-testid="stHeader"] {
+        background: transparent;
+    }
+
+    .page-shell,
+    .section-card,
+    .feature-card {
+        background: var(--panel-bg);
+        border: 1px solid var(--panel-border);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+        backdrop-filter: blur(10px);
+    }
+
+    .page-shell {
+        padding: 1.2rem 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .page-kicker {
+        display: inline-block;
+        margin-bottom: 0.35rem;
+        color: var(--text-muted);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .page-title {
+        margin: 0;
+        font-size: 1.85rem;
+        font-weight: 750;
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+    }
+
+    .page-subtitle {
+        margin-top: 0.45rem;
+        color: var(--text-secondary);
+        font-size: 0.96rem;
+        line-height: 1.55;
+    }
+
+    .section-card,
+    .feature-card {
+        padding: 1rem 1.05rem;
+    }
+
+    .section-header {
         display: flex;
-        gap: 1.5rem;
-        padding: 0.5rem 0;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.75rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .section-title {
+        margin: 0;
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+
+    .section-note {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+    }
+
+    .summary-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+    }
+
+    .summary-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.34rem 0.7rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .clean-caption {
+        color: var(--text-muted);
         font-size: 0.85rem;
-        color: #666;
+        line-height: 1.45;
     }
-    .status-bar span { 
-        white-space: nowrap; 
-    }
-    
-    /* Chat message styling */
+
     .stChatMessage {
         background-color: transparent;
     }
-    
-    /* Divider styling */
+
     hr {
-        margin: 1.5rem 0;
+        margin: 1.25rem 0;
         border: none;
-        border-top: 1px solid #e0e0e0;
+        border-top: 1px solid rgba(148, 163, 184, 0.22);
     }
-    
-    /* Button styling */
+
     .stButton > button {
-        border-radius: 6px;
-        font-weight: 500;
-        transition: all 0.2s;
+        border-radius: 10px;
+        font-weight: 600;
+        transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
     }
-    
+
     .stButton > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
     }
     </style>
     """, unsafe_allow_html=True)
@@ -2152,161 +2247,74 @@ if "active_session_id" not in st.session_state:
 
 def _render_welcome_screen() -> None:
     """Render a professional landing screen shown when no conversation is active."""
-    
-    # Professional hero section with gradient styling
-    st.markdown("""
-        <style>
-        .hero-container {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            padding: 3rem 2rem;
-            margin-bottom: 2rem;
-            color: white;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .hero-container h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
-        }
-        .hero-container p {
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
-            opacity: 0.95;
-            line-height: 1.6;
-        }
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .feature-card {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 1.5rem;
-            border-left: 4px solid #667eea;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.15);
-        }
-        .feature-card h3 {
-            color: #667eea;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        .feature-card p {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin: 0;
-        }
-        .cta-section {
-            background: #f0f2f5;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-        .cta-section h2 {
-            color: #333;
-            margin-bottom: 1rem;
-        }
-        .cta-section p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-        .about-section {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            border: 1px solid #e0e0e0;
-        }
-        .about-section p {
-            color: #666;
-            line-height: 1.6;
-            margin: 0.5rem 0;
-        }
-        </style>
-        """, unsafe_allow_html=True)
-
     logo_path = PROJECT_DIR / "assets" / "localailab-logo.png"
     if logo_path.exists():
         st.image(str(logo_path), width=220)
 
-    st.markdown("""
-        <div class="hero-container">
-            <h1>🤖 LocalAiLab Orchestrator</h1>
-            <p>Multi-specialist AI agent platform for research, analysis, coding, and content creation</p>
-            <p style="font-size: 0.95rem; opacity: 0.85; margin-top: 1rem;">
-                <em>Built with LangGraph • Powered by Local LLMs • Enterprise-ready</em>
+    st.markdown(
+        """
+        <div class="page-shell hero-shell">
+            <div class="page-kicker">Main Agent</div>
+            <h1>LocalAiLab Orchestrator</h1>
+            <p class="page-subtitle">
+                A focused workspace for chat, RAG, analysis, coding, and specialist routing.
+                The controls on this page shape how the main agent behaves.
             </p>
+            <p class="hero-meta">Built with LangGraph · Local-first · Privacy-conscious</p>
         </div>
-        """, unsafe_allow_html=True)
-    
-    # Features grid
-    st.markdown("""
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        """
         <div class="feature-grid">
             <div class="feature-card">
-                <h3>🔍 Research Agent</h3>
-                <p>Web search, document analysis, and synthesis for comprehensive research across multiple sources.</p>
+                <h3>Research</h3>
+                <p>Web search, document analysis, and synthesis for multi-source tasks.</p>
             </div>
             <div class="feature-card">
-                <h3>📊 Data Scientist</h3>
-                <p>Advanced analytics, data visualization, statistical analysis, and ML-powered insights.</p>
+                <h3>Analysis</h3>
+                <p>Practical data science support, visualization, and statistical workflows.</p>
             </div>
             <div class="feature-card">
-                <h3>💾 RAG Agent</h3>
-                <p>Retrieval-augmented generation for intelligent document Q&A and knowledge extraction.</p>
+                <h3>RAG</h3>
+                <p>Document-grounded retrieval and answer generation with citations.</p>
             </div>
             <div class="feature-card">
-                <h3>✍️ Presentation Agent</h3>
-                <p>Create professional presentations, reports, and visualizations in multiple formats.</p>
+                <h3>Presentations</h3>
+                <p>Reports and slide decks with a cleaner, executive-ready structure.</p>
             </div>
         </div>
-        """, unsafe_allow_html=True)
-    
-    # Stats/capabilities
+        """,
+        unsafe_allow_html=True,
+    )
+
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.metric("Specialist Agents", "5", help="Research, Data Science, RAG, Presentation, Custom")
+        st.metric("Specialists", "5", help="Research, Data Science, RAG, Presentation, Custom")
     with col2:
         st.metric("Model Support", "Multi", help="Ollama, LlamaServer, OpenAI, Anthropic")
     with col3:
-        st.metric("File Types", "15+", help="PDF, CSV, Images, Docs, Presentations, and more")
+        st.metric("File Types", "15+", help="PDF, CSV, images, docs, presentations, and more")
     with col4:
-        st.metric("Voice Ready", "Yes", help="Voice input/output with TTS support")
-    
-    # Call to action
-    st.markdown("""
-        <div class="cta-section">
-            <h2>Get Started in 3 Steps</h2>
-            <p>Start chatting with your AI agents below. Use the sidebar to select your preferred agent and model.</p>
-            <div style="margin-top: 1rem; font-size: 0.9rem; color: #888;">
-                💡 <strong>Tip:</strong> Click the chat input below to begin. Use /help for agent-specific commands.
+        st.metric("Voice", "Ready", help="Voice input and speech output support")
+
+    st.markdown(
+        """
+        <div class="page-shell about-shell">
+            <div class="section-header">
+                <p class="section-title">Start here</p>
+                <p class="section-note">Choose a mode, then begin chatting.</p>
             </div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    # About section
-    st.markdown("""
-        <div class="about-section">
-            <p><strong>About LocalAiLab Orchestrator</strong></p>
-            <p>This platform coordinates multiple specialized AI agents to tackle complex tasks. Whether you need research synthesis, data analysis, document understanding, or presentation generation, the orchestrator automatically routes your requests to the most appropriate specialist agent.</p>
-            <p style="margin-top: 1rem; font-size: 0.85rem; color: #999;">
-                <em>Developed by LocalAiLab • Open Source • Privacy-First Design</em>
+            <p class="clean-caption" style="margin: 0;">
+                The orchestrator routes each request to the most appropriate specialist while keeping the interface lightweight and easy to scan.
             </p>
         </div>
-        """, unsafe_allow_html=True)
-    
+        """,
+        unsafe_allow_html=True,
+    )
+
     st.divider()
 
 
@@ -4507,11 +4515,11 @@ def _apply_main_chat_context_overrides(user_message: str, user_input: str) -> st
 
 def _render_main_settings() -> None:
     """Render the main-mode settings organized into logical sections with collapsible expanders."""
-    with st.expander("⚙️ Settings", expanded=False):
+    with st.expander("Settings", expanded=False):
         # ──────────────────────────────────────────────────────────────────
         # Section 1: Agent & Model Selection
         # ──────────────────────────────────────────────────────────────────
-        with st.expander("🤖 Agent & Model Selection", expanded=True):
+        with st.expander("Agent & Model", expanded=True):
             ctrl_col1, ctrl_col2, ctrl_col3 = st.columns(3)
             with ctrl_col1:
                 agent_display_options = registry.get_all_agents()
@@ -4525,7 +4533,7 @@ def _render_main_settings() -> None:
                         else 0
                     ),
                     key="main_agent_selector",
-                    help="Auto = orchestrator picks the best specialist",
+                    help="Auto routes to the best specialist.",
                 )
                 st.session_state.selected_agent = selected_agent
             with ctrl_col2:
@@ -4557,7 +4565,7 @@ def _render_main_settings() -> None:
         # llama.cpp performance controls (only shown when provider is llama_cpp)
         _active_provider = st.session_state.get("llm_provider") or get_default_llm_provider()
         if _active_provider == "llama_cpp":
-            with st.expander("⚙️ llama.cpp Settings", expanded=True):
+            with st.expander("llama.cpp", expanded=True):
                 _render_llama_cpp_model_path_selector()
                 st.divider()
                 lc1, lc2 = st.columns(2)
@@ -4593,7 +4601,7 @@ def _render_main_settings() -> None:
                     "installed wheel/build, llama.cpp will ignore it and log a warning."
                 )
 
-        with st.expander("⚡ Execution & Processing", expanded=False):
+        with st.expander("Execution", expanded=False):
             exec_col1, exec_col2 = st.columns(2)
             with exec_col1:
                 st.session_state.main_chat_use_direct_model = st.toggle(
@@ -4616,18 +4624,18 @@ def _render_main_settings() -> None:
         # ──────────────────────────────────────────────────────────────────
         # Section 3: RAG Integration
         # ──────────────────────────────────────────────────────────────────
-        with st.expander("📚 RAG Integration", expanded=False):
+        with st.expander("RAG", expanded=False):
             st.session_state.rag_enable_main_chat = st.checkbox(
                 "Augment main-agent chat with RAG",
                 value=st.session_state.rag_enable_main_chat,
                 help="Enable RAG context retrieval to augment agent responses with knowledge base information.",
             )
-            st.caption("When enabled, the agent will retrieve and reference relevant documents from the RAG knowledge base.")
+            st.caption("Adds retrieval context from the RAG knowledge base to main-chat replies.")
 
         # ──────────────────────────────────────────────────────────────────
         # Section 4: Voice & Audio
         # ──────────────────────────────────────────────────────────────────
-        with st.expander("🎤 Voice & Audio", expanded=False):
+        with st.expander("Voice", expanded=False):
             voice_col1, voice_col2 = st.columns(2)
             with voice_col1:
                 st.session_state.voice_chat_enabled = st.checkbox(
@@ -4654,14 +4662,14 @@ def _render_main_settings() -> None:
             
             _tts_ok, _tts_msg = _coqui_tts_available()
             if _tts_ok:
-                st.caption("✅ Agent speech uses Coqui TTS.")
+                st.caption("Coqui TTS is available.")
             else:
                 st.warning(f"⚠️ Coqui TTS unavailable: {_tts_msg}")
 
         # ──────────────────────────────────────────────────────────────────
         # Section 5: Learning & Memory
         # ──────────────────────────────────────────────────────────────────
-        with st.expander("🧠 Learning & Memory", expanded=False):
+        with st.expander("Memory", expanded=False):
             learn_col1, learn_col2 = st.columns(2)
             with learn_col1:
                 st.session_state.self_learning_enabled = st.checkbox(
@@ -4681,7 +4689,7 @@ def _render_main_settings() -> None:
         # ──────────────────────────────────────────────────────────────────
         # Section 6: System Info
         # ──────────────────────────────────────────────────────────────────
-        with st.expander("ℹ️ System Information", expanded=False):
+        with st.expander("System", expanded=False):
             runtime_status = get_runtime_feature_status()
             info_col1, info_col2 = st.columns(2)
             with info_col1:
@@ -4691,7 +4699,7 @@ def _render_main_settings() -> None:
                     st.caption(f"⚠️ {runtime_status['cache_status']}")
             with info_col2:
                 st.caption(f"📦 DeepAgents: v{runtime_status['deepagents_version']}")
-        with st.expander("📎 Attachments in Chat", expanded=False):
+        with st.expander("Attachments", expanded=False):
             _attach_col1, _attach_col2 = st.columns([1, 3])
             with _attach_col1:
                 st.radio(
@@ -4702,13 +4710,11 @@ def _render_main_settings() -> None:
                     label_visibility="collapsed",
                 )
             with _attach_col2:
-                st.caption(
-                    "Attach files directly in the chat box: image, PDF, Excel, Word, PowerPoint, CSV, JSON, TXT, or Markdown."
-                )
+                st.caption("Attach images, PDFs, spreadsheets, documents, CSV, JSON, TXT, or Markdown files.")
                 if st.session_state.main_chat_attachment_mode == "Add to RAG":
-                    st.caption("Route preview: attached files will be ingested through `RAG SubAgent` before answering.")
+                    st.caption("Route: ingest through RAG before answering.")
                 else:
-                    st.caption("Route preview: spreadsheets go to `Data Scientist`; documents, images, and presentations start in `Main Agent`, which can delegate to `RAG SubAgent` if needed.")
+                    st.caption("Route: spreadsheets to Data Scientist; documents, images, and decks stay in Main Agent unless delegated.")
 
 # ── Mode Renderers ────────────────────────────────────────────────────────────
 
@@ -5317,7 +5323,16 @@ def _list_rag_file_chunks(
 
 def _mode_rag() -> None:
     """RAG mode — document management, ingestion controls, and knowledge retrieval chat."""
-    st.markdown("### 📚 RAG")
+    st.markdown(
+        """
+        <div class="page-shell">
+            <div class="page-kicker">Knowledge Base</div>
+            <h1 class="page-title" style="font-size: 1.55rem; margin-bottom: 0.2rem;">RAG</h1>
+            <p class="page-subtitle" style="margin-bottom: 0;">Configure retrieval, ingest content, and review stored documents from one place.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     if not st.session_state.get("rag_ui_initialized"):
         _apply_rag_preset(
@@ -5377,22 +5392,22 @@ def _mode_rag() -> None:
         st.rerun()
 
     retrieval_settings_tab, transcript_tab, ingest_tab, stored_docs_tab = st.tabs([
-        "Retrieval Settings and RAG Queries",
-        "Get YouTube Transcripts",
-        "Ingest Documents",
-        "Stored Documents",
+        "Retrieval",
+        "YouTube",
+        "Ingest",
+        "Documents",
     ])
     user_input = None
 
     with transcript_tab:
-        st.markdown("**Single Video**")
+        st.markdown("Single video")
         yt_url = st.text_input(
             "YouTube video URL",
             key="rag_youtube_url_mode",
             placeholder="https://www.youtube.com/watch?v=...",
         )
-        st.caption("Saves transcript text into `youtube_transcripts/` using the video title as the filename.")
-        if st.button("Download Transcript", key="rag_youtube_transcript_btn", width="stretch"):
+        st.caption("Saves the transcript into `youtube_transcripts/` using the video title as the filename.")
+        if st.button("Download", key="rag_youtube_transcript_btn", width="stretch"):
             if not yt_url.strip():
                 st.warning("Enter a YouTube URL first.")
             else:
@@ -5407,17 +5422,16 @@ def _mode_rag() -> None:
                     st.error(f"Unable to download transcript: {exc}")
 
         st.markdown("---")
-        st.markdown("**Playlist**")
+        st.markdown("Playlist")
         yt_playlist_url = st.text_input(
             "YouTube playlist URL",
             key="rag_youtube_playlist_url_mode",
             placeholder="https://www.youtube.com/playlist?list=...",
         )
         st.caption(
-            "Saves one transcript per video into `youtube_transcripts/<playlist_name>/`. "
-            "Requires `YOUTUBE_API_KEY` in your environment."
+            "Saves one transcript per video into `youtube_transcripts/<playlist_name>/`."
         )
-        if st.button("Download Playlist Transcripts", key="rag_youtube_playlist_transcript_btn", width="stretch"):
+        if st.button("Download playlist", key="rag_youtube_playlist_transcript_btn", width="stretch"):
             if not yt_playlist_url.strip():
                 st.warning("Enter a YouTube playlist URL first.")
             else:
@@ -5444,7 +5458,6 @@ def _mode_rag() -> None:
     with ingest_tab:
         ingest_top_col1, ingest_top_col2, ingest_top_col3 = st.columns(3)
         
-        # Current embedding configuration
         current_embed_config = os.getenv("RAG_EMBED_MODEL", "llama_server:").strip()
         current_embed_provider, current_embed_model = resolve_provider_and_model(current_embed_config)
 
@@ -5453,7 +5466,7 @@ def _mode_rag() -> None:
             set_env_value("RAG_EMBED_MODEL", full_config)
             st.session_state["model_rag_embed"] = full_config
             reload_env_file()
-            st.success(f"✅ Embedding config: {full_config}")
+            st.success(f"Embedding config updated: {full_config}")
             if rerun:
                 st.rerun()
 
@@ -5469,7 +5482,7 @@ def _mode_rag() -> None:
                 embed_providers.insert(0, current_embed_provider)
             
             selected_embed_provider = st.selectbox(
-                "Embedding Provider",
+                "Provider",
                 embed_providers,
                 index=embed_providers.index(current_embed_provider) if current_embed_provider in embed_providers else 0,
                 key="rag_embed_provider_selector",
@@ -5481,7 +5494,7 @@ def _mode_rag() -> None:
                 placeholder_text = "C:\\models\\embedding.gguf or /home/user/model.gguf"
                 help_text = "Full path to embedding model file (any format: .gguf, .bin, etc.)"
                 embed_model_input = st.text_input(
-                    "Embedding Model",
+                    "Model",
                     value=current_embed_model or "",
                     placeholder=placeholder_text,
                     key="rag_embed_model_input",
@@ -5497,21 +5510,21 @@ def _mode_rag() -> None:
                         else ollama_model_names[0]
                     )
                     embed_model_input = st.selectbox(
-                        "Embedding Model",
+                        "Model",
                         ollama_model_names,
                         index=ollama_model_names.index(default_ollama_model),
                         key="rag_embed_model_selector",
                         help="Installed Ollama embedding models fetched from `http://localhost:11434/api/tags`.",
                     )
                 else:
-                    st.warning("No Ollama models found. Pull one with `ollama pull <model>` and click refresh.")
-                    if st.button("🔄 Refresh Ollama models", key="rag_refresh_ollama_models", use_container_width=True):
+                    st.warning("No Ollama models found. Pull one with `ollama pull <model>` and refresh.")
+                    if st.button("Refresh Ollama models", key="rag_refresh_ollama_models", use_container_width=True):
                         get_ollama_models.clear()
                         st.rerun()
                     placeholder_text = "mistral, nomic-embed-text, etc."
                     help_text = "Ollama model name from ollama.ai registry"
                     embed_model_input = st.text_input(
-                        "Embedding Model",
+                        "Model",
                         value=current_embed_model or "",
                         placeholder=placeholder_text,
                         key="rag_embed_model_input",
@@ -5521,7 +5534,7 @@ def _mode_rag() -> None:
                 placeholder_text = "model_name (auto-detected from server)"
                 help_text = "Leave blank for auto-detection, or specify a model name"
                 embed_model_input = st.text_input(
-                    "Embedding Model",
+                    "Model",
                     value=current_embed_model or "",
                     placeholder=placeholder_text,
                     key="rag_embed_model_input",
@@ -5531,7 +5544,7 @@ def _mode_rag() -> None:
                 placeholder_text = "any-model-identifier"
                 help_text = "Model identifier for your custom embedding provider"
                 embed_model_input = st.text_input(
-                    "Embedding Model",
+                    "Model",
                     value=current_embed_model or "",
                     placeholder=placeholder_text,
                     key="rag_embed_model_input",
@@ -5544,16 +5557,16 @@ def _mode_rag() -> None:
                     _apply_rag_embed_config(selected_embed_provider, embed_model_input)
         
         with ingest_top_col3:
-            st.markdown("**Current Config**")
+            st.caption("Current embedding config")
             st.code(current_embed_config, language="text")
             
-            if st.button("🔄 Reset to Default", key="rag_embed_reset", use_container_width=True):
+            if st.button("Reset", key="rag_embed_reset", use_container_width=True):
                 _apply_rag_embed_config("llama_server", "")
         
         st.markdown("---")
         
         # Warning about re-ingesting
-        st.caption("⚠️ **Note:** Changing the embedding provider/model requires clearing the index and re-ingesting all documents.")
+        st.caption("Changing the embedding provider or model requires re-ingesting documents.")
 
         if selected_embed_provider == "llama_server":
             _emb_ok, _emb_msg = _probe_llama_server_embeddings(current_embed_model or os.getenv("LLAMA_SERVER_MODEL", "local"))
@@ -5573,7 +5586,7 @@ def _mode_rag() -> None:
                 else:
                     st.info("Install an Ollama embedding model or restart llama-server with `--embeddings` enabled.")
 
-        with st.expander("Vision & OCR Configuration", expanded=False):
+        with st.expander("Vision & OCR", expanded=False):
             vision_col1, vision_col2 = st.columns(2)
             with vision_col1:
                 _active_vision = _render_model_selector(
@@ -5583,11 +5596,10 @@ def _mode_rag() -> None:
                     widget_key="rag_vision_model_selector",
                     allow_inherit=False,
                 )
-                st.caption("For multimodal document processing (image captioning).")
+                st.caption("Used for multimodal document processing and image captioning.")
             
             with vision_col2:
                 if get_multimodal_ocr_status:
-                    st.markdown("**Vision & OCR Configuration**")
                     _vision_model_current = st.session_state.get("model_rag_vision") or os.getenv("RAG_VISION_MODEL", "llama_cpp:")
                     _vision_model_current = str(_vision_model_current).strip()
                     _vision_provider, _vision_model = resolve_provider_and_model(_vision_model_current)
@@ -5603,7 +5615,7 @@ def _mode_rag() -> None:
                             _vision_provider_options,
                             index=_vision_provider_options.index(_vision_provider) if _vision_provider in _vision_provider_options else 0,
                             key="rag_vision_provider_selector",
-                            help="Choose the provider used for vision-based document understanding.",
+                            help="Provider used for vision-based document understanding.",
                         )
                     with _vision_col2:
                         _vision_placeholder = (
@@ -5616,7 +5628,7 @@ def _mode_rag() -> None:
                             value=_vision_model,
                             placeholder=_vision_placeholder,
                             key="rag_vision_model_input",
-                            help="Model name or path used for vision-based extraction and OCR enhancement.",
+                            help="Model name or path used for vision-based extraction and OCR.",
                         )
                     with _vision_col3:
                         st.session_state.rag_ocr_engine_mode = st.selectbox(
@@ -5624,7 +5636,7 @@ def _mode_rag() -> None:
                             options=_ocr_engine_options,
                             index=_ocr_engine_options.index(_ocr_engine_current) if _ocr_engine_current in _ocr_engine_options else 0,
                             key="rag_ocr_engine_selector",
-                            help="Choose which OCR backend to use when ingesting scanned images or PDFs.",
+                            help="OCR backend used when ingesting scanned images or PDFs.",
                         )
                     with _vision_col4:
                         _ocr_status = get_multimodal_ocr_status()
@@ -5740,7 +5752,7 @@ def _mode_rag() -> None:
             "semantic_contextual_late": "Semantic + Contextual + Late — all three combined (slowest)",
         }
         rag_chunk_method = st.selectbox(
-            "Chunking method",
+            "Chunking",
             list(_CHUNK_LABELS.keys()),
             index=list(_CHUNK_LABELS.keys()).index("semantic_contextual_late"),
             format_func=lambda x: _CHUNK_LABELS.get(x, x),
@@ -5805,39 +5817,39 @@ def _mode_rag() -> None:
                 file_kinds.append((up.name, _classify_rag_upload_type(up.name)))
             st.session_state.rag_uploaded_files = saved
             st.caption(f"{len(saved)} file(s) ready")
-            with st.expander("Preview upload handling", expanded=False):
+            with st.expander("Preview upload", expanded=False):
                 for filename, file_kind in file_kinds:
                     st.caption(f"`{filename}` -> {file_kind}")
 
         st.markdown("---")
-        with st.expander("Ingest Web Search Results", expanded=False):
+        with st.expander("Web ingest", expanded=False):
             web_col1, web_col2 = st.columns(2)
             with web_col1:
                 rag_web_query = st.text_input(
-                    "Web search query",
+                    "Query",
                     value="",
                     key="rag_web_query_mode",
                     placeholder="e.g. ASEAN AI policy updates 2026",
                 )
             with web_col2:
                 rag_web_topic = st.selectbox(
-                    "Web topic",
+                    "Topic",
                     options=["general", "news", "finance"],
                     index=0,
                     key="rag_web_topic_mode",
-                    help="Topic filter passed to Tavily during web search.",
+                    help="Topic filter passed to Tavily during the web search step.",
                 )
             web_col3, web_col4 = st.columns(2)
             with web_col3:
                 rag_web_project = st.text_input(
-                    "Web project",
+                    "Project",
                     value=rag_project or "Default",
                     key="rag_web_project_mode",
-                    help="Project bucket for storing ingested web results.",
+                    help="Project bucket for the ingested web results.",
                 )
             with web_col4:
                 rag_web_theme = st.text_input(
-                    "Web theme",
+                    "Theme",
                     value=rag_theme,
                     key="rag_web_theme_mode",
                     help="Optional theme label for the ingested web results.",
@@ -5845,7 +5857,7 @@ def _mode_rag() -> None:
             web_col5, web_col6 = st.columns(2)
             with web_col5:
                 rag_web_max_results = st.slider(
-                    "Web results to ingest",
+                    "Results",
                     min_value=1,
                     max_value=10,
                     value=3,
@@ -5854,13 +5866,13 @@ def _mode_rag() -> None:
                 )
             with web_col6:
                 rag_web_chunk_method = st.selectbox(
-                    "Web chunking method",
+                    "Chunking",
                     list(_CHUNK_LABELS.keys()),
                     index=list(_CHUNK_LABELS.keys()).index("recursive"),
                     format_func=lambda x: _CHUNK_LABELS.get(x, x),
                     key="rag_web_chunk_method_mode",
                 )
-            if st.button("🌐 Search and Ingest to RAG", key="rag_web_ingest_btn", width="stretch"):
+            if st.button("Search and ingest", key="rag_web_ingest_btn", width="stretch"):
                 if not rag_web_query.strip():
                     st.warning("Enter a web search query first.")
                 elif ingest_web_search_results is None:
@@ -5889,12 +5901,12 @@ def _mode_rag() -> None:
 
         _ingest_col, _stop_col = st.columns([3, 1])
         with _ingest_col:
-            _do_ingest = st.button("⚡ Ingest Files", key="rag_ingest_mode", width="stretch")
+            _do_ingest = st.button("Ingest files", key="rag_ingest_mode", width="stretch")
         _auto_ingest = bool(st.session_state.get("rag_auto_ingest_pending"))
         if _auto_ingest:
             st.session_state["rag_auto_ingest_pending"] = False
         with _stop_col:
-            if st.button("⏹ Stop", key="rag_stop_ingest_btn", width="stretch"):
+            if st.button("Stop", key="rag_stop_ingest_btn", width="stretch"):
                 st.session_state["rag_stop_ingest"] = True
 
         if _do_ingest or _auto_ingest:
@@ -6305,10 +6317,10 @@ def _mode_rag() -> None:
                 ]
             st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
         else:
-            st.info("No documents indexed yet. Use **Ingest Documents** above to add files.")
+            st.info("No documents indexed yet. Use Ingest to add files.")
 
         filenames = sorted(files.keys())
-        with st.expander("**Delete Stored Chunks**"):
+        with st.expander("Delete chunks"):
             _delete_entries = []
             for src, info in sorted(files.items()):
                 if "/" in src and selected_project == "All Projects":
@@ -6533,15 +6545,15 @@ def _mode_rag() -> None:
             )
             if st.session_state.rag_uploaded_files:
                 st.button(
-                    "♻ Re-ingest uploaded files",
+                    "Re-ingest files",
                     key="rag_reingest_recommended_btn",
                     use_container_width=True,
                     on_click=_queue_rag_reingest,
                     help="Re-run ingestion for the files already staged in the current session.",
                 )
-                st.caption("This will reuse the files already uploaded in the **Ingest Documents** tab.")
+                st.caption("This will reuse the files already staged in the Ingest tab.")
             else:
-                st.info("Upload files in **Ingest Documents** first, then use this button to re-ingest them.")
+                st.info("Upload files in Ingest first, then use this button to re-ingest them.")
         elif active_project_chunk_count == 0:
             st.warning(
                 f"Project `{retrieval_selected_project}` has no indexed chunks in the current RAG store. "
@@ -6549,15 +6561,15 @@ def _mode_rag() -> None:
             )
             if st.session_state.rag_uploaded_files:
                 st.button(
-                    "♻ Re-ingest uploaded files",
+                    "Re-ingest files",
                     key="rag_reingest_recommended_btn",
                     use_container_width=True,
                     on_click=_queue_rag_reingest,
                     help="Re-run ingestion for the files already staged in the current session.",
                 )
-                st.caption("This will reuse the files already uploaded in the **Ingest Documents** tab.")
+                st.caption("This will reuse the files already staged in the Ingest tab.")
             else:
-                st.info("Upload files in **Ingest Documents** first, then use this button to re-ingest them.")
+                st.info("Upload files in Ingest first, then use this button to re-ingest them.")
 
         retrieval_model_col1, retrieval_model_col2 = st.columns(2)
         with retrieval_model_col1:
@@ -6570,9 +6582,9 @@ def _mode_rag() -> None:
             # Show current embedding configuration
             _current_embed_config = os.getenv("RAG_EMBED_MODEL", "llama_server:").strip()
             _current_embed_provider, _current_embed_model = resolve_provider_and_model(_current_embed_config)
-            st.markdown(f"**Embedding Configuration**")
+            st.caption("Embedding config")
             st.code(_current_embed_config, language="text")
-            st.caption("🔧 Configure in **Ingest Documents** → **Embedding Provider** section")
+            st.caption("Set it in Ingest → Provider.")
 
         # ...existing code...
 
@@ -6824,16 +6836,6 @@ def _mode_rag() -> None:
             )
             
         
-        st.info(
-            "⚡ **Full DeepAgents Architecture Active**\n\n"
-            "Agents operate with complete autonomy:\n"
-            "• Auto-route to specialized subagents (RAG, Data Scientist, Presenter, etc.)\n"
-            "• Full LangSmith observability & tracing enabled\n"
-            "• Prompt caching active for cost reduction\n"
-            "• LangGraph persistence for conversation state\n"
-            "• No forced routing constraints"
-        )
-
     st.divider()
     _render_chat_history()
     user_input = st.chat_input("Ask me to analyze data, research topics, write content...")
@@ -7536,7 +7538,7 @@ def _mode_literature() -> None:
                     "semantic_contextual_late": "Semantic + Contextual + Late — all three combined (slowest)",
                 }
                 _lr_chunk_method = st.selectbox(
-                    "Chunking method",
+                    "Chunking",
                     list(_LR_CHUNK_LABELS.keys()),
                     index=0,
                     format_func=lambda x: _LR_CHUNK_LABELS.get(x, x),
