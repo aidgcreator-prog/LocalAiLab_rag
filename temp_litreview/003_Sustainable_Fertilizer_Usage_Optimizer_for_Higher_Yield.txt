@@ -1,9 +1,0 @@
-Title: Sustainable Fertilizer Usage Optimizer for Higher Yield
-Authors: V. B.; Madhan Raj M.; Midhun B M.; P. M; Parthasarathy E.; Prithika Sri S; Redhu Darsini G
-Year: 2024
-Journal: International Journal of Innovative Science and Research Technology
-DOI: 10.38124/ijisrt/ijisrt24nov641
-Citations: 0
-
-Abstract:
-In modern agriculture, maximizing crop yield while maintaining soil health has become a critical challenge. This fertilizer recommendation app leverages precision agriculture techniques to provide farmers with tailored fertilizer recommendations that align with specific crop needs, soil conditions, and climate data. The app integrates data from soil testing, crop requirements, and weather patterns to offer optimized fertilizer plans that minimize waste and environmental impact while boosting productivity. By guiding users on optimal nutrient application, the app aims to reduce fertilizer misuse, lower costs, and promote sustainable farming practices. This user-friendly, mobile- compatible app supports multiple crops, local languages, and delivers actionable insights to improve agricultural efficiency across various farming scales.

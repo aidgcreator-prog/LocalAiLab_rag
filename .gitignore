@@ -32,14 +32,31 @@ env/
 *.swp
 *.swo
 *~
+*.sublime-workspace
+*.sublime-project
 
-# Environment
+# Environment & Credentials
 .env
 .env.local
+.env.*.local
+*.pem
+*.key
+*.pub
+*.pfx
+*.p12
+credentials.json
+secrets.json
+config.json
+settings.local.json
 
 # OS
 .DS_Store
 Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 
 # uv
 uv.lock
@@ -48,6 +65,77 @@ uv.lock
 evals/results/
 
 # Generated local vector store artifacts
+*.db
+*.sqlite
+*.sqlite3
+
+# Personal/Local Usage Data
+# Logs and temporary files
+*.log
+logs/
+*.tmp
+tmp/
+temp/
+*.bak
+*.swp
+
+# API Keys, Tokens, and Sensitive Data
+.api_keys
+tokens/
+api_tokens.txt
+auth_tokens.txt
+
+# Personal Data
+personal_data/
+user_data/
+private/
+notes/
+*.private
+
+# Cache directories
+.cache/
+cache/
+__pycache__/
+*.cache
+
+# Build and compiled files
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Data files (local/personal)
+data/local/
+data/private/
+*.csv.local
+test_data_*.csv
+
+# Presentations and sensitive docs
+*.pptx
+*.docx
+sensitive_*
+confidential_*
+
+# LLM/Model outputs
+models/local/
+outputs/local/
+runs/local/
+
+# Cloud provider credentials
+.aws/
+.gcp/
+.azure/credentials
+credentials.yml
+
+# IDE temporary files
+.LSP*
+.venv/
 rag-chroma/
 
 # Local persistence / runtime state

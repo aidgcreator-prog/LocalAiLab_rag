@@ -1,9 +1,0 @@
-Title: Characterizing data usage patterns in a large cellular network
-Authors: Yu Jin; Nick Duffield; Alexandre Gerber; Patrick Haffner; Wen-Ling Hsu; Guy Jacobson; Subhabrata Sen; Shobha Venkataraman; Zhi-Li Zhang
-Year: 2012
-Journal: 
-DOI: 10.1145/2342468.2342471
-Citations: 63
-
-Abstract:
-Using heterogeneous data sources collected from one of the largest 3G cellular networks in the US over three months, in this paper we investigate the usage patterns of mobile data users. We observe that data usage across mobile users are highly uneven. Most of the users access data services occasionally, while a small number of heavy users contribute to a majority of data usage in the network. We apply statistical tools, such as Markov model and tri-nonnegative matrix factorization, to characterize data users. We find that the intensive usage from heavy users can be attributed to a small number of applications, mostly video/audio streaming, data-intensive mobile apps, and popular social media sites. Our analysis provides a fine-grained categorization of data users based on their usage patterns and sheds light on the potential impact of different users on the cellular data network.

@@ -1,9 +1,0 @@
-Title: Evaluating Structural Equation Models with Unobservable Variables and Measurement Error
-Authors: Claes Fornell; David F. Larcker
-Year: 1981
-Journal: Journal of Marketing Research
-DOI: 10.2307/3151312
-Citations: 60388
-
-Abstract:
-The statistical tests used in the analysis of structural equation models with unobservable variables and measurement error are examined. A drawback of the commonly applied chi square test, in addit...

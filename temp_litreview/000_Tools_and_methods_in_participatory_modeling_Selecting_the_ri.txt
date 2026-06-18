@@ -1,9 +1,0 @@
-Title: Tools and methods in participatory modeling: Selecting the right tool for the job
-Authors: Alexey Voinov; Karen E. Jenni; Steven Gray; Nagesh Kolagani; Pierre D. Glynn; Pierre Bommel; Christina Prell; Moira Zellner; Michael Paolisso; Rebecca Jordan; Eleanor J. Sterling; Laura Schmitt Olabisi; Philippe J. Giabbanelli; Zhanli Sun; Christophe Le Page; Sondoss Elsawah; Todd K. BenDor; Klaus Hubacek; Bethany K. Laursen; Antonie Jetter; Laura Basco‐Carrera; Alison Singer; Laura C. Young; Jessica Brunacini; Alex Smajgl
-Year: 2018
-Journal: Environmental Modelling & Software
-DOI: 10.1016/j.envsoft.2018.08.028
-Citations: 455
-
-Abstract:
-Various tools and methods are used in participatory modelling, at different stages of the process and for different purposes. The diversity of tools and methods can create challenges for stakeholders and modelers when selecting the ones most appropriate for their projects. We offer a systematic overview, assessment, and categorization of methods to assist modelers and stakeholders with their choices and decisions. Most available literature provides little justification or information on the reasons for the use of particular methods or tools in a given study. In most of the cases, it seems that the prior experience and skills of the modelers had a dominant effect on the selection of the methods used. While we have not found any real evidence of this approach being wrong, we do think that putting more thought into the method selection process and choosing the most appropriate method for the project can produce better results. Based on expert opinion and a survey of modelers engaged in participatory processes, we offer practical guidelines to improve decisions about method selection at different stages of the participatory modeling process.

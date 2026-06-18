@@ -1,9 +1,0 @@
-Title: Imputing Parking Usage on Sparsely Monitored Areas Within Amsterdam Through the Application of Machine Learning
-Authors: Jeroen Schmidt; E. Dugundji; Bas Schotten
-Year: 2021
-Journal: Transportation Research Record
-DOI: 10.1177/03611981211017141
-Citations: 1
-
-Abstract:
-Effective parking policy is essential for cities to reduce the demand their road networks experience and to combat their carbon footprints. Existing research in the application of machine learning to understand parking behavior assumes that cities have prohibitively expensive stationary parking sensors installed, while no research has yet attempted to use machine learning to impute for parking behavior using mobile probe data of sparsely monitored areas. To this end, this paper shows that it is indeed feasible to impute parking pressure (occupation as a percentage). Gradient boosted trees were found to perform the best with an R2 score of 0.20 and root mean squared error (RMSE) score of 0.087. This paper also found that three unique parking occupancy patterns exist in Amsterdam and that this information, in combination with neighborhood characteristics, has an impact on imputation under certain conditions.

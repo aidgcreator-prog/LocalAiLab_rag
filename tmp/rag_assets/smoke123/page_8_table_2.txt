@@ -1,2 +1,0 @@
-● 2.2 Step 2: Assess Data Readiness
-○ 2.2.1 Data is Fuel (4 mins): AI needs data. Understand what data you

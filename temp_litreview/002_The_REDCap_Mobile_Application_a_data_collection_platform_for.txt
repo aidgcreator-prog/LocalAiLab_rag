@@ -1,9 +1,0 @@
-Title: The REDCap Mobile Application: a data collection platform for research in regions or situations with internet scarcity
-Authors: Paul A. Harris; Giovanni Delacqua; Robert J. Taylor; Scott Pearson; Michelle Fernández; Stephany N. Duda
-Year: 2021
-Journal: JAMIA Open
-DOI: 10.1093/jamiaopen/ooab078
-Citations: 75
-
-Abstract:
-Guidance recommendations based on designing, developing, deploying, and disseminating the REDCap Mobile Application may help other teams looking to develop clinical research informatics applications.

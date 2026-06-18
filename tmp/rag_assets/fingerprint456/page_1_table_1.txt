@@ -1,2 +1,0 @@
-Metric	Jan	Feb
-Sales	20	25
