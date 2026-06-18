@@ -1,0 +1,100 @@
+I'm going to attempt to classify all of artificial 
+intelligence or AI into seven types. And that's
+a tall order. But these seven types of AI 
+can largely be understood by examining two
+encompassing categories. There's AI capabilities, 
+and there's AI functionalities. So let's start
+with AI capabilities, and there are three. The 
+first of which is known as artificial narrow AI,
+which also goes by the rather unflattering name of 
+"weak AI". Now, on its face, that doesn't sound like
+a very interesting capability to start us off. 
+But actually, narrow AI is the only type of AI
+that exists today--it's all we currently have. Any 
+other form of AI is theoretical. So we can think
+of this as realized AI--that's the artificial 
+intelligence we have today. And theoretical AI,
+which is the artificial intelligence we may have 
+in the future. And now narrow AI can be trained
+to perform a narrow task, which, to be fair 
+to narrow AI, might be something that a human
+could not do as well as the AI can. But it can't 
+perform outside of its defined task. It does need
+us humans still to train it. So if narrow AI 
+represents all AI capabilities we have today,
+well, what else is there? Well, a favorite of 
+memes, science fiction, and betting markets is
+artificial general intelligence, also known as 
+AGI. And also known as "strong AI". To be clear,
+AGI is currently nothing more than a theoretical 
+concept. But here's the idea: AGI can use previous
+learnings and skills to accomplish new tasks 
+in a different context, without the need for
+us human beings to train the underlying models. 
+If AGI wants to learn how to perform a new task,
+it will figure it out by itself. Which 
+sounds... disconcerting. But, but look,
+we haven't even talked about the third type of AI 
+capability yet. And that's artificial "super AI". If
+ever realized, super AI would think, reason, 
+learn, make judgments and possess cognitive
+abilities that surpass those of human beings. 
+The application's [possessing] super AI capabilities
+would have evolved beyond the point of catering 
+to humans sentiments and experiences, and would be
+able to feel emotions and have needs and possess 
+beliefs and desires of their own. Yeah. So let's
+park that cheery thought for now, and consider 
+the four types of AI based on functionalities.
+And we're back in the real world of realized 
+AI here--at least initially. So we can think
+of narrow AI as having two fundamental functions. 
+One of those is reactive machine AI. Now reactive
+machine AI are systems designed to perform a very 
+specific specialized task. Reactive AI stems from
+statistical math, and it can analyze vast amounts 
+of data to produce a seemingly intelligent output.
+We've had reactive AI for quite a long time. Back 
+in the late 1990s, IBM's chess playing supercomputer
+Deep Blue beat chess grandmaster Garry Kasparov by 
+analyzing the pieces on the board and predicting
+the probable outcomes of each move. That's a 
+specialized task with a lot of available data
+to create insights. The hallmark of reactive AI. 
+We can think of other narrow AI functionalities
+really as being classified as "limited memory 
+AI". Now this form of AI can recall past events
+and outcomes and monitor specific objects or 
+situations over time. It can use past and present
+moment data to decide on a course of action most 
+likely to help achieve a desired outcome. And as
+it's trained on more data over time, limited 
+memory AI can improve in performance. Think of
+your favorite generative AI chatbot, which relies 
+on limited memory AI capabilities to predict the
+next word or the next phrase or the next visual 
+element within the context it's generating. Okay,
+so what about our two theoretical AI capabilities? 
+Well, if we look at AGI, we have to think about
+"theory of mind AI". Now, this would understand 
+the thoughts and emotions of other entities,
+specifically us, so it could infer human motives 
+and reasoning and personalize its interactions
+with individuals based on their unique emotional 
+needs and intentions. And actually, emotion AI
+is a theory of mind AI currently in development. 
+AI researchers hope it will have the ability to
+analyze voices, images and other kinds of data 
+to understand and respond to human feelings.
+Finally! An AI that really understands me. And 
+then finally, under super AI, we have "self-aware
+AI". Winning my personal award for the scariest AI 
+of all, it would have the ability to understand
+its own internal conditions and traits, leading to 
+its own set of emotions, needs and beliefs. Look,
+we've covered seven types of AI, and only three 
+of them actually exist today! There is still so
+much to be learned and discovered. But as 
+those advancements happen, at least here we
+have a taxonomy of AI types that will tell 
+us how far along we are on our AI journey.

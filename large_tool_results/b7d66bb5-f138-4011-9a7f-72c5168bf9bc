@@ -1,0 +1,1322 @@
+[SEARCH] Found 2 result(s) for 'site:arxiv.org "fine-tuning" "embedding models" "domain-specific"':
+
+## Efficient Fine-tuning Methodology of Text Embedding Models ... - arXiv
+**URL:** https://arxiv.org/html/2412.17364v1
+
+Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)
+
+
+
+
+
+1. [1 Introduction](https://arxiv.org/html/2412.17364v1#S1 "In Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+2. [2 Related Work](https://arxiv.org/html/2412.17364v1#S2 "In Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+   1. [Dense Retrieval.](https://arxiv.org/html/2412.17364v1#S2.SS0.SSS0.Px1 "In 2 Related Work ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+   2. [Contrastive Learning.](https://arxiv.org/html/2412.17364v1#S2.SS0.SSS0.Px2 "In 2 Related Work ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+3. [3 Fine-tuning Methods](https://arxiv.org/html/2412.17364v1#S3 "In Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+   1. [3.1 Contrastive Learning Penalty (CLP)](https://arxiv.org/html/2412.17364v1#S3.SS1 "In 3 Fine-tuning Methods ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+   2. [3.2 Negative Sampling](https://arxiv.org/html/2412.17364v1#S3.SS2 "In 3 Fine-tuning Methods ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+   3. [3.3 Mixture of Experts(MoE)](https://arxiv.org/html/2412.17364v1#S3.SS3 "In 3 Fine-tuning Methods ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+4. [4 Experiment](https://arxiv.org/html/2412.17364v1#S4 "In Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+   1. [4.1 Evaluation Setup](https://arxiv.org/html/2412.17364v1#S4.SS1 "In 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+      1. [4.1.1 Metric](https://arxiv.org/html/2412.17364v1#S4.SS1.SSS1 "In 4.1 Evaluation Setup ‣ 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+      2. [4.1.2 Training details](https://arxiv.org/html/2412.17364v1#S4.SS1.SSS2 "In 4.1 Evaluation Setup ‣ 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+   2. [4.2 Performance Comparison](https://arxiv.org/html/2412.17364v1#S4.SS2 "In 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+      1. [4.2.1 Train Dataset](https://arxiv.org/html/2412.17364v1#S4.SS2.SSS1 "In 4.2 Performance Comparison ‣ 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+      2. [4.2.2 Loss Funtion](https://arxiv.org/html/2412.17364v1#S4.SS2.SSS2 "In 4.2 Performance Comparison ‣ 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+      3. [4.2.3 Model Architecture](https://arxiv.org/html/2412.17364v1#S4.SS2.SSS3 "In 4.2 Performance Comparison ‣ 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+5. [5 Conclusion](https://arxiv.org/html/2412.17364v1#S5 "In Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+
+Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)
+========================================================================================================================
+
+Jeongsu Yu
+  
+Department of Convergence Security
+  
+Kangwon National University
+  
+yjshi25@kangwon.ac.kr
+
+###### Abstract
+
+Text embedding models play a crucial role in natural language processing, particularly in information retrieval, and their importance is further highlighted with the recent utilization of RAG (Retrieval-Augmented Generation). This study presents an efficient fine-tuning methodology encompassing data selection, loss function, and model architecture to enhance the information retrieval performance of pre-trained text embedding models. In particular, this study proposes a novel Contrastive Learning Penalty function that overcomes the limitations of existing Contrastive Learning. The proposed methodology achieves significant performance improvements over existing methods in document retrieval tasks. This study is expected to contribute to improving the performance of information retrieval systems through fine-tuning of text embedding models. The code for this study can be found at https://github.com/CreaLabs/Enhanced-BGE-M3-with-CLP-and-MoE, and the best-performing model can be found at https://huggingface.co/CreaLabs.
+
+1 Introduction
+--------------
+
+Text embedding models play a crucial role in natural language processing, particularly in information retrieval, by mapping text data into a semantically rich vector space. The importance of information retrieval has been further highlighted with the recent utilization of RAG (Retrieval-Augmented Generation) (Lewis et al., [2020](https://arxiv.org/html/2412.17364v1#bib.bib8)) to address the issues of hallucination and outdated information in large language models (LLMs). Pre-trained text embedding models on a massive corpus have significantly improved the quality of text representation. BGE M3-Embedding (Chen et al., [2024](https://arxiv.org/html/2412.17364v1#bib.bib1)) is a representative model that shows outstanding performance in multilingual text embedding and information retrieval.
+
+This study proposes an efficient fine-tuning methodology to enhance the information retrieval performance of pre-trained text embedding models by specializing them to a specific domain:
+
+1. Efficient Training Data Selection Technique: Applies ANCE (Approximate Nearest Neighbor Negative Contrastive Estimation) (Xiong et al., [2020](https://arxiv.org/html/2412.17364v1#bib.bib12)) for selecting negative samples in the training data.
+
+2. Contrastive Learning Penalty (CLP): Analyzes the limitations of existing Contrastive Learning functions and proposes a novel loss function to overcome them.
+
+3. Mixture of Experts (MoE) Technique (Gupta et al., [2022](https://arxiv.org/html/2412.17364v1#bib.bib5)): Generates optimized embeddings based on the characteristics of the input text to effectively respond to various types of queries.
+
+To validate the effectiveness of the proposed methodology, we evaluated its performance on document retrieval tasks in three languages using the nDCG metric. The experimental results demonstrate that the proposed methodology achieves significant performance improvements compared to existing methods.
+
+2 Related Work
+--------------
+
+In the past, keyword-matching based retrieval methods like BM25 were mainly used for document retrieval. BM25 calculates a similarity score considering term frequency, inverse document frequency, and document length (Robertson et al., [1995](https://arxiv.org/html/2412.17364v1#bib.bib11); Crestani et al., [1998](https://arxiv.org/html/2412.17364v1#bib.bib3)). Although BM25 is an efficient and widely used method, it has the following limitations:
+
+1. Vocabulary mismatch: If different words with the same meaning are used in the query and the document, BM25 may not accurately capture the relevance. For example, BM25 recognizes "car" and "vehicle" as different words even though they have the same meaning.
+
+2. Difficulty in understanding meaning: Since BM25 only considers the frequency and distribution of words, it does not capture the meaning or context of words. Therefore, it may have difficulty accurately matching the intent of the query with the content of the document.
+
+3. Ignoring syntactic information: BM25 does not consider syntactic information such as word order or sentence structure. Therefore, "how to get from Seoul to Busan" and "how to get from Busan to Seoul" can be treated the same in BM25.
+
+These limitations can be overcome with the advent of text encoders, i.e., text embedding models, from pre-trained language models (Reimers and Gurevych, [2019](https://arxiv.org/html/2412.17364v1#bib.bib10); Ni et al., [2021](https://arxiv.org/html/2412.17364v1#bib.bib9)).
+
+##### Dense Retrieval.
+
+Dense Retrieval (DR) using text embedding models enables search results that understand the meaning of text, not just word matching. DR maps text to a high-dimensional vector space using deep learning and performs search by measuring similarity based on distances in this vector space (Karpukhin et al., [2020](https://arxiv.org/html/2412.17364v1#bib.bib7)).
+
+##### Contrastive Learning.
+
+The learning of text embedding models for DR has been advanced by the advent of Contrastive Learning techniques (Hadsell et al., [2006](https://arxiv.org/html/2412.17364v1#bib.bib6); Chen et al., [2020](https://arxiv.org/html/2412.17364v1#bib.bib2); Gao et al., [2022](https://arxiv.org/html/2412.17364v1#bib.bib4)). Contrastive Learning (CL) aims to learn effective representations by pulling together semantically close neighbors and pushing away irrelevant ones. This assumes a dataset D=(qi,pi+,Pi′)i=1m𝐷superscriptsubscriptsubscript𝑞𝑖superscriptsubscript𝑝𝑖superscriptsubscript𝑃𝑖′𝑖1𝑚D=(q\_{i},p\_{i}^{+},P\_{i}^{\prime})\_{i=1}^{m}italic\_D = ( italic\_q start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT , italic\_p start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT + end\_POSTSUPERSCRIPT , italic\_P start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT ′ end\_POSTSUPERSCRIPT ) start\_POSTSUBSCRIPT italic\_i = 1 end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT italic\_m end\_POSTSUPERSCRIPT composed of semantically related pairs, where qisubscript𝑞𝑖q\_{i}italic\_q start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT denotes a query, pi+superscriptsubscript𝑝𝑖p\_{i}^{+}italic\_p start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT + end\_POSTSUPERSCRIPT denotes a positive sample for qisubscript𝑞𝑖q\_{i}italic\_q start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT and Pi′superscriptsubscript𝑃𝑖′P\_{i}^{\prime}italic\_P start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT ′ end\_POSTSUPERSCRIPT denotes a set of negative samples for qisubscript𝑞𝑖q\_{i}italic\_q start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT. Following the Contrastive Learning framework of Chen et al. ([2020](https://arxiv.org/html/2412.17364v1#bib.bib2)), we use a cross-entropy objective function with negative samples from within a mini-batch. Specifically, when hisubscriptℎ𝑖h\_{i}italic\_h start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT, hi−subscriptsuperscriptℎ𝑖h^{-}\_{i}italic\_h start\_POSTSUPERSCRIPT - end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT,Pi′superscriptsubscript𝑃𝑖′P\_{i}^{\prime}italic\_P start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT ′ end\_POSTSUPERSCRIPT are the representations of qisubscript𝑞𝑖q\_{i}italic\_q start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT, pi+superscriptsubscript𝑝𝑖p\_{i}^{+}italic\_p start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT + end\_POSTSUPERSCRIPT, Pi′superscriptsubscript𝑃𝑖′P\_{i}^{\prime}italic\_P start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT ′ end\_POSTSUPERSCRIPT respectively, the training objective function on a mini-batch of N𝑁Nitalic\_N pairs is:
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+|  | L⁢I⁢T⁢E⁢Ri=−log⁡exp⁡(sim⁢(hi,hi+)/τ)∑Hi∈{hi+,H′}Nexp⁡(sim⁢(hi,Hi)/τ)𝐿𝐼𝑇𝐸subscript𝑅𝑖simsubscriptℎ𝑖superscriptsubscriptℎ𝑖𝜏superscriptsubscriptsubscript𝐻𝑖superscriptsubscriptℎ𝑖superscript𝐻′𝑁simsubscriptℎ𝑖subscript𝐻𝑖𝜏LITER\_{i}=-\log\frac{\exp(\text{sim}(h\_{i},h\_{i}^{+})/\tau)}{\sum\_{H\_{i}\in\{h% \_{i}^{+},H^{\prime}\}}^{N}\exp(\text{sim}(h\_{i},H\_{i})/\tau)}italic\_L italic\_I italic\_T italic\_E italic\_R start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT = - roman\_log divide start\_ARG roman\_exp ( sim ( italic\_h start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT , italic\_h start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT + end\_POSTSUPERSCRIPT ) / italic\_τ ) end\_ARG start\_ARG ∑ start\_POSTSUBSCRIPT italic\_H start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT ∈ { italic\_h start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT + end\_POSTSUPERSCRIPT , italic\_H start\_POSTSUPERSCRIPT ′ end\_POSTSUPERSCRIPT } end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT italic\_N end\_POSTSUPERSCRIPT roman\_exp ( sim ( italic\_h start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT , italic\_H start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT ) / italic\_τ ) end\_ARG |  | (1) |
+
+where r𝑟ritalic\_r is a temperature hyperparameter and s⁢i⁢m⁢(h1,h2)𝑠𝑖𝑚subscriptℎ1subscriptℎ2sim(h\_{1},h\_{2})italic\_s italic\_i italic\_m ( italic\_h start\_POSTSUBSCRIPT 1 end\_POSTSUBSCRIPT , italic\_h start\_POSTSUBSCRIPT 2 end\_POSTSUBSCRIPT ) is the cosine similarity h1T⁢h2‖h1‖⋅‖h2‖superscriptsubscriptℎ1𝑇subscriptℎ2⋅normsubscriptℎ1normsubscriptℎ2\frac{h\_{1}^{T}h\_{2}}{||h\_{1}||\cdot||h\_{2}||}divide start\_ARG italic\_h start\_POSTSUBSCRIPT 1 end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT italic\_T end\_POSTSUPERSCRIPT italic\_h start\_POSTSUBSCRIPT 2 end\_POSTSUBSCRIPT end\_ARG start\_ARG | | italic\_h start\_POSTSUBSCRIPT 1 end\_POSTSUBSCRIPT | | ⋅ | | italic\_h start\_POSTSUBSCRIPT 2 end\_POSTSUBSCRIPT | | end\_ARG.
+
+To perform CL, we need to construct pairs D=(qi,pi+,Pi′)i=1m𝐷superscriptsubscriptsubscript𝑞𝑖superscriptsubscript𝑝𝑖superscriptsubscript𝑃𝑖′𝑖1𝑚D=(q\_{i},p\_{i}^{+},P\_{i}^{\prime})\_{i=1}^{m}italic\_D = ( italic\_q start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT , italic\_p start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT + end\_POSTSUPERSCRIPT , italic\_P start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT ′ end\_POSTSUPERSCRIPT ) start\_POSTSUBSCRIPT italic\_i = 1 end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT italic\_m end\_POSTSUPERSCRIPT. In this process, effective negative sampling has a significant impact on learning performance. The ANCE (Xiong et al., [2020](https://arxiv.org/html/2412.17364v1#bib.bib12)) study revealed that using uninformative negative samples that are distant from the query leads to problems such as decreased gradient values, increased stochastic gradient variance, and slow learning convergence. Therefore, utilizing informative negative samples that are closer to the query is more effective.
+
+3 Fine-tuning Methods
+---------------------
+
+### 3.1 Contrastive Learning Penalty (CLP)
+
+CL simply minimizes the distance between qisubscript𝑞𝑖q\_{i}italic\_q start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT and its semantically related counterpart pi+subscriptsuperscript𝑝𝑖p^{+}\_{i}italic\_p start\_POSTSUPERSCRIPT + end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT, while maximizing the distance to the unrelated pi−subscriptsuperscript𝑝𝑖p^{-}\_{i}italic\_p start\_POSTSUPERSCRIPT - end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT. However, this learning method does not consider the distance between Hi−subscriptsuperscript𝐻𝑖H^{-}\_{i}italic\_H start\_POSTSUPERSCRIPT - end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT and its semantically related queries, Qi∗subscriptsuperscript𝑄𝑖Q^{\*}\_{i}italic\_Q start\_POSTSUPERSCRIPT ∗ end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT, where Qi∗subscriptsuperscript𝑄𝑖Q^{\*}\_{i}italic\_Q start\_POSTSUPERSCRIPT ∗ end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT is the set of positive queries for each document in Hi−subscriptsuperscript𝐻𝑖H^{-}\_{i}italic\_H start\_POSTSUPERSCRIPT - end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT. For efficient learning, while minimizing the distance between qisubscript𝑞𝑖q\_{i}italic\_q start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT and pi+subscriptsuperscript𝑝𝑖p^{+}\_{i}italic\_p start\_POSTSUPERSCRIPT + end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT and maximizing the distance to Hi−subscriptsuperscript𝐻𝑖H^{-}\_{i}italic\_H start\_POSTSUPERSCRIPT - end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT, we need to ensure that this does not negatively affect the distance between Hi−subscriptsuperscript𝐻𝑖H^{-}\_{i}italic\_H start\_POSTSUPERSCRIPT - end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT and Qi∗subscriptsuperscript𝑄𝑖Q^{\*}\_{i}italic\_Q start\_POSTSUPERSCRIPT ∗ end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT. In this study, we propose a novel CLP to address the negative impact on the distance between Hi−subscriptsuperscript𝐻𝑖H^{-}\_{i}italic\_H start\_POSTSUPERSCRIPT - end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT and Qi∗subscriptsuperscript𝑄𝑖Q^{\*}\_{i}italic\_Q start\_POSTSUPERSCRIPT ∗ end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT in existing CL.
+
+CLP imposes a penalty that increases as the distance between Hi−subscriptsuperscript𝐻𝑖H^{-}\_{i}italic\_H start\_POSTSUPERSCRIPT - end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT and Qi∗subscriptsuperscript𝑄𝑖Q^{\*}\_{i}italic\_Q start\_POSTSUPERSCRIPT ∗ end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT grows in the existing Contrastive Learning Loss function. The specific formula is as follows:
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+|  | LITERi=(λ−1)⁢log⁡exp⁡(sim⁢(hi,hi+)/τ)∑Hi∈{hi+,H′}Nexp⁡(sim⁢(hi,Hi)/τ)+λ⁢(1−∑h∗∈H∗sim⁢(h′,h∗))subscriptLITER𝑖𝜆1simsubscriptℎ𝑖superscriptsubscriptℎ𝑖𝜏superscriptsubscriptsubscript𝐻𝑖superscriptsubscriptℎ𝑖superscript𝐻′𝑁simsubscriptℎ𝑖subscript𝐻𝑖𝜏𝜆1subscriptsuperscriptℎsuperscript𝐻simsuperscriptℎ′superscriptℎ\text{LITER}\_{i}=(\lambda-1)\log\frac{\exp(\text{sim}(h\_{i},h\_{i}^{+})/\tau)}{% \sum\_{H\_{i}\in\{h\_{i}^{+},H^{\prime}\}}^{N}\exp(\text{sim}(h\_{i},H\_{i})/\tau)}% +\lambda\left(1-\sum\_{h^{\*}\in H^{\*}}\text{sim}(h^{\prime},h^{\*})\right)LITER start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT = ( italic\_λ - 1 ) roman\_log divide start\_ARG roman\_exp ( sim ( italic\_h start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT , italic\_h start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT + end\_POSTSUPERSCRIPT ) / italic\_τ ) end\_ARG start\_ARG ∑ start\_POSTSUBSCRIPT italic\_H start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT ∈ { italic\_h start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT + end\_POSTSUPERSCRIPT , italic\_H start\_POSTSUPERSCRIPT ′ end\_POSTSUPERSCRIPT } end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT italic\_N end\_POSTSUPERSCRIPT roman\_exp ( sim ( italic\_h start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT , italic\_H start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT ) / italic\_τ ) end\_ARG + italic\_λ ( 1 - ∑ start\_POSTSUBSCRIPT italic\_h start\_POSTSUPERSCRIPT ∗ end\_POSTSUPERSCRIPT ∈ italic\_H start\_POSTSUPERSCRIPT ∗ end\_POSTSUPERSCRIPT end\_POSTSUBSCRIPT sim ( italic\_h start\_POSTSUPERSCRIPT ′ end\_POSTSUPERSCRIPT , italic\_h start\_POSTSUPERSCRIPT ∗ end\_POSTSUPERSCRIPT ) ) |  | (2) |
+
+where λ𝜆\lambdaitalic\_λ is the weight of the penalty, and H∗superscript𝐻H^{\*}italic\_H start\_POSTSUPERSCRIPT ∗ end\_POSTSUPERSCRIPT represents the representations of Qi∗subscriptsuperscript𝑄𝑖Q^{\*}\_{i}italic\_Q start\_POSTSUPERSCRIPT ∗ end\_POSTSUPERSCRIPT start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT.
+
+![Refer to caption](extracted/6090203/figure1.png)
+
+
+Figure 1: The difference between CL and CLP
+
+### 3.2 Negative Sampling
+
+In this study, we utilize the top 10 most similar samples from the dense retrieval results of the training corpus of the model being trained, excluding the positive sample, as negative samples, referring to the ANCE methodology. This provides information-rich samples to induce effective learning and prevents problems caused by using uninformative negative samples (Xiong et al., [2020](https://arxiv.org/html/2412.17364v1#bib.bib12)).
+
+### 3.3 Mixture of Experts(MoE)
+
+Existing methodologies utilized dense networks that use the same weights for all tasks, regardless of input characteristics. However, this caused a problem where inputs with different characteristics interfered with each other in model training. To address this issue, Mixture of Experts (MoE) was introduced. MoE shares only some weights and trains the remaining weights according to the input characteristics. By assigning tasks to suitable experts for the input through a task-aware gating function that analyzes input characteristics, it improves transfer learning to low-resource tasks, enables efficient generalization, and prevents capacity loss in existing models (Gupta et al., [2022](https://arxiv.org/html/2412.17364v1#bib.bib5)).
+
+This study leverages the advantages of MoE by applying the MoE structure to the intermediate layer of the existing text embedding model. We froze and trained the remaining parameters excluding the MoE layer.
+
+4 Experiment
+------------
+
+### 4.1 Evaluation Setup
+
+#### 4.1.1 Metric
+
+In this study, we fine-tuned the BGE M3-Embedding model for specific languages (Korean, Hindi, and Persian) using the multilingual document retrieval dataset MIRACL (Table [1](https://arxiv.org/html/2412.17364v1#S4.T1 "Table 1 ‣ 4.1.1 Metric ‣ 4.1 Evaluation Setup ‣ 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")) and evaluated its performance. Korean is an agglutinative language, Hindi is an inflectional language, and Persian belongs to the Indo-European language family. By selecting these languages, we aimed to comprehensively analyze various language types.
+
+![[Uncaptioned image]](extracted/6090203/miracl_table.png)
+
+
+Table 1: MIRACL dataset (Zhang et al., [2022](https://arxiv.org/html/2412.17364v1#bib.bib13))
+
+The dense retrieval results of the fine-tuned models are evaluated using the nDCG metric. nDCG is an evaluation metric that considers the ranking of search results, assigning higher scores when more relevant documents are ranked higher, and is widely used in the field of information retrieval. The BGE M3-Embedding model achieved higher nDCG scores than previous models on MIRACL (Table [2](https://arxiv.org/html/2412.17364v1#S4.T2 "Table 2 ‣ 4.1.1 Metric ‣ 4.1 Evaluation Setup ‣ 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")).
+
+![[Uncaptioned image]](extracted/6090203/imgs_miracl.jpg)
+
+
+Table 2: BGE M3-Embedding on MIRACL dev set (nDCG@10)
+(Chen et al., [2024](https://arxiv.org/html/2412.17364v1#bib.bib1))
+
+#### 4.1.2 Training details
+
+This model was trained on a single 3090 GPU with the following hyperparameters:
+
+* •
+
+  Learning rate: 1e-5
+* •
+
+  Mixed precision training (fp16)
+* •
+
+  Number of training epochs: Table [3](https://arxiv.org/html/2412.17364v1#S4.T3 "Table 3 ‣ 4.1.2 Training details ‣ 4.1 Evaluation Setup ‣ 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)")
+* •
+
+  Per-device training batch size: 1
+* •
+
+  Gradient accumulation steps: 4
+
+For CLP, the penalty weight was set to 0.1. For the MoE layers, the number of experts was set to 2 and the number of experts per token was set to 1.
+
+In this study, we applied four methods based on the BGE M3-Embedding model to improve its performance. Detailed explanations of each method are provided in the following paragraphs. To find the model with the optimal performance, we fixed the hyperparameters for each method and trained the model while only changing the epoch value. The epoch that showed the best performance for each method is as follows:
+
+| method/Number of training epochs | ko | fa | hi |
+| --- | --- | --- | --- |
+| random dataset | 1 | 1 | 1 |
+| ANCE dataset | 2 | 1 | 1 |
+| ANCE-CLP | 2 | 1 | 1 |
+| ANCE-CLP-intermediate | 2 | 1 | 1 |
+| ANCE-CLP-moe-intermediate | 3 | 3 | 3 |
+
+Table 3: Optimal epoch value for each method
+
+### 4.2 Performance Comparison
+
+| method/language | ko | fa | hi | average |
+| --- | --- | --- | --- | --- |
+| baseline(BGE M3-Embedding) | 64.36 | 51.13 | 52.35 | 55.95 |
+| random dataset | 59.61 | 47.38 | 51.78 | 52.92 |
+| ANCE dataset | 66.89 | 50.88 | 54.53 | 57.43 |
+| ANCE-CLP | 67.05 | 52.39 | 54.75 | 58.06 |
+| ANCE-CLP-intermediate | 66.92 | 55.1 | 56.34 | 59.45 |
+| ANCE-CLP-moe-intermediate | 67.74 | 55.56 | 56.36 | 59.89 |
+
+Table 4: MIRACL dev set (measured by nDCG@5)
+
+#### 4.2.1 Train Dataset
+
+This study compared and analyzed negative sampling techniques in CL. Comparing the conventional method of random negative sampling with the ANCE methodology, the following performance differences were observed:
+
+* •
+
+  random dataset: This method employed random negative sampling. This approach resulted in lower performance (52.92) compared to the baseline model (55.95). This is likely because random sampling has a higher chance of selecting negative samples with low information content, making it less effective for model training.
+* •
+
+  ANCE dataset: This method utilized the ANCE methodology for negative sampling. This approach achieved higher performance (57.43) than the baseline model (55.95). It is analyzed that ANCE contributed to the performance improvement by effectively selecting hard negative samples, which provide useful information for model learning.
+
+These experimental results show that the negative sampling technique in CL can significantly influence model performance. In particular, it was confirmed that a technique that effectively selects hard negative samples, such as ANCE, is effective in improving the performance of the model.
+
+#### 4.2.2 Loss Funtion
+
+This study compared and analyzed the performance of the proposed CLP and existing CL. Applying CLP requires positive queries corresponding to negative samples, but the MIRACL dataset used in the experiment does not include this information.
+
+Therefore, we utilized Gemini 1.5 Pro to generate synthetic data for positive queries. Specifically, we generated negative sample’s positive query through the Gemini 1.5 Pro model using the prompt in Table [5](https://arxiv.org/html/2412.17364v1#S4.T5 "Table 5 ‣ 4.2.2 Loss Funtion ‣ 4.2 Performance Comparison ‣ 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)").
+
+![[Uncaptioned image]](extracted/6090203/prompt.png)
+
+
+Table 5: MIRACL dev set (measured by nDCG@5)
+
+As shown in Table [4](https://arxiv.org/html/2412.17364v1#S4.T4 "Table 4 ‣ 4.2 Performance Comparison ‣ 4 Experiment ‣ Efficient Fine-tuning Methodology of Text Embedding Models for Information Retrieval: Contrastive Learning Penalty (CLP)"), the experimental results demonstrate a performance improvement when applying CLP (ANCE-CLP) with a score of 58.06, compared to the existing CL (ANCE dataset) which scored 57.43. Notably, in the case of Persian, applying the existing CL resulted in a performance decrease (50.88) compared to the baseline model (51.13). However, applying CLP showed a significant performance improvement (52.39), demonstrating the superiority of CLP.
+
+However, CLP took 3 minutes and 16 seconds to train one epoch on the MIRACL Korean learning dataset (854 instances), while the existing CL took 4 minutes and 18 seconds. The longer training time for CLP is attributed to the additional computational step of calculating the similarity between the negative sample and the negative sample’s query.
+
+#### 4.2.3 Model Architecture
+
+To determine the optimal location for applying Mixture of Experts(MoE), we conducted an experiment where only the intermediate layer of the model was trained, while keeping other layers frozen. Interestingly, training only the intermediate layer (ANCE-CLP-intermediate) resulted in higher performance (59.45 -> 59.89) than training all parameters of the model (ANCE-CLP). In this experiment, the intermediate layer serves to expand the dimension from 1024 to 4096.
+
+Based on these experimental results, we applied MoE to the intermediate layer (ANCE-CLP-moe-intermediate) while freezing other parameters. This ultimately yielded the best performance of 59.89.
+
+However, applying MoE has the drawback of increased inference time. Embedding the MIRACL Korean corpus dataset (371,688 instances) took 3 hours and 7 minutes for the baseline model, while the MoE model required 5 hours and 1 minute.
+
+![Refer to caption](extracted/6090203/MoE.png)
+
+
+Figure 2: Model Architecture
+
+5 Conclusion
+------------
+
+This study proposes an efficient fine-tuning methodology for specializing pre-trained text embedding models to a specific domain, thereby enhancing information retrieval performance. We aimed to maximize model performance throughout the entire fine-tuning process, from training data construction to loss function and model structure.
+
+Our key improvements include:
+
+1. Efficient Training Data Selection: We utilized ANCE to select informative negative samples, leading to more effective model learning.
+
+2. Contrastive Learning Penalty (CLP): We introduced a novel loss function, CLP, which addresses limitations of existing contrastive learning by considering the relationship between negative samples and their corresponding positive queries.
+
+3. Mixture of Experts (MoE) Application: We applied MoE to the intermediate layer of the text embedding model to generate optimized embeddings tailored to diverse input text characteristics.
+
+Experiments conducted on a multilingual document retrieval dataset (MIRACL) across Korean, Hindi, and Persian demonstrated the effectiveness of the proposed methodology. By applying all proposed methods, we achieved a final performance improvement of approximately 5 points compared to the baseline.
+
+The main contributions of this study are as follows:
+
+* •
+
+  We demonstrate the effectiveness of combining ANCE, CLP, and MoE for fine-tuning pre-trained text embedding models in information retrieval tasks.
+* •
+
+  The newly proposed CLP significantly improved performance, especially for Persian, where conventional CL exhibited performance degradation.
+
+This study presents a novel approach to fine-tuning text embedding models and is expected to contribute to improving the performance of information retrieval systems. Future research will focus on validating the applicability of our method to various languages and domains and further enhancing the efficiency of CLP.
+
+The code for this study is available at https://github.com/CreaLabs/Enhanced-BGE-M3-with-CLP-and-MoE, and the final model can be found at https://huggingface.co/CreaLabs.
+
+References
+----------
+
+* Chen et al. (2024)
+
+  Jianlv Chen, Shitao Xiao, Peitian Zhang, Kun Luo, Defu Lian, and Zheng Liu.
+  Bge m3-embedding: Multi-lingual, multi-functionality, multi-granularity text embeddings through self-knowledge distillation, 2024.
+  URL https://arxiv.org/abs/2402.03216.
+* Chen et al. (2020)
+
+  Ting Chen, Simon Kornblith, Mohammad Norouzi, and Geoffrey Hinton.
+  A simple framework for contrastive learning of visual representations, 2020.
+  URL https://arxiv.org/abs/2002.05709.
+* Crestani et al. (1998)
+
+  Fabio Crestani, Mounia Lalmas, Cornelis J Van Rijsbergen, and Iain Campbell.
+  Is this document relevant? … probably: a survey of probabilistic models in information retrieval.
+  *ACM Computing Surveys (CSUR)*, 30(4):528–552, 1998.
+* Gao et al. (2022)
+
+  Tianyu Gao, Xingcheng Yao, and Danqi Chen.
+  Simcse: Simple contrastive learning of sentence embeddings, 2022.
+  URL https://arxiv.org/abs/2104.08821.
+* Gupta et al. (2022)
+
+  Shashank Gupta, Subhabrata Mukherjee, Krishan Subudhi, Eduardo Gonzalez, Damien Jose, Ahmed H. Awadallah, and Jianfeng Gao.
+  Sparsely activated mixture-of-experts are robust multi-task learners, 2022.
+  URL https://arxiv.org/abs/2204.07689.
+* Hadsell et al. (2006)
+
+  Raia Hadsell, Sumit Chopra, and Yann LeCun.
+  Dimensionality reduction by learning an invariant mapping.
+  In *2006 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR’06)*, volume 2, pages 1735–1742. IEEE, 2006.
+* Karpukhin et al. (2020)
+
+  Vladimir Karpukhin, Barlas Oğuz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen tau Yih.
+  Dense passage retrieval for open-domain question answering, 2020.
+  URL https://arxiv.org/abs/2004.04906.
+* Lewis et al. (2020)
+
+  Patrick S. H. Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, and Douwe Kiela.
+  Retrieval-augmented generation for knowledge-intensive NLP tasks.
+  *CoRR*, abs/2005.11401, 2020.
+  URL https://arxiv.org/abs/2005.11401.
+* Ni et al. (2021)
+
+  Jianmo Ni, Gustavo Hernández Ábrego, Noah Constant, Ji Ma, Keith B. Hall, Daniel Cer, and Yinfei Yang.
+  Sentence-t5: Scalable sentence encoders from pre-trained text-to-text models, 2021.
+  URL https://arxiv.org/abs/2108.08877.
+* Reimers and Gurevych (2019)
+
+  Nils Reimers and Iryna Gurevych.
+  Sentence-bert: Sentence embeddings using siamese bert-networks, 2019.
+  URL https://arxiv.org/abs/1908.10084.
+* Robertson et al. (1995)
+
+  Stephen E Robertson, Steve Walker, Susan Jones, Micheline M Hancock-Beaulieu, Mike Gatford, et al.
+  Okapi at trec-3.
+  In *Nist Special Publication Sp*, volume 109, page 109, 1995.
+* Xiong et al. (2020)
+
+  Lee Xiong, Chenyan Xiong, Ye Li, Kwok-Fung Tang, Jialin Liu, Paul Bennett, Junaid Ahmed, and Arnold Overwijk.
+  Approximate nearest neighbor negative contrastive learning for dense text retrieval, 2020.
+  URL https://arxiv.org/abs/2007.00808.
+* Zhang et al. (2022)
+
+  Xinyu Zhang, Nandan Thakur, Odunayo Ogundepo, Ehsan Kamalloo, David Alfonso-Hermelo, Xiaoguang Li, Qun Liu, Mehdi Rezagholizadeh, and Jimmy Lin.
+  Making a miracl: Multilingual information retrieval across a continuum of languages, 2022.
+  URL https://arxiv.org/abs/2210.09984.
+
+Generated on Mon Dec 23 07:49:51 2024 by [LaTeXML![Mascot Sammy](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==)](http://dlmf.nist.gov/LaTeXML/)
+
+---
+
+## Do we need domain-specific embedding models? An empirical investigation
+**URL:** https://arxiv.org/html/2409.18511v3
+
+Do we need domain-specific embedding models? An empirical investigation
+
+
+
+
+
+1. [1 Introduction](https://arxiv.org/html/2409.18511v3#S1 "In Do we need domain-specific embedding models? An empirical investigation")
+2. [2 Related Work](https://arxiv.org/html/2409.18511v3#S2 "In Do we need domain-specific embedding models? An empirical investigation")
+   1. [2.1 General-purpose Embedding Models](https://arxiv.org/html/2409.18511v3#S2.SS1 "In 2 Related Work ‣ Do we need domain-specific embedding models? An empirical investigation")
+   2. [2.2 Domain-Specific Models](https://arxiv.org/html/2409.18511v3#S2.SS2 "In 2 Related Work ‣ Do we need domain-specific embedding models? An empirical investigation")
+   3. [2.3 Embedding Benchmarks](https://arxiv.org/html/2409.18511v3#S2.SS3 "In 2 Related Work ‣ Do we need domain-specific embedding models? An empirical investigation")
+   4. [2.4 Domain-specific Model Benchmarks](https://arxiv.org/html/2409.18511v3#S2.SS4 "In 2 Related Work ‣ Do we need domain-specific embedding models? An empirical investigation")
+3. [3 The FinMTEB Benchmark](https://arxiv.org/html/2409.18511v3#S3 "In Do we need domain-specific embedding models? An empirical investigation")
+   1. [3.1 FinMTEB Tasks](https://arxiv.org/html/2409.18511v3#S3.SS1 "In 3 The FinMTEB Benchmark ‣ Do we need domain-specific embedding models? An empirical investigation")
+   2. [3.2 Characteristics of FinMTEB](https://arxiv.org/html/2409.18511v3#S3.SS2 "In 3 The FinMTEB Benchmark ‣ Do we need domain-specific embedding models? An empirical investigation")
+   3. [3.3 The performance of state-of-the-art embedding models on FinMTEB](https://arxiv.org/html/2409.18511v3#S3.SS3 "In 3 The FinMTEB Benchmark ‣ Do we need domain-specific embedding models? An empirical investigation")
+      1. [3.3.1 What Drives the Performance Gap?](https://arxiv.org/html/2409.18511v3#S3.SS3.SSS1 "In 3.3 The performance of state-of-the-art embedding models on FinMTEB ‣ 3 The FinMTEB Benchmark ‣ Do we need domain-specific embedding models? An empirical investigation")
+4. [4 Performance Analysis After Controlling for Dataset Complexity](https://arxiv.org/html/2409.18511v3#S4 "In Do we need domain-specific embedding models? An empirical investigation")
+   1. [4.1 Quantifying Dataset Complexity](https://arxiv.org/html/2409.18511v3#S4.SS1 "In 4 Performance Analysis After Controlling for Dataset Complexity ‣ Do we need domain-specific embedding models? An empirical investigation")
+   2. [4.2 Subgroup analysis: Embedding Performance vs. Dataset Complexity](https://arxiv.org/html/2409.18511v3#S4.SS2 "In 4 Performance Analysis After Controlling for Dataset Complexity ‣ Do we need domain-specific embedding models? An empirical investigation")
+   3. [4.3 Regression Analysis: Embedding Performance vs. Dataset Complexity](https://arxiv.org/html/2409.18511v3#S4.SS3 "In 4 Performance Analysis After Controlling for Dataset Complexity ‣ Do we need domain-specific embedding models? An empirical investigation")
+5. [5 Domain-specific Embedding Benchmark is needed](https://arxiv.org/html/2409.18511v3#S5 "In Do we need domain-specific embedding models? An empirical investigation")
+6. [6 Conclusion](https://arxiv.org/html/2409.18511v3#S6 "In Do we need domain-specific embedding models? An empirical investigation")
+7. [A Dataset Semantic Similarity](https://arxiv.org/html/2409.18511v3#A1 "In Do we need domain-specific embedding models? An empirical investigation")
+8. [B ANOVA DATA](https://arxiv.org/html/2409.18511v3#A2 "In Do we need domain-specific embedding models? An empirical investigation")
+9. [C Datasets](https://arxiv.org/html/2409.18511v3#A3 "In Do we need domain-specific embedding models? An empirical investigation")
+10. [D Main Metric](https://arxiv.org/html/2409.18511v3#A4 "In Do we need domain-specific embedding models? An empirical investigation")
+11. [E Complexity Score Calculation](https://arxiv.org/html/2409.18511v3#A5 "In Do we need domain-specific embedding models? An empirical investigation")
+    1. [E.1 Shannon Entropy in Information Theory](https://arxiv.org/html/2409.18511v3#A5.SS1 "In Appendix E Complexity Score Calculation ‣ Do we need domain-specific embedding models? An empirical investigation")
+    2. [E.2 Readability: Gunning Fog Index](https://arxiv.org/html/2409.18511v3#A5.SS2 "In Appendix E Complexity Score Calculation ‣ Do we need domain-specific embedding models? An empirical investigation")
+    3. [E.3 Mean Dependency Distance](https://arxiv.org/html/2409.18511v3#A5.SS3 "In Appendix E Complexity Score Calculation ‣ Do we need domain-specific embedding models? An empirical investigation")
+12. [F Prompt For ChatGPT Error Rate](https://arxiv.org/html/2409.18511v3#A6 "In Do we need domain-specific embedding models? An empirical investigation")
+
+Do we need domain-specific embedding models? An empirical investigation
+=======================================================================
+
+Yixuan Tang , Yi Yang
+  
+The Hong Kong University of Science and Technology
+  
+ytangch@connect.ust.hk, imyiyang@ust.hk
+
+###### Abstract
+
+Embedding models play a crucial role in representing and retrieving information across various NLP applications. Recent advancements in Large Language Models (LLMs) have further enhanced the performance of embedding models, which are trained on massive amounts of text covering almost every domain. These models are often benchmarked on general-purpose datasets like Massive Text Embedding Benchmark (MTEB), where they demonstrate superior performance. However, a critical question arises: Is the development of domain-specific embedding models necessary when general-purpose models are trained on vast corpora that already include specialized domain texts?
+In this paper, we empirically investigate this question, choosing the finance domain as an example. We introduce the Finance Massive Text Embedding Benchmark (FinMTEB), a counterpart to MTEB that consists of financial domain-specific text datasets. We evaluate the performance of seven state-of-the-art embedding models on FinMTEB and observe a significant performance drop compared to their performance on MTEB. To account for the possibility that this drop is driven by FinMTEB’s higher complexity, we propose four measures to quantify dataset complexity and control for this factor in our analysis. Our analysis provides compelling evidence that state-of-the-art embedding models struggle to capture domain-specific linguistic and semantic patterns. Moreover, we find that the performance of general-purpose embedding models on MTEB is not correlated with their performance on FinMTEB, indicating the need for domain-specific embedding benchmarks for domain-specific embedding models. This study sheds light on developing domain-specific embedding models in the LLM era. FinMTEB comes with open-source code at <https://github.com/yixuantt/FinMTEB>
+
+1 Introduction
+--------------
+
+Embedding models, which transform text sequences into dense vector representations, play a crucial role in various natural language processing (NLP) tasks (Mikolov et al., [2013](https://arxiv.org/html/2409.18511v3#bib.bib35); Pennington et al., [2014](https://arxiv.org/html/2409.18511v3#bib.bib42); Peters et al., [2018](https://arxiv.org/html/2409.18511v3#bib.bib43)). The quality of text embeddings directly impacts the effectiveness of information retrieval, semantic understanding, and other downstream applications. Recently, many state-of-the-art embedding models have been developed using large language models (LLMs) as the foundational model (Wang et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib53); Li et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib26); Meng et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib34)).
+Since LLMs are trained on massive text corpora spanning nearly every domain, these LLM-based embedding models have demonstrated superior and robust performance in general-purpose embedding benchmarks such as Massive Text Embedding Benchmark (MTEB) (Muennighoff et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib36)).
+
+Given that general-purpose embedding models are becoming the backbone of NLP applications, and companies like OpenAI and Cohere are offering general-purpose embeddings that potentially serve a wide range of industry applications, a critical question arises: Do we still need domain-specific embedding models? The answer is not immediately clear. On the one hand, as mentioned earlier, state-of-the-art embedding models are primarily built from general-purpose LLMs that have been trained on vast text corpora covering nearly every domain. There is no strong evidence suggesting that these models cannot grasp domain-specific languages or linguistic patterns. On the other hand, while there has been limited development of domain-specific embedding models, researchers have advocated for training domain-specific LLMs (Gururangan et al., [2020](https://arxiv.org/html/2409.18511v3#bib.bib18)) to better capture domain-specific terminology and semantics. For example, domain-specific LLMs such as BioMedLM (Bolton et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib1)) for the biomedical domain, SaulLM-7B (Colombo et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib8)) for the legal domain, and BloombergGPT (Wu et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib55)) for the finance domain are pre-trained on large, domain specialized corpora.
+
+To address this question, we empirically evaluate the necessity of domain-specific embedding models, focusing on the finance domain as our research context. We select the finance domain because financial NLP is a critical area within the research community, with a wealth of established financial NLP datasets (FiQA, [2018](https://arxiv.org/html/2409.18511v3#bib.bib13); Islam et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib20); Liu et al., [2024a](https://arxiv.org/html/2409.18511v3#bib.bib28); Ju et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib22); Sinha & Khandait, [2021](https://arxiv.org/html/2409.18511v3#bib.bib49); Mukherjee et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib37); Malo et al., [2014](https://arxiv.org/html/2409.18511v3#bib.bib33)). The importance of representing financial texts in downstream applications has also driven the development of finance-specific LLMs, such as BloombergGPT (Wu et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib55)) and InvestLM (Yang et al., [2023b](https://arxiv.org/html/2409.18511v3#bib.bib61)). Moreover, the complexity and specificity of the financial domain provide a unique opportunity to assess how effectively general-purpose embedding models can represent specialized texts.
+
+We first develop the Finance Massive Text Embedding Benchmark (FinMTEB), a finance-specific counterpart to MTEB. FinMTEB consists of 64 datasets and, like MTEB, covers seven distinct tasks, including classification, clustering, retrieval, pair-classification, reranking, and semantic textual similarity. Unlike MTEB, all datasets in FinMTEB are based on financial text data, which feature substantially longer text sequences and token lengths. Using seven state-of-the-art embedding models, we observe a significant performance drop on the FinMTEB compared to the general-purpose MTEB. ANOVA analysis further indicates that this average performance drop is primarily driven by the differences between the benchmarks, rather than model-specific factors.
+
+While the performance drop on FinMTEB may seem expected given the domain shift, one concern is whether the datasets in FinMTEB are inherently more complex than those in MTEB. Is the reduced performance a result of the benchmark’s complexity, or do these models lack the necessary understanding of domain-specific context? If the FinMTEB datasets were of equal complexity to MTEB, we might not observe the same performance gap, suggesting that dataset complexity could be contributing to the performance decline.
+
+To eliminate the confounding factor of dataset complexity, we propose four different measures to quantify complexity: ChatGPT’s response error rate, dataset readability, information entropy, and text dependency distance. Our analysis shows that even when controlling for complexity, general-purpose embedding models still perform worse on domain-specific texts. Moreover, the more complex the domain-specific data, the greater the performance drop—although this trend is less prominent in general-purpose tasks on the MTEB. Collectively, this evidence suggests that state-of-the-art, general-purpose embedding models may not fully capture the linguistic nuances and semantic patterns unique to a particular domain.
+
+Moreover, we observe that the performance of general-purpose embedding models on MTEB does not correlate with their performance on FinMTEB. Models that perform exceptionally well on general embedding tasks do not necessarily maintain their superiority in the financial domain. This underscores the importance of evaluating embedding models within the specific context in which they will be applied and emphasizes the necessity of domain-specific embedding benchmarks.
+
+Our contributions in this paper are threefold:
+
+* •
+
+  Our main research contribution is the empirical investigation into the necessity of domain-specific embedding models. To the best of our knowledge, this is one of the first studies to address the critical question of whether domain-specific embeddings are required, especially given the widespread adoption of general-purpose embedding models across various industry applications.
+* •
+
+  Our analysis on the necessity of domain-specific embedding models is based on a rigorous evaluation framework. Rather than simply developing a domain benchmark and demonstrating a performance drop, our analysis accounts for dataset complexity, eliminating potential confounding factors. This allows us to conclude that the performance gap is due to the models’ inability to encode domain-specific text, rather than inherent dataset complexity.
+* •
+
+  The development of the FinMTEB dataset, as a byproduct of our study, may serve as a valuable resource for researchers and practitioners interested in building financial domain-specific embedding models.
+
+2 Related Work
+--------------
+
+### 2.1 General-purpose Embedding Models
+
+Embedding models like Word2Vec (Mikolov et al., [2013](https://arxiv.org/html/2409.18511v3#bib.bib35)) and GloVe (Pennington et al., [2014](https://arxiv.org/html/2409.18511v3#bib.bib42)) lay the groundwork by capturing word-level semantics through contextual co-occurrence. The introduction of transformer-based models such as BERT (Devlin et al., [2019](https://arxiv.org/html/2409.18511v3#bib.bib10)) and RoBERTa (Liu, [2019](https://arxiv.org/html/2409.18511v3#bib.bib31)) marks a significant shift by utilizing deep bidirectional encoders, enabling contextualized word embeddings. Building on these, Sentence-BERT (Reimers & Gurevych, [2019](https://arxiv.org/html/2409.18511v3#bib.bib46)) is designed to generate semantically meaningful sentence embeddings using Siamese and triplet networks, improving performance on semantic similarity tasks. Recent advancements in LLMs have driven the development of LLM-based embedding models, such as e5-mistral-7b-instruct (Wang et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib53)) and gte-Qwen2-1.5B-instruct (Yang et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib58)), which have achieved state-of-the-art performance across a wide range of NLP tasks.
+
+### 2.2 Domain-Specific Models
+
+Different domains exhibit distinct linguistic patterns and terminologies, often requiring domain-specific models or adaptations for specialized tasks. Researchers have advocated for training domain-specific models or fine-tuning general models for particular domains (Gururangan et al., [2020](https://arxiv.org/html/2409.18511v3#bib.bib18)). For instance, domain-specific LLMs like BioMedLM (Bolton et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib1)) for biomedical text, SaulLM-7B (Colombo et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib8)) for legal documents, and BloombergGPT (Wu et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib55)) for financial applications are pre-trained on large domain-specific corpora. In addition, instruction-tuned domain-specific models such as InvestLM (Yang et al., [2023b](https://arxiv.org/html/2409.18511v3#bib.bib61)) and FinGPT (Yang et al., [2023a](https://arxiv.org/html/2409.18511v3#bib.bib59)) are fine-tuned for specific downstream tasks in the finance domain.
+
+While domain-specific LLMs have been widely studied and developed, domain-specific embedding models have received relatively less attention. In the biomedical domain, models like BioWordVec (Zhang et al., [2019](https://arxiv.org/html/2409.18511v3#bib.bib63)) and BioSentVec (Chen et al., [2019](https://arxiv.org/html/2409.18511v3#bib.bib5)) generate word and sentence embeddings tailored to biomedical texts. In finance, FinBERT (Yang et al., [2020](https://arxiv.org/html/2409.18511v3#bib.bib60)) is pre-trained on a large corpus of financial texts to enhance text encoding capabilities. However, most domain-specific embedding models are based on smaller language models instead of state-of-the-art LLMs. Since LLMs are trained on extensive data across multiple domains with numerous parameters, it remains unclear whether general-purpose LLM-based embeddings can adequately handle specialized texts. This paper aims to address this research gap.
+
+### 2.3 Embedding Benchmarks
+
+To comprehensively evaluate embedding models, benchmarks like the Massive Text Embedding Benchmark (MTEB) (Muennighoff et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib36)) have been established. MTEB assesses embedding models across a wide array of tasks using numerous datasets and languages. This extensive evaluation provides insights into a model’s generalizability and effectiveness across different linguistic contexts and task types. Similarly, the BEIR benchmark (Thakur et al., [2021](https://arxiv.org/html/2409.18511v3#bib.bib52)) focuses on the information retrieval task, encompassing 18 diverse datasets. While BEIR includes some domain-specific datasets such as FiQA (FiQA, [2018](https://arxiv.org/html/2409.18511v3#bib.bib13)), it is not tailored for comprehensive domain analysis. The inclusion of a few specialized datasets does not fully address the unique challenges posed by domain-specific language and terminology. There are also scenario-specific RAG evaluation benchmarks like RAGeval (Zhu et al., [2024b](https://arxiv.org/html/2409.18511v3#bib.bib68)). These benchmarks acknowledge the necessity for domain-specific evaluations, particularly highlighting the impact of accurate retrieval in specialized contexts. However, they primarily focus on retrieval tasks and often overlook other crucial embedding tasks such as semantic similarity and clustering.
+
+### 2.4 Domain-specific Model Benchmarks
+
+Numerous benchmarks tailored to specific domains have been developed with the emergence of domain-specific large language models (LLMs). For example, in the finance domain, benchmarks such as CFLUE (Zhu et al., [2024a](https://arxiv.org/html/2409.18511v3#bib.bib67)), FinEval (Zhang et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib62)), DocMath-Eval (Zhao et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib64)), and FinanceBench (Islam et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib20)) have been introduced to assess the comprehension capabilities of LLMs within financial contexts. Similarly, in the legal domain, LawBench (Fei et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib12)) has been established to evaluate LLMs across a variety of legal tasks. Besides, MedBench (Liu et al., [2024b](https://arxiv.org/html/2409.18511v3#bib.bib29)), MedEval (He et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib19)), and DrBenchmark (Labrak et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib23)) have been developed to test the proficiency in understanding and generating medical information. Most of these benchmarking papers conclude that general-purpose LLMs may fall short on domain tasks (Zhu et al., [2024a](https://arxiv.org/html/2409.18511v3#bib.bib67); Fei et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib12)). The importance of domain adaptation has gradually gained attention (Ling et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib27)). However, to our knowledge, there is little work benchmarking the embedding model’s performance on domain texts.
+
+3 The FinMTEB Benchmark
+-----------------------
+
+In this section, we briefly introduce the proposed Finance MTEB (FinMTEB) benchmark, which serves as the foundation for our analysis. The construction of FinMTEB closely resembles the widely used general embedding benchmark, MTEB
+(Muennighoff et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib36)).
+
+### 3.1 FinMTEB Tasks
+
+![Refer to caption](x1.png)
+
+
+Figure 1: An overview of tasks and datasets used in FinMTEB. All the dataset descriptions and examples are provided in the Appendix [C](https://arxiv.org/html/2409.18511v3#A3 "Appendix C Datasets ‣ Do we need domain-specific embedding models? An empirical investigation").
+
+Figure [1](https://arxiv.org/html/2409.18511v3#S3.F1 "Figure 1 ‣ 3.1 FinMTEB Tasks ‣ 3 The FinMTEB Benchmark ‣ Do we need domain-specific embedding models? An empirical investigation") provides an overview of the tasks and datasets included in FinMTEB. Similar to MTEB (Muennighoff et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib36)), FinMTEB includes seven embedding tasks, but with datasets specifically tailored to the finance domain, as follows.
+
+Semantic Textual Similarity (STS) involves assessing the semantic similarity between two sentences from the financial text. For this task, we employ datasets such as FinSTS (Liu et al., [2024a](https://arxiv.org/html/2409.18511v3#bib.bib28)) and FINAL (Ju et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib22)) from company annual reports, along with other data types such as BQ-Corpus (Chen et al., [2018](https://arxiv.org/html/2409.18511v3#bib.bib4)) sourced from the banking corpus.
+
+Retrieval focuses on identifying the most relevant evidence in response to a query from a financial corpus. This task utilizes some popular finance QA datasets such as FinanceBench (Islam et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib20)), FiQA2018 (FiQA, [2018](https://arxiv.org/html/2409.18511v3#bib.bib13)) and HPC3 (Guo et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib17)). These datasets pair each query with relevant contextual information. Additionally, we also develop specific queries for finance terms from various sources, such as the TradeTheEvent (Zhou et al., [2021](https://arxiv.org/html/2409.18511v3#bib.bib65)), to further enhance the finance domain evaluation.
+
+Classification involves predicting the label of a financial text based on its text embedding. The classification task includes multiple datasets, such as financial sentiment analysis (Malo et al., [2014](https://arxiv.org/html/2409.18511v3#bib.bib33); FiQA, [2018](https://arxiv.org/html/2409.18511v3#bib.bib13); Cortis et al., [2017](https://arxiv.org/html/2409.18511v3#bib.bib9); Lu et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib32)), Fed’s monetary policy classification (Shah et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib48)), and organization’s strategy, as well as forward-looking statement classification (Yang et al., [2023b](https://arxiv.org/html/2409.18511v3#bib.bib61)).
+
+Clustering is the process of grouping sentences based on their embedding similarities. We compile a diverse and comprehensive corpus that includes consumer complaints from CFPB 111https://huggingface.co/datasets/CFPB/consumer-finance-complaints, financial papers from arXiv, company industry descriptions (Qader et al., [2018](https://arxiv.org/html/2409.18511v3#bib.bib44)), financial events and intent detection(Gerz et al., [2021a](https://arxiv.org/html/2409.18511v3#bib.bib14)).
+
+Reranking includes a set of financial datasets that have the ranking of retrieved documents to user queries such as FinQA2018-Rerank (Chen et al., [2021](https://arxiv.org/html/2409.18511v3#bib.bib7)).
+
+Pair-Classification focuses on comparing the class label of two financial text. We use the data from AFQMC 222https://tianchi.aliyun.com/dataset/106411 and finance news headline (Sinha & Khandait, [2021](https://arxiv.org/html/2409.18511v3#bib.bib49)).
+
+Summarization focuses on summarizing the main content of the financial text. The corpus used for this task includes earnings call transcripts (Mukherjee et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib37)), financial news (Lu et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib32)), and Form 10-K filings (El-Haj et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib11)).
+
+In summary, FinMTEB consists of a total of 64 datasets, spanning seven different tasks. The key difference between MTEB and FinMTEB is that all datasets in FinMTEB are finance-domain specific, either previously used in financial NLP research or newly developed by the authors. Semantic similarity between datasets in FinMTEB are shown in Appendix [A](https://arxiv.org/html/2409.18511v3#A1 "Appendix A Dataset Semantic Similarity ‣ Do we need domain-specific embedding models? An empirical investigation"). The detailed dataset information and descriptions are presented in the Appendix [C](https://arxiv.org/html/2409.18511v3#A3 "Appendix C Datasets ‣ Do we need domain-specific embedding models? An empirical investigation"). The main scoring metric for each task is the same as used with that of the MTEB benchmark, and the details are presented in the Appendix [D](https://arxiv.org/html/2409.18511v3#A4 "Appendix D Main Metric ‣ Do we need domain-specific embedding models? An empirical investigation").
+
+### 3.2 Characteristics of FinMTEB
+
+Having built the FinMTEB benchmark, we now provide an analysis to understand its characteristics.
+
+Linguistic Pattern. Table [1](https://arxiv.org/html/2409.18511v3#S3.T1 "Table 1 ‣ 3.2 Characteristics of FinMTEB ‣ 3 The FinMTEB Benchmark ‣ Do we need domain-specific embedding models? An empirical investigation") presents a comparative analysis of linguistic features such as average sentence length, token length, syllables per token, and dependency distance (Oya, [2011](https://arxiv.org/html/2409.18511v3#bib.bib41)) across two benchmarks.
+The results indicate that texts in FinMTEB consistently have longer and more complex sentences than those in MTEB, with an average sentence length of 26.37 tokens compared to 18.2 tokens in MTEB. This highlights significant linguistic differences between financial and general texts. However, does this difference warrant the need for a domain-specific embedding model? We will explore this question later.
+
+| Benchmark | Sentence Length | Token Length | Syllables Per Token | Dependency Distance |
+| --- | --- | --- | --- | --- |
+| MTEB | 18.20 | 4.89 | 1.49 | 2.49 |
+| FinMTEB | 26.37 | 5.12 | 1.52 | 2.85 |
+
+Table 1: Comparison of Text Characteristics Between FinMTEB and MTEB. The numbers represent the average scores across all samples from all datasets.
+
+High Semantic Diversity. We first examine the inter-dataset semantic similarity. Using the all-MiniLM-L6-v2 model333https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2, we embed 100 samples from each dataset, compute their averages to represent the dataset embedding, and measure inter-dataset similarity using cosine similarity. As shown in Appendix [A](https://arxiv.org/html/2409.18511v3#A1 "Appendix A Dataset Semantic Similarity ‣ Do we need domain-specific embedding models? An empirical investigation"), most datasets in FinMTEB have an inter-dataset similarity score below 0.6, indicating high semantic diversity. Despite being finance-domain specific, this highlights the diverse narratives and contexts present in the financial datasets.
+
+### 3.3 The performance of state-of-the-art embedding models on FinMTEB
+
+General-purpose Embedding Models. We consider seven state-of-the-art, general-purpose embedding models in our experiments. Specifically, we consider the following models: bge-en-icl (Xiao et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib56)) and e5-mistral-7b-instruct (Wang et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib53)), which are developed from Mistral-7B-v0.1 (Jiang et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib21)); gte-Qwen2-1.5B-instruct (Li et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib26)), developed from Qwen2 (Yang et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib58)); bge-large-en-v1.5 (Xiao et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib56)) and all-MiniLM-L12-v2 (Reimers & Gurevych, [2019](https://arxiv.org/html/2409.18511v3#bib.bib46)), both developed from BERT (Devlin et al., [2019](https://arxiv.org/html/2409.18511v3#bib.bib10)); instructor-base (Su et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib50)) from T5Encoder (Raffel et al., [2020](https://arxiv.org/html/2409.18511v3#bib.bib45)); and OpenAI’s text-embedding-3-small (OpenAI, [2024b](https://arxiv.org/html/2409.18511v3#bib.bib40)).
+
+We evaluate the performance of these embedding models on FinMTEB tasks, with the results presented in Table [5](https://arxiv.org/html/2409.18511v3#footnote5 "Footnote 5 ‣ Table 2 ‣ 3.3 The performance of state-of-the-art embedding models on FinMTEB ‣ 3 The FinMTEB Benchmark ‣ Do we need domain-specific embedding models? An empirical investigation"), alongside their performance on MTEB for comparison. The results clearly demonstrate a significant performance drop on the FinMTEB benchmarks. For instance, the best-performing model on MTEB, bge-en-icl, achieves an average score of 71.67, while its performance on FinMTEB is notably lower, at 63.09.
+
+| Embedding Model | Base Model | Embedding Dimensions | MTEB Score | FinMTEB Score |
+| --- | --- | --- | --- | --- |
+| bge-en-icl | Mistral | 4096 | 71.67 | 63.09 (↓−8.58)↓absent8.58(\downarrow-8.58)( ↓ - 8.58 ) |
+| gte-Qwen2-1.5B-instruct | Qwen2 | 1536 | 67.16 | 59.98 (↓−7.18)↓absent7.18(\downarrow-7.18)( ↓ - 7.18 ) |
+| e5-mistral-7b-instruct | Mistral | 4096 | 66.63 | 64.75 (↓−1.88)↓absent1.88(\downarrow-1.88)( ↓ - 1.88 ) |
+| bge-large-en-v1.5 | Bert | 1024 | 64.23 | 58.95 (↓−5.28)↓absent5.28(\downarrow-5.28)( ↓ - 5.28 ) |
+| text-embedding-3-small | - | 1536 | 62.26 | 61.36 (↓−0.90)↓absent0.90(\downarrow-0.90)( ↓ - 0.90 ) |
+| instructor-base | T5Encoder | 768 | 59.54 | 54.79 (↓−4.75)↓absent4.75(\downarrow-4.75)( ↓ - 4.75 ) |
+| all-MiniLM-L12-v2 | Bert | 384 | 56.53 | 54.31 (↓−2.22)↓absent2.22(\downarrow-2.22)( ↓ - 2.22 ) |
+
+Table 2: State-of-the-art Embedding Model Performance on MTEB and FinMTEB. The “MTEB Score” column represents performance on the MTEB benchmark (Muennighoff et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib36)) as reported on the Hugging Face MTEB Leaderboard 555https://huggingface.co/spaces/mteb/leaderboard. The “FinMTEB Score” column shows the average performance score evaluated on the proposed FinMTEB benchmark. To ensure a fair comparison, FinMTEB uses the same evaluation metrics as MTEB.
+
+#### 3.3.1 What Drives the Performance Gap?
+
+Having observed a performance discrepancy between general-purpose embedding models across the two benchmarks, we aim to investigate what drives this difference. Specifically, we consider two possible factors: (1) the model used (i.e., which embedding model is applied), and (2) the domain (i.e., whether it’s the general benchmark, MTEB, or the domain-specific benchmark, FinMTEB). Since we evaluate seven embedding models across two domains, this results in 14 unique model-domain combinations.
+
+To facilitate statistical analysis, we employ bootstrapping methods to generate a large sample dataset. For each task in both MTEB and FinMTEB, we aggregate the task’s datasets into a task pool. From each task pool, we randomly sample 50 examples to form a bootstrap sample and evaluate the embedding model’s performance on this bootstrap. We repeat this process 500 times, yielding 500 bootstraps for each combination. Thus, we have 14 unique combinations (model and domain), each with 500 bootstraps and corresponding performance scores.
+
+|  | STS | Classification | Retrieval | Reranking | Clustering | Pair-classification | Summarization | Average |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Model | 0.79\*\* | 0.02\*\* | 0.89\*\* | 0.30\*\* | 0.04\*\* | 0.00 | 0.11\*\* | 0.00 |
+| Domain | 0.11\*\* | 0.23\*\* | 0.31\*\* | 0.05\*\* | 0.82\*\* | 0.63\*\* | 0.12\*\* | 1.00\*\* |
+
+Table 3: ANOVA analysis results. The reported numbers represent the partial eta squared (effect size) for each factor (Model or Domain). Asterisks indicate statistical significance levels, with ∗⁣∗
+
+\*\*∗ ∗ denoting p𝑝pitalic\_p-value <<< 0.05.
+
+We present the ANOVA analysis results in Appendix [B](https://arxiv.org/html/2409.18511v3#A2 "Appendix B ANOVA DATA ‣ Do we need domain-specific embedding models? An empirical investigation"). First, the results indicate that the choice of embedding model (Model factor) significantly impacts performance in most tasks, such as STS (0.79), Retrieval (0.89), and Reranking (0.30), with the exception of Pair-classification (0.00), where model choice has no significant impact. Second, the Domain factor also shows significant effects across all embedding tasks. Interestingly, the average scores reveal that, from an overall perspective, the Model factor has little impact on performance, with an effect size of 0.00 and an insignificant p-value. This suggests that while individual models may excel at specific tasks, their performance discrepancies balance out when averaged. However, the Domain factor (1.00) demonstrates a much more prominent influence, underscoring the necessity for domain-specific models or fine-tuning when addressing specialized tasks like those in finance.
+
+Research Question. While the performance drop on FinMTEB and the subsequent ANOVA analysis suggests that domain-specific embedding tasks may pose greater challenges for general-purpose embedding models, does this necessarily indicate a need for domain-specific models? Not necessarily. The difference in datasets between FinMTEB and MTEB could contribute to the observed performance drop. For instance, FinMTEB datasets might be inherently more difficult or linguistically complex compared to those in MTEB as illustrated in Table [1](https://arxiv.org/html/2409.18511v3#S3.T1 "Table 1 ‣ 3.2 Characteristics of FinMTEB ‣ 3 The FinMTEB Benchmark ‣ Do we need domain-specific embedding models? An empirical investigation"). If both benchmarks contained datasets of equivalent complexity, general-purpose models might even perform better on FinMTEB tasks. Therefore, the performance drop does not necessarily imply that the models fail to understand domain-specific language or concepts. To draw meaningful conclusions about the necessity of domain-specific models, we must first control for differences in dataset difficulty. In the next section, we will analyze model performance while considering these inherent differences between the FinMTEB and MTEB datasets.
+
+4 Performance Analysis After Controlling for Dataset Complexity
+---------------------------------------------------------------
+
+To answer the above research question, we conduct a detailed analysis of the embedding models’ performance, while accounting for dataset complexity.
+
+### 4.1 Quantifying Dataset Complexity
+
+We propose four different measures to quantify a dataset’s complexity.
+
+ChatGPT Error Rate. The first measure quantifies how challenging it is for ChatGPT to answer a dataset’s questions. Specifically, for each example in the dataset across different tasks, we reformat the example into a question-and-answer pair, as shown in Appendix [F](https://arxiv.org/html/2409.18511v3#A6 "Appendix F Prompt For ChatGPT Error Rate ‣ Do we need domain-specific embedding models? An empirical investigation"), and prompt GPT-4o mini (OpenAI, [2024a](https://arxiv.org/html/2409.18511v3#bib.bib39)). The rationale is that if ChatGPT fails to answer a question correctly, it indicates the difficulty level of the question. Additionally, since state-of-the-art LLM-based embedding models present each query with an instruction in a question-answer format, we use the ChatGPT error rate as an indicator of dataset complexity.
+
+Information Theory. We borrow the concept of information entropy from information theory to measure the complexity of a text sequence. Information entropy is calculated as the average amount of information produced by a stochastic source of data. Higher Information Entropy indicates text that contains more information or is less predictable, potentially implying greater complexity.
+
+Readability. We also use readability to measure dataset complexity, specifically applying the Gunning Fog Index (Gunning, [1952](https://arxiv.org/html/2409.18511v3#bib.bib16)), which factors in sentence length and the number of complex words. The index estimates the years of formal education required to understand a text on the first reading. A higher Gunning Fog Index score indicates more complex sentences.
+
+Mean Dependency Distance. Finally, we measure linguistic complexity using the dependency distance between two syntactically related words in a sentence (Oya, [2011](https://arxiv.org/html/2409.18511v3#bib.bib41)). A longer dependency distance indicates that more context is needed for comprehension, reflecting greater sentence complexity.
+
+For all of these four complexity measures, a higher score indicates higher dataset complexity. Details on the measures and their calculations are provided in Appendix [E](https://arxiv.org/html/2409.18511v3#A5 "Appendix E Complexity Score Calculation ‣ Do we need domain-specific embedding models? An empirical investigation").
+
+### 4.2 Subgroup analysis: Embedding Performance vs. Dataset Complexity
+
+![Refer to caption](extracted/5897514/illustration/box2/openai.png)
+
+
+(a) ChatGPT Error Rate
+
+![Refer to caption](extracted/5897514/illustration/box2/read.png)
+
+
+(b) Readability: Gunning Fog Index
+
+![Refer to caption](extracted/5897514/illustration/box2/information.png)
+
+
+(c) Information Theory
+
+![Refer to caption](extracted/5897514/illustration/box2/description.png)
+
+
+(d) Mean Dependency Distance
+
+Figure 2: Subgroup analysis results. The x-axis represents the three dataset complexity levels: Low, Medium, and High. The y-axis reports the average score for each dataset across all benchmark tasks.
+
+We conduct a subgroup analysis to examine the impact of the domain on embedding model performance. First, we calculate dataset complexity using one of the four complexity measures and categorize the datasets into three subgroups: low, medium, and high complexity. This ensures that METB and FinMTEB datasets within each subgroup have the same level of complexity. We then calculate the average performance score of seven LLM-based embedding models across datasets within each subgroup. The results of this analysis appear in Figure [2](https://arxiv.org/html/2409.18511v3#S4.F2 "Figure 2 ‣ 4.2 Subgroup analysis: Embedding Performance vs. Dataset Complexity ‣ 4 Performance Analysis After Controlling for Dataset Complexity ‣ Do we need domain-specific embedding models? An empirical investigation"). The subgroup analysis reveals two key findings.
+
+First, embedding models perform substantially worse on FinMTEB datasets compared to MTEB datasets, even after accounting for dataset complexity. The performance of embedding models on FinMTEB datasets is consistently lower than on MTEB datasets within the same group. This performance gap persists regardless of the complexity measure used. Given that datasets in the same subgroup have similar levels of complexity (e.g., comparable ChatGPT error rates), the lower performance on FinMTEB tasks suggests that state-of-the-art LLM-based embedding models struggle with encoding domain-specific terminologies and semantic patterns.
+
+Second, embedding models perform worst on FinMTEB datasets with the highest complexity levels. For example, using readability as a complexity measure, the average performance of embedding models on high-complexity FinMTEB datasets is around 0.3, significantly lower than their performance on low-complexity datasets (around 0.5) and medium-complexity datasets (around 0.6). This further highlights the challenge embedding models face in capturing complex, domain-specific language and semantics.
+
+### 4.3 Regression Analysis: Embedding Performance vs. Dataset Complexity
+
+|  | ChatGPT Error Rate | | Readability | | Information Theory | | Mean Dependency Distance | |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Domain | MTEB | FinMTEB | MTEB | FinMTEB | MTEB | FinMTEB | MTEB | FinMTEB |
+| Intercept | 0.6619\*\* | 0.6097\*\* | 0.8739\*\* | 0.6976\*\* | 0.5905\*\* | 0.4766\*\* | 1.2341\*\* | 0.9357\*\* |
+|  | (0.003) | (0.003) | (0.002) | (0.005) | (0.002) | (0.002) | (0.007) | (0.008) |
+| Complexity | -0.2193\*\* | -0.4637\*\* | -0.0278\*\* | -0.0202\*\* | 0.0168\*\* | -0.0092\*\* | -0.2703\*\* | -0.1810\*\* |
+|  | (0.009) | (0.010) | (0.000) | (0.000) | (0.001) | (0.001) | (0.003) | (0.003) |
+
+Table 4: Regression analysis results. The numbers represent the estimated coefficient values, with standard errors in parentheses. ∗⁣∗
+
+\*\*∗ ∗ denotes significance at the p<0.05𝑝0.05p<0.05italic\_p < 0.05 level.
+
+Furthermore, we conduct a regression analysis to examine the relationship between dataset complexity and embedding model performance. Specifically, for each dataset complexity measure, we run two ordinary least squares (OLS) regression models—one for the MTEB datasets and one for the FinMTEB datasets. We normalize the variables Performance and Complexity to a range between 0 and 1 using min-max normalization. The regression specification is as follows:
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+|  | Performance=Intercept+β×Complexity+ϵPerformanceIntercept𝛽Complexityitalic-ϵ\text{Performance}=\text{Intercept}+\beta\times\text{Complexity}+\epsilonPerformance = Intercept + italic\_β × Complexity + italic\_ϵ |  | (1) |
+
+where β𝛽\betaitalic\_β is the coefficients of the covariate (i.e., dataset complexity), and ϵitalic-ϵ\epsilonitalic\_ϵ is the error term.
+
+The regression results are presented in Table [4](https://arxiv.org/html/2409.18511v3#S4.T4 "Table 4 ‣ 4.3 Regression Analysis: Embedding Performance vs. Dataset Complexity ‣ 4 Performance Analysis After Controlling for Dataset Complexity ‣ Do we need domain-specific embedding models? An empirical investigation") and are largely consistent with the findings from the subgroup analysis. First, there is a negative relationship between dataset complexity and embedding model performance, indicating that models significantly struggle with domain-specific texts exhibiting higher linguistic complexity. Second, the intercept for the MTEB datasets is consistently higher than that for FinMTEB. Given that the Complexity variable is normalized between 0 and 1, these results suggest a significant performance gap between embedding models on MTEB and FinMTEB, even when controlling for the same level of dataset complexity.
+
+Overall, both the subgroup and regression analyses demonstrate that the performance drop reported in Table 2 is not driven by differences in dataset complexity between MTEB and FinMTEB benchmarks. Rather, it suggests that state-of-the-art, general-purpose embedding models may not fully capture the linguistic nuances and semantic patterns specific to a given domain.
+
+5 Domain-specific Embedding Benchmark is needed
+-----------------------------------------------
+
+Another key consideration when discussing domain-specific embeddings is whether we need a domain-specific embedding benchmark. While it may seem intuitive to say yes, there is little empirical evidence supporting this assumption. To explore this question, we evaluate the performance ranking of embedding models on both the general MTEB and FinMTEB datasets, calculating Spearman’s rank correlation between the two. The results, shown in Table [5](https://arxiv.org/html/2409.18511v3#S5.T5 "Table 5 ‣ 5 Domain-specific Embedding Benchmark is needed ‣ Do we need domain-specific embedding models? An empirical investigation"), indicate that the ranking correlation is not statistically significant (p-values all greater than 0.05). In other words, a general-purpose embedding model performing well on MTEB does not necessarily perform well on domain-specific tasks. This suggests the necessity of developing domain-specific embedding benchmarks for evaluating domain-specific embeddings. Therefore, the development of FinMTEB constitutes a significant contribution to benchmarking embedding models specifically for the financial domain.
+
+|  | STS | Classification | Retrieval | Reranking | Clustering | Pair-classification | Summarization |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Correlation | 0.30 | -0.80 | 0.30 | -0.10 | -0.70 | -0.30 | 0.60 |
+| p-value | 0.62 | 0.10 | 0.62 | 0.87 | 0.18 | 0.62 | 0.28 |
+
+Table 5: Spearman’s correlation of embedding models’ performance on MTEB and FinMTEB across different tasks. The p-value indicates that all correlations are statistically insignificant, suggesting no relationship between embedding model performance on the two benchmarks.
+
+6 Conclusion
+------------
+
+In this study, we empirically investigate a seemingly intuitive yet practically important question: do we need domain-specific embedding models? To rigorously address this, we use the finance domain as an example and develop the FinMTEB benchmark, which comprises a large variety of domain-specific (i.e., finance) embedding tasks. Additionally, we propose four methods to quantify dataset complexity. Our comparative analysis reveals that state-of-the-art LLM-based embedding models exhibit a substantial performance gap between general (MTEB) and domain-specific (FinMTEB) benchmarks. More importantly, this gap persists even when accounting for dataset complexity.
+The empirical results provide strong evidence that, despite being trained on vast amounts of data that likely include various domains, LLM-based embedding models still fall short in capturing domain-specific linguistic and semantic patterns. Given the widespread use of embedding models in information retrieval and semantic search applications, this highlights the need for further adaptation of these models to specific domains in order to improve their utility. Moreover, the development of the FinMTEB benchmark can serve as a valuable resource for researchers and practitioners interested in financial-specific embedding models.
+
+While this study presents compelling evidence for the necessity of domain-specific embedding models, the challenge of how to train these models remains. Should we adapt domain-specific embeddings from a domain-specific LLM, or should we develop domain-specific datasets and fine-tune a general-purpose LLM? We hope to see more research in this direction to further advance AI’s capabilities in handling domain-specific tasks effectively.
+
+References
+----------
+
+* Bolton et al. (2024)
+
+  Elliot Bolton, Abhinav Venigalla, Michihiro Yasunaga, David Hall, Betty Xiong, Tony Lee, Roxana Daneshjou, Jonathan Frankle, Percy Liang, Michael Carbin, et al.
+  Biomedlm: A 2.7 b parameter language model trained on biomedical text.
+  *arXiv preprint arXiv:2403.18421*, 2024.
+* CCKS (2022)
+
+  CCKS.
+  Ccks2022: Few-shot event extraction for the financial sector, 2022.
+  <https://www.biendata.xyz/competition/ccks2022_eventext/>.
+* CFPB (2024)
+
+  CFPB.
+  Consumer finance complaints, 2024.
+  <https://huggingface.co/datasets/CFPB/consumer-finance-complaints>.
+* Chen et al. (2018)
+
+  Jing Chen, Qingcai Chen, Xin Liu, Haijun Yang, Daohe Lu, and Buzhou Tang.
+  The BQ corpus: A large-scale domain-specific Chinese corpus for sentence semantic equivalence identification.
+  In Ellen Riloff, David Chiang, Julia Hockenmaier, and Jun’ichi Tsujii (eds.), *Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing*, pp.  4946–4951, Brussels, Belgium, October-November 2018. Association for Computational Linguistics.
+  doi: 10.18653/v1/D18-1536.
+* Chen et al. (2019)
+
+  Qingyu Chen, Yifan Peng, and Zhiyong Lu.
+  Biosentvec: creating sentence embeddings for biomedical texts.
+  In *2019 IEEE International Conference on Healthcare Informatics (ICHI)*, pp.  1–5. IEEE, 2019.
+* Chen et al. (2023)
+
+  Wei Chen, Qiushi Wang, Zefei Long, Xianyin Zhang, Zhongtian Lu, Bingxuan Li, Siyuan Wang, Jiarong Xu, Xiang Bai, Xuanjing Huang, and Zhongyu Wei.
+  Disc-finllm: A chinese financial large language model based on multiple experts fine-tuning.
+  *arXiv preprint arXiv:2310.15205*, 2023.
+* Chen et al. (2021)
+
+  Zhiyu Chen, Wenhu Chen, Charese Smiley, Sameena Shah, Iana Borova, Dylan Langdon, Reema Moussa, Matt Beane, Ting-Hao Huang, Bryan Routledge, and William Yang Wang.
+  FinQA: A dataset of numerical reasoning over financial data.
+  In Marie-Francine Moens, Xuanjing Huang, Lucia Specia, and Scott Wen-tau Yih (eds.), *Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing*, pp.  3697–3711, Online and Punta Cana, Dominican Republic, November 2021. Association for Computational Linguistics.
+  doi: 10.18653/v1/2021.emnlp-main.300.
+* Colombo et al. (2024)
+
+  Pierre Colombo, Telmo Pessoa Pires, Malik Boudiaf, Dominic Culver, Rui Melo, Caio Corro, Andre FT Martins, Fabrizio Esposito, Vera Lúcia Raposo, Sofia Morgado, et al.
+  Saullm-7b: A pioneering large language model for law.
+  *arXiv preprint arXiv:2403.03883*, 2024.
+* Cortis et al. (2017)
+
+  Keith Cortis, André Freitas, Tobias Daudert, Manuela Huerlimann, Manel Zarrouk, Siegfried Handschuh, and Brian Davis.
+  SemEval-2017 task 5: Fine-grained sentiment analysis on financial microblogs and news.
+  In Steven Bethard, Marine Carpuat, Marianna Apidianaki, Saif M. Mohammad, Daniel Cer, and David Jurgens (eds.), *Proceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017)*, pp.  519–535, Vancouver, Canada, August 2017. Association for Computational Linguistics.
+  doi: 10.18653/v1/S17-2089.
+  URL <https://aclanthology.org/S17-2089>.
+* Devlin et al. (2019)
+
+  Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
+  BERT: Pre-training of deep bidirectional transformers for language understanding.
+  In Jill Burstein, Christy Doran, and Thamar Solorio (eds.), *Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)*, pp.  4171–4186, Minneapolis, Minnesota, June 2019. Association for Computational Linguistics.
+  doi: 10.18653/v1/N19-1423.
+* El-Haj et al. (2022)
+
+  Mahmoud El-Haj, Nadhem Zmandar, Paul Rayson, Ahmed AbuRa’ed, Marina Litvak, Nikiforos Pittaras, George Giannakopoulos, Aris Kosmopoulos, Blanca Carbajo-Coronado, and Antonio Moreno-Sandoval.
+  The financial narrative summarisation shared task (FNS 2022).
+  In Mahmoud El-Haj, Paul Rayson, and Nadhem Zmandar (eds.), *Proceedings of the 4th Financial Narrative Processing Workshop @LREC2022*, pp.  43–52, Marseille, France, June 2022. European Language Resources Association.
+* Fei et al. (2023)
+
+  Zhiwei Fei, Xiaoyu Shen, Dawei Zhu, Fengzhe Zhou, Zhuo Han, Songyang Zhang, Kai Chen, Zongwen Shen, and Jidong Ge.
+  Lawbench: Benchmarking legal knowledge of large language models.
+  *arXiv preprint arXiv:2309.16289*, 2023.
+* FiQA (2018)
+
+  FiQA.
+  Financial question answering., 2018.
+  <https://sites.google.com/view/fiqa>.
+* Gerz et al. (2021a)
+
+  Daniela Gerz, Pei-Hao Su, Razvan Kusztos, Avishek Mondal, Michał Lis, Eshan Singhal, Nikola Mrkšić, Tsung-Hsien Wen, and Ivan Vulić.
+  Multilingual and cross-lingual intent detection from spoken data.
+  In Marie-Francine Moens, Xuanjing Huang, Lucia Specia, and Scott Wen-tau Yih (eds.), *Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing*, pp.  7468–7475, Online and Punta Cana, Dominican Republic, November 2021a. Association for Computational Linguistics.
+  doi: 10.18653/v1/2021.emnlp-main.591.
+* Gerz et al. (2021b)
+
+  Daniela Gerz, Pei-Hao Su, Razvan Kusztos, Avishek Mondal, Michał Lis, Eshan Singhal, Nikola Mrkšić, Tsung-Hsien Wen, and Ivan Vulić.
+  Multilingual and cross-lingual intent detection from spoken data.
+  *arXiv preprint arXiv:2104.08524*, 2021b.
+* Gunning (1952)
+
+  Robert Gunning.
+  The technique of clear writing, 1952.
+* Guo et al. (2023)
+
+  Biyang Guo, Xin Zhang, Ziyuan Wang, Minqi Jiang, Jinran Nie, Yuxuan Ding, Jianwei Yue, and Yupeng Wu.
+  How close is chatgpt to human experts? comparison corpus, evaluation, and detection.
+  *arXiv preprint arXiv:2301.07597*, 2023.
+* Gururangan et al. (2020)
+
+  Suchin Gururangan, Ana Marasović, Swabha Swayamdipta, Kyle Lo, Iz Beltagy, Doug Downey, and Noah A. Smith.
+  Don’t stop pretraining: Adapt language models to domains and tasks.
+  In Dan Jurafsky, Joyce Chai, Natalie Schluter, and Joel Tetreault (eds.), *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics*, pp.  8342–8360, Online, July 2020. Association for Computational Linguistics.
+  doi: 10.18653/v1/2020.acl-main.740.
+* He et al. (2023)
+
+  Zexue He, Yu Wang, An Yan, Yao Liu, Eric Chang, Amilcare Gentili, Julian McAuley, and Chun-Nan Hsu.
+  MedEval: A multi-level, multi-task, and multi-domain medical benchmark for language model evaluation.
+  In Houda Bouamor, Juan Pino, and Kalika Bali (eds.), *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing*, pp.  8725–8744, Singapore, December 2023. Association for Computational Linguistics.
+  doi: 10.18653/v1/2023.emnlp-main.540.
+* Islam et al. (2023)
+
+  Pranab Islam, Anand Kannappan, Douwe Kiela, Rebecca Qian, Nino Scherrer, and Bertie Vidgen.
+  Financebench: A new benchmark for financial question answering.
+  *arXiv preprint arXiv:2311.11944*, 2023.
+* Jiang et al. (2023)
+
+  Albert Q Jiang, Alexandre Sablayrolles, Arthur Mensch, Chris Bamford, Devendra Singh Chaplot, Diego de las Casas, Florian Bressand, Gianna Lengyel, Guillaume Lample, Lucile Saulnier, et al.
+  Mistral 7b.
+  *arXiv preprint arXiv:2310.06825*, 2023.
+* Ju et al. (2023)
+
+  Jia-Huei Ju, Yu-Shiang Huang, Cheng-Wei Lin, Che Lin, and Chuan-Ju Wang.
+  A compare-and-contrast multistage pipeline for uncovering financial signals in financial reports.
+  In Anna Rogers, Jordan Boyd-Graber, and Naoaki Okazaki (eds.), *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, pp.  14307–14321, Toronto, Canada, July 2023. Association for Computational Linguistics.
+  doi: 10.18653/v1/2023.acl-long.800.
+* Labrak et al. (2024)
+
+  Yanis Labrak, Adrien Bazoge, Oumaima El Khettari, Mickaël Rouvier, Natalia Grabar, Beatrice Daille, Solen Quiniou, Emmanuel Morin, Pierre-Antoine Gourraud, Richard Dufour, et al.
+  Drbenchmark: A large language understanding evaluation benchmark for french biomedical domain.
+  *arXiv preprint arXiv:2402.13432*, 2024.
+* Lan et al. (2023)
+
+  Yinyu Lan, Yanru Wu, Wang Xu, Weiqiang Feng, and Youhao Zhang.
+  Chinese fine-grained financial sentiment analysis with large language models.
+  *arXiv preprint arXiv:2306.14096*, 2023.
+* Li et al. (2024)
+
+  Xiang Li, Zhenyu Li, Chen Shi, Yong Xu, Qing Du, Mingkui Tan, Jun Huang, and Wei Lin.
+  Alphafin: Benchmarking financial analysis with retrieval-augmented stock-chain framework.
+  *arXiv preprint arXiv:2403.12582*, 2024.
+* Li et al. (2023)
+
+  Zehan Li, Xin Zhang, Yanzhao Zhang, Dingkun Long, Pengjun Xie, and Meishan Zhang.
+  Towards general text embeddings with multi-stage contrastive learning.
+  *arXiv preprint arXiv:2308.03281*, 2023.
+* Ling et al. (2023)
+
+  Chen Ling, Xujiang Zhao, Jiaying Lu, Chengyuan Deng, Can Zheng, Junxiang Wang, Tanmoy Chowdhury, Yun Li, Hejie Cui, Xuchao Zhang, et al.
+  Domain specialization as the key to make large language models disruptive: A comprehensive survey.
+  *arXiv preprint arXiv:2305.18703*, 2023.
+* Liu et al. (2024a)
+
+  Jiaxin Liu, Yi Yang, and Kar Yan Tam.
+  Beyond surface similarity: Detecting subtle semantic shifts in financial narratives.
+  In Kevin Duh, Helena Gomez, and Steven Bethard (eds.), *Findings of the Association for Computational Linguistics: NAACL 2024*, pp.  2641–2652, Mexico City, Mexico, June 2024a. Association for Computational Linguistics.
+  doi: 10.18653/v1/2024.findings-naacl.168.
+* Liu et al. (2024b)
+
+  Mianxin Liu, Jinru Ding, Jie Xu, Weiguo Hu, Xiaoyang Li, Lifeng Zhu, Zhian Bai, Xiaoming Shi, Benyou Wang, Haitao Song, et al.
+  Medbench: A comprehensive, standardized, and reliable benchmarking system for evaluating chinese medical large language models.
+  *arXiv preprint arXiv:2407.10990*, 2024b.
+* Liu et al. (2022)
+
+  Shuaiqi Liu, Jiannong Cao, Ruosong Yang, and Zhiyuan Wen.
+  Long text and multi-table summarization: Dataset and method.
+  In Yoav Goldberg, Zornitsa Kozareva, and Yue Zhang (eds.), *Findings of the Association for Computational Linguistics: EMNLP 2022*, pp.  1995–2010, Abu Dhabi, United Arab Emirates, December 2022. Association for Computational Linguistics.
+  doi: 10.18653/v1/2022.findings-emnlp.145.
+* Liu (2019)
+
+  Yinhan Liu.
+  Roberta: A robustly optimized bert pretraining approach.
+  *arXiv preprint arXiv:1907.11692*, 2019.
+* Lu et al. (2023)
+
+  Dakuan Lu, Hengkui Wu, Jiaqing Liang, Yipei Xu, Qianyu He, Yipeng Geng, Mengkun Han, Yingsi Xin, and Yanghua Xiao.
+  Bbt-fin: Comprehensive construction of chinese financial domain pre-trained language model, corpus and benchmark.
+  *arXiv preprint arXiv:2302.09432*, 2023.
+* Malo et al. (2014)
+
+  Pekka Malo, Ankur Sinha, Pekka Korhonen, Jyrki Wallenius, and Pyry Takala.
+  Good debt or bad debt: Detecting semantic orientations in economic texts.
+  *Journal of the Association for Information Science and Technology*, 65(4):782–796, 2014.
+* Meng et al. (2024)
+
+  Rui Meng, Ye Liu, Shafiq Rayhan Joty, Caiming Xiong, Yingbo Zhou, and Semih Yavuz.
+  Sfr-embedding-2: Advanced text embedding with multi-stage training, 2024.
+  URL <https://huggingface.co/Salesforce/SFR-Embedding-2_R>.
+* Mikolov et al. (2013)
+
+  Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean.
+  Efficient estimation of word representations in vector space.
+  *arXiv preprint arXiv:1301.3781*, 2013.
+* Muennighoff et al. (2022)
+
+  Niklas Muennighoff, Nouamane Tazi, Loïc Magne, and Nils Reimers.
+  Mteb: Massive text embedding benchmark.
+  *arXiv preprint arXiv:2210.07316*, 2022.
+* Mukherjee et al. (2022)
+
+  Rajdeep Mukherjee, Abhinav Bohra, Akash Banerjee, Soumya Sharma, Manjunath Hegde, Afreen Shaikh, Shivani Shrivastava, Koustuv Dasgupta, Niloy Ganguly, Saptarshi Ghosh, et al.
+  Ectsum: A new benchmark dataset for bullet point summarization of long earnings call transcripts.
+  *arXiv preprint arXiv:2210.12467*, 2022.
+* Nan et al. (2021)
+
+  Qiong Nan, Juan Cao, Yongchun Zhu, Yanyan Wang, and Jintao Li.
+  Mdfend: Multi-domain fake news detection.
+  In *Proceedings of the 30th ACM International Conference on Information & Knowledge Management*, pp.  3343–3347, 2021.
+* OpenAI (2024a)
+
+  OpenAI.
+  Openai (august 24 version), 2024a.
+  <https://api.openai.com/v1/chat>.
+* OpenAI (2024b)
+
+  OpenAI.
+  Openai (august 24 version), 2024b.
+  <https://api.openai.com/v1/embeddings>.
+* Oya (2011)
+
+  Masanori Oya.
+  Syntactic dependency distance as sentence complexity measure.
+  In *Proceedings of the 16th International Conference of Pan-Pacific Association of Applied Linguistics*, volume 1, 2011.
+* Pennington et al. (2014)
+
+  Jeffrey Pennington, Richard Socher, and Christopher Manning.
+  GloVe: Global vectors for word representation.
+  In Alessandro Moschitti, Bo Pang, and Walter Daelemans (eds.), *Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, pp.  1532–1543, Doha, Qatar, October 2014. Association for Computational Linguistics.
+  doi: 10.3115/v1/D14-1162.
+  URL <https://aclanthology.org/D14-1162>.
+* Peters et al. (2018)
+
+  Matthew E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, and Luke Zettlemoyer.
+  Deep contextualized word representations.
+  In Marilyn Walker, Heng Ji, and Amanda Stent (eds.), *Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers)*, pp.  2227–2237, New Orleans, Louisiana, June 2018. Association for Computational Linguistics.
+  doi: 10.18653/v1/N18-1202.
+* Qader et al. (2018)
+
+  Raheel Qader, Khoder Jneid, François Portet, and Cyril Labbé.
+  Generation of company descriptions using concept-to-text and text-to-text deep models: dataset collection and systems evaluation.
+  In Emiel Krahmer, Albert Gatt, and Martijn Goudbeek (eds.), *Proceedings of the 11th International Conference on Natural Language Generation*, pp.  254–263, Tilburg University, The Netherlands, November 2018. Association for Computational Linguistics.
+  doi: 10.18653/v1/W18-6532.
+  URL <https://aclanthology.org/W18-6532>.
+* Raffel et al. (2020)
+
+  Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, and Peter J Liu.
+  Exploring the limits of transfer learning with a unified text-to-text transformer.
+  *Journal of machine learning research*, 21(140):1–67, 2020.
+* Reimers & Gurevych (2019)
+
+  Nils Reimers and Iryna Gurevych.
+  Sentence-bert: Sentence embeddings using siamese bert-networks.
+  In *Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing*. Association for Computational Linguistics, 11 2019.
+  URL <https://arxiv.org/abs/1908.10084>.
+* Rosenberg & Hirschberg (2007)
+
+  Andrew Rosenberg and Julia Hirschberg.
+  V-measure: A conditional entropy-based external cluster evaluation measure.
+  In Jason Eisner (ed.), *Proceedings of the 2007 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning (EMNLP-CoNLL)*, pp.  410–420, Prague, Czech Republic, June 2007. Association for Computational Linguistics.
+* Shah et al. (2023)
+
+  Agam Shah, Suvan Paturi, and Sudheer Chava.
+  Trillion dollar words: A new financial dataset, task & market analysis.
+  In Anna Rogers, Jordan Boyd-Graber, and Naoaki Okazaki (eds.), *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, pp.  6664–6679, Toronto, Canada, July 2023. Association for Computational Linguistics.
+  doi: 10.18653/v1/2023.acl-long.368.
+* Sinha & Khandait (2021)
+
+  Ankur Sinha and Tanmay Khandait.
+  Impact of news on the commodity market: Dataset and results.
+  In *Advances in Information and Communication: Proceedings of the 2021 Future of Information and Communication Conference (FICC), Volume 2*, pp.  589–601. Springer, 2021.
+* Su et al. (2022)
+
+  Hongjin Su, Weijia Shi, Jungo Kasai, Yizhong Wang, Yushi Hu, Mari Ostendorf, Wen-tau Yih, Noah A Smith, Luke Zettlemoyer, and Tao Yu.
+  One embedder, any task: Instruction-finetuned text embeddings.
+  *arXiv preprint arXiv:2212.09741*, 2022.
+* Sun et al. (2016)
+
+  Maosong Sun, Jingyang Li, Zhipeng Guo, Yu Zhao, Yabin Zheng, Xiance Si, and Zhiyuan Liu.
+  Thuctc: An efficient chinese text classifier, 2016.
+  <http://thuctc.thunlp.org/>.
+* Thakur et al. (2021)
+
+  Nandan Thakur, Nils Reimers, Andreas Rücklé, Abhishek Srivastava, and Iryna Gurevych.
+  BEIR: A heterogeneous benchmark for zero-shot evaluation of information retrieval models.
+  In *Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)*, 2021.
+* Wang et al. (2023)
+
+  Liang Wang, Nan Yang, Xiaolong Huang, Linjun Yang, Rangan Majumder, and Furu Wei.
+  Improving text embeddings with large language models.
+  *arXiv preprint arXiv:2401.00368*, 2023.
+* Watson et al. (2024)
+
+  Alex Watson, Yev Meyer, Maarten Van Segbroeck, Matthew Grossman, Sami Torbey, Piotr Mlocek, and Johnny Greco.
+  Synthetic-PII-Financial-Documents-North-America: A synthetic dataset for training language models to label and detect pii in domain specific formats, June 2024.
+  URL <https://huggingface.co/datasets/gretelai/synthetic_pii_finance_multilingual>.
+* Wu et al. (2023)
+
+  Shijie Wu, Ozan Irsoy, Steven Lu, Vadim Dabravolski, Mark Dredze, Sebastian Gehrmann, Prabhanjan Kambadur, David Rosenberg, and Gideon Mann.
+  Bloomberggpt: A large language model for finance.
+  *arXiv preprint arXiv:2303.17564*, 2023.
+* Xiao et al. (2023)
+
+  Shitao Xiao, Zheng Liu, Peitian Zhang, and Niklas Muennighoff.
+  C-pack: Packaged resources to advance general chinese embedding.
+  *arXiv preprint arXiv:2309.07597*, 2023.
+* Xu et al. (2024)
+
+  Ziyue Xu, Peilin Zhou, Xinyu Shi, Jiageng Wu, Yikang Jiang, Bin Ke, and Jie Yang.
+  Fintruthqa: A benchmark dataset for evaluating the quality of financial information disclosure.
+  *arXiv preprint arXiv:2406.12009*, 2024.
+* Yang et al. (2024)
+
+  An Yang, Baosong Yang, Binyuan Hui, Bo Zheng, Bowen Yu, Chang Zhou, Chengpeng Li, Chengyuan Li, Dayiheng Liu, Fei Huang, et al.
+  Qwen2 technical report.
+  *arXiv preprint arXiv:2407.10671*, 2024.
+* Yang et al. (2023a)
+
+  Hongyang Yang, Xiao-Yang Liu, and Christina Dan Wang.
+  Fingpt: Open-source financial large language models.
+  *arXiv preprint arXiv:2306.06031*, 2023a.
+* Yang et al. (2020)
+
+  Yi Yang, Mark Christopher Siy Uy, and Allen Huang.
+  Finbert: A pretrained language model for financial communications.
+  *arXiv preprint arXiv:2006.08097*, 2020.
+* Yang et al. (2023b)
+
+  Yi Yang, Yixuan Tang, and Kar Yan Tam.
+  Investlm: A large language model for investment using financial domain instruction tuning.
+  *arXiv preprint arXiv:2309.13064*, 2023b.
+* Zhang et al. (2023)
+
+  Liwen Zhang, Weige Cai, Zhaowei Liu, Zhi Yang, Wei Dai, Yujie Liao, Qianru Qin, Yifei Li, Xingyu Liu, Zhiqiang Liu, et al.
+  Fineval: A chinese financial domain knowledge evaluation benchmark for large language models.
+  *arXiv preprint arXiv:2308.09975*, 2023.
+* Zhang et al. (2019)
+
+  Yijia Zhang, Qingyu Chen, Zhihao Yang, Hongfei Lin, and Zhiyong Lu.
+  Biowordvec, improving biomedical word embeddings with subword information and mesh.
+  *Scientific data*, 6(1):52, 2019.
+* Zhao et al. (2024)
+
+  Yilun Zhao, Yitao Long, Hongjun Liu, Ryo Kamoi, Linyong Nan, Lyuhao Chen, Yixin Liu, Xiangru Tang, Rui Zhang, and Arman Cohan.
+  Docmath-eval: Evaluating math reasoning capabilities of llms in understanding financial documents.
+  In *Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)*, pp.  16103–16120, 2024.
+* Zhou et al. (2021)
+
+  Zhihan Zhou, Liqian Ma, and Han Liu.
+  Trade the event: Corporate events detection for news-based event-driven trading.
+  In Chengqing Zong, Fei Xia, Wenjie Li, and Roberto Navigli (eds.), *Findings of the Association for Computational Linguistics: ACL-IJCNLP 2021*, pp.  2114–2124, Online, August 2021. Association for Computational Linguistics.
+  doi: 10.18653/v1/2021.findings-acl.186.
+* Zhu et al. (2021)
+
+  Fengbin Zhu, Wenqiang Lei, Youcheng Huang, Chao Wang, Shuo Zhang, Jiancheng Lv, Fuli Feng, and Tat-Seng Chua.
+  Tat-qa: A question answering benchmark on a hybrid of tabular and textual content in finance.
+  *arXiv preprint arXiv:2105.07624*, 2021.
+* Zhu et al. (2024a)
+
+  Jie Zhu, Junhui Li, Yalong Wen, and Lifan Guo.
+  Benchmarking large language models on cflue–a chinese financial language understanding evaluation dataset.
+  *arXiv preprint arXiv:2405.10542*, 2024a.
+* Zhu et al. (2024b)
+
+  Kunlun Zhu, Yifan Luo, Dingling Xu, Ruobing Wang, Shi Yu, Shuo Wang, Yukun Yan, Zhenghao Liu, Xu Han, Zhiyuan Liu, et al.
+  Rageval: Scenario specific rag evaluation dataset generation framework.
+  *arXiv preprint arXiv:2408.01262*, 2024b.
+
+Appendix A Dataset Semantic Similarity
+--------------------------------------
+
+Figure [3](https://arxiv.org/html/2409.18511v3#A1.F3 "Figure 3 ‣ Appendix A Dataset Semantic Similarity ‣ Do we need domain-specific embedding models? An empirical investigation") presents the semantic similarity across all datasets in the Finance MTEB benchmark. The semantic similarity is calculated by cosine similarity.
+
+![Refer to caption](x2.png)
+
+
+Figure 3: Semantic similarity across all the datasets in FinMTEB benchmark.
+
+Appendix B ANOVA DATA
+---------------------
+
+Table [6](https://arxiv.org/html/2409.18511v3#A2.T6 "Table 6 ‣ Appendix B ANOVA DATA ‣ Do we need domain-specific embedding models? An empirical investigation") illustrates the full results of ANOVA analysis.
+
+| Task | Factor | Sum of Squares | Degrees of Freedom | F-Statistic | p-value |
+| --- | --- | --- | --- | --- | --- |
+| Classification | Model Factor | 4.17 | 6.00 | 25.55 | 3.41×10−303.41superscript10303.41\times 10^{-30}3.41 × 10 start\_POSTSUPERSCRIPT - 30 end\_POSTSUPERSCRIPT |
+| Domain Factor | 56.82 | 1.00 | 2086.30 | ≈0absent0\approx 0≈ 0 |
+| Residual | 190.42 | 6992.00 | NA | NA |
+| Retrieval | Model Factor | 104.25 | 6.00 | 9052.57 | ≈0absent0\approx 0≈ 0 |
+| Domain Factor | 6.16 | 1.00 | 3207.72 | ≈0absent0\approx 0≈ 0 |
+| Residual | 13.42 | 6992.00 | NA | NA |
+| STS | Model Factor | 10.55 | 6.00 | 149.00 | 1.64×10−1781.64superscript101781.64\times 10^{-178}1.64 × 10 start\_POSTSUPERSCRIPT - 178 end\_POSTSUPERSCRIPT |
+| Domain Factor | 304.09 | 1.00 | 25761.71 | ≈0absent0\approx 0≈ 0 |
+| Residual | 82.53 | 6992.00 | NA | NA |
+| Clustering | Model Factor | 0.29 | 6.00 | 47.60 | 1.59×10−571.59superscript10571.59\times 10^{-57}1.59 × 10 start\_POSTSUPERSCRIPT - 57 end\_POSTSUPERSCRIPT |
+| Domain Factor | 32.25 | 1.00 | 32161.37 | ≈0absent0\approx 0≈ 0 |
+| Residual | 7.01 | 6992.00 | NA | NA |
+| Summarization | Model Factor | 12.98 | 6.00 | 145.31 | 2.90×10−1742.90superscript101742.90\times 10^{-174}2.90 × 10 start\_POSTSUPERSCRIPT - 174 end\_POSTSUPERSCRIPT |
+| Domain Factor | 14.49 | 1.00 | 973.32 | 3.60×10−2003.60superscript102003.60\times 10^{-200}3.60 × 10 start\_POSTSUPERSCRIPT - 200 end\_POSTSUPERSCRIPT |
+| Residual | 104.07 | 6992.00 | NA | NA |
+| Reranking | Model Factor | 5.38 | 6.00 | 489.05 | ≈0absent0\approx 0≈ 0 |
+| Domain Factor | 0.64 | 1.00 | 346.78 | 1.39×10−751.39superscript10751.39\times 10^{-75}1.39 × 10 start\_POSTSUPERSCRIPT - 75 end\_POSTSUPERSCRIPT |
+| Residual | 12.84 | 7002.00 | NA | NA |
+| Pair Classification | Model Factor | 0.25 | 6.00 | 1.97 | 0.07 |
+| Domain Factor | 249.19 | 1.00 | 11989.92 | ≈0absent0\approx 0≈ 0 |
+| Residual | 145.31 | 6992.00 | NA | NA |
+| Average | Model Factor | 0.00 | 6.00 | 1.34 | 0.37 |
+|  | Domain Factor | 0.08 | 1.00 | 253.87 | ≈0absent0\approx 0≈ 0 |
+|  | Residual | 0.00 | 6.00 | NA | NA |
+
+Table 6: 
+Analysis of Variance (ANOVA) Results Across Tasks and Factors.
+Factor represents the independent variables analyzed: Model Factor pertains to variations attributed to different models, and Domain Factor pertains to variations due to different domains (MTEB or FinMTEB). Residual refers to the unexplained variance. The Sum of Squares, Degrees of Freedom, F-Statistic, and p-value are presented for each factor within each task. Asterisks denote significance levels, with lower p-values indicating higher statistical significance. The Domain Factor consistently shows high significance across all tasks.
+
+Appendix C Datasets
+-------------------
+
+The detailed description of each dataset used in this work is listed in the Table [tables 9](https://arxiv.org/html/2409.18511v3#A3.T9 "In Appendix C Datasets ‣ Do we need domain-specific embedding models? An empirical investigation"), [12](https://arxiv.org/html/2409.18511v3#A3.T12 "Table 12 ‣ Appendix C Datasets ‣ Do we need domain-specific embedding models? An empirical investigation"), [10](https://arxiv.org/html/2409.18511v3#A3.T10 "Table 10 ‣ Appendix C Datasets ‣ Do we need domain-specific embedding models? An empirical investigation"), [11](https://arxiv.org/html/2409.18511v3#A3.T11 "Table 11 ‣ Appendix C Datasets ‣ Do we need domain-specific embedding models? An empirical investigation"), [7](https://arxiv.org/html/2409.18511v3#A3.T7 "Table 7 ‣ Appendix C Datasets ‣ Do we need domain-specific embedding models? An empirical investigation"), [13](https://arxiv.org/html/2409.18511v3#A3.T13 "Table 13 ‣ Appendix C Datasets ‣ Do we need domain-specific embedding models? An empirical investigation") and [8](https://arxiv.org/html/2409.18511v3#A3.T8 "Table 8 ‣ Appendix C Datasets ‣ Do we need domain-specific embedding models? An empirical investigation").
+
+| Dataset Name | Language | Description |
+| --- | --- | --- |
+| FINAL (Ju et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib22)) | English | A dataset designed for discovering financial signals in narrative financial reports. |
+| FinSTS (Liu et al., [2024a](https://arxiv.org/html/2409.18511v3#bib.bib28)) | English | A dataset focused on detecting subtle semantic shifts in financial narratives. |
+| AFQMC 666<https://tianchi.aliyun.com/dataset/106411> | Chinese | A Chinese dataset for customer service question matching in the financial domain. |
+| BQ-Corpus (Chen et al., [2018](https://arxiv.org/html/2409.18511v3#bib.bib4)) | Chinese | A large-scale Chinese corpus for sentence semantic equivalence identification (SSEI) in the banking domain. |
+
+Table 7: Summary of STS Datasets
+
+
+
+| Dataset Name | Language | Description |
+| --- | --- | --- |
+| FiQA2018 (FiQA, [2018](https://arxiv.org/html/2409.18511v3#bib.bib13)) | English | Financial opinion mining and question answering dataset. |
+| FinanceBench (Islam et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib20)) | English | Open book financial question answering dataset. |
+| HC3(Finance) (Guo et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib17)) | English | A human-ChatGPT comparison corpus in the finance domain. |
+| Apple-10K-2022 777<https://lighthouz.ai/blog/rag-benchmark-finance-apple-10K-2022/> | English | A retrieval-augmented generation (RAG) benchmark for finance applications. |
+| FinQA (Chen et al., [2021](https://arxiv.org/html/2409.18511v3#bib.bib7)) | English | Financial numerical reasoning dataset with structured and unstructured evidence. |
+| TAT-QA (Zhu et al., [2021](https://arxiv.org/html/2409.18511v3#bib.bib66)) | English | Question answering benchmark combining tabular and textual content in finance. |
+| US Financial News 888<https://www.kaggle.com/datasets/jeet2016/us-financial-news-articles> | English | Finance news articles paired with headlines and stock ticker symbols. |
+| TradeTheEvent (Trading Benchmark) (Zhou et al., [2021](https://arxiv.org/html/2409.18511v3#bib.bib65)) | English | Finance news articles paired with headlines and stock ticker symbols. |
+| TradeTheEvent (Domain Adaption) (Zhou et al., [2021](https://arxiv.org/html/2409.18511v3#bib.bib65)) | English | Financial terms and explanations dataset. |
+| TheGoldman-en | English | English version of the Goldman Sachs Financial Dictionary. |
+| FinTruthQA (Xu et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib57)) | Chinese | Dataset for evaluating the quality of financial information disclosure. |
+| Fin-Eva (Retrieval task) 999<https://github.com/alipay/financial_evaluation_dataset/tree/main> | Chinese | Financial scenario QA dataset focusing on retrieval tasks. |
+| AlphaFin (Li et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib25)) | Chinese | Comprehensive financial dataset including NLI, QA, and stock trend predictions. |
+| DISC-FinLLM (Retrieval Part Data) (Chen et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib6)) | Chinese | Financial scenario QA dataset. |
+| FinQA (from DuEE-fin) (Lu et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib32)) | Chinese | Financial news bulletin event quiz dataset. |
+| DISC-FinLLM (Computing) (Chen et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib6)) | Chinese | Financial scenario QA dataset focusing on numerical tasks. |
+| SmoothNLP 101010<https://github.com/smoothnlp/SmoothNLP> | Chinese | Chinese finance news dataset. |
+| THUCNews (Sun et al., [2016](https://arxiv.org/html/2409.18511v3#bib.bib51)) | Chinese | Chinese finance news dataset. |
+| Fin-Eva (Terminology) 111111<https://github.com/alipay/financial_evaluation_dataset/tree/main> | Chinese | Financial terminology dataset used in the industry. |
+| TheGoldman-cn | Chinese | Chinese version of the Goldman Sachs Financial Dictionary. |
+
+Table 8: Summary of Retrieval Datasets
+
+
+
+| Dataset Name | Language | Description |
+| --- | --- | --- |
+| FinancialPhrasebank (Malo et al., [2014](https://arxiv.org/html/2409.18511v3#bib.bib33)) | English | Polar sentiment dataset of sentences from financial news, categorized by sentiment into positive, negative, or neutral. |
+| FinSent (Yang et al., [2023b](https://arxiv.org/html/2409.18511v3#bib.bib61)) | English | Polar sentiment dataset of sentences from the financial domain, categorized by sentiment into positive, negative, or neutral. |
+| FiQA\_ABSA (FiQA, [2018](https://arxiv.org/html/2409.18511v3#bib.bib13)) | English | Polar sentiment dataset of sentences from the financial domain, categorized by sentiment into positive, negative, or neutral. |
+| SemEva2017\_Headline (Cortis et al., [2017](https://arxiv.org/html/2409.18511v3#bib.bib9)) | English | Polar sentiment dataset of sentences from the financial domain, categorized by sentiment into positive, negative, or neutral. |
+| FLS (Yang et al., [2023b](https://arxiv.org/html/2409.18511v3#bib.bib61)) | English | A finance dataset detects whether the sentence is a forward-looking statement. |
+| ESG (Yang et al., [2023b](https://arxiv.org/html/2409.18511v3#bib.bib61)) | English | A finance dataset performs sentence classification under the environmental, social, and corporate governance (ESG) framework. |
+| FOMC (Shah et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib48)) | English | A task of hawkish-dovish classification in finance domain. |
+| Financial-Fraud 121212<https://github.com/amitkedia007/Financial-Fraud-Detection-Using-LLMs/tree/main> | English | This dataset was used for research in detecting financial fraud. |
+| FinNSP (Lu et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib32)) | Chinese | Financial negative news and its subject determination dataset. |
+| FinChina (Lan et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib24)) | Chinese | Polar sentiment dataset of sentences from the financial domain, categorized by sentiment into positive, negative, or neutral. |
+| FinFE (Lu et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib32)) | Chinese | Financial social media text sentiment categorization dataset. |
+| OpenFinData 131313<https://github.com/open-compass/OpenFinData?tab=readme-ov-file> | Chinese | Financial scenario QA dataset including sentiment task. |
+| MDFEND-Weibo2 (finance) (Nan et al., [2021](https://arxiv.org/html/2409.18511v3#bib.bib38)) | Chinese | Fake news detection in the finance domain. |
+
+Table 9: Summary of Classification Datasets
+
+
+
+| Dataset Name | Language | Description |
+| --- | --- | --- |
+| MInDS-14-en (Gerz et al., [2021b](https://arxiv.org/html/2409.18511v3#bib.bib15)) | English | MINDS-14 is a dataset for intent detection in e-banking, covering 14 intents across 14 languages. |
+| Consumer Complaints (CFPB, [2024](https://arxiv.org/html/2409.18511v3#bib.bib3)) | English | The Consumer Complaint Database is a collection of complaints about consumer financial products and services that sent to companies for response. |
+| Synthetic PII finance (Watson et al., [2024](https://arxiv.org/html/2409.18511v3#bib.bib54)) | English | Synthetic financial documents containing Personally Identifiable Information (PII). |
+| FinanceArxiv-s2s 141414Collect from the Arixv | English | Clustering of titles from arxiv (q-fin). |
+| FinanceArxiv-p2p | English | Clustering of abstract from arxiv (q-fin). |
+| WikiCompany2Industry-en 151515Collect from the Wikipedia | English | Clustering the related industry domain according to the company description. |
+| MInDS-14-zh (Gerz et al., [2021b](https://arxiv.org/html/2409.18511v3#bib.bib15)) | Chinese | MINDS-14 is a dataset for intent detection in e-banking, covering 14 intents across 14 languages. |
+| FinNL (Lu et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib32)) | Chinese | Financial news categorization dataset. |
+| CCKS2022 (CCKS, [2022](https://arxiv.org/html/2409.18511v3#bib.bib2)) | Chinese | Clustering of financial events. |
+| CCKS2020 | Chinese | Clustering of financial events. |
+| CCKS2019 | Chinese | Clustering of financial events. |
+
+Table 10: Summary of Clustering Datasets
+
+
+
+| Dataset Name | Language | Description |
+| --- | --- | --- |
+| Ectsum (Mukherjee et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib37)) | English | A Dataset For Bullet Point Summarization of Long Earnings Call Transcripts. |
+| FINDSum (Liu et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib30)) | English | A Large-Scale Dataset for Long Text and Multi-Table Summarization. |
+| FNS-2022 (El-Haj et al., [2022](https://arxiv.org/html/2409.18511v3#bib.bib11)) | English | Financial Narrative Summarisation for 10K. |
+| FiNNA (Lu et al., [2023](https://arxiv.org/html/2409.18511v3#bib.bib32)) | Chinese | A financial news summarization dataset. |
+| Fin-Eva (Headline) | Chinese | A financial summarization dataset. |
+| Fin-Eva (Abstract) | Chinese | A financial summarization dataset. |
+
+Table 11: Summary of Summarization Datasets
+
+
+
+| Dataset Name | Language | Description |
+| --- | --- | --- |
+| Fin-Fact | English | A Benchmark Dataset for Financial Fact Checking and Explanation Generation. |
+| FiQA2018 | English | Financial opinion mining and question answering. |
+| HC3(Finance) | English | A human-ChatGPT comparison finance corpus. |
+| Fin-Eva (Retrieval task) | Chinese | Financial scenario QA dataset including retrieval task. |
+| DISC-FinLLM (Retrieval Part Data) | Chinese | Financial scenario QA dataset. |
+
+Table 12: Summary of Reranking Datasets
+
+
+
+| Dataset Name | Language | Description |
+| --- | --- | --- |
+| HeadlineAC-PairClassification (Sinha & Khandait, [2021](https://arxiv.org/html/2409.18511v3#bib.bib49)) | English | Financial text sentiment categorization dataset. |
+| HeadlinePDD-PairClassification (Sinha & Khandait, [2021](https://arxiv.org/html/2409.18511v3#bib.bib49)) | English | Financial text sentiment categorization dataset. |
+| HeadlinePDU-PairClassification (Sinha & Khandait, [2021](https://arxiv.org/html/2409.18511v3#bib.bib49)) | English | Financial text sentiment categorization dataset. |
+| AFQMC | Chinese | Ant Financial Question Matching Corpus. |
+
+Table 13: Summary of PairClassification Datasets
+
+Appendix D Main Metric
+----------------------
+
+Semantic Textual Similarity (STS): The main metric used to measure performance in this task is Spearman’s rank correlation of predicted cosine similarity scores with the true similarity score.
+
+Classification: The main metric for evaluating is accuracy, ensuring that the model’s assessment is based on different types of financial texts and frameworks.
+
+Clustering: The main evaluation metric for this task is the V-measure (Rosenberg & Hirschberg, [2007](https://arxiv.org/html/2409.18511v3#bib.bib47)), which assesses the quality of the clusters by examining both the completeness and the homogeneity of the data within each group.
+
+Rerank: The main evaluation metric for reranking in Finance MTEB is Mean Average Precision (MAP).
+
+Pair-Classification: The main evaluation metric for Pair-Classification is Average Precision (AP), which measures the model’s accuracy across various decision thresholds.
+
+Summarization: Summarization is evaluated based on the correlation between dense embeddings derived from the summarized texts and those of the original texts, utilizing Spearman’s correlation coefficient as the main metric.
+
+Retrieval: The main evaluation metric employed in this task is NDCG@10, which assesses the quality of the results based on their relevance and position in the list returned.
+
+Appendix E Complexity Score Calculation
+---------------------------------------
+
+### E.1 Shannon Entropy in Information Theory
+
+The Shannon entropy is a measure from information theory that quantifies the average level of uncertainty or information content inherent in a set of possible outcomes. A higher Shannon entropy means higher uncertainty. To calculate the Shannon entropy H𝐻Hitalic\_H of a text, we follow these steps:
+
+1. 1.
+
+   Count Tokens: Identify all unique tokens wisubscript𝑤𝑖w\_{i}italic\_w start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT in the text and count their occurrences nisubscript𝑛𝑖n\_{i}italic\_n start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT.
+2. 2.
+
+   Calculate Probabilities: Compute the probability of each token P⁢(wi)𝑃subscript𝑤𝑖P(w\_{i})italic\_P ( italic\_w start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT ) by dividing its count by the total number of tokens N𝑁Nitalic\_N:
+
+   |  |  |  |
+   | --- | --- | --- |
+   |  | P⁢(wi)=niN,whereN=∑i=1Mniformulae-sequence𝑃subscript𝑤𝑖 subscript𝑛𝑖𝑁where𝑁superscriptsubscript𝑖1𝑀subscript𝑛𝑖P(w\_{i})=\frac{n\_{i}}{N},\quad\text{where}\quad N=\sum\_{i=1}^{M}n\_{i}italic\_P ( italic\_w start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT ) = divide start\_ARG italic\_n start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT end\_ARG start\_ARG italic\_N end\_ARG , where italic\_N = ∑ start\_POSTSUBSCRIPT italic\_i = 1 end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT italic\_M end\_POSTSUPERSCRIPT italic\_n start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT |  |
+
+   Here, M𝑀Mitalic\_M is the total number of unique tokens.
+3. 3.
+
+   Compute Shannon Entropy: Use the probabilities to calculate the entropy, and sum up all unique tokens in the text.
+
+   |  |  |  |
+   | --- | --- | --- |
+   |  | H=−∑i=1MP⁢(wi)⁢log2⁡P⁢(wi)𝐻superscriptsubscript𝑖1𝑀𝑃subscript𝑤𝑖subscript2𝑃subscript𝑤𝑖H=-\sum\_{i=1}^{M}P(w\_{i})\log\_{2}P(w\_{i})italic\_H = - ∑ start\_POSTSUBSCRIPT italic\_i = 1 end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT italic\_M end\_POSTSUPERSCRIPT italic\_P ( italic\_w start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT ) roman\_log start\_POSTSUBSCRIPT 2 end\_POSTSUBSCRIPT italic\_P ( italic\_w start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT ) |  |
+
+### E.2 Readability: Gunning Fog Index
+
+The Gunning Fog Index (Gunning, [1952](https://arxiv.org/html/2409.18511v3#bib.bib16)) is a readability metric that estimates the years of formal education needed to understand a text upon first reading, it evaluates the complexity of English prose based on sentence length and the frequency of complex words. To calculate the Gunning Fog Index (GFI), follow these steps:
+
+1. 1.
+
+   Select a Representative Passage
+
+   Choose at least 1000 words from the text that represents the overall writing style.
+2. 2.
+
+   Calculate the Average Sentence Length (ASL)
+
+   |  |  |  |  |
+   | --- | --- | --- | --- |
+   |  | ASL=Total Number of WordsTotal Number of SentencesASLTotal Number of WordsTotal Number of Sentences\text{ASL}=\frac{\text{Total Number of Words}}{\text{Total Number of Sentences}}ASL = divide start\_ARG Total Number of Words end\_ARG start\_ARG Total Number of Sentences end\_ARG |  | (2) |
+3. 3.
+
+   Identify Complex Words
+
+   * •
+
+     Complex words are words with three or more syllables.
+   * •
+
+     Exclude proper nouns, familiar jargon, compound words, and verbs with common suffixes (e.g., “-es”, “-ed”, “-ing”).
+4. 4.
+
+   Calculate the Percentage of Complex Words (PCW)
+
+   |  |  |  |  |
+   | --- | --- | --- | --- |
+   |  | PCW=(Number of Complex WordsTotal Number of Words)×100PCWNumber of Complex WordsTotal Number of Words100\text{PCW}=\left(\frac{\text{Number of Complex Words}}{\text{Total Number of % Words}}\right)\times 100PCW = ( divide start\_ARG Number of Complex Words end\_ARG start\_ARG Total Number of Words end\_ARG ) × 100 |  | (3) |
+5. 5.
+
+   Compute the Gunning Fog Index
+
+   |  |  |  |  |
+   | --- | --- | --- | --- |
+   |  | GFI=0.4×(ASL+PCW)GFI0.4ASLPCW\text{GFI}=0.4\times\left(\text{ASL}+\text{PCW}\right)GFI = 0.4 × ( ASL + PCW ) |  | (4) |
+
+### E.3 Mean Dependency Distance
+
+The mean dependency distance (MDD) (Oya, [2011](https://arxiv.org/html/2409.18511v3#bib.bib41)) is introduced as a metric to quantify the syntactic complexity of sentences based on dependency parsing. A higher mean dependency distance indicates longer dependencies and potentially more complex syntactic structures. For each dependency relation between a word (a head) and its dependent in a sentence d𝑑ditalic\_d is calculated as the absolute difference of their positions in the sentence:
+
+|  |  |  |
+| --- | --- | --- |
+|  | d=|Positionhead−Positiondependent|𝑑subscriptPositionheadsubscriptPositiondependentd=\left|\text{Position}\_{\text{head}}-\text{Position}\_{\text{dependent}}\right|italic\_d = | Position start\_POSTSUBSCRIPT head end\_POSTSUBSCRIPT - Position start\_POSTSUBSCRIPT dependent end\_POSTSUBSCRIPT | |  |
+
+Here:
+
+* •
+
+  PositionheadsubscriptPositionhead\text{Position}\_{\text{head}}Position start\_POSTSUBSCRIPT head end\_POSTSUBSCRIPT is the position index of the head word.
+* •
+
+  PositiondependentsubscriptPositiondependent\text{Position}\_{\text{dependent}}Position start\_POSTSUBSCRIPT dependent end\_POSTSUBSCRIPT is the position index of the dependent word.
+
+The sentence-level MDD is computed by averaging the dependency distances of all its N𝑁Nitalic\_N dependency relations:
+
+|  |  |  |
+| --- | --- | --- |
+|  | MDDsentence=1N⁢∑i=1Ndi=1N⁢∑i=1N|Positionheadi−Positiondependenti|subscriptMDDsentence1𝑁superscriptsubscript𝑖1𝑁subscript𝑑𝑖1𝑁superscriptsubscript𝑖1𝑁subscriptPositionsubscripthead𝑖subscriptPositionsubscriptdependent𝑖\text{MDD}\_{\text{sentence}}=\frac{1}{N}\sum\_{i=1}^{N}d\_{i}=\frac{1}{N}\sum\_{i% =1}^{N}\left|\text{Position}\_{\text{head}\_{i}}-\text{Position}\_{\text{% dependent}\_{i}}\right|MDD start\_POSTSUBSCRIPT sentence end\_POSTSUBSCRIPT = divide start\_ARG 1 end\_ARG start\_ARG italic\_N end\_ARG ∑ start\_POSTSUBSCRIPT italic\_i = 1 end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT italic\_N end\_POSTSUPERSCRIPT italic\_d start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT = divide start\_ARG 1 end\_ARG start\_ARG italic\_N end\_ARG ∑ start\_POSTSUBSCRIPT italic\_i = 1 end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT italic\_N end\_POSTSUPERSCRIPT | Position start\_POSTSUBSCRIPT head start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT end\_POSTSUBSCRIPT - Position start\_POSTSUBSCRIPT dependent start\_POSTSUBSCRIPT italic\_i end\_POSTSUBSCRIPT end\_POSTSUBSCRIPT | |  |
+
+Same with sentence-level, the document-level MDD averages the sentence-level mean dependency distances across all M𝑀Mitalic\_M sentences in the document:
+
+|  |  |  |
+| --- | --- | --- |
+|  | MDDdocument=1M⁢∑j=1MMDDsentencejsubscriptMDDdocument1𝑀superscriptsubscript𝑗1𝑀subscriptMDDsubscriptsentence𝑗\text{MDD}\_{\text{document}}=\frac{1}{M}\sum\_{j=1}^{M}\text{MDD}\_{\text{% sentence}\_{j}}MDD start\_POSTSUBSCRIPT document end\_POSTSUBSCRIPT = divide start\_ARG 1 end\_ARG start\_ARG italic\_M end\_ARG ∑ start\_POSTSUBSCRIPT italic\_j = 1 end\_POSTSUBSCRIPT start\_POSTSUPERSCRIPT italic\_M end\_POSTSUPERSCRIPT MDD start\_POSTSUBSCRIPT sentence start\_POSTSUBSCRIPT italic\_j end\_POSTSUBSCRIPT end\_POSTSUBSCRIPT |  |
+
+In our experiments, we calculate the document-level MDD for a test sample by averaging the MDD of all its text. For example, to compute the MDD for a pair-classification data point, we average the MDD of sentence 1 and sentence 2.
+
+Appendix F Prompt For ChatGPT Error Rate
+----------------------------------------
+
+The detailed example prompt of each task for the ChatGPT Error Rate is listed in Table [tables 14](https://arxiv.org/html/2409.18511v3#A6.T14 "In Appendix F Prompt For ChatGPT Error Rate ‣ Do we need domain-specific embedding models? An empirical investigation"), [17](https://arxiv.org/html/2409.18511v3#A6.T17 "Table 17 ‣ Appendix F Prompt For ChatGPT Error Rate ‣ Do we need domain-specific embedding models? An empirical investigation"), [16](https://arxiv.org/html/2409.18511v3#A6.T16 "Table 16 ‣ Appendix F Prompt For ChatGPT Error Rate ‣ Do we need domain-specific embedding models? An empirical investigation"), [20](https://arxiv.org/html/2409.18511v3#A6.T20 "Table 20 ‣ Appendix F Prompt For ChatGPT Error Rate ‣ Do we need domain-specific embedding models? An empirical investigation"), [18](https://arxiv.org/html/2409.18511v3#A6.T18 "Table 18 ‣ Appendix F Prompt For ChatGPT Error Rate ‣ Do we need domain-specific embedding models? An empirical investigation"), [19](https://arxiv.org/html/2409.18511v3#A6.T19 "Table 19 ‣ Appendix F Prompt For ChatGPT Error Rate ‣ Do we need domain-specific embedding models? An empirical investigation") and [15](https://arxiv.org/html/2409.18511v3#A6.T15 "Table 15 ‣ Appendix F Prompt For ChatGPT Error Rate ‣ Do we need domain-specific embedding models? An empirical investigation").
+
+|  |
+| --- |
+| Determine whether the following two sentences are similar and answer yes or no. |
+| Sentence1: Excluding the impact of merger-related costs, NSTAR Electric s earnings increased $67.4 million in 2013, as compared to 2012, due primarily to lower overall operations and maintenance costs and higher retail electric sales due primarily to colder weather in the first and fourth quarters in 2013. |
+| Sentence2: NSTAR Electric’s earnings increased in 2014, as compared to 2013, due primarily to lower operations and maintenance costs primarily attributable to lower employee-related costs and higher transmission earnings, partially offset by higher interest expense, higher depreciation expense, higher property tax expense and the after-tax reserve recorded for the 2014 FERC ROE orders as compared to the reserve recorded in 2013 for the FERC ALJ initial decision in the FERC base ROE complaints. |
+
+Table 14: Prompt for the ChatGPT Error Rate on Semantic Textual Similarity (STS).
+
+
+
+|  |
+| --- |
+| Classify the sentiment of a given finance text as either positive, negative, or neutral. |
+| Text: Glencore shares hit 3-month high after refinancing key credit line |
+
+Table 15: Prompt for the ChatGPT Error Rate on Classification.
+
+
+
+|  |
+| --- |
+| Given a financial question, retrieve user replies that best answer the question. Return the index. Query: What is ’Obligor ’? |
+| Corpus: {A List of 20 different context} |
+
+Table 16: Prompt for the ChatGPT Error Rate on Retrieval.
+
+
+
+|  |
+| --- |
+| Identify industries from company descriptions. |
+| Choices: Banking;Retail;Automotive;Aerospace;Financial services |
+| Text: Cobridge Communications was a cable television, high-speed internet, and digital telephone service provider. |
+
+Table 17: Prompt for the ChatGPT Error Rate on Clustering.
+
+
+
+|  |
+| --- |
+| Given a financial question, retrieve user replies that best answer the question. Return the index. Query: How to tell if you can trust a loan company? |
+| Corpus: {A List of 20 different context} |
+
+Table 18: Prompt for the ChatGPT Error Rate on Reranking.
+
+
+
+|  |
+| --- |
+| Classify the sentiment of a given finance text and determine whether label of two sentences are similar. Answer yes or no. |
+| Sentence1: gold falls as dollar strengthens, etf holdings decline |
+| Sentence2: Gold futures succumb to profit-booking, global cues |
+
+Table 19: Prompt for the ChatGPT Error Rate on Pair-Classification.
+
+
+
+|  |
+| --- |
+| Determine whether the following are douments and summary. Answer yes or no. |
+| Text: deposits grew $ 167.8 million , or 7 % , to $ 2.504 billion at december 31 , 2020 , compared to $ 2.336 billion at december 31 , 2019. non-interest bearing deposits grew by $ 225.8 million in 2020 , or 20 % , and made up 54 % of total deposits at year-end . cost of deposits remained low at 0.11 % in 2020 , compared to 0.20 % in 2019. net interest income totaled $ 96.7 million and $ 95.7 million in 2020 and 2019 , resp…. |
+| Summary: cash and cash equivalents : our cash and cash equivalents , which include federal funds sold and short-term investments , were $ 181.5 million at december 31 …. |
+
+Table 20: Prompt for the ChatGPT Error Rate on Summarization.
+
+Generated on Thu Oct 3 01:41:56 2024 by [LaTeXML![Mascot Sammy](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==)](http://dlmf.nist.gov/LaTeXML/)
+
+---

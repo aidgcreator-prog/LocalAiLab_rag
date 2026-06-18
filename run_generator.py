@@ -1,0 +1,31 @@
+import os
+import subprocess
+import sys
+
+def install_and_run():
+    # Check if python-pptx is installed
+    try:
+        import pptx
+        print("python-pptx is already installed.")
+    except ImportError:
+        print("python-pptx is NOT installed. Attempting to install...")
+        try:
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "python-pptx"])
+            print("python-pptx installed successfully.")
+        except Exception as e:
+            print(f"Failed to install python-pptx: {e}")
+            return
+
+    # Run the generation script
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("generate_pptx", "/generate_pptx_v3.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        module.create_presentation("AI_Fundamentals_Presentation.pptx")
+        print("Execution completed successfully.")
+    except Exception as e:
+        print(f"An error occurred during execution: {e}")
+
+if __name__ == "__main__":
+    install_and_run()

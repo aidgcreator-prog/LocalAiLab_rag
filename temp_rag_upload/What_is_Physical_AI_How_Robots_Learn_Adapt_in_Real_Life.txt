@@ -1,0 +1,262 @@
+What is physical AI?
+And why has it become such a hot
+topic? Well, most of the
+AI that you and I interact within
+our daily lives today exists
+digitally.
+So, you know, I'm thinking about
+things like talking with
+the chatbot, that's digital,
+or using AI for
+image generation, or
+maybe using it as
+a code assistant.
+These things, they all
+live in the world
+of bits and bytes.
+These are bits.
+But physical AI, that
+kind of crosses over
+into the
+world of atoms.
+Things in actual physical
+space. These AI systems that can
+perceive their environment, they can
+reason about it, and they can take
+action. So let's
+discuss what
+physical AI actually
+is,
+why it's such a hot
+topic today, and
+then also how we
+can train it.
+So let's start with
+the, with the
+what.
+So before physical AI
+was really popular,
+physical machines like
+robots, they kind of behaved
+according to rule-based or
+scripted instructions, like a
+robotic arm on an
+automotive production line.
+It might wield the same seam in
+the same spot a
+thousand times a day.
+It's been engineered to be super
+precise, super repeatable,
+but it's also super limited.
+It can only do what it's explicitly
+programmed to do in an
+environment that's been carefully
+engineered for it.
+But that has changed
+with robotic
+AI agents.
+Those are equipped with language
+models, so they're models
+in themselves.
+And they have something of
+a general
+understanding of
+the world that they live in
+and that general knowledge can
+be paired also with
+reinforcement learning,
+meaning trial and
+error training in simulated
+environments to give a
+robot both broad understanding and
+specialized skills for a specific
+task.
+And I should say that physical AI is
+more than just robotic arms.
+It's the smart factories where
+machines coordinate autonomously.
+It's energy grid to optimize
+themselves.
+It's a fleet of autonomous cars on
+our roads.
+Essentially, it's any system that
+exists in the physical world
+that can potentially be augmented
+with AI.
+So why is
+physical AI suddenly
+a hot topic?
+Why now?
+Well, there have been a bunch of
+bottlenecks that previously held
+back physical AI, and those
+bottlenecks have to some extent
+been broken and
+the first of those relates
+specifically to
+models and specifically
+I'm talking about vision
+language action models
+or VLAs.
+And the name kind of tells you what
+they do.
+Vision to perceive the
+world, language to
+reason about it and action
+to do something.
+Before VLAs, robots
+could see and act, but they couldn't
+really reason about novel
+situations the way that these
+models can.
+And we're now seeing open
+robotics foundation
+models, and these are trained on
+massive datasets, foundation models
+trained on tens of millions
+of hours of, say, driving or
+robotics data.
+Models that capture general
+knowledge of real-world physics and
+object manipulation.
+And these models are openly
+available.
+You could download one of them from
+Hugging Face.
+Now, in robotics, there's
+something called the
+sim-to-real gap.
+That essentially says that
+robots trained in simulation
+often fail in the real
+world. The real world tends to
+be just a lot more messy
+than what's modeled in a simulation,
+but world foundation models
+are now generating physics-aware
+synthetic training data that
+actually does transform and
+transfer to our messy reality.
+And then number three
+all comes down to
+compute and specifically
+compute efficiency, which
+has gotten ridiculously good.
+So processing 20 million hours
+of video data, that would have
+taken like 3 years on
+previous generation CPUs.
+That sort of thing now takes weeks
+on current generation GPUs.
+So these models, they
+can process a lot more data.
+So you have better models for
+simulation, better
+simulations overall
+and faster hardware.
+That's why physical
+AI is seeing so much recent
+progress.
+All right, let's discuss how to
+train physical AI.
+Because it's a little bit
+different to building an LLM
+where you're training on text and
+images.
+This is real-world data
+collection where things move and
+react to their environment.
+So that really requires something
+else. So to train a
+physical AI model,
+we will need to start
+with a simulated environment.
+So we've got a simulation.
+This is like a bit of a virtual
+world if you like, where a model can
+train at scale.
+So let's say we want to
+train a robot to assemble
+parts in a factory.
+Well, we'll need to
+create a simulation, and
+that simulation contains the
+robot itself and
+that it contains all of
+the parts that the robot is gonna
+work with.
+It's going to need the
+actual workbench the
+robot sits on, we'll need to
+simulate that as well, as well as
+well all sorts of other random
+things as well like varying
+lighting conditions.
+That's because these random
+things create different
+scenarios, so we need to
+be able to simulate
+domain randomization,
+which essentially means deliberately
+varying everything from
+different part orientations
+here to different amounts of
+friction depending on the humidity
+in the air and then once
+we've done that, we can
+apply the stage of
+RL, that's reinforcement
+learning, which is a whole
+lot of trial and error.
+So the robot attempts a
+task. If it succeeds, it
+gets a reward thumbs up.
+If it fails, it doesn't
+across thousands or maybe even
+millions of interactions, the
+robot figures out what works.
+Robot doesn't.
+Now, once the robot hits a
+certain success threshold in
+simulation, it's ready
+for deployment.
+We're going to go now to
+the real world.
+This is reality, where
+it will work perfectly, and we'll
+move on to simulate something else.
+Well.
+Or probably, probably not.
+Inevitably, it's actually gonna
+encounter stuff in the real world
+that wasn't in the simulation.
+The parts are maybe slightly
+different or the surfaces behave
+in an unexpected way.
+So we'll need to capture
+that real-world data.
+And we'll feed it back
+into the simulation.
+And we will train again and then
+we'll deploy again.
+And this feedback loop between
+simulation and reality
+is how these models close
+that sim-to-real gap.
+So that's physical AI
+training in simulation so
+machines can handle our messy
+real world.
+It really does seem that we're at
+the point where the models are good
+enough, the compute is cheap enough,
+and the simulation is realistic
+enough that physical AI
+is now moving from research labs
+into real places,
+factories and warehouses and even
+on the roads. AI has
+always lived in the world of bits
+and now with physical AI is
+crossing over into the world of
+atoms as well.

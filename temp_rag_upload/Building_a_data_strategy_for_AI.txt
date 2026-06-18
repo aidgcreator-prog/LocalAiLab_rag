@@ -1,0 +1,308 @@
+Ready
+or not, the AI arms race
+is in full swing.
+Businesses around the globe
+are battling to be the first
+to realize the full
+potential of advanced AI.
+But what will
+separate tomorrow's AI
+leaders from the followers?
+Data.
+Welcome to AI Academy.
+My name is Cathy Reese.
+I'm a Senior Partner for Data 
+and AI Technology Transformation
+at IBM Consulting.
+You've probably heard
+the phrase: Without data,
+there is no AI.
+But the more important truth
+is that without quality data,
+you can't get quality AI.
+Data is the fuel that
+powers all AI capabilities
+and use cases.
+And while most organizations
+have plenty of fuel in the tank,
+they struggle to produce
+advanced AI models that drive
+significant business value.
+Why?
+Because their
+data isn't ready.
+On the road to
+operationalized AI, harnessing
+your highest-quality data
+assets will be the ultimate
+competitive differentiator.
+Though more organizations are
+adopting the AI technology of
+the future, their data
+strategies are often relics
+of the past.
+A data strategy is essential
+to creating the high quality,
+accessible, and secure data
+needed to fuel enterprise AI.
+With the rise of advanced
+AI – generative and agentic AI –
+organizations have to
+modernize their data strategies.
+Unstructured data is
+the primary training ground
+for advanced AI.
+Around 80 to 90% of
+enterprise data is unstructured.
+And until now, it's
+been an untapped source
+of potential business value.
+That's because raw datasets
+are impossible to validate,
+understand, and convert
+without modern data governance –
+a key component of an
+AI-ready data strategy.
+Now advanced AI adoption is
+forcing everyone to reevaluate
+the condition of
+their data estate.
+The result?
+Very few companies
+trust their own data.
+In fact, only 29% of tech
+leaders believe their data
+has the necessary quality,
+accessibility, and security
+to scale advanced AI.
+For everyone else,
+persistent data quality issues
+stand in the
+way of adoption.
+For example, unstructured data 
+is often spread across disparate
+systems and environments.
+Most IT architectures
+aren't intentionally designed
+to manage large
+amounts of raw data.
+Whether in the cloud,
+on prem, in applications,
+or at the edge,
+disconnected data sources
+create silos, leading
+to incomplete datasets,
+duplication, and bias.
+Data ownership has
+also become more precarious.
+The only way to create
+accountability for how your
+data is collected, used,
+and processed is by clearly
+defining data owners,
+including external owners like
+data vendors, otherwise the
+risks of breaches, corruption,
+and inconsistencies will loom 
+large across your organization.
+Speaking of data breaches, 
+advanced AI presents new,
+unpredictable security threats.
+There are unique challenges
+to data security that aren't
+covered by policies and
+procedures of years past.
+Highly regulated sectors
+like government or healthcare
+are especially vulnerable
+because of the sensitive
+personal data they hold.
+Implementing security
+protocols that account
+for changes in
+technology are a must.
+There's very
+little room for error.
+Ultimately, bad
+data fuels bad AI.
+When an AI model
+seemingly goes rogue,
+it's just amplifying
+insights from the data
+it's been trained on.
+Any inaccuracies,
+inconsistencies, or biases
+present in your data will
+also be present in your AI.
+So, what steps can
+you take to overcome
+these data challenges?
+How can you create
+high-quality data that's
+ready for advanced AI?
+And how can you leverage
+your data and AI to achieve
+your business objectives?
+Remember, it's all
+about your data strategy.
+In a recent survey, 93% of
+chief data officers agreed
+that a data strategy is
+crucial for getting value
+out of advanced AI.
+Your data strategy is a
+roadmap for effective data
+collection, storage, and usage.
+It builds trust in your data
+foundation, enabling informed
+decision-making and
+more reliable outcomes.
+To design a successful
+data strategy, you'll want to
+work backwards, starting
+with a specific outcome.
+Let's break that down.
+Start with your ideal outcome
+in mind to quickly determine if
+you have the data you
+need to actually implement
+your use case.
+This also ensures your data
+initiatives always align with
+your broader business goals.
+Ask your stakeholders a few
+key questions to get started.
+Is there a specific
+problem we want to solve?
+Have you identified a
+high ROI opportunity?
+Are there measurable
+metrics we can hit quickly?
+Answer these questions
+first to identify simple
+use cases that
+can net big returns.
+After selecting a use
+case, conduct an inventory
+of your data estate.
+This is an important
+step because the success
+of your advanced AI is
+directly tied to the state
+of your data landscape.
+Assess the accuracy,
+accessibility, and relevance
+of your data.
+You won't need to see or
+ingest all your data at once.
+Just ensure you have
+the data you need for this
+particular use case.
+Gen AI itself can actually
+streamline this process.
+Large language models can
+decipher unstructured data,
+enabling global
+data transformation.
+We recently helped a
+commercial client build gen AI
+scripts that corrected data
+inconsistencies, redundancies,
+and errors before a
+large-scale data migration.
+The gen AI scripts used
+machine learning to understand
+the underlying source
+and target data structures
+then automated the
+migration between each system.
+The client was able to
+complete their data migration
+eight times faster using
+gen AI than with traditional
+tools and processes.
+Once you have
+the right assets,
+review your data policies.
+Policy is a key component of 
+your data governance framework.
+It's where you'll establish
+the controls and processes that
+ensure data quality –
+your key competitive
+differentiator for AI.
+Revisit and adjust
+the guidelines you've
+set for data
+collection, ownership, storage,
+processing, and usage.
+This isn't a one-person job.
+Data teams will need
+to collaborate to link
+disparate datasets and
+update access controls.
+Next, you'll want to
+evaluate your IT estate.
+Unstructured data will
+bring new file formats into
+your data landscape, so you may
+need to upgrade your tech stack.
+Be intentional here.
+Adopting hybrid-by-design
+principles will help you build
+an architecture
+that supports your
+interconnected business needs.
+An open data lakehouse,
+for example, allows you to
+accommodate and access
+multiple data formats for
+your use case no
+matter where they reside.
+The solutions are out there.
+It's just about
+implementing the ones
+that work best
+for your business.
+Finally, foster
+a data-first culture.
+Data leaders need to be
+empowered to imbue a strong
+data-driven culture on
+every level of the business.
+This is your chance to
+embed a sense of personal
+responsibility around data
+security and privacy through
+literacy initiatives,
+data democratization, and
+skill-building programs.
+It's critical for all
+business leaders to work
+towards this goal together.
+A CDO can't be successful
+without support from the other
+members of the C-suite.
+Everyone, starting from
+the top, must believe in the
+value of data.
+A successful data
+strategy allows you to
+effectively leverage
+your data as an asset
+to generate business value.
+It's a roadmap
+that guides you to
+new market opportunities, 
+operational efficiencies,
+product improvements,
+and competitive gains.
+Most importantly, it provides
+you with the high-quality data
+that fuels the most powerful
+AI capabilities and the most
+successful use cases.
+If you want to
+compete in the AI arms race,
+it's time to design
+your data strategy.

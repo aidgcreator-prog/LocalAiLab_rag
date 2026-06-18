@@ -1,0 +1,5 @@
+Distractor retrieval notes
+
+This document lives in a different project and is intended to detect project-isolation regressions.
+It also talks about vector search and reranking, but it should not appear when a query is filtered to the primary evaluation project.
+If this source appears in a primary-project run, the evaluation harness should flag the case.

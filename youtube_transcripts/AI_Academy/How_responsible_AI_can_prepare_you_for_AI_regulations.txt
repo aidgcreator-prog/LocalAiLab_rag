@@ -1,0 +1,121 @@
+[Music]
+In May of 2023 I was asked to testify before Congress.
+This was just a few months after the ChatGPT moment.
+Generative AI was new to the public.
+Lawmakers and regulators were scrambling to understand the implications.
+I didn’t anticipate the attention this hearing would attract.
+I’d just spent three years building accountability for AI at IBM,
+...trying to make sure that what’s invented, used and sold was trustworthy.
+In a way, I took it for granted.
+But as I listened to the questions and other testimony that day,
+...and heard calls for strict regulation to govern the behavior of AI companies, it clicked.
+Not everyone is ready for this.
+There would be a national debate, a global debate,
+...and AI ethics was about to become the most important conversation of our time.
+Welcome to AI Academy.
+My name is Christina Montgomery.
+I’m the Chief Privacy and Trust Officer at IBM and Co-Chair of IBM’s AI Ethics Board.
+There’s a rich philosophical history around ethics, but I’m going to boil it down to this;
+...ethics are a set of moral principles that guide decision-making.
+We all have instincts about what is right and wrong,
+...but a consistent set of principles can help us work through complex decisions or novel scenarios.
+It seems like every day we hear something new that AI can do.
+So every day we have to revisit the question of what AI should do and when and where and how we should use it.
+AI ethics are the principles that guide the responsible development, deployment and use of AI,
+...to optimize its beneficial impact while reducing risks and adverse outcomes.
+Like most technology, AI is a lever,
+...a force multiplier allowing each individual to do a lot more than they could without a system, which is great.
+But the flipside is that AI is also a consequence multiplier, a risk multiplier.
+So as you scale AI in your business for greater reach and impact, you need to be thinking about AI ethics at an institutional level,
+...so that everyone can operate from a shared set of principles with defined guardrails.
+And AI regulations are already here,
+...either in standalone legislation or as part of existing consumer protection and privacy laws, for example.
+AI is not a shield to liability.
+You can’t just blame AI if your company hiring decisions discriminate, for example.
+By taking account of AI ethics, you can get ahead of regulations,
+...which is good, because more robust regulation is coming.
+There are different regulatory philosophies that are sort of competing right now.
+And these divergent views became apparent during my testimony last year.
+Some of the most visible players in the AI space are saying that we should regulate the fundamental technology of AI itself.
+That a licensing regime should be established to control what and how AI gets built and by whom,
+...effectively dictating who can participate in the AI marketplace.
+This approach could consolidate the market around a small handful of companies.
+And while that’s a winning proposition for companies with the resources to comply,
+...it’s a losing proposition for everyone else.
+An AI licensing regime would be a serious blow to open innovation.
+And from an ethical perspective, you have to ask whether it’s just or fair,
+...for a few companies to have such an outsized influence on people’s daily lives.
+Again, AI is going to touch every aspect of business in society, so shouldn’t it be built by the many and not the few?
+And shouldn’t we hear from not just the loudest voices, but from many voices?
+It’s also just not very practical to regulate technology granularly in the face of rapid innovation.
+Before the ink is dry on a new piece of regulation,
+...technologists will have rolled out many alternative approaches to achieve the same outcome.
+And it’s the outcomes that really matter.
+That’s why I support a regulatory approach based not on the restriction of core technology,
+...but on the responsible application of technology.
+Regulate the use of technology, not the technology itself.
+Not all uses of AI carry the same level of risk and because each AI application is unique,
+...it’s critical that regulation must account for the context in which AI is deployed.
+We also believe that those who create and deploy AI should be accountable, not immune from liability.
+It’s essential to find the right balance between innovation and accountability.
+The support for this regulatory perspective is one of the reasons IBM and Meta cofounded the AI Alliance,
+...with a group of corporate partners, startups and academic and research institutions.
+It’s why we joined the consortium to support the US AI Safety Institute at NIST.
+Whatever comes next for AI, it’s going to be safer if it’s open, transparent and inclusive.
+So you can have research universities; you can have regulators and independent 3rd parties poking holes and testing.
+You can have an open community of experts from around the globe, different voices, different perspectives,
+...all vetting the technology instead of one company saying no, trust me, it’s safe.
+And while the debate around these competing regulatory approaches is still very active,
+...we now have a practical example of a risk-based regulatory approach that I think is likely to be a model for the rest of the world.
+IBM has supported the EU AI Act for a few reasons.
+First, the law introduces a risk-based approach to regulate AI systems.
+Most generally available AI today, like AI-enabled video games or spam filters are unregulated.
+Something like a chatbot is a limited risk application and will have light touch regulatory requirements.
+Some applications like the creation of facial recognition databases,
+...through the untargeted scraping of facial images from the internet, for social scoring systems,
+...these compose a significant threat to human rights and are prohibited.
+And then you have activities and uses that pose some risk to human health safety or fundamental rights, but are allowed.
+That’s where some business activities will fall, and those uses will face high standards for compliance.
+Some of the requirements would be things you would probably expect.
+For example, there’ll be a requirement for transparency that will require users be provided,
+...with clear and understandable information about the systems purpose, functionality and intended use.
+This includes information about any biases or limitations that may affect the systems performance.
+There’ll be requirements for human oversight, such as human-in-the-loop systems,
+...to ensure that AI systems remain aligned with human values and expectations.
+And there’ll be standards for data quality and fairness.
+Data governance and data provenance are crucial for AI ethics.
+And that means understanding where the data used to train a model came from;
+...ensuring you have the right to use it; ensuring that the data isn’t biased and that it respects copyright law.
+These are all issues addressed by the Act.
+We talked earlier about AI not being a shield to liability.
+And the Act makes it clear these systems cannot be used to discriminate against people,
+...based on attributes like race, ethnicity, religion or sexual orientation,
+...and then things like safety and security as well.
+You have to be able to demonstrate compliance with these standards or face serious consequences.
+Fines can be up to 35 million euros of 7% of a company’s annual revenue, whichever is higher.
+And in the same way that the General Data Protection Regulation was a landmark legislation for data privacy and protection,
+...the EU AI Act is landmark legislation for AI.
+And also like the GDPR, this EU law will be influential in serving as a model for other jurisdictions.
+But there is more to ethics than compliance.
+There’s your corporate character; there’s good corporate citizenship; and there’s trust.
+There’s a saying that trust is earned in drops but lost in buckets.
+And it’s absolutely true.
+Trust is central to our company’s brand,
+...and maybe the biggest part of my job is working to ensure that the technology IBM makes and uses,
+...the things people interact with every day, are things they can trust.
+It’s one thing to have ethical principles, but they’re meaningless without a mechanism for holding yourself accountable.
+I propose that any organization using AI at scale needs an AI Ethics Board or equivalent governing mechanism.
+I Co-Chair IBM’s Board and I can’t tell you how important it is to make your AI decisions,
+...in an environment of open consideration and debate,
+...with a diverse group of others who are viewing the business through the lens of ethics,
+...and who bring different backgrounds, domain expertise and experiences into that debate.
+On our Board, for example, we have lawyers, policy professionals,
+...communications professionals, HR professionals, researchers, sellers, product teams and more.
+And then through that Board you work to build an ethics framework into your corporate practices and instill a culture of trustworthy AI,
+...and ensure you have mechanisms to hold your company accountable.
+The specific use cases of AI in your businesses might be different than ours,
+...but I bet that once you start defining your own principles and pillars, you’ll find that we all have a lot in common.
+We all want to build strong, trusted brands.
+We all want to do the right thing.
+Because the future of ethical AI is something we all need to build together.
+[Music]

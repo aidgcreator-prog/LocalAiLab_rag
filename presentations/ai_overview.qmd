@@ -1,0 +1,11 @@
+---
+title: "AI Overview"
+format: pptx
+---
+
+## Artificial Intelligence
+
+- Definition
+- Applications
+- Future Trends
+

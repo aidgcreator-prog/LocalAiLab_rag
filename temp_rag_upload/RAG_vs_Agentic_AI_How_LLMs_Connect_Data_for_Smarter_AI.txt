@@ -1,0 +1,94 @@
+I think it's fair to say that some of the most used AI buzzwords in recent times have
+been, well, one of them is certainly agentic AI, and... let me
+guess another one, right? Probably RAG. Yeah. Retrieval augmented generation. And with those
+buzzwords has come plenty of hype and preconceived notions. Preconceived notions like
+how the primary use case for agentic AI today is coding. Exactly. Or that RAG is always the best
+way to incorporate specific, up-to-date information into a model's context window. Wait, so
+are we saying that these things are not the case? Oh, Cedric. You know, this is where we wheel out
+the consultant's default answer, right? Well, I guess I do. Is RAG always the best
+option? Well, here it comes. It depends. It depends. There you go. You know, I spent seven
+years as a technical consultant, and no matter what the question, a good old "it depends," that
+always seems to work. Well, I have an idea. How about we explain what it depends on. Right. So,
+let's start off by explaining what these terms agentic AI and RAG really mean. And then you can
+get your practitioner viewpoint out where these buzzy technologies are actually going to be put
+into action. Now, AI multi-agent workflows, they perceive their environment, they make
+decisions and they execute actions towards achieving a goal. And all of this happens with
+minimal human intervention. Now, architecturally, these components, they kind of form a loop. So, the
+first thing on the loop might be to perceive. And once they've perceived their
+environment, they can consult memory, they can
+reason, they can act along a particular path,
+and then they can go through the final stage, which is to observe what happened, and kind of
+round and round we go in a loop. the key here is that each agent operates at the application
+level. They're making decisions, they're using tools and they can communicate with each other.
+Now Martin, that's great. But if I had to pick the most common use case for agentic AI, I think it has
+to be coding agents, right? Uh, yeah. You mean like, uh, like code assistants and copilots? Precisely.
+And these are examples of agents that can help plan and architect new ideas that can
+help write code straight to our repository, and even help review the code that we've generated—with
+minimal human guidance and by using LLMs that have larger context windows with reasoning
+capabilities. This, this kind of looks like a, like a mini developer team, like where you have maybe a,
+an architect agent that kind of plans out the feature. And then we've got the
+implementer that's going to come along and actually write the code. And then we've got the
+reviewer that checks out that code, and then maybe send some feedback in a loop like this.
+Exactly. And this agentic pattern still needs human intervention. But our job is to be more of a
+conductor of an orchestra, right, than play a single instrument. Now, let's also think about
+another use case for agentic AI. Think about enterprises with the need to handle support
+tickets or HR requests. Or, for example, customers who have some particular query where specialized
+agents can autonomously filter and query this to the right agent that's able
+to then use tool calling in order to use services or an API, using some type of
+protocol like model context protocol, which standardizes the interaction between our LLMs and
+the tools that we use every day. Cool. So instead of using a chat window with an LLM to kick off an
+action, agents can be responsive in their own environment. Exactly. But, but there is a
+challenge, right? Because without reliable access to external information, these agents, they can
+quickly hallucinate, or they can make misinformed decisions. And one way we can limit
+those misinformed decisions is with retrieval augmented generation or
+RAG. Right. And RAG is essentially a two-phase system because you've got a offline phase where
+you ingest and index your knowledge, and an online phase where you retrieve and generate on demand.
+And the offline part, it's pretty straightforward. So, we start off with, well, let's start it over
+here. We're going to start with some documents. So, these are your documents. That could be Word files, it
+could be PDFs, whatever. And we're going to break them into chunks and create vector
+embeddings for each chunk using something called an embedding model. Now,
+these embeddings, they get stored into a special type of database called
+a vector database. So, now you have a searchable index of your knowledge. And when a query
+hits the system—so we've got perhaps here a prompt from the user—that's where the
+online face kicks in. So, the prompt goes to a RAG retriever, and that takes
+the user question and it turns it into vector embeddings using the same embedding model. And
+then it performs a similarity search in your vector database. Now, that's going to return back
+to you the top K most relevant document chunks, perhaps 3 to 5 passages that are most likely to
+contain the answer. And that is what is going to be received by the large language
+model at the end of this. Wow, Martin! And this is really powerful. But when we start to scale things
+up with more data, right, from our organization, or perhaps allow more users to start using
+this RAG application, this is where it gets really tricky. Because the more documents or tokens that
+our large language model is going to retrieve, well, the harder it is for the LLM to recall that
+information, in addition to increased cost for our AI bill and wait times. And if we actually plot
+this out roughly, when we talk about accuracy and the amount of tokens retrieved by our RAG
+application, well, the more we add sometimes can have a marginal increase in performance or
+accuracy, but afterwards can in ... result in degraded performance because of noise or redundancy.
+So, maybe not everything should be dumped into the context of an LLM with RAG. But going back to
+Martin's point about the two phases of RAG, let's start to talk about ingestion. Because we need to
+be really intentional about our data curation, using perhaps open-source tools like Docling
+that can help us do document confersion ... conversion to get it ready for our RAG
+application. That means starting from, for example, PDF types to m-machine-readable and LLM-readable
+types like Markdown, with their associated metadata. And this means not just the text from
+our PDFs and documents or spreadsheets, but also tables, graphs, images, pages that are
+truncated and much, much more. So here we can enrich your data before we write it to that
+vector database or a similar storage. But after ingestion, the next step is retrieval or also
+known as context engineering. So, context engineering, as the name implies, allows us to
+form our context for the LLM for RAG applications into a compressed and
+prioritized uh,result. So, this starts with hybrid recall from databases, right? So, if the user is
+asking, "Hey, what is agentic AI?" what we're going to do is use both the semantic meaning of
+our question, but also do keyword search, specifically in this example, for agentic AI. Now,
+when we do the recall to get that information from our database, what we're also going to do
+when we get those top K chunks, as Martin mentioned, is re-rank them for relevance,right, to
+prioritize them for our LLM. When we get this back, well we can also do combination of
+chunks. So if these two chunks are related, well, we'll put them together and piece this, so at the
+end of the day, when we provide the context and the question for our LLM, we have one single
+coherent source of truth. This results in higher accuracy, faster inference and cheaper AI cost. Now
+that sounds great. And speaking of costs, I hear that local models can power
+RAG and agentic AI. Is that, is that the case? Yes, the rumors are true because instead of paying for
+an LLM, lots of developers have already been using open-source models, using open-source tools
+like vLLM or Llama C++. And this allows us to maintain the same API as
+a proprietary model but have the added benefit of data sovereignty—so, keeping everything on premise—and
+tweaking our model runtime for KV cache in order to have big uh, improvements that could
+speed up our RAG or agentic AI applications. Yeah, so that is AI agents with the
+help of RAG, a winning combination. Always, right? Well, maybe not
+always, but, you know, of course, it depends.

@@ -1,0 +1,57 @@
+Create a clear and easy-to-understand presentation slide deck for a general (non-technical) audience.
+
+Objectives:
+
+Focus on explaining each concept in a simple, intuitive way.
+Emphasize definition, purpose, practical usage, and interpretation.
+AVOID fancy visual/theme, detailed statistical formulas or complex mathematical explanations.
+
+Content Guidelines:
+
+Use a single consistent dataset or example throughout the entire presentation to demonstrate all concepts step by step.
+Include real-world use cases to make the content relatable and practical.
+Use simple language, visuals, and examples suitable for beginners.
+
+Structure:
+Table of content
+
+Definition of factor analysis
+Type of factor analysis: Exploratory Factor Analysis, Principle Component Analysis, Confirmatory Factory Analysis
+
+Steps for Exploratory Factor Analysis
+Explanation of the dataset
+1-Prepare and Standardize Your Data
+Before running an EFA, you must ensure all your measured variables are on a comparable scale.
+Practical Example: If you are analyzing a crime dataset like "USA Arrests," your variables might include Murder, Assault, UrbanPop, and Rape
+. Because these are measured differently (e.g., rates per 100,000 people vs. percentage of the population), you would use a tool like StandardScaler to ensure the analysis isn't biased by the different units of measurement
+
+2-Test if the Data is Suitable
+You must confirm that your variables are actually related to each other before trying to find hidden factors.
+Practical Example (Bartlett’s): In a sample dataset, a Bartlett’s test might yield a very small p-value (e.g., 0.0000008), confirming that the variables (like Murder and Assault) have enough correlation to proceed
+
+Practical Example (KMO): A KMO score measures how well your data "hangs together." The sources suggest a score of 0.70 or higher is preferred for a reliable analysis, though lower scores (like 0.50) might still be used as a guide rather than a strict cutoff
+
+3-Determine the Number of Factors
+You must decide how many "hidden" concepts explain your data.
+Practical Example (Kaiser Criterion): If your analysis of the USA Arrests data produces eigenvalues of 2.48, 0.98, 0.35, and 0.17, the Kaiser Criterion suggests keeping only the first factor because it is the only one with a value significantly greater than 1
+
+Practical Example (Scree Test): You would plot these values (2.48, 0.98, etc.) on a graph. You look for the "bend" or "elbow" in the line; the number of points before that bend tells you how many factors to keep
+
+4-Extract and Rotate the Factors
+Rotation makes the results easier to read by forcing variables to "pick a side" among the factors.
+Practical Example (Varimax Rotation): In the USA Arrests example, an initial "messy" solution showed UrbanPop (urban population) had a loading of 0.33 on the first factor
+. After applying Varimax rotation, that loading dropped to a tiny 0.05, making it clear that UrbanPop does not belong to the "Violent Crime" factor
+
+5-Interpret and Validate the Results
+This is where you give the factors human names based on the variables that "load" onto them.
+Practical Example (Psychology): If the variables "outgoing" and "sociable" show very high correlations (loadings) with Factor 1, while "hard-working" and "dutiful" load onto Factor 2, you would name Factor 1 "Extraversion" and Factor 2 "Conscientiousness"
+
+Practical Example (Business): If you are looking at different costs, you might group material, personnel, and equipment costs into a single factor called "Influenceability" to simplify your budget reporting
+
+Subjective Refinement: Remember that a factor like "IQ" is not a physical object you "find" like a skeleton in an archaeological dig; it is a latent construct you infer from measurable things like quantitative and verbal test scores
+
+Style:
+
+Keep slides concise with bullet points
+Avoid jargon or explain it clearly when necessary
+Ensure logical flow from one concept to the next

@@ -1,0 +1,9 @@
+Title: Global Landscape of the Islamic Fintech: Opportunities, Challenges and Future Ahead
+Authors: Hassnian Ali; Hazik Mohamed; Stellar Consulting Group, Singapore; Hadia Saqib Hashmi; Muhammad Ikram Abu Hassan
+Year: 2019
+Journal: COMSATS Journal of Islamic Finance
+DOI: 10.26652/cjif.4201923
+Citations: 20
+
+Abstract:
+Fintech is the compound of two independent words i.e. finance and technology. It can be defined as "Computer programs and advanced technologies used to support or enable banking and financial services". Fintech has become one of the most dynamic and energetic segments of the financial services marketplace around the globe. Islamic Fintech is in its infancy stage as compared to the global Fintech industry. However, it is also growing exponentially. New Islamic fintech platforms have been established in various countries i.e. Malaysia, Bahrain, Brunei, Saudi Arabia, and the UAE. Islamic robo advisors have been introduced and the blockchain technology is also being deployed by some Islamic Fintechs. There is a lack of literature on Islamic Fintech and the present paper is an attempt to fill this gap using scientific methodology. This paper gives an overview of the Islamic Fintech industry and its global landscape. The major objectives of this paper are to understand and interpret a new phenomenon (Islamic Fintech industry), and to study the challenges and propose recommendations. The study uses the qualitative research method with the inductive approach in creating an overview of the phenomena that has not been researched enough so far. Findings show that the Islamic Fintech has the potential to revolutionize the whole Islamic financial industry by using the advanced technologies. The Islamic Fintechs have the potential to reshape Islamic finance by improving the efficiency of Islamic financial services and to deal with the existing challenges.

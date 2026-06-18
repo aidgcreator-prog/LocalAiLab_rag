@@ -1,0 +1,10 @@
+{"query": "Analyze the uploaded CSV file and create a summary with key statistics", "response": "", "expected_delegation": "data_scientist"}
+{"query": "Search the web for the latest trends in AI agent frameworks in 2026", "response": "", "expected_delegation": "researcher"}
+{"query": "Write a blog post about multi-agent orchestration best practices", "response": "", "expected_delegation": "writer"}
+{"query": "Implement a Python function that parses JSON config files with error handling", "response": "", "expected_delegation": "coder"}
+{"query": "Review the coder's implementation for bugs and security issues", "response": "", "expected_delegation": "reviewer"}
+{"query": "Create a presentation summarizing Q1 2026 sales performance", "response": "", "expected_delegation": "presenter"}
+{"query": "Break down this project into phases with timelines and dependencies: Build a customer support chatbot", "response": "", "expected_delegation": "planner"}
+{"query": "Use my uploaded documents to answer: What were the key findings from the market research?", "response": "", "expected_delegation": "ragsub"}
+{"query": "Research LangGraph best practices, then write a technical blog post about them", "response": "", "expected_delegation": "researcher"}
+{"query": "Create a LinkedIn post announcing our new AI-powered analytics feature", "response": "", "expected_delegation": "writer"}

@@ -1,0 +1,92 @@
+A trillion web transactions daily, more than 300 billion inference requests in a single day, a million plus transactions in a second.
+The modern mainframe can handle all that and more with ease.
+Welcome to AI Academy.
+I am Lou Foglia, a writer and journalist, and I am here with Christian Jacobi, IBM Fellow and CTO of Systems Development at IBM.
+On average, Visa processes around 8,500 global transactions every second.
+A mainframe which can handle 1 million transactions per second would be able to process more than 100 times Visa’s volume.
+So Christian, to you, what makes the mainframe remarkable and what makes them key to AI’s next big breakthrough?
+Is it the hardware, is it the software, is it somewhere in between?
+It’s really the hardware and the software together.
+When we design the next generation of a mainframe, we’re enhancing the performance, the scalability, availability features,
+...but we’re doing this in conjunction as a hardware team, we’re working closely with the firmware team and the software team,
+...to make sure that we end up with a stack optimized end-to-end solution that clients can use to run their workloads.
+IBM has been thinking about AI on mainframes for a long time now.
+This isn’t something we’ve recently come to? [Ten years at least.]
+And the IBM Telum processor includes an on-chip AI accelerator.
+Why is that important having the accelerator on chip and how does it enhance AI performance?
+Yeah, as you’re running workloads on the processor, of course, a lot of the data resides within the chip.
+And within the chip we can communicate between different components of the chip literally in nanoseconds.
+Nanoseconds is a tiny sliver of time, of course.
+Versus if you go off-chip and go to a separate card, you’re talking microseconds.
+And if you go to a different seconds, you might be talking milliseconds.
+And so by putting AI acceleration directly onto the processor chip,
+...we could achieve the lowest possible latency for some of those traditional models,
+...and then now with Aspera acceleration card that goes into the I/O subsystem,
+...we can run Generative AI also that’s very low latency without needing to cross system boundaries and go into a separate system.
+It matters how big that slice of a second is. It matters big time. [Absolutely.]
+When you’re running millions of transactions every second,
+...and the latency requirements from a business perspective is that transactions need to finish within a handful of milliseconds,
+...then you really don’t want to waste milliseconds and traveling the data between here and some other system for AI inferencing.
+Let’s zoom in on that a little bit.
+So what makes mainframes so pivotal for AI – their hardware capabilities, their software capabilities?
+What is that sort of makes it perfectly suited for AI?
+Yeah, so clients are running mission-critical central workloads for their corporations.
+They run the central ledger of a bank or they run insurance claims processing on mainframes.
+That’s where a lot of the data resides. That’s where the transactions get processed.
+And of course, you can use AI,
+...to increase the sort of business value of each transactions by checking for fraud on an insurance claim or on a banking transaction.
+And being able to integrate that directly into the workload, detect fraud, for example,
+...in the instant of time where the transaction is getting processed is of huge value to clients compared to, for example,
+...doing it in a cloud a few minutes or an hour after the transaction is already completed.
+By doing it directly in the mainframe box itself,
+...you cut out all that latency, and that’s how you get to the milliseconds of latency for, for example, fraud detection.
+You already have all the data, all the transaction processing happening in the mainframe system.
+By doing the AI directly in the processor for traditional models or in the I/O subsystem on Aspera accelerator for generative models,
+...you can maintain low latency, get the good throughput and performance that the mainframe is known for,
+...but also preserve the security capabilities by not needing to send the data to a separate system.
+When you’re sending the data out into the world, it’s slowing things down and it’s creating security risk.
+Correct, exactly.
+You’re sending it somewhere else, that inherently takes time,
+...and you’re moving the data out of the highly secure mainframe environment,
+...so now it gets exposed to different attack surfaces that hackers could exploit.
+What should organizations consider when choosing AI-ready infrastructure?
+And how do mainframes address those needs better than other platforms?
+When clients embark on AI journeys in the context of the mission-critical workloads,
+...we often talk to them about the readiness of the data, the readiness of the models,
+...do they have the capabilities in their data science departments to kind of train their own data into the models that they will be using?
+And then also look at what latency requirements do you have, what throughput requirements?
+How many inferences per second do you need to run in that workload?
+And by working with clients through those considerations early on,
+...we can make sure that clients are actually successful in deploying AI solutions, not just developing them,
+...and then kind of getting surprised about how hard it is to scale them to actual deployment.
+So we’re in a room that has seen a lot of mainframe history.
+You spent the bulk of your career working on mainframes. What excites you about the future of mainframes?
+We’ve been already developing the next generation and the generation after that.
+We’re always working on three mainframe generations at the same time.
+So it’s your job to think about what the future is going to look like and build the machine that serves it. [Yeah.]
+And that’s exciting and a lot of fun.
+Could you talk a little bit about some of the use cases that may have surprised you?
+Yeah, I’ll give you an example.
+There is one client who is actually using mainframes to analyze imagery of seagrass satellite images.
+Like seagrass? Like on the beach seagrass? [Yeah.]
+And they see beach grass dying in certain areas and they use that information that they obtain from the AI models,
+...to then do ecological measures to protect more of the seagrass.
+So when you start designing something and then you see where it goes, like protecting seagrass,
+...like how cool is that for you to see the expanse? [That is super exciting.]
+Like we have – when we design the hardware and the software, we have use cases in mind that we are optimizing for.
+And then once it's in the hands of our customers,
+...their innovation starts on how they can use all these capabilities for use cases we would never have imagined.
+And that is one of the most fascinating parts to see how this sometimes evolves.
+Yeah, totally.
+So that’s the future, but even today, just think about it,
+...every time you pay using your credit card, withdraw cash from an ATM, make reservations with any airline,
+...file your taxes or access your medical records, or basically do a thousand other things,
+...it’s likely you are being served by a mainframe.
+Now, imagine a day without mainframes.
+Mainframes are without a doubt integral to enterprise IT.
+And today, with new integrations and enhancements, they are redefining their role in modern IT.
+So to answer the question we started with, what makes the mainframe unique?
+It’s the hardware and the software and everything in between.
+It’s how the end-to-end stack is optimized from the silicon up for mission-critical workloads.
+And I think that we could both agree that that’s what makes the mainframe so remarkable, and that’s what makes it great for AI.
+[Music]

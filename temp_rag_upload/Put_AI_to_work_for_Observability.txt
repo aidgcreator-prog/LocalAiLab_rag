@@ -1,0 +1,240 @@
+>> VIKRAM MURLI:
+Observability is a
+day zero problem.
+It's not a day one problem
+or a day two problem – day zero.
+Because having the right
+observability infrastructure
+in place is the only way
+operations teams can ensure
+that AI estate
+is built to scale.
+It's like you
+built a state-of-the-art
+roller coaster but
+didn't put in place any tools
+to make sure it's
+always running properly.
+You're bound to
+have a breakdown,
+probably sooner than later, 
+which is why every organization
+and operations leader
+needs to plan for observability.
+It cannot be an afterthought.
+My name is Vikram
+Murli, and I'm the
+Vice President of Product
+Development in IBM Automation.
+In the two decades I've
+been leading teams on data,
+AI, and automation, I've
+learned that customers depend
+on reliable products that
+they bet their businesses on.
+Observability is vital
+to that business success.
+Observability and monitoring
+are often used interchangeably,
+but there's a huge
+difference between the two.
+Observability at its core
+is about understanding and
+exploring the internal state
+of a system or an application
+based on the
+data it produces.
+And that data is usually
+logs, metrics, and traces.
+It's used for deeper insights
+into why a system is behaving
+in a particular way, and it
+can help in root cause analysis
+of a problem.
+It's proactive so you
+can take action before
+a problem occurs.
+Monitoring, on the other
+hand, is about getting alerts
+if something goes
+wrong with a system.
+For example, if
+predefined safety thresholds
+are exceeded or
+if CPU usage is
+too high, monitoring
+is typically reactive.
+It tells you when
+something is already wrong.
+Observability, though, tells
+you if something is about to
+go wrong and
+how to fix it.
+With the rapid speed of
+evolution in AI today and with
+the massive increase in the
+amount of data being produced,
+observability has a more
+important role than ever.
+The current set of tools in
+place to observe AI processes
+are insufficient to keep
+up with the increasing demand,
+and the end result is a
+lot of technical, operational,
+and security debt.
+So, you need automated
+observability to streamline
+processes and improve
+operational efficiency,
+which gives you a better
+understanding of the data
+coming from the hundreds
+of tools that are out there.
+Plus, this lets you
+handle repetitive and manual
+tasks related to
+data and maintenance.
+Then you can remove these
+repetitive tasks from your
+high-paid talent so they can
+concentrate on other high value,
+crucial areas of work that
+your business really needs,
+which is why it's so
+vital to keep observability
+in mind from the very
+beginning of AI implementation.
+Leaders need to plan for
+observability and it cannot
+be an afterthought.
+The right foundation
+is essential for a
+performance stack, from
+infrastructure all the way
+to application deployments.
+Complicating this a
+little is generative AI,
+which is everywhere right now.
+We are seeing an
+increase in its use in both
+application development
+and general operations.
+That means more complexity
+that development and ops teams
+have to deal with and
+makes observability even
+more important - from making 
+sure expensive hardware with
+GPUs is used optimally to 
+ensuring that AI models are
+performing in a
+trusted and secure way.
+Part of what makes it so
+crucial is the way that it
+enables resiliency because
+resilience is in a lot of
+customers' minds right now.
+A system needs to be resilient
+and there are many factors that
+can contribute to that.
+But the way to show customers
+that their system is resilient
+is through observability.
+You can't say a system
+is resilient if you don't
+have the observability
+tools in place to look at it.
+Probably the six
+most important of
+these are observability,
+maintainability, usability,
+recoverability,
+scalability, and availability.
+It's a lot of
+-ilities, I know.
+We use these factors to track
+the operational resilience of
+a system, and to do this, you
+need to deploy the right tools
+because that's what
+customers have come to expect:
+continual resilience 24/7.
+So, how do we ensure that
+we have a solid observability
+strategy in place?
+Start with having a plan.
+It's not a question of
+if something will go wrong.
+It's a question of when.
+So, you need to
+be prepared for that.
+The best way to
+prepare is to start
+with the right
+observability architecture.
+From the offset,
+you need a strategy that
+covers everything from
+infrastructure, to FinOps,
+to application management.
+Plan on making observability
+part of your stack and execute
+on the plan.
+And the tools you should
+consider are infrastructure,
+cost, application, and
+security observability.
+Having these in place will
+make sure you cover the entire
+software development
+lifecycle and set it up
+for the best possible
+performance without unseen costs
+and unpredictable outcomes.
+And a lot of the
+strategy needs to be driven
+by CIOs and CTOs.
+They're often stuck in the
+middle between operational
+teams and line of business.
+They want to do the
+right thing, but they are
+left with old, unoptimized tools
+that are just not sufficient to
+get the job done
+in the era of AI.
+The key for them, once
+again, is to set a strategy
+and stick to it.
+Teams just cannot be
+successful in their AI journey
+without the right tools
+and processes in place.
+It's the role of the CTO
+or CIO to set the strategy
+and drive it
+for the business.
+So, once you know the
+importance of observability,
+once you have a plan in place
+for it, you need to actually
+implement and automate it.
+The best way to accomplish
+this is to choose a trusted
+partner that really knows its
+stuff and that has to take the
+time to plan and execute
+its own observability strategy.
+That way you can get
+a more secure, optimized,
+cost effective team and it 
+doesn't take years to get there.
+You will have security and
+scalability that far exceed
+what you can get out
+of a homegrown system.
+It's a new era of AI and of
+gen AI, and that requires a new
+level of observability
+starting from day zero.

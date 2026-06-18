@@ -1,0 +1,9 @@
+Title: The qualitative content analysis process
+Authors: Satu Elo; Helvi Kyngäs
+Year: 2008
+Journal: Journal of Advanced Nursing
+DOI: 10.1111/j.1365-2648.2007.04569.x
+Citations: 21831
+
+Abstract:
+Inductive content analysis is used in cases where there are no previous studies dealing with the phenomenon or when it is fragmented. A deductive approach is useful if the general aim was to test a previous theory in a different situation or to compare categories at different time periods.

@@ -1,0 +1,1284 @@
+[SEARCH] Found 2 result(s) for 'overview structural equation modeling key concepts estimation methods fit indices applications':
+
+## Structural Equation Modeling: A Complete Guide | DigitalOcean
+**URL:** https://www.digitalocean.com/community/tutorials/structural-equation-modeling-complete-guide
+
+Structural Equation Modeling: A Complete Guide | DigitalOcean
+
+* [Blog](/blog)
+* [Docs](https://docs.digitalocean.com/products)
+* [Careers](/careers)
+* [Get Support](/support)
+* [Contact Sales](/company/contact/sales?referrer=tophat)
+
+[DigitalOcean](/)
+
+* Products
+
+  Featured Products
+
+  Gradient™ AI Agentic Inference Cloud
+
+  Build, train, deploy apps/agents and scale at will
+
+  Compute
+
+  Build, deploy, and scale cloud compute resources
+
+  Containers and Images
+
+  Safely store and manage containers and backups
+
+  Managed Databases
+
+  Fully managed resources running popular database engines
+
+  Management and Dev Tools
+
+  Control infrastructure and gather insights
+
+  Networking
+
+  Secure and control traffic to apps
+
+  Security
+
+  Store and access any amount of data reliably in the cloud
+
+  Storage
+
+  Store and access any amount of data reliably in the cloud
+
+  [Browse all products](/products)
+
+  ###
+* Solutions
+
+  AI/ML
+
+  CMS
+
+  Data and IoT
+
+  Developer Tools
+
+  Gaming and Media
+
+  GPU
+
+  Hosting
+
+  Security and Networking
+
+  Startups and SMBs
+
+  Web and App Platforms
+
+  [See all solutions](/solutions)
+
+  ###
+* Developers
+
+  Community
+
+  Documentation
+
+  Developer Tools
+
+  Get Involved
+
+  Utilities and Help
+
+  ###
+* Partners
+
+  Become a Partner
+
+  Marketplace
+
+  ###
+* [Pricing](/pricing)
+
+* Log in
+
+
+  + Log in to:
+
+  + [Community](https://www.digitalocean.com/api/dynamic-content/v1/login?success_redirect=https%3A%2F%2Fwww.digitalocean.com&error_redirect=https%3A%2F%2Fwww.digitalocean.com%2Fauth-error&type=login)
+  + [DigitalOcean](https://cloud.digitalocean.com/login)
+* Sign up
+
+
+  + Sign up for:
+
+  + [Community](https://www.digitalocean.com/api/dynamic-content/v1/login?success_redirect=https%3A%2F%2Fwww.digitalocean.com&error_redirect=https%3A%2F%2Fwww.digitalocean.com%2Fauth-error&type=register)
+  + [DigitalOcean](https://cloud.digitalocean.com/registrations/new)
+
+* Log in
+
+
+  + Log in to:
+
+  + [Community](https://www.digitalocean.com/api/dynamic-content/v1/login?success_redirect=https%3A%2F%2Fwww.digitalocean.com&error_redirect=https%3A%2F%2Fwww.digitalocean.com%2Fauth-error&type=login)
+  + [DigitalOcean](https://cloud.digitalocean.com/login)
+* Sign up
+
+
+  + Sign up for:
+
+  + [Community](https://www.digitalocean.com/api/dynamic-content/v1/login?success_redirect=https%3A%2F%2Fwww.digitalocean.com&error_redirect=https%3A%2F%2Fwww.digitalocean.com%2Fauth-error&type=register)
+  + [DigitalOcean](https://cloud.digitalocean.com/registrations/new)
+
+* [Tutorials](/community/tutorials)
+* [Questions](/community/questions)
+* [Product Docs](https://docs.digitalocean.com)
+* Search Community
+
+Report this
+-----------
+
+What is the reason for this report?
+
+This undefined is spam
+
+This undefined is offensive
+
+This undefined is off-topic
+
+This undefined is other
+
+Submit
+
+Table of contents
+-----------------
+
+1. [Introduction](/community/tutorials/structural-equation-modeling-complete-guide#introduction)
+2. [Key Takeaways](/community/tutorials/structural-equation-modeling-complete-guide#key-takeaways)
+3. [Some Key concepts in SEM terminology](/community/tutorials/structural-equation-modeling-complete-guide#some-key-concepts-in-sem-terminology)
+4. [What Is Structural Equation Modeling](/community/tutorials/structural-equation-modeling-complete-guide#what-is-structural-equation-modeling)
+5. [Types of SEM Measurement vs Structural Models](/community/tutorials/structural-equation-modeling-complete-guide#types-of-sem-measurement-vs-structural-models)
+6. [When to Use SEM SEM vs Regression vs Factor Analysis](/community/tutorials/structural-equation-modeling-complete-guide#when-to-use-sem-sem-vs-regression-vs-factor-analysis)
+7. [Applications of SEM in Research](/community/tutorials/structural-equation-modeling-complete-guide#applications-of-sem-in-research)
+8. [Interpreting SEM Results Fit Indices and Coefficients](/community/tutorials/structural-equation-modeling-complete-guide#interpreting-sem-results-fit-indices-and-coefficients)
+9. [Structural Equation Modeling in Marketing with Python](/community/tutorials/structural-equation-modeling-complete-guide#structural-equation-modeling-in-marketing-with-python)
+10. [Advantages and Limitations of SEM](/community/tutorials/structural-equation-modeling-complete-guide#advantages-and-limitations-of-sem)
+11. [Emerging Trends SEM in Machine Learning and Causal Inference](/community/tutorials/structural-equation-modeling-complete-guide#emerging-trends-sem-in-machine-learning-and-causal-inference)
+12. [FAQ SECTION](/community/tutorials/structural-equation-modeling-complete-guide#faq-section)
+13. [References and Resources](/community/tutorials/structural-equation-modeling-complete-guide#references-and-resources)
+
+1. [Tutorials](/community/tutorials?subtype=tutorial)
+2. [AI/ML](/community/tags/ai-ml)
+3. Structural Equation Modeling: A Complete Guide
+
+[Tutorial](/community/tutorials?subtype=tutorial)
+
+Structural Equation Modeling: A Complete Guide
+==============================================
+
+Published on September 25, 2025
+
+[AI/ML](/community/tags/ai-ml)
+
+[Deep Learning](/community/tags/deep-learning)
+
+[Write for DO](/community/tags/write-for-do)
+
+[Write for DO](/community/tags/write-for-do)
+
+![Adrien Payong](https://www.gravatar.com/avatar/a91a5e00de259dad140cf7648a4fec44260ca03ce2cb46511f9ada705ebadd69?default=retro&size=256)![Shaoni Mukherjee](https://www.gravatar.com/avatar/ca4dfd2d57e4a082d8b4dabd50f2cf8e501c3f715fe2e43822fdbd156243f603?default=retro&size=256)
+
+By [Adrien Payong](/community/users/adrienpayong) and [Shaoni Mukherjee](/community/users/smukherjee)
+
+![Structural Equation Modeling: A Complete Guide](https://www.digitalocean.com/api/static-content/v1/images?src=https%3A%2F%2Fdoimages.nyc3.cdn.digitaloceanspaces.com%2F010AI-ML%2F2025%2FShaoni%2FAdrien%2F25-sept%2Ffeature_image.png&width=1920 "Structural Equation Modeling: A Complete Guide")
+
+Table of contents
+
+Popular topics
+
+[**Introduction**](#introduction)
+---------------------------------
+
+Suppose you want to understand how different aspects of your personality, such as confidence, communication skills, and body language, contribute to your performance in a job interview. Instead of looking at these factors in isolation, [structural equation modeling](https://en.wikipedia.org/wiki/Structural_equation_modeling) (SEM) enables the simultaneous analysis of such complex, interconnected relationships. SEM is a multivariate statistical modeling technique that unites factor analysis and regression. This allows researchers to examine both direct and indirect relationships between variables. While traditional regression analysis is typically restricted to observed (measured) variables, SEM can seamlessly incorporate latent variables (theoretical constructs that are not measured directly) and address measurement errors in data. This makes SEM a potent tool for hypothesis testing in psychology, education, marketing, and other social sciences, where many concepts cannot be directly observed.
+
+In this guide, we’ll provide the definition of SEM, discuss the types of models, compare it to regression and factor analysis, and walk you through some practical SEM applications. We’ll also provide a step-by-step SEM example with [Python](/community/tutorials/python-tutorial), then show you how to interpret SEM results, discuss the strengths and limitations of SEM, and review some of the latest trends. Whether you’re a researcher trying to test a theoretical model or a data scientist who’s just curious about SEM, this guide will give you a practical, hands-on understanding of structural equation modeling.
+
+
+
+
+[**Key Takeaways**](#key-takeaways)
+-----------------------------------
+
+* SEM integrates [factor analysis](https://onlinelibrary.wiley.com/doi/abs/10.1002/9781119111931.ch159) and regression, allowing for the simultaneous estimation of measurement and structural models.
+* Latent variables are unobserved or hypothetical constructs that represent abstract concepts, such as intelligence, satisfaction, or personality traits. These are usually measured indirectly by a set of observed indicators.
+* Unlike regression analysis, SEM can accommodate multiple dependent variables, mediators, and indirect effects. It can explicitly account for measurement error in the indicators.
+* The model fit to the data is assessed using various indices, like the [comparative fit index (CFI)](https://pubmed.ncbi.nlm.nih.gov/29869222/), the [Tucker-Lewis index (TLI)](https://www.youtube.com/watch?v=gDp8NGDeifI&t=174s), [the root mean square error of approximation (RMSEA)](https://www.jaqm.ro/issues/volume-11,issue-3/pdfs/2_GI_SH_.pdf), and the [standardized root mean square residual (SRMR)](https://pmc.ncbi.nlm.nih.gov/articles/PMC7797960/). The values of these indices indicate how well the proposed model aligns with the observed data.
+* SEM is a flexible and widely used technique in many fields, including psychology, education, marketing, and social sciences. It is used to test hypotheses, validate constructs, and explain complex relationships.
+
+
+
+[**Some Key concepts in SEM terminology**](#some-key-concepts-in-sem-terminology)
+---------------------------------------------------------------------------------
+
+Key concepts in SEM terminology include:
+
+* [**exogenous vs. endogenous variables**](https://www.theanalysisfactor.com/exogenous-endogenous-variables-structural-equation-modeling/): An exogenous variable is like an independent variable (there are no arrows pointing at it in the diagram), and an endogenous variable is like a dependent variable, with one or more arrows pointing at it.
+* [**latent vs. observed variables**](https://en.wikipedia.org/wiki/Latent_and_observable_variables): Latent variables (also known as factors or constructs) are not directly observed but rather are inferred from measured indicators. On the other hand, observed variables are directly measured (e.g., survey items, test scores).
+* **Path coefficients/factor loadings**: **Path coefficients** are analogous to regression weights, representing the strength of influence between variables. Factor **loadings** are the connection between latent factors and their observed indicators in the measurement part of the model.
+
+
+
+[**What Is Structural Equation Modeling?**](#what-is-structural-equation-modeling)
+----------------------------------------------------------------------------------
+
+Structural equation modeling refers to a family of statistical methods that allow the construction and testing of [multivariable models](/community/tutorials/multiple-linear-regression-python). It is a highly flexible modeling approach in that the researcher can specify a theoretical model (typically in terms of a set of equations or a path diagram) and then test the extent to which this model fits with the observed data.
+
+**At its core, structural equation modeling can be broken down into two components: a measurement model and a structural mode**l. The former is a series of associations between latent variables and observed indicator variables (similar to factor analysis), and the latter is a series of causal (or correlational) associations between latent variables (and possibly observed variables).
+
+A structural model, by contrast, might state that a person’s intelligence (latent) causes some other outcome, such as academic performance (latent or observed). SEM is used to estimate those relationships simultaneously, and also test how well the overall pattern of the model fits the data. Let’s consider the following diagram:
+
+![image](https://doimages.nyc3.cdn.digitaloceanspaces.com/010AI-ML/2025/Shaoni/Adrien/25-sept/Image_1.png)
+
+In this diagram, we have a latent variable, Intelligence (measured by the three tests: math, verbal, logic), hypothesized to predict a latent variable, Academic Performance (measured by GPA and course scores). Arrows represent loadings (λ), structural effects (β), and error terms (ε).
+
+The SEM has measurement and structural components. Intelligence is measured by loading onto three test indicators. It drives Academic Performance, which in turn is measured by GPA and course scores. Indicator errors and an endogenous disturbance are represented; one loading is set equal (=1) for identification purposes.
+
+
+
+
+[**Types of SEM: Measurement vs. Structural Models**](#types-of-sem-measurement-vs-structural-models)
+-----------------------------------------------------------------------------------------------------
+
+SEM is a broad framework that encompasses several types of models. It’s helpful to distinguish between **measurement models** and **structural models**, which are often combined in a full SEM:
+
+### [**Measurement Models (Confirmatory Factor Analysis)**](#measurement-models-confirmatory-factor-analysis)
+
+Measurement models specify how latent variables are measured by observed indicators. The prototypical example of a measurement model is a confirmatory factor analysis, where you “load” observed variables onto latent factors according to a theoretical model and then check that the data confirm the hypothesized measurement structure.
+
+For example, let’s say you have a theoretical latent construct “Math Ability” which you believe is measured by scores on tests of algebra, geometry, and calculus. In a CFA, you would specify “Math Ability” as a latent factor, with factor paths to those three test score variables.
+
+![image](https://doimages.nyc3.cdn.digitaloceanspaces.com/010AI-ML/2025/Shaoni/Adrien/25-sept/Image_2.png)
+
+The model will then produce estimates of factor loadings (Like how much each test contributes to the factor) and unique error variances (measurement error unique to each test). A well-specified measurement model will have strong loadings (e.g., high correlation between each test and MathAbility) and a good fit to the data, indicating that the three observed variables indeed form a single construct.
+
+### [**Structural Models (Path Analysis)**](#structural-models-path-analysis)
+
+These models specify causal (or correlational) relationships among the variables (latent or observed). A path analysis is an SEM with no latent variables (only observed variables, with arrows drawn between them, to represent the presumed cause-and-effect relations or correlations).
+
+[Path models](https://en.wikipedia.org/wiki/Path_analysis_(statistics)) can also have mediators (variables that carry an effect from one to another) and reciprocal relationships (with feedback loops), which are not possible in a single regression equation. They can also involve multiple outcomes simultaneously.
+
+In practice, many SEM studies will combine both: a measurement model for each major latent construct in the theory (these are often specified in a CFA first to ensure the measures are good before proceeding further). This will be followed by a structural model linking those latent constructs together ( and perhaps some observed variables). A simple taxonomy of SEM models, then, can be given in terms of what they include:
+
+![image](https://doimages.nyc3.cdn.digitaloceanspaces.com/010AI-ML/2025/Shaoni/Adrien/25-sept/Image_3.png)
+
+* [**Confirmatory Factor Analysis (CFA**)](https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/confirmatory-factor-analysis/)*:* Only latent variables and their indicators (no directional arrows among the factors, though factors are allowed to correlate).
+* [**Path Analysis**](https://en.wikipedia.org/wiki/Path_analysis_(statistics))*:* Only observed variables, with directional arrows modeling hypothesized causal paths (no latent factors, so no measurement model needed).
+* [**Full SEM**](https://www.youtube.com/watch?v=3n8HYp_xmAo)*:* Latent variables (with their indicators) as well as structural paths among some of the variables (latent or observed). This is the most general case, combining the CFA pieces and regression-like paths in the same overall framework.
+* **Variations**\*:\* SEM has also been extended in several directions, such as **[multi-group SEM](https://community.jmp.com/t5/JMP-Blog/Multiple-Group-Analysis-in-Structural-Equation-Modeling/ba-p/604714)** (testing the same model across different groups of respondents, e.g., does the model hold for males vs females), **multilevel SEM** (for hierarchical data), and **latent growth models** (a type of SEM to model change over time using longitudinal data). Another special type of SEM is [**Partial Least Squares SEM**](https://www.youtube.com/watch?v=80SyypKzIJo) (PLS-SEM), which is a more prediction-oriented approach, more appropriate for smaller samples or non-normal data.
+
+
+
+[**When to Use SEM (SEM vs. Regression vs. Factor Analysis)**](#when-to-use-sem-sem-vs-regression-vs-factor-analysis)
+---------------------------------------------------------------------------------------------------------------------
+
+Knowing when SEM is the appropriate tool is essential. SEM is best used when **research questions involve complex relationships that simpler analyses cannot handle adequately**, especially in these scenarios:
+
+* **Multiple interrelated dependent variables:** When you have multiple outcome variables that might affect each other (e.g., in an education study, the impact of family background on school engagement and the influence of engagement and background on academic achievement), SEM allows you to model all these outcomes and their interrelations simultaneously. [Multiple regression](/community/tutorials/multiple-linear-regression-python) would require a set of separate models and could not account for the [covariance](/community/tutorials/covariance-and-correlation-in-r-programming) between outcomes.
+* **Latent variables and measurement error:** If you want to explicitly model latent constructs (e.g., intelligence, socioeconomic status, attitude) that are inferred from several observed measures, SEM is the go-to approach. Unlike [ordinary regression](/community/tutorials/multiple-linear-regression-python) that treats each observed measure (which may be noisy) as error-free, SEM can account for measurement error by allowing latent variables to ‘absorb’ the common variance of their associated indicators. This provides more reliable estimates of the relationships between constructs. Regression analysis cannot include latent factors (only observed variables).
+* **Mediating pathways and complex causal theories:** If your theory suggests a network of causal pathways (mediators or moderators). For instance, if you hypothesize that Training → (causes) Motivation → (leads to) Productivity, and also Training → Productivity, you could test these mediation hypotheses with a set of regressions. However, using SEM, you can test the entire chain in a single model. This will provide you with an estimate of direct and indirect effects simultaneously, including a test of overall model fit.
+* **Model confirmation (confirmatory analysis):** If you have a well-specified hypothesis or theoretical model, SEM can provide a plausible confirmatory test. It will tell how well the entire model fits the data, not just individual coefficients. Standard regression could inform you that some predictors are significant, but not whether the hypothesized structure itself is a plausible alternative to other possibilities.
+
+### [**Relation to Factor Analysis**](#relation-to-factor-analysis)
+
+Factor analysis deals with explaining covariation among observed variables through fewer latent factors. SEM is a generalization of this concept: the measurement component of SEM is a [confirmatory factor analysis](https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/confirmatory-factor-analysis/) (CFA). The structural component of SEM goes beyond factor analysis by specifying causal relations among latent constructs or between latent and observed variables. Factor analysis does not model causal effects. SEM does.
+
+![image](https://doimages.nyc3.cdn.digitaloceanspaces.com/010AI-ML/2025/Shaoni/Adrien/25-sept/Image_4.png)
+
+
+
+
+[**Applications of SEM in Research**](#applications-of-sem-in-research)
+-----------------------------------------------------------------------
+
+The table below summarizes frequent real-world applications of SEM in various disciplines. It also illustrates how researchers reframe questions from a domain of interest as measurement models (latent constructs) and structural paths (hypothesized effects). Use this table to rapidly map your problem to a SEM template:
+
+* Define the latent constructs.
+* Measure the mediators you expect and the outcomes that you care about.
+* Then check that your data are suitable for the model (adequate sample size, reliable indicators, and a strong theoretical rationale for the arrows you draw).
+
+| Domain | How SEM Is Applied | Example Scenarios |
+| --- | --- | --- |
+| Psychology & Social Sciences | Originated and was heavily used in psychology, sociology, and related fields. Model latent constructs like intelligence, personality, attitudes, or well-being. Handle multiple outcomes and confirm whether data support a theorized network of influences. | Educational psychology: latent student traits (motivation, socio-economic status) → academic achievement. Social research: cultural values → behaviors via mediators. PhD dropout study: support, stress, and satisfaction → dropout rates. |
+| Marketing & Business Research | Measure customer perceptions and predict outcomes like loyalty or purchase intention. Create indices (customer satisfaction, brand equity) from surveys and test causal links. Accommodate multiple mediators/outcomes and account for measurement error. | Key driver analysis: product attributes → latent factors → satisfaction/likelihood to recommend. Laddering effects: perceptions → attitudes → loyalty. Advertising: ad recall, brand awareness, brand attitude → purchasing (caution: observational data limit causal claims). |
+| Education & Sociology | Examine how student background influences performance and institutional outcomes. Combine indicators into latent composites (e.g., socio-economic status). Test complex theoretical frameworks in one integrated model. | Student background (income, parental education) → academic achievement via school quality and motivation. Social capital: neighborhood quality (latent) → life outcomes (employment, health) mediated by education. |
+| Healthcare & Epidemiology | Model joint influence of genetic and environmental latent factors on health outcomes. Represent quality of life as a latent construct influenced by multiple domains (mental, physical, and social support). Simultaneously handle measurement error and test mediation; model longitudinal data with latent growth curves. | Genetic + environmental factors → disease risk (with correlations between them). Risk factor → intermediate variables → disease outcome. Track health indicators over time; identify predictors of trajectories. |
+| Data Science & Machine Learning | Bring interpretability and causal awareness into predictive analytics. Model latent constructs like “bias” or “fairness perception.” Integrate SEM with machine learning to validate structures and improve explainability. | AI fairness studies: bias/fairness constructs → outcomes or decisions. Confirm clusters or validate recommender system features. User engagement: latent satisfaction & utility → retention. |
+
+
+
+
+[**Interpreting SEM Results: Fit Indices and Coefficients**](#interpreting-sem-results-fit-indices-and-coefficients)
+--------------------------------------------------------------------------------------------------------------------
+
+After estimating an SEM, two broad types of results are open to interpretation: **(1) the goodness-of-fit of the overall model**, and **(2) the individual parameter estimates** (path coefficients, loadings, etc.). Both are essential in SEM reporting.
+
+**Model Fit Indices:** In contrast to simple regression (where one can look at R² and F-test for the overall model), SEM provides a range of fit indices that need to be considered when interpreting the model’s ability to reproduce the observed data covariance matrix. The table below provides common fit measures and how they can be interpreted.
+
+| Fit Index | What It Assesses | Common Thresholds | Caveats / Notes |
+| --- | --- | --- | --- |
+| [Chi-Square Test (χ²)](https://www.scribbr.com/statistics/chi-square-tests/) | Difference between the observed covariance matrix and the model-implied covariance matrix. Non-significant χ² suggests the model could plausibly generate the data. | p > 0.05 → good fit. χ²/df ≤ 2–3 is often acceptable | Highly sensitive to sample size (large *N* can make a trivial misfit “significant”). Rarely used alone; inspect with other indices. |
+| CFI (Comparative Fit Index) | Compares the specified model to a baseline independence model (no correlations among variables). Ranges 0–1; closer to 1 is better. | CFI ≥ 0.95 → good fit. CFI ≥ 0.90 → acceptable (in some cases) | Less sensitive to sample size than χ²; still considered alongside RMSEA/SRMR. |
+| [RMSEA (Root Mean Square Error of Approximation)](https://en.wikipedia.org/wiki/Root_mean_square_deviation) | Approximate error per degree of freedom; rewards parsimony. Often reported with a 90% CI and p-close. | ≤ 0.05 → close fit. 0.05–0.08 → reasonable fit > 0.10 → poor fit | Prefer RMSEA with confidence interval; smaller values indicate better approximate fit. |
+| TLI (Tucker–Lewis Index / NNFI) | Incremental fit index, like CFI, but penalizes model complexity more strongly. | TLI > 0.95 → desired | Can exceed 1 or dip below 0 in rare cases; interpret with other indices. |
+| SRMR (Standardized Root Mean Residual) | Average standardized difference between observed and model-implied correlations. | SRMR < 0.08 → good fit | Directly interpretable in correlation units; complements RMSEA/CFI. |
+| AIC / BIC (Information Criteria) | Penalized fit measures are used to compare competing models (especially non-nested). | Lower AIC/BIC → preferred model (better fit with parsimony) | Not absolute fit indices; only meaningful for comparison across candidate models. |
+
+**Parameter Estimates**: Once the model fit is acceptable, you can interpret the path coefficients, factor loadings, and variances:
+
+| Element | What It Captures | How to Interpret (Thresholds & Stats) | Red Flags / Actions |
+| --- | --- | --- | --- |
+| **Factor Loadings** | Strength with which each observed indicator reflects its latent factor; often standardized. | Significant (p < 0.05) and reasonably large. Rule of thumb: standardized loading ≥ 0.50 is desirable. One loading may be fixed to 1.0 to set the factor’s scale. | Weak/non-significant loading → item may be a poor indicator. Consider revising/removing the indicator or reviewing its measurement quality. |
+| **Regression Paths** | Direction and strength of relationships among variables in the structural model (with SEs and p-values). | Interpret the coefficients controlling for other variables in the model. Report path estimates, SE, p-values, and R² for endogenous variables. | Non-significant hypothesized paths → re-examine theory/power. Very small standardized effects (e.g., 0.10) may be statistically significant but not practically meaningful. |
+| **Covariances / Correlations** | Associations between variables or error terms (two-headed arrows), often used for repeated measures or shared method effects. | Positive, significant covariances are expected for matched indicators over time. Use sparingly and with theoretical justification. | Unexpectedly high residual correlations → possible omitted factor or method effect. Consider adding a theoretically justified latent factor or revising the measurement. |
+
+
+
+
+[**Structural Equation Modeling in Marketing with Python**](#structural-equation-modeling-in-marketing-with-python)
+-------------------------------------------------------------------------------------------------------------------
+
+We will build an end-to-end SEM pipeline that:
+
+1. Simulates a realistic marketing survey with five constructs:
+   * **SQ**: Service Quality
+   * **PF**: Price Fairness
+   * **CS**: Customer Satisfaction
+   * **BL**: Brand Loyalty
+   * **PI**: Purchase Intention
+2. Specifies a reflective measurement model and a theory-driven structural model.
+3. Fits the model with [*semopy*](https://semopy.com/), and inspects standardized estimates and global fit indices (CFI, TLI, RMSEA, SRMR).
+4. Draw a **path diagram**.
+
+### [**Install & imports**](#install-imports)
+
+```
+pip install semopy graphviz
+import numpy as np
+import pandas as pd
+import semopy
+from semopy import Model, calc_stats, semplot, report
+```
+
+* semopy fits and inspects SEMs.
+* graphviz (system + python package) is needed for diagrams via semplot.
+* numpy/pandas handle simulation and data frames.
+
+### [**Simulate latent drivers**](#simulate-latent-drivers)
+
+```
+# 1) Simulate a marketing survey (replace with your data later)
+# ---------------------------
+rng = np.random.default_rng(42)
+n = 800
+
+# Exogenous latents: SQ & PF with correlation ~ .30
+cov_exo = np.array([[1.0, 0.30],
+                    [0.30, 1.0]])
+SQ, PF = rng.multivariate_normal(mean=[0, 0], cov=cov_exo, size=n).T
+```
+
+The code above:
+
+* Sets a reproducible random number generator and sample size.
+* Simulates two exogenous latent variables—Service Quality (SQ) and Price Fairness (PF)—with a correlation ≈ 0.30. In a real-life example, Customers who perceive the service quality to be high are likely to also perceive prices as fair (but not perfectly so).
+
+### [**Simulate downstream latent outcomes via a structural model.**](#simulate-downstream-latent-outcomes-via-a-structural-model)
+
+Let’s consider the following code:
+
+```
+# Structural latents
+# CS = 0.6*SQ + 0.4*PF + e
+e_cs = rng.normal(0, 0.6, n)
+CS = 0.6*SQ + 0.4*PF + e_cs
+
+# BL = 0.7*CS + 0.2*SQ + e
+e_bl = rng.normal(0, 0.6, n)
+BL = 0.7*CS + 0.2*SQ + e_bl
+
+# PI = 0.8*BL + 0.3*CS + e
+e_pi = rng.normal(0, 0.6, n)
+PI = 0.8*BL + 0.3*CS + e_pi
+```
+
+The structural latents encode a set of variables where CS is expressed as a combination of SQ and PF with an added random noise component. BL is modeled as a function of CS and SQ with additional noise. PI is dependent on BL and CS with some noise. Each of these variables is a linear combination of other variables in the model with some additive normally distributed error. The structural latents represent a linear, causal chain of variables, beginning with SQ and PF, continuing through CS and BL, and ending in PI.
+
+### [**Turn latents into observed survey items (measurement model)**](#turn-latents-into-observed-survey-items-measurement-model)
+
+```
+def make_indicators(latent, loads):
+    # Simple reflective indicators with Gaussian noise; approx Likert-ish spread
+    cols = {}
+    for i, lam in enumerate(loads, start=1):
+        cols[i] = lam*latent + rng.normal(0, 1 - lam**2, size=len(latent))
+    return cols
+
+# Measurement items (factor loadings ~ .6-.9)
+SQ_items = make_indicators(SQ, [0.85, 0.80, 0.75, 0.70])
+PF_items = make_indicators(PF, [0.80, 0.70, 0.65])
+CS_items = make_indicators(CS, [0.85, 0.75, 0.70])
+BL_items = make_indicators(BL, [0.80, 0.75, 0.70])
+PI_items = make_indicators(PI, [0.85, 0.75, 0.70])
+```
+
+This code simulates observed measurement items as reflective indicators of latent variables. Loadings (or “strengths”) are applied to each latent variable, and [Gaussian noise](/community/tutorials/data-augmentation-vision-language-audio-research#photometric-transformations) is added to obtain indicators with variability that is proportional to the loadings. The indicators are survey-like in nature (e.g., Likert scales), and the measurement data in this example could be described as realistic simulated data for SQ, PF, CS, BL, and PI.
+
+### [**Assemble the dataset**](#assemble-the-dataset)
+
+```
+df = pd.DataFrame({
+    # Service Quality
+    "SQ1": SQ_items[1], "SQ2": SQ_items[2], "SQ3": SQ_items[3], "SQ4": SQ_items[4],
+    # Price Fairness
+    "PF1": PF_items[1], "PF2": PF_items[2], "PF3": PF_items[3],
+    # Customer Satisfaction
+    "CS1": CS_items[1], "CS2": CS_items[2], "CS3": CS_items[3],
+    # Brand Loyalty
+    "BL1": BL_items[1], "BL2": BL_items[2], "BL3": BL_items[3],
+    # Purchase Intention
+    "PI1": PI_items[1], "PI2": PI_items[2], "PI3": PI_items[3],
+})
+```
+
+This code block places all the generated measurement items into a [pandas](/community/tutorials/python-pandas-module-tutorial) dataframe, with each column representing a latent construct (SQ, PF, CS, BL, PI) and indicator number.
+
+### [**Declare the SEM (lavaan-style syntax used by semopy)**](#declare-the-sem-lavaan-style-syntax-used-by-semopy)
+
+```
+# 2) Specify SEM in semopy syntax
+# ---------------------------
+model_desc = """
+# Measurement
+SQ =~ SQ1 + SQ2 + SQ3 + SQ4
+PF =~ PF1 + PF2 + PF3
+CS =~ CS1 + CS2 + CS3
+BL =~ BL1 + BL2 + BL3
+PI =~ PI1 + PI2 + PI3
+
+# Structural
+CS ~ SQ + PF
+BL ~ CS + SQ
+PI ~ BL + CS
+
+# Exogenous correlation
+SQ ~~ PF
+"""
+```
+
+What it defines:
+
+* =~ provides **factor loadings** (how items reflect a latent).
+* ~ specifies **regressions** among latents (the structural model).
+* ~~ sets a **covariance** between exogenous latents SQ and PF.
+
+In the code above, the [*semopy* model](https://semopy.com/) defines a structural equation model with two components, measurement and structural. The measurement component states that the latent variables SQ, PF, CS, BL, and PI are reflected by their observed indicators. It models direct causal relationships, stating that CS depends on SQ and PF, BL depends on CS and SQ, and PI depends on BL and CS. It also allows SQ and PF to be correlated (exogenous latent variables can be correlated).
+
+### [**Fit the model**](#fit-the-model)
+
+```
+# 3) Fit the model
+# ---------------------------
+model = Model(model_desc)
+result = model.fit(df)  # ML by default
+print("Converged:", result.success)
+print(result)
+```
+
+### [**Output**](#output)
+
+```
+Converged: True
+Name of objective: MLW
+Optimization method: SLSQP
+Optimization successful.
+Optimization terminated successfully
+Objective value: 0.111
+Number of iterations: 51
+Params: 0.937 0.865 0.806 0.849 0.817 0.924 0.794 0.963 0.852 0.891 0.812 0.589 0.426 0.655 0.184 0.821 0.344 0.227 0.812 0.246 0.120 0.200 0.276 0.252 0.087 0.200 0.258 0.596 0.107 0.244 0.385 0.240 0.072 0.182 0.272 0.072 0.128 0.211 0.257
+```
+
+This code fits the defined SEM model to the data in the DataFrame *df* using semopy’s default [Maximum Likelihood Estimation](https://machinelearningmastery.com/what-is-maximum-likelihood-estimation-in-machine-learning/). It then prints whether the optimization has converged and the fitting results, which include parameter estimates and fit statistics.
+
+### [**Inspect parameters (including standardized estimates)**](#inspect-parameters-including-standardized-estimates)
+
+```
+# ---------------------------
+# 4) Parameter table (with standardized estimates)
+# ---------------------------
+est = model.inspect(std_est=True)  # returns DataFrame
+# Make columns robust to version differences
+def pick(colnames, *cands):
+    for c in cands:
+        if c in colnames:
+            return c
+    return None
+
+col_est = pick(est.columns, "Estimate", "Estimates")
+col_std = pick(est.columns, "Std. Estimate", "Std Estimate")
+print(est.head(15))
+```
+
+```
+  lval op rval  Estimate  Est. Std  Std. Err    z-value p-value
+0    CS  ~   SQ  0.588536  0.610210  0.025719  22.883658     0.0
+1    CS  ~   PF  0.426119  0.378393  0.031308  13.610467     0.0
+2    BL  ~   CS  0.655012  0.663484  0.039701  16.498703     0.0
+3    BL  ~   SQ  0.183896  0.193134  0.036458   5.044052     0.0
+4    PI  ~   BL  0.820934  0.652613  0.050017  16.413209     0.0
+5    PI  ~   CS  0.344395  0.277323  0.047545   7.243527     0.0
+6   SQ1  ~   SQ  1.000000  0.958348         -          -       -
+7   SQ2  ~   SQ  0.936533  0.920794  0.018449  50.762054     0.0
+8   SQ3  ~   SQ  0.865156  0.861719  0.021158  40.890559     0.0
+9   SQ4  ~   SQ  0.806385  0.820023  0.022516  35.813445     0.0
+10  PF1  ~   PF  1.000000  0.920838         -          -       -
+11  PF2  ~   PF  0.849447  0.798678  0.033142   25.63032     0.0
+12  PF3  ~   PF  0.816924  0.712679  0.036529  22.363594     0.0
+13  CS1  ~   CS  1.000000  0.946910         -          -       -
+14  CS2  ~   CS  0.923686  0.873781  0.023139  39.919809     0.0
+```
+
+The script above fits the SEM model to the data and checks for convergence. The resulting parameter table with standardized estimates is then created using *model.inspect(std\_est=True)*. The helper function *pick* is defined to account for potential differences in column names(for estimates and standardized estimates) across *semopy* versions. The first 15 rows of the parameter table are then printed, showing the estimated model parameters and their standard errors. All paths are statistically significant (p < 0.001), confirming the hypothesized structure. Specifically:
+
+### [**Structural paths**](#structural-paths)
+
+* SQ strongly predicts CS (β ≈ 0.61) and contributes to BL (β ≈ 0.19).
+* Price Fairness (PF) also predicts CS (β ≈ 0.38).
+* CS drives BL (β ≈ 0.66) and also directly affects Purchase Intention (PI, β ≈ 0.28).
+* BL is the strongest predictor of PI (β ≈ 0.65 standardized).
+
+### [**Measurement loadings:**](#measurement-loadings)
+
+All items (e.g., SQ1–SQ4, PF1–PF3, CS1–CS2, etc.) have strong standardized loadings (mostly above 0.70–0.95). This shows that the indicators reliably measure their constructs.
+
+### [**Check global model fit**](#check-global-model-fit)
+
+This line calculates the global fit indices for the fitted SEM model. The *calc\_stats()* function returns a pandas DataFrame containing common goodness-of-fit statistics such as CFI, TLI, RMSEA, and SRMR. The results are printed in a transposed format, which is easier to read and interpret.
+
+```
+# 5) Global fit indices
+# ---------------------------
+stats = calc_stats(model)  # DataFrame of CFI, TLI, RMSEA, SRMR, etc.
+print(stats.T)
+```
+
+### [**Output:**](#output)
+
+```
+                     Value
+DoF               97.000000
+DoF Baseline     120.000000
+chi2              88.443733
+chi2 p-value       0.720763
+chi2 Baseline  12178.091635
+CFI                1.000710
+GFI                0.992737
+AGFI               0.991015
+NFI                0.992737
+TLI                1.000878
+RMSEA              0.000000
+AIC               77.778891
+BIC              260.478748
+LogLik             0.110555
+```
+
+As we can see, all values show outstanding results. The chi-square test is non-significant (χ² = 88.44, p = 0.72), which implies a good fit between the model and the data. All fit indices values (CFI (1.00), TLI (1.00), GFI (0.99), and NFI (0.99)) are above the conventional 0.95 threshold, indicating an excellent fit. An RMSEA of 0.00 means a perfect fit. The AIC and BIC values are relatively low, which further supports that this model is efficient compared to its alternatives.
+
+### [**Visualizing SEM Models with Semopy**](#visualizing-sem-models-with-semopy)
+
+```
+import os
+png_path = "marketing_sem.png"
+try:
+    semplot(model, png_path, plot_covs=True, plot_exos=True)  # requires graphviz installed
+    if os.path.exists(png_path):
+        try:
+            from IPython.display import Image, display
+            display(Image(filename=png_path))
+        except Exception:
+            print(f"Diagram saved to: {png_path}")
+except Exception as e:
+    print("Diagram generation failed (Graphviz not found or other issue):", e)
+```
+
+This code plots the SEM model using semopy’s semplot function and saves it as a PNG file. It requires Graphviz to be installed. If successful, it also attempts to display the image inline (Jupyter notebook, etc. ); otherwise, it prints the file location. If the code block fails (for example, due to missing Graphviz), it prints an error message.
+
+![image](https://doimages.nyc3.cdn.digitaloceanspaces.com/010AI-ML/2025/Shaoni/Adrien/25-sept/Image_5.png)
+
+The image displays a path diagram of a structural equation model (SEM) used in marketing research. Latent constructs are represented by circles: service quality (SQ), price fairness (PF), customer satisfaction (CS), brand loyalty (BL), and purchase intention (PI). Rectangular nodes are survey items that are used to measure each construct. The numbers on the arrows are standardized coefficients indicating the magnitude of each relationship. The model shows that all items have high factor loadings on their respective constructs. The structural paths indicate that service quality and price fairness lead to satisfaction, which leads to loyalty, and loyalty is the strongest predictor of purchase intention. The dashed arrow represents a positive correlation between SQ and PF.
+
+
+
+
+[**Advantages and Limitations of SEM**](#advantages-and-limitations-of-sem)
+---------------------------------------------------------------------------
+
+Like any method, SEM has its pros and cons. Let’s outline them:
+
+### [**Advantages**](#advantages)
+
+* **Modeling of complex relationships**. SEM can model many dependent variables and indirect effects in a single analysis.
+* **Measurement of latent constructs.** Latent variables increase construct validity and decrease measurement error.
+* **Testing of complex theories.** SEM can specify complex networks of relationships and assess direct and indirect effects. Compared with stand-alone regression models, SEM provides more information and richer interpretations.
+* **Missing data and non‑normality.** Modern SEM software uses maximum likelihood with missing data and robust estimators. This makes it appropriate when data are not complete or not normally distributed.
+* **Visualization.** Path diagrams can be useful in communication with non‑statisticians.
+* **Integration with machine learning.** SEM serves as a foundation of interpretable machine learning and causal inference.
+
+### [**Limitations**](#limitations)
+
+* **Complexity and expertise.** SEM models can be conceptually and computationally challenging to develop and understand. Mis‑specification or over‑fitting of the model can lead to erroneous or misleading conclusions.
+* **Sample size requirements**. SEM typically requires large sample sizes. A common rule of thumb is a sample size of at least 200, with 10–20 observations per estimated parameter; smaller samples can result in unstable and biased parameter estimates.
+* **Linearity and normality assumptions.** It assumes linear relationships between variables and multivariate normality of residuals. Violations of these assumptions can lead to biased parameter estimates.
+* **Model identification.** A model must be over‑identified, meaning it has enough information to estimate all of its parameters. Under‑identified models, which lack sufficient information, cannot be estimated.
+* **Causal ambiguity.** SEM can test if the data fit a hypothesized causal model, but it does not establish causality. Multiple competing models may fit the data equally well; strong theoretical justification is required to specify the correct model.
+* **Software challenges.** While many SEM software packages are available (such as [AMOS](https://spssanalysis.com/structural-equation-analysis-in-spss-amos/), [LISREL](https://www.statisticssolutions.com/lisrel/), [Mplus](https://web.pdx.edu/~newsomj/semclass/ehsworkshop.pdf), EQS, [lavaan](https://lavaan.ugent.be/), and semopy), they vary in terms of features and cost. Some advanced techniques (e.g., Bayesian SEM) may require specialized software.
+
+
+
+[**Emerging Trends: SEM in Machine Learning and Causal Inference**](#emerging-trends-sem-in-machine-learning-and-causal-inference)
+----------------------------------------------------------------------------------------------------------------------------------
+
+SEM has its roots in 20th-century statistics and social science, but it continues to evolve and find new applications, especially as it intersects with modern computational methods and the growing emphasis on causal inference in data science:
+
+### [**Bayesian and Non‑Parametric SEM**](#bayesian-and-non-parametric-sem)
+
+Traditional SEM uses [maximum likelihood estimation](https://pure.uva.nl/ws/files/9335515/Maximum_likelihood_estimation_in_meta_analytic_structural_equation_modeling.pdf) and assumes multivariate normality. [Bayesian SEM](https://www.tandfonline.com/doi/full/10.1080/23737484.2024.2443647#d1e106) uses Bayesian inference to estimate the posterior distributions of the model parameters. This allows the researcher to incorporate prior information on the parameters in the analysis. Bayesian SEM also provides advantages in terms of small samples and non‑normality. The [R package blavaan](https://cran.r-project.org/web/packages/blavaan/index.html) is an extension of lavaan specifically designed for Bayesian models. [PyMC](https://www.pymc.io) and *semopy* also allow for Bayesian SEM in Python. As promoted by Judea Pearl, Non-parametric SEM is a generalization of SEM that goes beyond linearity to account for non‑linear and non‑Gaussian relationships.
+
+### [**SEM in Machine Learning and Artificial Intelligence**](#sem-in-machine-learning-and-artificial-intelligence)
+
+SEM is being combined with [machine learning](/community/tutorials/an-introduction-to-machine-learning) to improve the interpretability of these models and incorporate domain knowledge. For instance, [causal neural networks](https://www.youtube.com/watch?v=AStrI3FhMWg&t=578s) use structural equations to directly constrain the causal structure of deep networks. SEM provides a principled approach to integrating latent variables into neural models and interpreting the hidden layers. [Partial least squares](https://en.wikipedia.org/wiki/Partial_least_squares_regression) SEM and path analysis are also useful complements to unsupervised techniques such as [autoencoders](/community/tutorials/autoencoder-image-compression-keras). These hybrid techniques are likely to become more prevalent as data sets increase in size and complexity.
+
+### [**Regularization and High‑Dimensional SEM**](#regularization-and-high-dimensional-sem)
+
+In high‑dimensional settings (many variables relative to the number of observations), traditional SEM faces challenges related to identification and overfitting. [Regularized SEM](https://pmc.ncbi.nlm.nih.gov/articles/PMC4937830/) approaches introduce penalties (e.g., L1, L2) on model parameters to encourage sparsity and improve generalization. The semopy package also supports [regularization](/community/tutorials/regularization-in-machine-learning-lasso-ridge-elastic-net) and random effects models. In addition, other R packages such as [regsem](https://cran.r-project.org/web/packages/regsem/index.html), implement penalized SEM. These techniques extend the scalability of SEM to large genetic and brain imaging data sets.
+
+### [**Causal Discovery and Directed Acyclic Graphs**](#causal-discovery-and-directed-acyclic-graphs)
+
+SEM is related to the family of [causal graphical models](https://www.stat.cmu.edu/~cshalizi/uADA/12/lectures/ch22.pdf) known as [directed acyclic graphs](https://www.ibm.com/think/topics/directed-acyclic-graph#:~:text=A%20directed%20acyclic%20graph%20(DAG)%20is%20a%20type%20of%20graph,representing%20data%2C%20tasks%20or%20events.). Recent causal discovery algorithms ([PC algorithm](https://arxiv.org/pdf/1502.02454), [Fast Causal Inference](https://causal-learn.readthedocs.io/en/latest/search_methods_index/Constraint-based%20causal%20discovery%20methods/FCI.html)) can automatically learn causal structure from data given assumptions about independencies and the absence of latent confounders. The combination of SEM and DAG‑based discovery may enable researchers to build plausible causal models in domains such as genetics, economics, and artificial intelligence.
+
+
+
+
+[**FAQ SECTION**](#faq-section)
+-------------------------------
+
+**What is structural equation modeling used for?**
+Structural equation modeling (SEM) is a statistical method that allows you to examine complex relationships between observed (measured) and latent (unobserved) variables. SEM is widely used in various fields, including psychology, education, marketing, and social sciences.
+
+**What is the difference between SEM and regression analysis?**
+Regression focuses only on observed variables. It predicts one variable from others. SEM extends regression to include latent variables. It tests an entire system of relationships (measurement model + structural model together).
+
+**Which software is best for SEM?**
+There are many software packages available, and the “best” one depends on your needs. Here are some popular ones:
+
+* AMOS (add-on to SPSS): Has a user-friendly, drag-and-drop GUI. Good for beginners.
+* LISREL: One of the oldest SEM programs. Very flexible, but with a steep learning curve.
+* Mplus: A powerful program that can handle complex models (e.g., multilevel, mixture, longitudinal).
+* R (packages lavaan, semopy): Free and open-source, R is one of the most popular options for SEM. Very flexible and can easily be integrated with data science workflows.
+* [Stata](https://jbds.isdsa.org/jbds/article/view/29/28) and [SAS](https://www.scribd.com/document/28302644/Introduction-to-SEM-Using-SAS): They have robust SEM packages and can be used for applied research.
+
+**What are common SEM fit indices?**
+The following are some common SEM fit indices to determine how well your model fit to the data:
+
+* **Chi-square (χ²):** Tests the hypothesis that the model fits the data exactly. It is very sensitive to sample size.
+* **CFI (Comparative Fit Index)**: Values greater than 0.90 are considered acceptable, while those greater than 0.95 are considered good.
+* **TLI (Tucker-Lewis Index)**: Identical thresholds to the CFI.
+* **RMSEA (Root Mean Square Error of Approximation)**: Values less than 0.08 are acceptable, while values less than 0.05 indicate good fit.
+* **SRMR (Standardized Root Mean Square Residual)**: Values less than 0.08 are considered good.
+
+### [**Conclusion**](#conclusion)
+
+Structural equation modeling is a statistical methodology and a way of thinking about complex systems of interrelated constructs or variables. SEM can be applied to diverse fields like social sciences, psychology, marketing, education, economics, and more. Whether you are exploring the effect of personality traits on job performance, analyzing customer satisfaction in marketing research, or testing psychological theories, SEM provides you with a framework to model latent constructs, account for measurement error, and estimate multiple relationships simultaneously.
+
+SEM’s greatest advantage is its ability to operationalize theory. You can take a conceptual model in your mind, translate it into a path diagram, and then test it to see how well it fits reality. The combination of measurement and structural models makes SEM particularly useful in fields where human behavior, perception, or attitude is of interest.
+
+SEM is also rapidly developing and integrating with other areas such as machine learning, causal inference, and big data. Bayesian SEM, regularization for high-dimensional data, and causal discovery are some of the exciting developments that are making SEM more robust, scalable, and flexible. If you are a researcher, analyst, or data scientist who is interested in SEM, or if you want to learn more about it, you have a lot to gain from keeping up with the latest trends and innovations in SEM.
+
+If you’d like to read some other posts that complement SEM and will help you master various data science domains, check out:
+
+[Image Dehazing: The What, Why, and How](/community/tutorials/image-dehazing-the-what-why-and-how)
+
+[Denoising via Diffusion Model](/community/tutorials/denoising-via-diffusion-model)
+
+[which() Function in R](/community/tutorials/which-function-in-r)
+
+[with() and within() Function in R](/community/tutorials/with-and-within-function-in-r)
+
+
+
+
+[**References and Resources**](#references-and-resources)
+---------------------------------------------------------
+
+* [Structural Equation Modeling: Unraveling Complex Relationships in Data](https://www.statology.org/structural-equation-modeling-unraveling-complex-relationships-in-data/)
+* [An Overview Of Structural Equation Modeling (SEM) For Marketing Researchers](https://www.decisionanalyst.com/blog/structuralequationmodeling/#:~:text=Lastly%2C%20researchers%20must%20be%20careful,not%20equal%20a%20causal%20model)
+* [Introduce structural equation modelling to machine learning problems for building an explainable and persuasive model](https://www.tandfonline.com/doi/full/10.1080/18824889.2021.1894040#d1e174)
+* [Elevating theoretical insight and predictive accuracy in business research: Combining PLS-SEM and selected machine learning algorithms](https://www.sciencedirect.com/science/article/pii/S0148296323008123#:~:text=We%20propose%20a%20routine%20for,ML%29%20algorithms)
+* [The Effect of Perceived Price Fairness, Product Quality, and Service Quality on Customer Loyalty with Customer Satisfaction Mediation on Shopee Consumers](https://www.researchgate.net/publication/368493341_The_Effect_of_Perceived_Price_Fairness_Product_Quality_and_Service_Quality_on_Customer_Loyalty_with_Customer_Satisfaction_Mediation_on_Shopee_Consumers)
+
+Thanks for learning with the DigitalOcean Community. Check out our offerings for compute, storage, networking, and managed databases.
+
+[Learn more about our products](/products "Learn more about our products")
+
+### About the author(s)
+
+![Adrien Payong](https://www.gravatar.com/avatar/a91a5e00de259dad140cf7648a4fec44260ca03ce2cb46511f9ada705ebadd69?default=retro&size=256)
+
+[See author profile](/community/users/adrienpayong)
+
+I am a skilled AI consultant and technical writer with over four years of experience. I have a master’s degree in AI and have written innovative articles that provide developers and researchers with actionable insights. As a thought leader, I specialize in simplifying complex AI concepts through practical content, positioning myself as a trusted voice in the tech community.
+
+[See author profile](/community/users/adrienpayong)
+
+![Shaoni Mukherjee](https://www.gravatar.com/avatar/ca4dfd2d57e4a082d8b4dabd50f2cf8e501c3f715fe2e43822fdbd156243f603?default=retro&size=256)
+
+[See author profile](/community/users/smukherjee)
+
+With a strong background in data science and over six years of experience, I am passionate about creating in-depth content on technologies. Currently focused on AI, machine learning, and GPU computing, working on topics ranging from deep learning frameworks to optimizing GPU-based workloads.
+
+[See author profile](/community/users/smukherjee)
+
+Category:
+
+[Tutorial](/community/tutorials?subtype=tutorial)
+
+Tags:
+
+[AI/ML](/community/tags/ai-ml)
+
+[Deep Learning](/community/tags/deep-learning)
+
+[Write for DO](/community/tags/write-for-do)
+
+[Write for DO](/community/tags/write-for-do)
+
+#### Still looking for an answer?
+
+[Ask a question](/community/questions)[Search for more help](/community)
+
+Was this helpful?
+
+YesNo
+
+Comments(0)Follow-up questions(0)
+
+﻿
+
+This textbox defaults to using Markdown to format your answer.
+
+You can type !ref in this text area to quickly search our full set of tutorials, documentation & marketplace offerings and insert the link!
+
+[Sign in/up to comment](https://www.digitalocean.com/api/dynamic-content/v1/login?success_redirect=https%3A%2F%2Fwww.digitalocean.com&error_redirect=https%3A%2F%2Fwww.digitalocean.com%2Fauth-error&type=register)
+
+[![Creative Commons](https://www.digitalocean.com/api/static-content/v1/images?src=%2F_next%2Fstatic%2Fmedia%2Fcreativecommons.c0a877f1.png&width=384)](https://creativecommons.org/licenses/by-nc-sa/4.0/)This work is licensed under a Creative Commons Attribution-NonCommercial- ShareAlike 4.0 International License.
+
+**Join the many businesses that use DigitalOcean’s Gradient AI Agentic Cloud to accelerate growth.**
+[Reach out to our team](/company/contact/sales?referrer=tutorial) for assistance with GPU Droplets, 1-click LLM models, AI agents, and bare metal GPUs.
+
+Popular Topics
+--------------
+
+1. [AI/ML](/community/tags/ai-ml)
+2. [Ubuntu](/community/tags/ubuntu)
+3. [Linux Basics](/community/tags/linux-basics)
+4. [JavaScript](/community/tags/javascript)
+5. [Python](/community/tags/python)
+6. [MySQL](/community/tags/mysql)
+7. [Docker](/community/tags/docker)
+8. [Kubernetes](/community/tags/kubernetes)
+9. [All tutorials](/community/tutorials)
+10. [Talk to an expert](/company/contact/sales?referrer=tutorials)
+
+Featured tutorials
+------------------
+
+1. [SOLID Design Principles Explained: Building Better Software Architecture](/community/tutorials/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
+2. [How To Remove Docker Images, Containers, and Volumes](/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
+3. [How to Create a MySQL User and Grant Privileges (Step-by-Step)](/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql)
+
+* [All tutorials](/community/tutorials)
+* [All topic tags](/community/tags)
+
+##### Join the Tech Talk
+
+**Success!** Thank you! Please check your email for further details.
+
+Please complete your information!
+
+* Table of contents
+
+* [\*\*Introduction\*\*](/community/tutorials/structural-equation-modeling-complete-guide#introduction)
+* [\*\*Key Takeaways\*\*](/community/tutorials/structural-equation-modeling-complete-guide#key-takeaways)
+* [\*\*Some Key concepts in SEM terminology\*\*](/community/tutorials/structural-equation-modeling-complete-guide#some-key-concepts-in-sem-terminology)
+* [\*\*What Is Structural Equation Modeling?\*\*](/community/tutorials/structural-equation-modeling-complete-guide#what-is-structural-equation-modeling)
+* [\*\*Types of SEM: Measurement vs. Structural Models\*\*](/community/tutorials/structural-equation-modeling-complete-guide#types-of-sem-measurement-vs-structural-models)
+* [\*\*When to Use SEM (SEM vs. Regression vs. Factor Analysis)\*\*](/community/tutorials/structural-equation-modeling-complete-guide#when-to-use-sem-sem-vs-regression-vs-factor-analysis)
+* [\*\*Applications of SEM in Research\*\*](/community/tutorials/structural-equation-modeling-complete-guide#applications-of-sem-in-research)
+* [\*\*Interpreting SEM Results: Fit Indices and Coefficients\*\*](/community/tutorials/structural-equation-modeling-complete-guide#interpreting-sem-results-fit-indices-and-coefficients)
+* [\*\*Structural Equation Modeling in Marketing with Python\*\*](/community/tutorials/structural-equation-modeling-complete-guide#structural-equation-modeling-in-marketing-with-python)
+* [\*\*Advantages and Limitations of SEM\*\*](/community/tutorials/structural-equation-modeling-complete-guide#advantages-and-limitations-of-sem)
+* [\*\*Emerging Trends: SEM in Machine Learning and Causal Inference\*\*](/community/tutorials/structural-equation-modeling-complete-guide#emerging-trends-sem-in-machine-learning-and-causal-inference)
+* [\*\*FAQ SECTION\*\*](/community/tutorials/structural-equation-modeling-complete-guide#faq-section)
+* [\*\*References and Resources\*\*](/community/tutorials/structural-equation-modeling-complete-guide#references-and-resources)
+
+* **Join the many businesses that use DigitalOcean’s Gradient AI Agentic Cloud to accelerate growth.**
+  [Reach out to our team](/company/contact/sales?referrer=tutorial) for assistance with GPU Droplets, 1-click LLM models, AI agents, and bare metal GPUs.
+
+  Popular Topics
+  --------------
+
+  1. [AI/ML](/community/tags/ai-ml)
+  2. [Ubuntu](/community/tags/ubuntu)
+  3. [Linux Basics](/community/tags/linux-basics)
+  4. [JavaScript](/community/tags/javascript)
+  5. [Python](/community/tags/python)
+  6. [MySQL](/community/tags/mysql)
+  7. [Docker](/community/tags/docker)
+  8. [Kubernetes](/community/tags/kubernetes)
+  9. [All tutorials](/community/tutorials)
+  10. [Talk to an expert](/company/contact/sales?referrer=tutorials)
+
+  Featured tutorials
+  ------------------
+
+  1. [SOLID Design Principles Explained: Building Better Software Architecture](/community/tutorials/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
+  2. [How To Remove Docker Images, Containers, and Volumes](/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
+  3. [How to Create a MySQL User and Grant Privileges (Step-by-Step)](/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql)
+  + [All tutorials](/community/tutorials)
+  + [All topic tags](/community/tags)
+
+![](https://www.digitalocean.com/api/static-content/v1/images?src=%2F_next%2Fstatic%2Fmedia%2Ftutorials-2-tulip.764b9f59.svg&width=1920)
+
+Become a contributor for community
+----------------------------------
+
+Get paid to write technical tutorials and select a tech-focused charity to receive a matching donation.
+
+[Sign Up](/community/pages/write-for-digitalocean)
+
+![](https://www.digitalocean.com/api/static-content/v1/images?src=%2F_next%2Fstatic%2Fmedia%2Fdocs-2-kiwi.239a03ef.svg&width=1920)
+
+DigitalOcean Documentation
+--------------------------
+
+Full documentation for every DigitalOcean product.
+
+[Learn more](https://docs.digitalocean.com)
+
+![](https://www.digitalocean.com/api/static-content/v1/images?src=%2F_next%2Fstatic%2Fmedia%2Fblogs-1-lavender.495d1f00.svg&width=1920)
+
+Resources for startups and AI-native businesses
+-----------------------------------------------
+
+The Wave has everything you need to know about building a business, from raising funding to marketing your product.
+
+[Learn more](/resources)
+
+Get our newsletter
+------------------
+
+Stay up to date by signing up for DigitalOcean’s Infrastructure as a Newsletter.
+
+Submit
+
+Submit
+
+New accounts only. By submitting your email you agree to our [Privacy Policy](/legal/privacy-policy)
+
+The developer cloud
+-------------------
+
+Scale up as you grow — whether you're running one virtual machine or ten thousand.
+
+[View all products](/products)
+
+![](https://www.digitalocean.com/api/static-content/v1/images?src=%2F_next%2Fstatic%2Fmedia%2Fclouds-mobile.5d14bead.svg&width=3840)
+
+Start building today
+--------------------
+
+From GPU-powered inference and Kubernetes to managed databases and storage, get everything you need to build, scale, and deploy intelligent applications.
+
+[Sign up](https://cloud.digitalocean.com/registrations/new)
+
+![](https://www.digitalocean.com/api/static-content/v1/images?src=%2F_next%2Fstatic%2Fmedia%2Fwaves-mobile.a054c63e.svg&width=3840)
+
+Company
+-------
+
+* [About](/about)
+* [Leadership](/leadership/executive-management)
+* [Blog](/blog)
+* [Careers](/careers)
+* [Customers](/customers)
+* [Partners](/partners)
+* [Referral Program](/referral-program)
+* [Affiliate Program](/affiliates)
+* [Press](/press)
+* [Legal](/legal)
+* [Privacy Policy](/legal/privacy-policy)
+* [Security](/security)
+* [Investor Relations](https://investors.digitalocean.com/)
+
+Products
+--------
+
+* [Gradient™ AI GPU Droplets](/products/gradient/gpu-droplets)
+* [Gradient™ AI Bare Metal GPUs](/products/gradient/bare-metal-gpus)
+* [Gradient™ AI 1-Click Models](/products/gradient/1-click-models)
+* [Gradient™ AI Platform](/products/gradient/platform)
+* [Droplets](/products/droplets)
+* [Kubernetes](/products/kubernetes)
+* [Functions](/products/functions)
+* [App Platform](/products/app-platform)
+* [Load Balancers](/products/load-balancers)
+* [Managed Databases](/products/managed-databases)
+* [Spaces](/products/spaces)
+* [Block Storage](/products/block-storage)
+* [Network File Storage](/products/storage/network-file-storage)
+* [API](https://docs.digitalocean.com/reference/api)
+* [Uptime](/products/uptime-monitoring)
+* [Cloud Security Posture Management (CSPM)](/products/cloud-security-posture-management)
+* [Identity and Access Management (IAM)](/products/identity-access-management)
+* [Cloudways](/products/cloudways)
+* [View all Products](/products)
+
+Resources
+---------
+
+* [Community Tutorials](/community/tutorials)
+* [Community Q&A](/community/questions)
+* [CSS-Tricks](https://css-tricks.com/)
+* [Write for DOnations](/community/pages/write-for-digitalocean)
+* [Currents Research](/currents)
+* [DigitalOcean Startups](/startups)
+* [Wavemakers Program](/wavemakers)
+* [Compass Council](/research)
+* [Open Source](/open-source)
+* [Newsletter Signup](/community#iaan)
+* [Marketplace](/products/marketplace)
+* [Pricing](/pricing)
+* [Pricing Calculator](/pricing/calculator)
+* [Documentation](https://docs.digitalocean.com/)
+* [Release Notes](https://docs.digitalocean.com/release-notes)
+* [Code of Conduct](/community/pages/code-of-conduct)
+* [Shop Swag](http://store.digitalocean.com/)
+
+Solutions
+---------
+
+* [AI GPU Hosting](/solutions/ai-gpu-hosting)
+* [H100 Cloud GPU](/solutions/h100-cloud-gpu)
+* [AI Training GPU](/solutions/ai-training-gpu)
+* [GPU Inference](/solutions/gpu-inference)
+* [VPS Hosting](/solutions/vps-hosting)
+* [Website Hosting](/solutions/website-hosting)
+* [VPN](/solutions/vpn)
+* [Docker Hosting](/solutions/docker-hosting)
+* [Node.js Hosting](/solutions/nodejs-hosting)
+* [Web Mobile Apps](/solutions/web-mobile-apps)
+* [WordPress Hosting](/solutions/wordpress-hosting)
+* [Virtual Machines](/solutions/virtual-machines)
+* [View all Solutions](/solutions)
+
+Contact
+-------
+
+* [Support](/support)
+* [Sales](/company/contact/sales?referrer=footer)
+* [Report Abuse](/company/contact/abuse)
+* [System Status](https://status.digitalocean.com/)
+* [Share your ideas](https://ideas.digitalocean.com/)
+
+Company
+-------
+
+* [About](/about)
+* [Leadership](/leadership/executive-management)
+* [Blog](/blog)
+* [Careers](/careers)
+* [Customers](/customers)
+* [Partners](/partners)
+* [Referral Program](/referral-program)
+* [Affiliate Program](/affiliates)
+* [Press](/press)
+* [Legal](/legal)
+* [Privacy Policy](/legal/privacy-policy)
+* [Security](/security)
+* [Investor Relations](https://investors.digitalocean.com/)
+
+Products
+--------
+
+* [Gradient™ AI GPU Droplets](/products/gradient/gpu-droplets)
+* [Gradient™ AI Bare Metal GPUs](/products/gradient/bare-metal-gpus)
+* [Gradient™ AI 1-Click Models](/products/gradient/1-click-models)
+* [Gradient™ AI Platform](/products/gradient/platform)
+* [Droplets](/products/droplets)
+* [Kubernetes](/products/kubernetes)
+* [Functions](/products/functions)
+* [App Platform](/products/app-platform)
+* [Load Balancers](/products/load-balancers)
+* [Managed Databases](/products/managed-databases)
+* [Spaces](/products/spaces)
+* [Block Storage](/products/block-storage)
+* [Network File Storage](/products/storage/network-file-storage)
+* [API](https://docs.digitalocean.com/reference/api)
+* [Uptime](/products/uptime-monitoring)
+* [Cloud Security Posture Management (CSPM)](/products/cloud-security-posture-management)
+* [Identity and Access Management (IAM)](/products/identity-access-management)
+* [Cloudways](/products/cloudways)
+* [View all Products](/products)
+
+Resources
+---------
+
+* [Community Tutorials](/community/tutorials)
+* [Community Q&A](/community/questions)
+* [CSS-Tricks](https://css-tricks.com/)
+* [Write for DOnations](/community/pages/write-for-digitalocean)
+* [Currents Research](/currents)
+* [DigitalOcean Startups](/startups)
+* [Wavemakers Program](/wavemakers)
+* [Compass Council](/research)
+* [Open Source](/open-source)
+* [Newsletter Signup](/community#iaan)
+* [Marketplace](/products/marketplace)
+* [Pricing](/pricing)
+* [Pricing Calculator](/pricing/calculator)
+* [Documentation](https://docs.digitalocean.com/)
+* [Release Notes](https://docs.digitalocean.com/release-notes)
+* [Code of Conduct](/community/pages/code-of-conduct)
+* [Shop Swag](http://store.digitalocean.com/)
+
+Solutions
+---------
+
+* [AI GPU Hosting](/solutions/ai-gpu-hosting)
+* [H100 Cloud GPU](/solutions/h100-cloud-gpu)
+* [AI Training GPU](/solutions/ai-training-gpu)
+* [GPU Inference](/solutions/gpu-inference)
+* [VPS Hosting](/solutions/vps-hosting)
+* [Website Hosting](/solutions/website-hosting)
+* [VPN](/solutions/vpn)
+* [Docker Hosting](/solutions/docker-hosting)
+* [Node.js Hosting](/solutions/nodejs-hosting)
+* [Web Mobile Apps](/solutions/web-mobile-apps)
+* [WordPress Hosting](/solutions/wordpress-hosting)
+* [Virtual Machines](/solutions/virtual-machines)
+* [View all Solutions](/solutions)
+
+Contact
+-------
+
+* [Support](/support)
+* [Sales](/company/contact/sales?referrer=footer)
+* [Report Abuse](/company/contact/abuse)
+* [System Status](https://status.digitalocean.com/)
+* [Share your ideas](https://ideas.digitalocean.com/)
+
+© 2026 DigitalOcean, LLC.[Sitemap](/sitemap).
+
+---
+
+## Structural Equation Modeling - Statistics Solutions
+**URL:** https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/structural-equation-modeling/
+
+A Comprehensive Guide to Structural Equation Modeling
+
+
+
+
+
+
+[Home](/)
+
+
+[Directory of Statistical Analyses](https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/) 
+
+Structural Equation Modeling
+
+Structural Equation Modeling
+============================
+
+Structural Equation Modeling (SEM) is a sophisticated statistical approach that enables researchers to explore but also to analyze the relationships between observed variables and underlying latent constructs. It effectively combines principles from [factor analysis](https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/factor-analysis/), which identifies underlying factors from observed variables, and [multiple regression](https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/multiple-regression/#:~:text=In%20essence%2C%20multiple%20regression%20allows,prediction%20and%20understanding%20complex%20relationships.) analysis, which assesses how one set of variables predicts another.
+
+Moreover, in SEM, we distinguish between two types of variables:
+
+* **Endogenous variables**, which are analogous to dependent variables in traditional analyses, representing outcomes or effects.
+* Moreover, **Exogenous variables**, similar to independent variables, are considered the causes or predictors that influence endogenous variables.
+
+### Theoretical Framework of SEM
+
+**SEM operates on two foundational models:**
+
+* **Measurement Model**: This component of SEM delineates how observed variables relate to their respective latent constructs, moreover, essentially defining the operationalization of theoretical concepts.
+* **Structural Model**: This model outlines the hypothesized relationships among latent constructs themselves, providing a conceptual map of how different constructs influence one another.
+
+**Need help conducting your Structural Equation Modeling? Leverage our 30+ years of experience and low-cost same-day service to complete your results today!**
+
+Schedule now using the calendar below.
+
+SEM is particularly valued for its ability to estimate complex relationships involving multiple dependent and independent variables within a unified analytical framework. Therefore, this capacity makes it an ideal tool for testing theoretical models that propose causal pathways and interdependencies among variables. Furthermore, one of the critical aspects of SEM is its reliance on certain statistical assumptions, including the need for multivariate normal distribution of the variables for the application of maximum likelihood estimation methods. Consequently, adherence to these assumptions is crucial for the validity of the chi-square test of model fit, an essential component of SEM that assesses how well the proposed model represents the data.
+
+SEM is often referred to as causal modeling due to its utility in testing hypothesized causal relationships between variables. Specifically, it provides a comprehensive method for researchers to test and refine theoretical models, making it an indispensable tool in the social sciences, psychology, education, and beyond. For instance, it offers insights into the direct and indirect relationships between variables, SEM facilitates a deeper understanding of the underlying mechanisms driving observed phenomena.
+
+### Essential Assumptions in SEM
+
+**Linearity**
+
+To illustrate, SEM operates on the assumption of a linear relationship between endogenous (dependent) and exogenous (independent) variables. In particular, this linearity is crucial for the accurate estimation of the relationships among variables.
+
+**Outlier Management**
+
+Data utilized in SEM should be free of outliers, as outliers can significantly impact the model’s significance and distort the results.
+
+**Sequence and Causality**
+
+Moreover, a clear cause-and-effect relationship between endogenous and exogenous variables is required. Consequently, the cause must precede the effect, establishing a temporal sequence that supports causality.
+
+**Non-spurious Relationships**
+
+The observed covariance between variables must reflect a true relationship and subsequently, not be the result of spurious or confounding factors.
+
+**Model Identification**
+
+To illustrate, a model to be considered viable, it must be properly identified. Similarly, this means the number of equations must exceed or equal the number of estimated parameters, aiming for models that are over-identified or exactly identified to ensure solvability and meaningfulness.
+
+**Sample Size Considerations**
+
+A sample size ranging from 200 to 400, with 10 to 15 indicators per variable, is generally recommended. In particular, this guideline serves as a rough estimate, suggesting 10 to 20 times as many cases as variables to ensure sufficient data for reliable analysis.
+
+**Independence of Error Terms**
+
+Meanwhile in error terms within the model should not correlate with each other or with other variables’ error terms, maintaining the integrity of the model’s estimates.
+
+**Data Requirements**
+
+Therefore, SEM typically requires interval-level data to accurately model the relationships between variables.
+
+### Steps in SEM
+
+**Defining Constructs**
+
+For instance, the initial step involves theoretically defining the constructs and conducting pretests to evaluate the items. Confirmatory Factor Analysis (CFA) is then used to confirm the measurement model.
+
+**Developing the Measurement Model**
+
+Also known as path analysis, this step establishes the relationships between exogenous and endogenous variables through directional arrows, adhering to the principle of unidimensionality.
+
+**Study Design for Empirical Results**
+
+Furthermore, this phase requires specifying the model and designing the study to minimize identification problems, utilizing order condition and rank condition methods to address potential issues.
+
+**Assessing Measurement Model Validity**
+
+Concurrently, known as [CFA](https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/confirmatory-factor-analysis/), this stage involves comparing the theoretical measurement model against actual data to assess construct validity.
+
+**Specifying the Structural Model**
+
+Structural paths between constructs are delineated, ensuring no arrows enter an exogenous construct and therefore, each hypothesized relationship accounts for one degree of freedom. Similarly, the model may be recursive or non-recursive.
+
+**Examining Structural Model Validity**
+
+Thus, the final step involves validating the structural model. A good fit is indicated by an insignificant chi-square test value and indeed the satisfactory performance on incremental fit indexes (CFI, GFI, TLI, AGFI) and badness of fit indexes (RMR, RMSEA, SRMR).
+
+To emphasize, these steps and assumptions guide researchers through the complex yet powerful process of SEM, allowing for a nuanced understanding of the relationships among variables in various fields of study.
+
+### Resources
+
+Anderson, J. C., & Gerbing, D. W. (1988). Structural equation modeling in practice: A review and recommended two-step approach. *Psychological Bulletin, 103*(3), 411-423.
+
+Bentler, P. M., & Chou, C. -P. (1987). Practical issues in structural modeling. *Sociological Methods & Research, 16*(1), 78-117.
+
+Bollen, K. A. (1989). *Structural equations with latent variables.* New York: John Wiley & Sons. [View](https://www.amazon.com/gp/product/0471011711?ie=UTF8&tag=statissoluti-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0471011711)![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%3E%3C/svg%3E)![](http://www.assoc-amazon.com/e/ir?t=statissoluti-20&l=as2&o=1&a=0471011711)
+
+Bollen, K. A. (1990). Overall fit in covariance structure models: Two types of sample size effects. *Psychological Bulletin, 107*(2), 256-259.
+
+Bollen, K., & Lennox, R. (1991). Conventional wisdom on measurement: A structural equation perspective. *Psychological Bulletin, 110*(2), 305-314.
+
+Boomsma, A. (2000). Teacher’s corner: Reporting analyses of covariance structures. *Structural Equation Modeling: A Multidisciplinary Journal, 7*(3), 461-483.
+
+Byrne, B. M. (1998). *Structural equation modeling with LISREL, PRELIS, and SIMPLIS: Basic concepts, applications, and programming*. Mahwah, NJ: Lawrence Erlbaum Associates. [View](https://www.amazon.com/gp/product/0805829245?ie=UTF8&tag=statissoluti-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0805829245)![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%3E%3C/svg%3E)![](http://www.assoc-amazon.com/e/ir?t=statissoluti-20&l=as2&o=1&a=0805829245)
+
+Byrne, B. M. (2001). *Structural equation modeling with AMOS: Basic concepts, applications, and programming*. Mahwah, NJ: Lawrence Erlbaum Associates.
+
+Byrne, B. M. (2004). Testing for multigroup invariance using AMOS Graphics: A road less traveled. *Structural Equation Modeling, 11*(2), 272-300.
+
+Chen, F., Bollen, K. A., Paxton, P., Curran, P. J., & Kirby, J. B. (2001). Improper solutions in structural equation models: Causes, consequences, and strategies. *Sociological Methods and Research, 29*(4), 468-508.
+
+Cheung, G. W., & Rensvold, R. B. (2002). Evaluating goodness-of-fit indexes for testing measurement invariance. *Structural Equation Modeling, 9*(2), 233-255.
+
+Curran, P. J., Bollen, K. A., Paxton, P., Kirby, J., & Chen, F. (2002). The noncentral chi-square distribution in misspecified structural equation models: Finite sample results from a Monte Carlo simulation. *Multivariate Behavioral Research, 37*(1), 1-36.
+
+Fan, X., Thompson, B., & Wang, L. (1999). Effects of sample size, estimation method, and model specification on structural equation modeling fit indexes. *Structural Equation Modeling, 6*(1), 56-83.
+
+Hatcher, L. (1994). *A step-by-step approach to using the SAS system for factor analysis and structural equation modeling*. Cary, NC: SAS Institute.
+
+Hipp, J. R., & Bollen, K. A. (2003). Model fit in structural equation models with censored, ordinal, and dichotomous variables: Testing vanishing tetrads. *Sociological Methodology, 33*, 267-305.
+
+Hoyle, R. H. (Ed.). (1995). *Structural equation modeling: Concepts, issues, and applications*. Thousand Oaks, CA: Sage Publications.
+
+Jöreskog, K. G. (1970). *A general method for estimating a linear structural equation system* (Report No. RB-70-54). Princeton, NJ: Educational Testing Service.
+
+Jöreskog, K. G., & Yang, F. (1996). Non-linear structural equation models: The Kenny-Judd model with interaction effects. In G. A. Marcoulides & R. E. Schumacker (Eds.), *Advanced structural equation modeling* (pp. 57-88), Mahwah, NJ: Lawrence Erlbaum Associates.
+
+Kline, R. B. (2005). *Principles and practice of structural equation modeling* (2nd ed.). New York: Guilford Press. [View](https://www.amazon.com/gp/product/1606238760?ie=UTF8&tag=statissoluti-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=1606238760)![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%3E%3C/svg%3E)![](http://www.assoc-amazon.com/e/ir?t=statissoluti-20&l=as2&o=1&a=1606238760)
+
+Lee, S., & Hershberger, S. (1990). A simple rule for generating equivalent models in covariance structure modeling. *Multivariate Behavioral Research, 25*(3), 313-334.
+
+Lee, S. (2007). *Structural equation modeling: A Bayesian approach*. New York: John Wiley & Sons. [View](https://www.amazon.com/gp/product/0470024232?ie=UTF8&tag=statissoluti-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0470024232)![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%3E%3C/svg%3E)![](http://www.assoc-amazon.com/e/ir?t=statissoluti-20&l=as2&o=1&a=0470024232)
+
+Maruyama, G. M. (1998). *Basics of structural equation modeling.* Thousand Oaks, CA: Sage Publications. [View](https://www.amazon.com/gp/product/0803974094?ie=UTF8&tag=statissoluti-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0803974094)![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%3E%3C/svg%3E)![](http://www.assoc-amazon.com/e/ir?t=statissoluti-20&l=as2&o=1&a=0803974094)
+
+McDonald, R. P., & Ho, M. -H. R. (2002). Principles and practice in reporting structural equation analyses. *Psychological Methods, 7*(1), 64-82.
+
+Mueller, R. O. (1996). *Basic Principles of structural equation modeling: An introduction to LISREL and EQS.* New York: Springer-Verlag. [View](https://www.amazon.com/gp/product/0387945164?ie=UTF8&tag=statissoluti-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0387945164)![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%3E%3C/svg%3E)![](http://www.assoc-amazon.com/e/ir?t=statissoluti-20&l=as2&o=1&a=0387945164)
+
+Mulaik, S. A., & Millsap, R. E. (2000). Doing the four-step right. *Structural Equation Modeling, 7*(1), 36-73.
+
+Olsson, U. H., Foss, T., Troye, S. V., & Howell, R. D. (2000). The performance of ML, GLS, and WLS estimation in structural equation modeling under conditions of misspecification and nonnormality. *Structural Equation Modeling, 7*(4), 557-595.
+
+Raykov, T. (2000). On the large-sample bias, variance, and mean squared error of the conventional noncentrality parameter estimator of covariance structure models. *Structural Equation Modeling, 7*(3), 431-441.
+
+Raykov, T. (2005). Bias-corrected estimation of noncentrality parameters of covariance structure models. *Structural Equation Modeling, 12*(1), 120-129.
+
+Raykov, T., & Marcoulides, G. A. (2006). *A first course in structural equation modeling* (2nd ed.). New York: Lawrence Erlbaum Associates. [View](https://www.amazon.com/gp/product/0805855882?ie=UTF8&tag=statissoluti-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0805855882)![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%3E%3C/svg%3E)![](http://www.assoc-amazon.com/e/ir?t=statissoluti-20&l=as2&o=1&a=0805855882)
+
+Raykov, T., Tomer, A., & Nesselroade, J. R. (1991). Reporting structural equation modeling results in Psychology and Aging: Some proposed guidelines. *Psychology and Aging, 6*(4), 499-503.
+
+Schreiber, J. B. (2008). Core reporting practices in structural equation modeling. *Research in Social & Administrative Pharmacy, 4*(2), 83-97.
+
+Schumacker, R. E. (2002). Latent variable interaction modeling. *Structural Equation Modeling, 9*(1), 40-54.
+
+Schumacker, R. E., & Lomax, R. G. (2004). *A beginner’s guide to structural equation modeling* (2nd ed.). London: Routledge. [View](https://www.amazon.com/gp/product/1841698911?ie=UTF8&tag=statissoluti-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=1841698911)![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%3E%3C/svg%3E)![](http://www.assoc-amazon.com/e/ir?t=statissoluti-20&l=as2&o=1&a=1841698911)
+
+Shipley, B. (2000). *Cause and correlation in Biology: A user’s guide to path analysis, structural equations and causal inference.* Cambridge, UK: Cambridge University Press. [View](https://www.amazon.com/gp/product/0521529212?ie=UTF8&tag=statissoluti-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0521529212)![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%3E%3C/svg%3E)![](http://www.assoc-amazon.com/e/ir?t=statissoluti-20&l=as2&o=1&a=0521529212)
+
+Spirtes, P., Richardson, T., Meek, C., Scheines, R., & Glymour, C. (1998). Using path diagrams as a structural equation modeling tool. *Sociological Methods & Research, 27*(2), 182-225.
+
+Suyapa, E., Silva, M., & MacCallum, R. C. (1988). Some factors affecting the success of specification searches in covariance structure modeling. *Multivariate Behavioral Research, 23*(3), 297-326.
+
+Thompson, B. (2000). Ten commandments of structural equation modeling. In L. Grimm & P. Yarnell (Eds.), *Reading and understanding more multivariate statistics* (pp. 261-284). Washington, DC: American Psychological Association.
+
+Ullman, J. B. (2001). Structural equation modeling. In B. G. Tabachnick & L. S. Fidell (Eds.), *Using Multivariate Statistics* (4th ed.) (pp. 653-771). Needham Heights, MA: Allyn & Bacon.
+
+Vermunt, J. K., & Magidson, J. (2005). Structural equation models: Mixture models. In *Encyclopedia of statistics in behavioral science* (pp. 1922-1927). Chichester, UK: John Wiley & Sons.
+
+### Related Pages:
+
+[Path Analysis](https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/path-analysis/)
+
+[Conduct and Interpret a Factor Analysis](https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/factor-analysis-2/)
+
+ 
+
+---

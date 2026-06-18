@@ -1,0 +1,9 @@
+Title: Preparing the Philippines for the Fourth Industrial Revolution: A Scoping Study
+Authors: Elmer P. Dadios; Alvin B. Culaba; Jose Ramon Albert; Vicente Paqueo; Aniceto C. Orbeta; Ramonette Serafica; Argel A. Bandala; Jose Carlos Alexis C. Bairan
+Year: 2018
+Journal: 
+DOI: 10.62986/dp2018.11
+Citations: 38
+
+Abstract:
+Technological breakthroughs and the interplay of a number of fields, including advanced robotics, artificial intelligence, nanotechnology, neurotechnology, data analytics, blockchain, cloud technology, biotechnology, Internet of Things, and 3D printing, have ushered in the Fourth Industrial Revolution (FIRe). Philippine industries have already been adopting these technologies, although in varying degrees of diffusion. The extent of the potential benefits that may be realized from the FIRe will depend on the country’s ability to adapt to the global disruptions that come along with the industrial revolution. The country needs to establish a solid foundation for sustained learning and to accumulate various types of capital, while progressively and systematically closing existing technological gaps. Both the public and private sectors need to pay attention to the minuscule investment going to research and development. Concomitantly, the government must have an informed view on how to improve its deployment efficiency. Trade openness, competition in key industries, labor market flexibility, human capital development, and an established social protection system, among others, must also be ensured to catch up with and benefit from the technological revolution.

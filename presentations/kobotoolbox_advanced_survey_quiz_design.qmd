@@ -1,0 +1,45 @@
+---
+title: "KoboToolbox_Advanced_Survey_Quiz_Design"
+format: pptx
+---
+
+## KoboToolbox Overview
+
+- Core Functionality: A platform for designing and deploying complex surveys, questionnaires, and quizzes.
+- Standardization: Utilizes the XLSForm standard for advanced form design via Excel-based templates.
+- Primary Use: Enabling the creation of structured data collection tools with embedded logic and automated processing.
+
+## Key Features
+
+- Advanced Survey Logic:
+- - Skip Logic (Relevance): Show or hide question groups based on previous answers.
+- - Grouping: Use `begin_group` to organize related questions.
+- Complex Question Types:
+- - Supports `select_multiple` for multi-option responses.
+- - Supports `calculate` types for background data processing.
+- Automated Scoring & Calculations:
+- - Integration of `if`-statements for automatic point assignment.
+- - Capability to calculate total scores for specific topics and overall totals.
+
+## Technical Implementation (XLSForm Structure)
+
+- The Survey Sheet:
+- - `type`: Question type (e.g., `select_multiple`, `calculate`).
+- - `name`: Unique identifier for the data field.
+- - `label`: Text displayed to the user.
+- - `required`: Boolean (TRUE/FALSE) to enforce mandatory responses.
+- - `appearance`: Controls visual layout (e.g., `field-list`).
+- - `relevant`: Defines skip logic/conditional visibility.
+- The Choices Sheet:
+- - Manages `list_name` and specific options (labels and names) available for selection.
+- - Requires unique naming conventions to ensure data integrity.
+
+## Use Cases
+
+- Educational Assessment:
+- - Creating automated, interactive quizzes for academic subjects (e.g., Economics, Statistics).
+- - Implementing practical problem-solving questions with instant scoring.
+- Quantitative Research:
+- - Designing structured questionnaires for professional research and data collection.
+- - Managing complex datasets involving topics such as economic indicators.
+

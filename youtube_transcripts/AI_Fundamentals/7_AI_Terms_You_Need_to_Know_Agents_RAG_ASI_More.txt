@@ -1,0 +1,214 @@
+There are two things that hold true when it comes to artificial intelligence. One.
+It's everywhere.
+My toothbrush just got an AI update this week.
+And two. The field is changing rapidly,
+making it hard to keep up even for those of us who work in tech.
+So, I've put together
+my top seven AI terms
+that I think are important to be familiar with
+as AI continues to progress. How many do you already know?
+Well, let's find out.
+And I'm gonna to start at number one
+with something that I'm quite sure that you have heard of.
+And that's agentic AI.
+Everybody and their grandmother seems to be building
+the next generation of AI agents.
+But what exactly are they?
+Well, AI agents, they can reason
+and act autonomously to achieve goals. Something
+like a chatbot that only responds one prompt at a time,
+AI agents, they run autonomously.
+They go through a number of stages.
+So, first of all, they perceive their environment.
+Once they've done that, they move on to a reasoning stage,
+and that's where they look to see what the next best steps forwards are.
+Then they move on to act on the plan that it's built through the reasoning,
+and then observes the results of that action.
+And around and around we go.
+Now agents can work as well in all sorts of roles.
+They could be your travel agent to book a trip.
+They could be your data
+analyst to spot trends in quarterly reports.
+Or they could perform the role of a DevOps engineer,
+detecting anomalies in logs and spinning up containers
+to test fixes and rolling back faulty deployments.
+And AI agents are typically built
+using a particular form of large language models,
+and that is known as number
+two, large reasoning models.
+Now these are specialized LLMs that have undergone
+reasoning-focused fine tuning. So unlike regular
+LLMs that generate responses immediately,
+reasoning models, they're trained to work
+through problems step by step,
+which is exactly what agents need
+when planning complex, multistep tasks.
+Now, the reasoning model is trained on problems with verifiably correct answers.
+So math problems or code that can be tested by compilers
+and through reinforcement learning, the model learns to generate
+reasoning sequences that lead to correct final answers.
+So, every time you see a chatbot pause
+before it responds back to you by saying, thinking. Well,
+that's the reasoning model at work,
+generating an internal chain of thought to break down
+a problem step by step before generating a response.
+Now let's get a bit lower level
+and talk about number three,
+which is vector database.
+So, in a vector database, we don't store
+raw data like text files
+and like images just as blobs of data.
+We actually use something called an embedding model.
+And that embedding model is used to convert that data
+from these images here
+into actually a vector.
+Now, what is a vector? Well,
+a vector is essentially just kind of a
+a long list of numbers.
+And that long list of numbers captures
+the semantic meaning of the context. Now,
+what's the benefit of doing that?
+Well, in a vector database,
+we can perform searches as mathematical operations,
+looking for vector embeddings
+that are close to each other.
+And that translates to finding semantically similar content.
+So, we might start, with
+let's say a picture of a mountain vista. Something like this.
+And then that picture is broken down by the embedding model
+into vectors,
+a multidimensional numeric vector. And
+we can perform a similarity search
+to find items that are similar to that mountain picture
+by finding the closest vectors
+in the embedding space.
+Or it could be similar text articles, or it could be similar music files.
+Whatever you want.
+Now vector databases, they play a big role in implementing number four.
+And that is RAG or retrieval augmented
+generation.
+Now, RAG makes use of these vector databases.
+And it uses it to enrich prompts to an LLM.
+So, we start here with a RAG retriever component.
+Now that might take in an input prompt
+from a user.
+And it's going to turn it into a vector
+using an embedding model.
+That's the thing that ties it into that series of numbers.
+And then, once we've done that, we can perform
+a similarity search in the vector database.
+Now that vector database will return something,
+and we'll return that all the way back to the large language
+model prompt that we started with.
+And we'll embed into that prompt
+now the stuff that came out of that vector database.
+So, I can I can ask a question about let's say company policy.
+And then this RAG system is going to pull the relevant section from the employee
+handbook to include in the prompt.
+Now, number five,
+that Model Context Protocol or MCP.
+This is a really exciting one because for large language models to be truly useful,
+they need to interact with external data sources and services and tools.
+And MCP standardizes how applications provide context to LLMs.
+So, if you want your large language model
+here to be able to connect to stuff.
+Perhaps we want to connect to an external database,
+or maybe we want to go to some kind of code repository,
+or maybe even to an email server,
+or really any kind of external system.
+Well, MCP makes that connection standardized. So,
+instead of developers having to build one off
+connections for each new tool,
+MCP provides a standardized way for AI to access your systems.
+So basically we have here an MCP server.
+And that is how the AI knows exactly what to do
+to get through to any one of these tools.
+It connects through that MCP server connection. Okay.
+Now, for number six.
+That's a mixture of experts or MOE.
+And we've had the idea of MOE
+for a good while, actually, since the paper was published
+in a scientific journal in 1991.
+But, it's never been more relevant than it is today.
+You see, MoE divides a large language model
+into a series of experts.
+I'm just gonna to draw three, but there could be 100 plus of these.
+These are specialized neural subnetworks.
+And then it uses a routing mechanism to activate
+only the agents it needs for a particular task,
+or only the experts in this case that it needs for a task.
+And then, well, then it's going to perform a merge process.
+So, because we activated these two experts,
+we'll merge these two.
+And this performs mathematical operations
+to combine the output
+from these different experts into a single representation
+that continues through the rest of the model.
+And it's a really efficient way to scale up model size
+without proportional increases in compute costs.
+So, for example, MoE models, like IBM Granite's 4.0 series,
+that can have dozens of different experts here. But for any given token,
+it will only activate these specific experts it needs.
+And that means, though, while the whole model
+might have billions of total parameters,
+it only uses a fraction of those active parameters at inference time.
+And look, for number seven,
+I'm gonna throw in a big one, ASI,
+artificial superintelligence.
+It's the goal of all the frontier AI labs.
+And at this point, it is purely theoretical.
+It doesn't actually exist and we don't know if it ever will.
+Now, today's best models,
+they're slowly approaching a different standard, which is AGI.
+That's artificial general intelligence.
+Now that's also theoretical. But,
+if realized, AGI will be able to complete
+all cognitive tasks as well as any human expert.
+ASI is one step beyond that.
+So, ASI systems would have an intellectual scope
+beyond human level intelligence,
+potentially capable of recursive self-improvement.
+So, basically an ASI system could redesign and upgrade itself,
+becoming ever smarter in an endless cycle.
+It's the kind of development that would either solve humanity's biggest problems
+or create entirely new ones that we can't even imagine yet.
+And if that happens, well,
+I think it's probably a pretty good idea
+that we keep the term ASI on our radar.
+So, that's my seven.
+But I'm curious, what's the AI term
+you think that should have made it onto this list?
+Let me know in the comments.
+Hey, Martin. Hey Graeme.
+Hey, this is really cool stuff.
+This AI and these terms. Fascinating.
+Yeah, and I came up with seven, but I could have come up with 70.
+There's so much going on in this space. I I I bet you could.
+And you know what? There is so much going on.
+We are actually going to be talking about AI a lot at the IBM
+TechXchange conference in Orlando this October.
+And you know what? I'm gonna be there as well.
+I know it's gonna be so exciting!
+There's going to be so much going on.
+We are going to have. Let's see.
+We're gonna have boot camps.
+We're going to have workshops. There's going to be sessions.
+There's going to be live demos, certifications, all kinds of things going on.
+So much more when it comes to AI.
+But but Martin, what are you going to be doing there?
+Well, I'm going to be bringing my light board pens
+and this light board to the sessions as well.
+Oh my God! It's so exciting! I'm so excited have you there!
+Yes. So we're actually going to have a light board studio set up.
+And ah we're going to be performing light boards live.
+So if you always wondered how do I write backwards,
+you're going to find out in person at the event.
+And da also we'll be kind of teaching
+how to perform a light board
+video yourself. The sort of things that you need to know for that.
+Wow. So you get to meet a celebrity and maybe become one yourself.
+That sounds really exciting.
+I can't wait to welcome you down to Orlando.
+It's just going to be a blast. So looking forward to it. Can't wait.
+All right. Hope we see you there too.
+So, go to ibm.com/techXchange and we'll see you down there.

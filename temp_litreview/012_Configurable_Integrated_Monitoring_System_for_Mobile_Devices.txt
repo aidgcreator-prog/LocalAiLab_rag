@@ -1,0 +1,9 @@
+Title: Configurable Integrated Monitoring System for Mobile Devices
+Authors: 
+Year: 2014
+Journal: 
+DOI: 10.1016/j.procs.2014.07.046
+Citations: 7
+
+Abstract:
+Recently, we have seen a dramatic increase in the adoption of smartphones. While these new computing interfaces have begun to supplant much of our daily computing needs, individuals use mobile phones in a different manner than traditional computing systems. A better understanding of how these devices are used, and how common usage patterns impact system performance, can provide insights which lead to improvements in system and application design. Traditional system monitoring methods can be ported to mobile devices, but smartphones present some unique challenges, such as limited battery power and computing resources. They also provide some unique opportunities, particularly the ability to capture contextual data. Smartphones include a wide range of sensors which can be used to provide insights about the context of the activities being monitored. The need for monitoring on mobile devices is not limited to performance modeling, however. Smartphones can benefit from real-time monitoring which can be used to facilitate context-aware applications. In this thesis, we introduce a configurable integrated monitoring solution for mobile devices. This service integrates traditional system performance monitoring with user activity monitoring and sensor data to provide a comprehensive monitoring solution. The monitoring service can be configured to the user's needs, allowing users to generate data for offline analysis or receive real-time updates to be utilized by applications. The monitoring service also allows clients to receive notification of custom defined events, which can simplify context-aware development. This monitoring toolset is designed to efficiently integrate monitoring activities to reduce the impact on smartphones' limited resources.

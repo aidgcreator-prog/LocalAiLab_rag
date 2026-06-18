@@ -1,0 +1,476 @@
+>> BETSY GREYTOK:
+Let's start with a stat.
+62% of organizations that
+suffered a data breach in 2025
+reported that they have no
+current governance policies
+in place to manage AI or to
+prevent the use of shadow AI.
+Businesses are concerned
+about the complexity involved
+in the technical
+adoption of governance.
+>> EVELYN ANDERSON: But they are 
+just as concerned about privacy
+and the cost of losing
+trust with their customers.
+Clearly, governance and
+security are closely related.
+So why are they regularly
+siloed off from each other?
+And where do
+we go from here?
+>> BETSY GREYTOK: Hi,
+I'm Betsy Greytok, and I'm
+Vice President and Responsible
+Technology Officer at IBM.
+And with me
+today is Evelyn.
+>> EVELYN ANDERSON: 
+Hi, I'm Evelyn Anderson.
+I'm a Distinguished Engineer.
+I am also the Chief
+Technology Officer for
+Cybersecurity Services
+and a Master Inventor.
+>> BETSY GREYTOK: That
+sounds complicated.
+>> EVELYN ANDERSON: Eh,
+sometimes it can be.
+So let's take a moment and talk 
+about security and governance.
+So how does
+it actually play?
+What's your definition?
+>> BETSY GREYTOK: If you are
+going to govern an AI system,
+I think of it as
+two sides of one coin.
+One side being the
+actual policy that
+the corporation adopts, which
+should be closely incorporated
+and account for
+the corporate strategy.
+These are the people
+and the processes who are
+going to make this work.
+The other side of the coin
+is the technology behind that,
+to actually track what
+the systems are doing,
+how they are behaving, and are 
+they aligning with regulations
+and core values
+of the corporation.
+>> EVELYN ANDERSON: Okay,
+this is very similar to what
+we are doing within
+cybersecurity services.
+For us, with most of our
+clients, the foundation is
+you are looking
+at the policy.
+How are you actually
+controlling not only
+the technology, but the
+people that are working actually
+with the technology?
+How are you disseminating their 
+roles and responsibilities?
+And you mentioned privacy.
+One of the key things that
+we absolutely look at from the
+privacy side of it
+is how is that model
+protecting sensitive data?
+>> BETSY GREYTOK: I
+get asked all the time,
+"How do I know if
+an AI model is safe?"
+Or "How is an
+AI system safe?"
+And I found it fascinating,
+the whole industry discussion
+around the point of AI safety.
+With a software program, it 
+tended to be, does this software
+have a vulnerability
+and subject to attack?
+With AI, it's a
+whole different world.
+You have to be concerned
+with safety around the data.
+And safety around data can
+mean many different things to
+many different people.
+So it might be, does the data
+carry a certain bias around it?
+Is it skewed in
+one way or another?
+Does it have sensitive
+personal information in it?
+So there's data safety.
+And then you have
+to secure the data.
+You don't want
+anybody attacking your data.
+That's just one aspect, and
+we are at the very beginning
+of an AI system.
+Then you move
+into the model.
+Is the model safe?
+And nobody really has a
+clear definition of when a model
+is safe and
+what is "safe."
+Is it subject
+to cyber-attacks?
+Can it be prompted in such a
+way to elicit offensive output?
+Is it performing
+in an accurate manner?
+Or is it skewed in
+favor of one group of the
+population or another?
+It's something that we are
+trying to address with a lot
+of different guardrails.
+>> EVELYN ANDERSON: One of
+the biggest areas that we have
+been working is really
+around cyber resilience.
+And so then when you threw
+AI, or Gen AI or Agentic AI,
+it brought this
+whole new world of
+possibilities out there.
+Because when you mentioned
+the question on is it safe,
+our biggest response
+is, is it reliable?
+Is it trustworthy?
+And that's one of the things
+we think about from whether or
+not the AI models
+are actually scaling.
+So are they performing
+the way that we think
+they should be performing?
+Do they have latency in it?
+And that's how we
+start the conversation with
+our clients is, everything
+else, you build a foundation.
+If the foundation is
+strong, being your governance,
+where you have the laws, the 
+rules of how it actually needs
+to be managed, and then you
+have your security, where your
+security is really testing and
+making sure it's the guardian.
+It's the guardian
+around the entire AI systems.
+>> BETSY GREYTOK: Historically, 
+you did see a lot of silos in
+the governance policies.
+So we have a cyber team that
+addresses the security of our
+software products and
+our hardware products.
+You have a privacy team
+that sets the governance
+around how we collect
+personal information and
+protect personal information.
+And then you had data
+security where it was this how -
+corporations have been housing
+their data forever, trying to
+protect any kind of leak,
+but it was a separate house.
+You didn't have the
+cybersecurity working on the
+software products, really
+working too closely with the
+data security who
+was protecting data
+warehouses from attacks.
+And the privacy team was
+kind of giving instructions.
+But AI systems create
+this epicenter that bring
+all of this together.
+Now that you have this
+epicenter that is putting
+all of the data, all
+of the privacy concerns,
+all of the cyber concerns,
+and adding additional concerns
+of what can you do with
+the prompts and the output,
+it's creating that whole
+center that now we cannot
+operate in a silo anymore.
+They all have to be joined
+together, operating at the
+same time, making sure
+one does not break the other.
+So Evelyn, last year,
+Gen AI was the hot topic.
+And now everything
+is about Agentic AI.
+It's not even that
+it's coming, it's here.
+How does that change the
+world of keeping models safe?
+>> EVELYN ANDERSON: It's
+really still the same.
+You still have to
+have the same foundation. I mean -
+when it comes to the
+agentic AI, the whole purpose
+of it is you want
+to actually automate.
+We want to become
+better, faster, quicker.
+This is truly a time where -
+if you think about something
+as simple as in the old days,
+if we wanted to prepare a meal,
+you put it in the oven,
+30 minutes, an hour later,
+you had it.
+Now it's pop it in the
+microwave, 30 seconds later,
+you get it.
+So we are trying to find
+capabilities to where some of
+those things that are
+repetitive, especially that
+we can actually
+identify data models,
+that can actually perform
+those tasks and learn from it.
+So at least within our
+world, we are moving forward
+with the Agentic AI, but
+we are looking at it from
+the governance perspective.
+Let's actually work
+with our clients to
+install adaptive governance.
+So whenever they actually
+implement their rules for
+their systems, that instead of 
+relying on someone to implement
+and put in the right
+configurations to make sure
+that it's aligning with
+whatever laws and regulations
+that you have out there,
+we are trying to push it
+automatically so that it's
+not a person that's doing it.
+You just run a program,
+it's working, and then it's
+designed in a way where it
+automatically goes back and
+checks and validates.
+So we still keep that checks
+and balance in place where we
+are auditing as a part
+of the normal process.
+But those are some
+of the approaches,
+at least within my world, that 
+we're trying to ingest as a part
+of adaptive governance
+to support Agentic AI.
+>> BETSY GREYTOK: One of
+the trends that I have been
+noticing is around AI
+regulation in particular.
+They are coalescing around
+what IBM established years ago
+as our principles of
+trustworthy technology and
+the pillars that we
+built underneath those.
+So the same
+themes are emerging,
+explainability, transparency,
+robustness, privacy, fairness.
+They all come
+around these same themes.
+When you have built
+your governance program
+around those themes, it makes it
+much easier to pivot to whatever
+regulation comes out because
+most of the time you can say,
+check, I already do that.
+>> EVELYN ANDERSON: In
+the context of scaling,
+how does governance and
+security play into that for you?
+>> BETSY GREYTOK: I see
+governance as the foundation
+of being able to scale AI.
+The beauty of foundation
+models and generative AI is
+you can take one model
+and then adapt it to do
+many different things, much
+more at a lower cost point.
+So the ability in the
+world of economics to scale
+AI is there.
+But if you just rapidly
+start scaling AI throughout
+your organization, it's going to 
+be running wild with no sort of
+parental guidance to
+help keep it in line.
+So like we discussed earlier,
+the adaptive governance will
+allow you to take in the
+many different use cases that
+are going to occur.
+And then the other thing that
+I see with scaling is all of the
+model providers and all of
+the different AI providers are
+giving you more and
+more tools so that you can
+scale faster with new
+opportunities, new features.
+And keeping track of
+those features is going to be
+impossible if you don't have
+governance as your foundation
+of your entire AI program.
+>> EVELYN ANDERSON: You
+still need to make sure you
+have security so that
+it's both trustworthy,
+reliable, and secure.
+>> BETSY GREYTOK: I see us
+embracing AI to judge AI in
+a more proactive manner
+instead of investing hundreds of
+thousands of dollars, millions
+of dollars, and getting to the
+end of it and saying
+this isn't going to work.
+If you use AI to judge a use
+case and an idea that you have
+for an AI system, it can help
+enable you to fail fast and you
+actually may not fail, you
+may just be able to identify
+the necessary guardrails and
+protections that you need to
+put in place in order
+to implement the system.
+So how does that play with
+what you see as the hot take
+for next year?
+>> EVELYN ANDERSON: My
+hot take would absolutely
+be being proactive.
+This is where you test, you
+retest, and you test again.
+You want to make sure that,
+from a fundamental, that you
+establish governance and 
+security at the ground level.
+You don't build it and then
+think about, oh yes, I need to
+add this, because then
+you are always running,
+trying to catch up.
+If we are being proactive, if
+we are establishing the laws,
+if we are establishing the
+guardrails, making sure that
+we've actually fortified
+our fortress of AI systems,
+then that's the key for me,
+is you must be proactive.
+You can't wait
+until it occurs.
+You have to start thinking
+about all the things that
+could potentially occur and
+making sure that you have to
+think like the hacker.
+You have to think like them
+thinking, hmm, okay, here's a
+little vulnerability that -
+here's a little gap in their
+security that I want
+to see if I can penetrate.
+>> BETSY GREYTOK: In the
+world of AI, we are constantly
+living in a world of I
+don't know what I don't know.
+You are always
+discovering something new.
+The hacker is going to
+discover something new.
+AI is going to do
+something that you
+really didn't anticipate
+that it would be doing.
+And so I
+agree with you.
+You want to be preventive
+and try to get on top of what
+you don't know yet.
+And certainly putting tools
+in the hands of our clients so
+that they can investigate
+that as thoroughly as possible
+before they put a system into
+production is what I think the
+world is really
+looking at now.
+I think where AI is headed,
+there's doomsayers out there
+who say AI is going to
+take over the world or replace
+workers or all the bad
+things that it can do.
+But I think we have covered
+ground here where if you put a
+proper governance program
+in place and you think about
+being responsible with
+your use of AI, it truly will
+augment the workplace,
+make our lives easier,
+lead to innovations that
+we didn't think would happen
+within our lifetimes.
+And I really think if you
+approach it with that manner
+of responsibility that we can
+accomplish great things in the
+next decade with AI.
+>> EVELYN ANDERSON: It's
+been great actually having
+this conversation talking
+about governance and security.
+For me, it feels like my job
+is just beginning, that I have
+completely started over and
+there is this whole new world
+that I have to
+think about adjusting to.
+For me, when
+it comes to AI,
+I think we have just
+barely touched the surface.

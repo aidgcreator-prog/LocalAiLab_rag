@@ -1,0 +1,55 @@
+---
+title: "Big_Data_Presentation"
+format: pptx
+---
+
+## Big Data: Innovations, Applications, and Challenges
+
+- The impact of Big Data on science and society
+- Integration with IoT and Cloud Computing
+- Navigating privacy and vulnerability
+
+## The Big Data Revolution
+
+- Creating revolutionary breakthroughs in commerce, science, and society [R7]
+- Foundational to the future internet [R5]
+- Driving advancements in data-aware computing [R5]
+
+## Big Data and the Internet of Things (IoT)
+
+- Synergy between IoT and Big Data computing [R5]
+- Enabling technologies: Cloud computing and Data mining [R5]
+- Integration with Machine Learning and NLP [R5, R6]
+
+## Key Enabling Technologies
+
+- Cloud Computing [R5]
+- Data Mining [R5]
+- Machine Learning [R6]
+- Natural Language Processing (NLP) [R5]
+
+## Impactful Applications
+
+- Genomic Data: Novel data-aware transfer protocols [R5]
+- Crisis Management: Mobile applications for crisis data [R2]
+- Smart Technology: Creating inclusive urban environments [R1]
+
+## Challenges and Ethical Considerations
+
+- Privacy, Poverty, and Big Data: A matrix of vulnerabilities [R3]
+- Security in wireless and IoT networks [R6]
+- Managing data explosion and mobile data usage [R7]
+
+## Conclusion
+
+- Big Data as a pillar of modern computing
+- The need for secure and privacy-preserving architectures
+- Future directions in automated and intelligent systems
+
+## References
+
+- [R1] The Use of the Smart Technology for Creating an Inclusive Ur.
+- [R2] Mobile Application Development for Crisis Data.
+- [R3] Privacy, Poverty and Big Data: A Matrix of Vulnerabilities.
+- [R5] Internet of Things: A Survey on Enabling Technologies, Protocols, and Applications.
+

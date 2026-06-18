@@ -1,0 +1,412 @@
+Artificial intelligence is everywhere right 
+now. In your phone, in your car, even writing
+emails for you. You may be wondering if there 
+are actually any limits to what AI can do. I've
+heard many people over the last few decades 
+confidently assert AI can do certain things,
+but it's never going to be able to do, and 
+then you fill in the blank. Guess what most
+of those predictions have in common? They were 
+wrong. The past few years have shown exponential
+growth in AI capabilities, bringing it from the 
+research lab to everyday life. And it's doing
+most of those things that so many thought 
+it never would or even could do. Of course,
+many limitations still exist, but my advice would 
+be this. Don't bet against AI, unless of course
+you want to be wrong. In this video, we're going 
+to start with a look at what knowledge really is,
+how it differs from data and information, and 
+this will help set the context. Then we'll take
+a look at what have been considered to be the 
+limits of AI and see which ones of those things
+have actually been accomplished and what's still 
+left to do. Then we'll conclude with some ideas
+about the role of AI and humans and where each one 
+excels with the hope of learning how to use this
+amazing technology to our best advantage. Let's 
+start off with looking at the relationship that
+exists among data, information, knowledge, and 
+wisdom. and we'll use this pyramid to spell it
+out. So, we'll start with data. Okay, this is just 
+basically raw facts. If I give you data that looks
+like this, I say 10 six uh 42 and 8. Okay, that's 
+raw facts. So, what you don't know really what to
+do with that, but that's data for you. Okay, now 
+if I add some context to this data, now we have
+information. So this is where we sort of processed 
+it a little more and now I'm going to tell you
+that this data actually represents the ages of 
+people in a room. So now we have more context.
+This has more meaning to us. Now if I take that 
+and say okay but let's apply some interpretation
+to the information that we just had. Now we end up 
+with knowledge. Now knowledge tells us yet more.
+So for instance in this case we might say okay 
+I've observed that most of the people in this
+room are under the age of 21. So now we've done 
+yet more processing with this. And now finally the
+last piece of this is applied knowledge. Applied 
+knowledge now gives us wisdom. and wisdom might
+look at this all of this information, all of this 
+data, all of this knowledge and say, you know
+what, we've got these people in a room. Let's 
+do something like uh do age appropriate games
+to keep them occupied. So, uh the 42-year-old 
+probably won't mind too much playing a game that
+a 10-year-old and a and an 8-year-old would play, 
+but you know, they they can go along with that
+for a little while. So this is an example very 
+trivial example but you can see what I've done
+here data information knowledge and wisdom each 
+one of these adds more context more interpretation
+and all of these then lead to the ultimate of 
+wisdom. So another way to look at this pyramid
+is data. Well, that's a database. For instance, 
+you know, we can store a lot of stuff in there,
+but that's all it is, just a collection of raw 
+facts. Information, okay, we have an application
+running on a computer. That's now information 
+technology. That's why we call it that. We've
+added context to all of that data. Knowledge, this 
+is where AI really starts to come in. Now, we're
+adding more interpretation to the information 
+that we've just processed. But here is where we're
+still trying to get. And that's wisdom. Back when 
+I was an undergrad riding my dinosaur to class and
+studying AI in its earliest days, there were a lot 
+of things that people said, "These are the limits
+of AI. Maybe one day we'll have a system that's 
+able to do these, but they won't be anywhere,
+maybe even in our lifetimes." For instance, one of 
+the things that was talked about was the ability
+to reason. We needed a system. If we really 
+consider it intelligence, then then reasoning
+is a part of that. So the ability to figure out 
+and do problem solving, complex problem solving,
+uh this was beyond our capability uh certainly in 
+those days. But since then we've come out with a
+computer that can play chess. IBM in 1997 came 
+out with a computer called Deep Blue that played
+Gary Kasparov, the best chess player in the world, 
+a grandmaster. That's a lot of reasoning. That's
+a lot of problem solving. People thought you'd 
+never have a computer that would be able to beat
+a grandmaster. Again, that's already happened. So, 
+what seemed to be a limitation wasn't. Another one
+that was really difficult for a long time was 
+natural language processing. Uh, human language
+has a lot of nuance, a lot of idioms, things 
+where we say things that we don't mean literally.
+And sometimes you're supposed to interpret it 
+literally, sometimes it is figurative speech.
+Uh for instance, as I've given examples before, if 
+we say it's raining cats and dogs, we know that it
+doesn't mean that there are small animals falling 
+out of the sky. That's an idiom. So we have if a
+system is going to really be intelligent in 
+the way that we are. It needs to be able to
+understand those things. It needs to be able 
+to understand things like humor and understand
+when you're cracking a joke and when you're not. 
+Well, sometimes people can't tell that either,
+and sometimes it's because it's a bad dad joke. 
+But be that as it may, in general, we're able to
+tell the difference between what is humor and what 
+is not. And we've actually made some advancements
+here. In 1965, there came about a first the first 
+of what really is the modern chat bots, but this
+was not using modern technology called Eliza. And 
+it was able to have conversations with you. Now,
+it wasn't very great conversations, but it would 
+ask you questions and and answer questions.
+how are you feeling today? How does that make you 
+feel? Uh this kind of thing almost like you feel
+like you're talking to one of these very passive 
+psychologists. Uh but IBM advanced this a lot in
+2011 when we came out with Watson which played 
+Jeopardy the uh TV game show and was able to win
+and beat champions at that because Jeopardy is 
+full of natural language and play on words, puns
+and things like that. You can't program all of 
+those into the system and have it know those. It
+really has to understand the meanings behind 
+those things in order to do it. And in fact,
+as I say, we've already accomplished that. And 
+look at today's modern chat bots. They're able
+to understand a lot of this nuance and they're 
+able to take the instructions you give it in
+natural language and understand what you mean in 
+a surprising way. In fact, I think that's maybe
+one of the most remarkable aspects of generative 
+AI technology is that it's able to do that for
+the first time. We feel like a computer really 
+understands us. It's able to infer what we're
+asking for. In some cases, even anticipate the 
+next thing that we need, just like a person
+would. We consider that to be intelligent. 
+How about creativity? The ability to create.
+I remember hearing a lot of people say, you know, 
+computers can't really create information. Well,
+they actually do. Uh, we've got where with 
+generative AI, we can create art. We can create
+new works of music. And you can say, well, but 
+those are really just mashups of existing. Well,
+guess what? When people compose a new song or draw 
+a new picture, we're influenced by the things that
+we've heard as well. Listen to all the top musical 
+artists that you know, and they'll tell you, "Oh,
+yeah. Here are my musical influences." So, those 
+things all went into the back of their heads and
+influenced the way that they create. So, we are 
+creating new things and they are variations on
+the old. But that doesn't mean just because a 
+computer did it, it wasn't creative because in
+fact it is. They're coming up with new ideas and 
+will continue to do that. We base our learning and
+our creativity on certain things that have 
+been done in the past and so does AI. Now,
+here's another one. Real time perception. 
+Things like robots. Well, that was the stuff
+of science fiction at one point, but we have them 
+today. And you might not think of it as a robot,
+but a self-driving car is one of those where it's 
+having to in real time perceive its environment,
+see what's going on, anticipate where the next 
+car is going to move, and where it's going to
+be at a specific point in time and do all of 
+those calculations in real time, and make real
+uh decisions about that. Robots are having to do 
+the same thing in order to navigate around a room.
+So all of these things that basically we used to 
+consider to be limits of AI, I'm going to say,
+you know what, we've done all of those. Now, let's 
+take a look at some other areas where we've made
+progress, but I don't know if we would say, you 
+know, it's sort of mission accomplished yet. And
+one of those would be uh the area of you've 
+heard of an IQ, how about an EQ, an emotional
+intelligence uh and an index for that? Well, these 
+systems are able to simulate that. And honestly,
+I feel like some people are just able to 
+simulate emotional intelligence as well,
+but that's a whole other subject. But an EQ in 
+a system, you can see in the modern chat bots
+the ability for them to understand your moods 
+and the way that you're expressing yourself.
+So there is some level of awareness in terms of 
+the way that you're describing things. I mean,
+we have the stories about people who felt an 
+emotional relationship to a chatbot. Well,
+some people feel emotional relationship to their 
+shoe, but that's a whole other thing. The fact
+that these systems can talk to us and understand 
+at least give the appearance of understanding
+moods and things like that is certainly in the 
+area of okay, I it looks like we're doing this
+at least in some cases. Now, another area that's a 
+limitation though that we still have is this area
+of hallucinations. Hallucinations are a difficult 
+problem. and they're a a byproduct of generative
+AI where the system basically confidently asserts 
+something that just isn't true. So it's trying to
+predict what the right answer would be and many 
+many times it's right. It's shockingly right.
+But when it's wrong, it is shockingly wrong in 
+these cases. Now we've got technologies that
+are making hallucinations less and less likely. 
+Uh things like retrieval, augmented generation
+uh helps with this where we feed additional 
+information to give more context so that the
+model doesn't just use its own imagination to come 
+up with answers. Uh things like mixture of experts
+helps as well where we have different models 
+used for different areas. Chaining of models.
+Uh so there are things that we can do in order 
+to reduce the hallucination problem and we're
+doing that. So this is one of those I wouldn't say 
+uh is a solved problem but we can certainly see
+that we're moving into it. So this one's somewhat 
+solved. Okay. So, those are the things that we've
+kind of already done or are still working on 
+and maybe be able to see an end in sight. Let's
+move those out of the way. And now, let's take a 
+look at the future. In other words, what are the
+current limits? What are the problems that we're 
+still having to to work on these days? Well, one
+of the limits of AI is a thing called artificial 
+general intelligence. Right now, we see AIs that
+are super smart in a specific area, in a specific 
+knowledge area. Now again with some of these chat
+bots that we have today, they seem to know a lot 
+about pretty much everything, but they also have
+limitations. For instance, they don't do real-time 
+perception. Uh they can't tie their own shoes,
+for instance. So artificial general intelligence 
+would be something that was as smart as a person
+doing all the things that we consider to be 
+intelligent and at least on par with what a
+person would do across all the different domains. 
+That's something that we haven't really fully
+achieved in a single system yet. The next level 
+beyond that would be artificial super intelligence
+where we have something that is better than 
+humans in every domain and that's the right
+now again the stuff of science fiction. Not saying 
+that we won't do it but we haven't really done it
+yet. Another problem that's still to be solved is 
+with sustainability. So right now we have systems
+that can do amazing stuff but boy do they suck 
+up the gas. They take up all the electricity.
+They need lots of cooling. They're very expensive 
+to run. This is not something that's going to be
+able to scale if we just keep throwing more and 
+more processors at this situation. Uh that's not
+going to work. We're going to end up using all the 
+electricity that's on the planet just in order to
+uh to to run some of these queries. So, we're 
+going to have to be able to make better, smarter
+decisions with sustainability. Use models that are 
+the right size, not just the biggest model, but
+the right size model. In some cases, a small model 
+might be more efficient and do a better job and
+might even hallucinate less if we've got the right 
+use case. So, this is still work that we're that
+we're doing that is not yet, I would say, a solved 
+problem, but there's a lot of things we can do
+about it. Another one that is really the area that 
+is is science fiction today is self-awareness. So,
+is a system self-aware? Does it know it exists? 
+Does it have consciousness? Well, I don't really
+know the answer to that. This is really not a 
+computer science question. This is a philosophy
+question. So, I'm not going to try to deal with 
+that one here because I'm not even sure how the
+answer would be. But another thing that gets us 
+back into this area though is understanding. So,
+a system can spit out a lot of things, but 
+it actually understand what it's saying. Um,
+does it really know what the meaning of the 
+things are? Seems like it's done a lot of that,
+but there's always the question of is this really 
+just simulating? Is it simulating thought? Well,
+I don't know. I'll tell you there's a lot 
+of people I've talked to and I think they
+may be only simulating thought and simulating 
+intelligence. So, again, it's a little hard to to
+draw the line clearly, but uh this seems to be an 
+limitation where the AI maybe doesn't understand
+the biggest broadest context that we'd like it 
+to understand. Uh judgment. So remember when I
+was talking about data, information, knowledge 
+and wisdom. Well, this is that last one. This is
+the business of wisdom and judgment. And in this 
+case, is the system able to make good judgments?
+Maybe ethical judgments. Can it determine what 
+is right and what's wrong? Again, can people do
+that? Some people have a real hard problem with 
+those kind of judgments. So, it's hard for us
+to program a system that will if we can't figure 
+out what those rules would be. But we we certainly
+know that right now these are limitations that 
+the systems have. How about in terms of judging
+something that's just very subjective like the 
+quality of something, maybe music? You know,
+what I think is really great music, you may 
+not think. So, you know, you say, "Well, Jeff,
+you have no judgment at all." Uh, but I have a 
+different view of that. But these systems are they
+able they're able to generate music and they're 
+able to throw away stuff that is just absolute
+gibberish but can they tell what is going to be a 
+hit and what's not going to be for instance in the
+music area. So there's a lot of of work here in 
+this space so that it's able to do some of those
+qualitative judgments as well. How about this one 
+common sense? And I'm going to really put that one
+in uh in quotes because air quotes because um I 
+mean is it really all that common? It seems like
+again we have limitations with people. So we can't 
+really expect a system to be able to perfectly do
+what we consider to be common sense because we all 
+might have a different idea about that. Certainly
+there are some things that we know and the systems 
+ought to be able to understand that but today
+there are some certainly some limitations to 
+that. How about in terms of goal setting? Well,
+some people would say that with today's agentic 
+AI that a system can in fact set its own goals and
+go off and accomplish those things. And what I'm 
+going to make a distinction here is that we have
+micro goals. These are sort of the small things 
+that we need to do if I give you a a larger task
+and the macro goals. So the larger task, this 
+is what needs to be done. This is how I go about
+doing it. And right now today's agents are able 
+to do these kind of micro goals, the goals within
+the larger objective, but the big goal, why would 
+we do this in the first place? That's maybe still
+uh without uh beyond its reach at the moment. And 
+then sensation, how about this? Does this does a
+AI system really sense things? Does it understand 
+what's happening? What how things feel? How things
+taste? Um that sort of stuff. The things that 
+are of the senses. Well, we're building robots
+that are able to certainly see and hear. Can 
+they taste? In some cases, maybe to an extent,
+but there's a lot of other things that go into uh 
+these kinds of sensations that we haven't put all
+together in one system. And then here's the really 
+big one, I think, and that's deep emotions. Is a
+system really able to feel the same way that we 
+do? Is it able to experience joy? Is it able to
+experience sadness, loss, uh, accomplishment? Does 
+it really get what all that's about? And again,
+I know some people who don't really do all 
+that particularly well. So, so this is one
+of the things that is difficult to put into a 
+system and we can simulate it today, but is it
+really feeling these kinds of things? So, I would 
+suggest to you these are some of the things that
+to one degree or another are limitations with 
+today's AI. Now, what is the role for humans
+and for AI? How do we work together? How do we 
+make sure this is a tool that works for us? Well,
+people really should be over here doing this kind 
+of stuff. Answering the what question. What is it
+we want to do? That's the overall macrolevel goal, 
+the objective and answering the question why.
+What's the purpose of this? Is there meaning in 
+what we're doing? What's the ultimate thing that
+we're trying to accomplish? And without purpose, 
+all of this is just meaningless work. So people
+are still far better at that kind of thing. And we 
+should be the ones controlling this tool that way.
+Over here on this side, once we've told the system 
+what needs to be done, AI can many cases with an
+agent figure out the how and go off and perform 
+it, actually do it. Agents are able to automate a
+lot of things much faster than a person could. and 
+they can do it in an optimized way, but they need
+to know what to do in the first place. We need 
+to know why. So, if you look at a history of AI,
+it felt like for the longest time we were making 
+very little progress and then all of a sudden it
+just took off. And we're at this this inflection 
+point where the developments and where all of this
+is going to go, no one really knows. But what I 
+can say this for sure, we can look at a history
+of milestones that we've accomplished already. 
+And we can look at lots of future research, things
+that still need to be done, which is actually 
+very exciting. If you're someone that enjoys
+it and the possibilities of problem solving, then 
+we're going to be able to do a lot more work and
+ultimately we're going to get end up with systems 
+that do things we didn't even imagine yet.
+So my advice to you if you start looking at 
+the limitations of AI today I would say don't
+become preoccupied with those because the people 
+who have and have asserted that AI will never do
+this that or the other thing have generally been 
+wrong. My advice to you, don't bet against AI.

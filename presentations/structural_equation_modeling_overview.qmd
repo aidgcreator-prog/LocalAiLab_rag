@@ -1,0 +1,46 @@
+---
+title: "Structural Equation Modeling Overview"
+format: pptx
+---
+
+## Structural Equation Modeling (SEM)
+
+- SEM is a multivariate framework that combines factor analysis and multiple regression to model complex relationships among observed and latent variables.
+
+## Key Concepts
+
+- • Latent variables: unobserved constructs inferred from indicators.
+- • Observed variables: directly measured items.
+- • Measurement model: specifies loadings of indicators on latent constructs.
+- • Structural model: specifies causal paths among latent constructs.
+- • Model identification & fit assessment.
+
+## Estimation Methods
+
+- • Maximum Likelihood (ML): assumes multivariate normality.
+- • Generalized Least Squares (GLS).
+- • Weighted Least Squares (WLS) & Diagonal WLS (DWLS) for ordinal data.
+- • Robust ML / Satorra–Bentler for non‑normality.
+
+## Fit Indices
+
+- • Chi‑square (χ²), RMSEA, SRMR, CFI, TLI, NFI, GFI, PNFI, PGFI.
+- • Typical cut‑offs: RMSEA <0.05 good, CFI >0.95 good, SRMR <0.08 good.
+
+## Applications
+
+- • Psychology & Education: latent constructs, mediation.
+- • Health Sciences: disease pathways.
+- • Marketing: brand equity models.
+- • Social Sciences: policy evaluation, invariance.
+- • Economics: simultaneous equations.
+
+## Practical Tips
+
+- 1. Start with a clear theory.
+- 2. Check identification.
+- 3. Choose estimator based on data.
+- 4. Report multiple fit indices.
+- 5. Avoid cherry‑picking.
+- 6. Use robust software (Mplus, lavaan, AMOS).
+

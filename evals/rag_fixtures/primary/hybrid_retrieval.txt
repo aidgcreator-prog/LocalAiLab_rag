@@ -1,0 +1,5 @@
+Hybrid retrieval notes
+
+Hybrid retrieval combines dense vector search with lexical keyword retrieval before reranking.
+A common pattern is to merge dense and BM25 candidates with reciprocal rank fusion and then apply a cross-encoder reranker.
+This approach helps exact terminology while preserving semantic recall for paraphrased questions.

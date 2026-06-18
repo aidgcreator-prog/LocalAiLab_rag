@@ -1,0 +1,249 @@
+Training.
+A new large language model is a bit
+like launching a rocket.
+Five.
+It's exciting.
+Four.
+It's resource intensive.
+Three.
+It requires an enormous amount
+of compute power.
+Two.
+And the training process takes months.
+One.
+So you need intensive
+planning and preparation to make sure
+you've got the latest
+and best technologies in place.
+Because once you press
+go and the GPUs fire
+up and start training,
+the rocket has liftoff.
+You can no longer tweak the design.
+Any new innovation has to wait
+until the next launch.
+And just like rocket launches change
+the frontier of science,
+large language models
+and the broader class of generative
+AI that they belong to called foundation
+models represent
+a paradigm shift
+in how the world is going to leverage AI.
+Zero.
+All engines running.
+Welcome to AI Academy.
+I'm Kate Soule,
+Senior Manager of Business Strategy
+at IBM Research
+and the MIT-IBM Watson AI Lab.
+And in that analogy,
+I work at mission control.
+My job is to oversee at a program level
+the training and development
+of all the large language models for IBM's
+AI and data platform.
+And I come at that role
+from a business and consulting background
+rather than a pure technical one.
+But it means that I approach my job
+and the work that we do
+with a focus on trying to make sure
+that our research has impact on the world,
+that what we're doing
+is solving real business problems
+and generating real,
+tangible value for our clients.
+And in terms of real value,
+the opportunities with generative
+AI are extraordinary.
+While traditional AI can analyze data
+and tell you what it sees,
+generative AI can use that same data
+to create something new.
+And that's a vital tool for businesses
+to have because that same power
+can be applied to customer service
+and support, code generation for developers,
+extracting key information
+from complex documents.
+More use cases are being developed every day.
+Companies can increase
+productivity, reduce costs
+and open up new lines of business, while
+traditional machine learning is narrowly
+focused and purpose-built
+for a specific task
+and takes a lot of human intervention.
+Foundation models are bigger, broader
+general purpose models
+that benefit from unsupervised learning,
+which means they can be trained on large,
+unlabeled data sets.
+And then afterwards, this general purpose
+model
+can be further tailored
+for an array of applications.
+The types of things these models can do
+is evolving incredibly quickly.
+So now is the time to start building
+your expertise.
+As generative
+AI becomes a business differentiator,
+you're going to want the ability
+to innovate so that you're not just
+following what other companies have done,
+and you're going to want to be part
+of the broader conversation
+about what AI
+is and where the field is going
+in building that muscle mass
+in your organization for how to build
+and experiment with generative AI.
+When looking to get
+started, building expertise is critical.
+First,
+you need to establish a team of people
+who can become comfortable and fluent
+working with foundation models
+so that they can experiment, testing out
+new models as they become available,
+prototyping on example use cases
+and so on.
+The second step is to pick an internal low
+risk use case
+that you can use as a testing ground.
+You could build a prototype
+and test out deployment.
+Then use what you learn as your team gains
+more experience.
+Third, you need to have
+an in-depth conversation about what
+you require to get those real value
+drivers and revenue drivers.
+That generative AI can help you unlock.
+For example, you need to determine
+what requirements around trustworthiness
+and other regulatory issues your models
+need to meet to be deployed in production.
+And all those questions only become more
+relevant as you leave the experimentation
+phase and get into the actual
+building of a model
+for real on an application
+that can drive business impact.
+And finally,
+you need to be able to operate
+with a level of responsibility
+and transparency.
+You've got to be transparent
+regarding data collection, showing
+what is and isn't in your data
+and how it all gets filtered and managed.
+You need to be
+able to explain
+how your AI is making decisions.
+You want it to be fair and trustworthy
+and ready for compliance
+with upcoming regulations.
+The number one success factor
+in each of these steps
+is choosing the right evaluation metrics
+that reflect your business
+tasks and measure the model's robustness,
+fairness, scalability and cost
+for deployment across your business.
+And even though that evaluation
+can be quite difficult for generative AI,
+when the right answer could be subjective,
+when you evaluate across
+all these dimensions,
+you may find that some use cases don't
+justify the cost or risk of leveraging
+a huge model on the cloud.
+That's why one model doesn't
+have to rule them all.
+Within IBM research, we are seeing that
+smaller specialized models.
+Now, when I say smaller, I'm
+still talking billions,
+not trillions of parameters and size
+can be as proficient
+as those giant trillion
+plus language models when they are
+evaluated on specialized tasks.
+These smaller models
+are significantly more cost efficient
+and can be run more easily on prem
+to reduce your deployment
+risk.
+When you're getting started
+on your journey with generative AI
+and looking at all the options available.
+My recommendation is to start simple,
+start with a pre-trained model
+and try to do light customizations
+with your own data
+through a process called tuning.
+This way you can tailor the model
+for your specific use cases
+while taking advantage of the large
+general purpose capabilities
+that other providers have developed.
+It's important, though, to update those
+pre-trained models every couple of months.
+Going back to the rocket ship analogy.
+IBM Research has a regular launch cadence,
+retraining all of our foundation models
+multiple times a year
+as more information is made available
+in the world continues to progress.
+We want our models
+to be able to reflect changes.
+We also want to make sure that our models
+consider the latest regulatory
+guidance and risk management
+best practices.
+The field and the regulatory
+guidance around it is constantly evolving.
+So models that aren't regularly retrained
+with the latest best practices
+will quickly become stale.
+That's why the right
+AI and data platform is so important.
+You should look for a platform
+that has proven expertise in foundation
+models, the governance tools in place
+to help you address
+potential ethical concerns
+and can help you transition
+from experimentation to deployment.
+Then, as you get better
+and more confident over time and training
+and owning the models,
+you'll eventually be able to maintain
+and build them out on your own.
+There's a lot of complexity to AI in foundation models,
+but working through all that complexity
+truly is worth it
+for where it's going to take us,
+both in terms of our business successes
+and our progress as a society.
+Think about those NASA
+scientists and engineers.
+Doing something new is never easy,
+but because they did the work,
+we've set foot on the moon and sent probes
+beyond our solar system.
+We can now explore our universe.
+Generative AI may not literally be a rocket,
+but it will help us do more
+to travel farther and faster to unlock new
+possibilities and explore new frontiers.
+And I'm so excited
+to see where it will take us.
+Thank you for watching.
+Please join us again
+for more episodes of AI Academy
+as we explore some of the most important
+topics in AI for business.

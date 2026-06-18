@@ -1,0 +1,59 @@
+You've probably seen all sorts of items flying around recently, and it can get a little confusing as to how they all relate to one another.
+Machine learning, deep learning, foundation models. And you've probably seen other terms like generative AI and large language models.
+So let's bring an end to the confusion and put these terms in their place.
+There's one thing they all have in common.
+They are all terms related to the field of artificial intelligence or A.I.
+Now A.I. refers to the simulation of human intelligence in machines enabling them to perform tasks that typically require human thinking.
+Now and its various forms and paradigms has been around for decades.
+Perhaps you've heard of the chat bot called Eliza, that was developed in the mid 1960s, and that   could mimic human like conversation, to an extent.
+Now a subfield of A.I. is called machine learning, so this sits within the field of AI. Now what's machine learning?
+Well, it focuses on developing algorithms that allow computers to learn from and make decisions based upon data,
+rather than being explicitly programed to perform a specific task.
+These algorithms use statistical techniques to learn patterns in data and make predictions or decisions without human intervention.
+But like A.I. ML or machine learning is a very broad term. It encompasses a range of techniques and approaches
+from traditional statistical methods through to complex neural networks. Now, some of the core categories within ML we can think of are firstly supervised learning,
+where models are trained on labeled data. There's also unsupervised learning,
+and that's where the models find patterns in data without predefined labels. And there's also reinforcement learning.
+And that's where models learn by interacting with an environment and receiving feedback.
+Okay, so where does deep learning come in? Well, deep learning is a subset of machine learning.
+Goes right there. Now, that specifically focuses on artificial neural networks with multiple layers,
+and we can think of them looking bit like this. So these are nodes and all of our connections.
+Now, those layers where we get the deep part from. And while traditional ML techniques might be efficient for linear separations or simpler patterns,
+deep learning excels at handling vast amounts of unstructured data like images or natural language
+and discovering intricate structures within them.
+Now, I do want to point out that not all machine learning is deep learning. Traditional machine learning methods still play a pivotal role in many applications.
+So we've got techniques like linear regression, that's a popular technique, or decision trees, or support vector machines, or clustering algorithms.
+These are all other types of machine learning, and they've been widely used for a long time. In some scenarios, look, deep learning might be overkill
+or it just isn't the most suitable approach. Okay, so machine learning, deep learning,
+what else ah, yeah, foundation models. Okay, so where do foundation models fit into this?
+Well, the term foundation model was popularized in 2021 by researchers at the Stanford Institute
+and it fits primarily within the realm of deep learning. So I'm going to put foundation models right here.
+Now, these models are large scale neural networks trained on vast amounts of data, and they serve as a base or a foundation for a multitude of applications.
+So instead of training a model from scratch for each specific task, you can take a Pre-trained foundation model and fine tune it for a particular application,
+which saves a bunch of time and resources. Now, foundation models have been trained on diverse datasets,
+capturing a broad range of knowledge and can be adapted to tasks ranging from language translation to content generation to image recognition.
+So in the grand scheme of things foundation models, they sit within the deep learning category but represent a shift towards more generalized,
+adaptable and scalable AI solutions.
+So look, I think this is hopefully looking a bit clearer now. But there are some other A.I. related terms. I think it's worth also explaining.
+And one of those is large language models or LLMs Now,
+these are a specific type of foundation model, so I've put them in this box here,
+and they are centered around processing and generating humanlike text. So let's break it down, LLM.
+The first L that's large, and that refers to the scale of the model. LLMs possess a vast number of parameters, often in the billions or even more.
+And this enormity is part of what gives LLMs their nuanced understanding and capability.
+Second, L that language that designed to understand and interact using human languages,
+as they are trained on massive data sets. LLMs can grasp grammar, context, idioms and even cultural references.
+And the last letter and that's for model at the core that computational models
+a series of algorithms and parameters working 
+together to process input and produce output.
+LLMs can handle a broad spectrum of language tasks like answering questions, translating or even creative writing.
+Now, if LLMs one example of foundation models, what are some others? Well, there's a bunch we can think of.
+One of those is being vision models that can see in and in quotes, interpret and generate images. There are scientific models.
+Give that an S and scientific models, for example, are used in biology where there are models for predicting how proteins fold into 3D shapes,
+and there are audio models as well for generating human sounding speech or composing the next fake Drake hit song.
+And finally, one last term that's gaining traction. We've all heard about it. It's generative AI.
+Now this term pertains to models and algorithms specifically crafted to generate new content.
+Essentially, while foundation models provide the underlying structure and understanding,
+generative AI is about harnessing that knowledge to produce something that is new.
+It's the creative expression that emerges from the vast knowledge base of these foundation models.
+And with that, I think we've fully filled out a AI buzzword bingo scorecard.
+And look, we have detailed videos on all of these topics. So check those out to learn more.

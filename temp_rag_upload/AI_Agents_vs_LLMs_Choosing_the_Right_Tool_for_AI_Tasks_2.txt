@@ -1,0 +1,68 @@
+Imagine you walk into your favorite coffee shop and you say, I'd like something warm, not too
+sweet and good for a rainy day. One approach is like an agentic system. The barista
+starts asking, do you want dairy? What size? What temperature? Tea or coffee?
+It's thorough, but can feel like answering a questionnaire just to get a single drink. Now,
+imagine an LLM approach. The barista says, "sounds like you like a chai latte, warm, cozy
+and perfect for a rainy day." They understood your intent without making you spell out
+every single detail. We sometimes build these elaborate agents, multistep planners,
+tool users, autonomous systems, when a simple LLM prompt would have done the job faster
+and cleaner. Sometimes simple is better. In the next few minutes,
+I'll cover when to use a single LLM instead of building an agent. All right. Now let's talk a
+little bit more about large language models and agents. So a large language model, otherwise known
+as an LLM like GPT-4, is great at answering questions,
+generating text, and summarizing or translating all in one go.
+And you would ask and it answers. An agent, on the other hand,
+it's like a mini AI assistant that can plan. It can reason
+and it can take multiple steps. It might search the web,
+it might run code and it might interact with tools all on its own. Agents typically use
+LLMs under the hood, but add planning, tool use and
+autonomy. Now let's talk about when to use an LLM and when you might wanna use an agent.
+LLMs are perfect when your task is single step, so if you need a quick
+answer or a one-off task, just use an LLM when
+your task is low complexity so you don't have that need for planning or
+external tools. Speed. When speed matters, you want to
+use that LLM when you want the fast results without overhead. Some examples for large language
+models might be writing an email, summarizing a document, translating text or generating ideas.
+Now agents, they shine when things get more complex. So, we're talking about
+multistep reasoning. Tasks that require planning or decision-making. When you need to
+use, um, either one tool or an array of tools, like APIs, databases or
+external systems, and when more autonomy is required. So when you want that
+system to actually decide what steps to take and in what order, kinda like a mini project manager,
+that's when you wanna go, um, to use an agent.
+Now, some examples of agents might be automating workflows, data analysis, research assistant
+assistants, or automated assistant systems, or even conversational agents.
+All right. Now let's take a look at some examples on when we should use an LLM
+and when we should use an agent. All right. Scenario one:
+writing a blog post. Let's use an LLM. Simple. Scenario
+two: researching competitors, compiling data and emailing a report.
+We're gonna want to use an agent. Right? Multistep workflow. Scenario three:
+generating code snippets. We're gonna want to use an LLM. Right? Simple question and
+answer, that speed of generation of a code snippet to do one specific task. Scenario
+four: debugging code. Testing it and deploying it to GitHub. That would be an agent. Right?
+Multistep process to complete a task might include some tool calls. All right. So, some very
+specific examples. And I'll give you an LLM use case and an agent. So let's first talk
+about financial forecasting. So,
+if we wanted to use an LLM or an LLM use case, we might ask a simple
+question like performance trends in a dataset or model output.
+So what did, you know, this model give us for this result? So we're gonna ask a very simple
+question about our data. So, in this case the
+LLM might summarize trends and provide insights on that
+trend. Now for an AI agent use case, let's say we want to do a few different steps. Like we want to
+pull data. We want to run a model.
+We wanna generate a specific chart. And that chart might change based on, um, the data
+that's pulled. And then we wanna email it. So we wanna email it to an
+executive, um, or a client. So this is actually an orchestration process. Right? So we're gonna use
+an agent to work through that process, that multistep, and then to connect to different
+tools along the way. All right. One more use case. Let's talk about incident
+response. And then this would be specifically for an IT ticket. So
+a good LLM use case might be asking, you know, "what does this error code mean?"
+So we might want to know a very specific question, could be a general question too. Right? That LLM is
+just gonna give us that simple response. Now for an AI agent use case, we might wanna do
+something more complex like detecting an error
+and actually identifying, right, why that error occurred.
+We're gonna resolve the error. And we're gonna notify an ops
+team. And maybe even at the end we wanna actually generate a
+report. So, many more steps in this process. More
+complexity. Potentially calling of tools. Good use case for an agent. So next time you're
+building with AI, ask do I really need an agent? Or will a simple LLM do? And
+remember, simple is powerful.

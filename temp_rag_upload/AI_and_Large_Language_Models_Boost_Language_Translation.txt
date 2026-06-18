@@ -1,0 +1,108 @@
+Hello.
+[foreign language...]
+Unless you know Hindi,
+you wouldn't understand what I just said. What I
+said was I wanted to tell you something very 
+important-- unless you know my language, you
+can't understand it. All of you must know and must 
+have experienced LLMs (large language models) in
+the recent times. Large language models are 
+very popularly known for generating text, but
+it is also important to know that LLMs can also 
+do a very good job of translating languages. Why
+is this important? It seems only about 25% of the 
+Internet users--their primary language is English.
+And more than 65% of the users on the Internet 
+prefer to be provided information in their
+primary languages--respective primary languages. 
+Also, more than 70% of Internet users would like
+to receive support, issue resolution, etc. in 
+their preferred languages. Now, because they do
+not receive the help in their primary languages, 
+more than 65% of these Internet users are using
+machine translations to get the help that they 
+need. So it seems that machine translations are
+essential for us to do business. So I'm going to 
+explain machine translations in two parts. First,
+I will talk about how we have been doing machine 
+translation so far, and then I will jump to the
+advantage of the large language models and how we 
+are going to do translations from them. So let's
+see how machine translations are done. Machine 
+translations use artificial intelligence to
+translate between languages automatically without 
+any human help. So how do they do that? Let's take
+an example here: English, Spanish, and Japanese. 
+To translate between any of these languages,
+you need linguistic rules and you need 
+dictionaries for each of these languages.
+And the machine translation are done in multiple 
+approaches. The rule based approach--the rule
+based approach is the one that predominantly 
+uses the linguistic rules and the dictionaries
+and also the parallel dictionaries that have the 
+meanings of two different languages, the source
+language as well as the target language. And then 
+we have the second approach called the statistical
+approach. It takes a totally different approach 
+of leveraging the human translations and learning
+the patterns from them and making very smart 
+guesses of those translations and delivering
+those translations. Both approaches work very, 
+very well by the way. We take it one notch up
+with the neural approach where, as in rule 
+based and statistical, it actually is looking
+at each word to get to the translations. Neural 
+takes it one notch up because it is actually
+looking at the sentence constructions to do the 
+translations. Now, as in any other approach,
+you can take a combination of these approaches and 
+make it a hybrid approach. So as we discussed, the
+traditional way makes use of the linguistic rules 
+as well as the dictionaries. And it goes through
+the supervised learning into one. Large language 
+models do the translations differently. They make
+use of the content that is already available in 
+different languages. We call it the large corpus
+of parallel text. That is the examples of the same 
+text in different languages like English, Spanish,
+Japanese and so on. And we feed it to the models. 
+So the large language models, as you all know,
+use the transformer models and they have both the 
+encoder and decoder capabilities. On top of that,
+the large languages models typically make use of 
+two approaches in doing the translations. Number
+one is the sequence-to-sequence approach. 
+And the sequence-to-sequence approach,
+you can take an input text and feed it to the 
+encoder. "Hello, how are you?" And the encoder
+goes through the text and creates the semantic 
+representation of the text and also captures
+the meaning of the text and passes it on to the 
+decoder. Now the decoder is capturing the semantic
+representation and the meaning and translating 
+it to the representative target language. You
+say "Hello, how are you?" in English, and if 
+your target language is going to be Spanish,
+you will get "Hola, cómo estás". The second 
+approach-- also interesting --is the attention
+model. The attention model is a little bit of a 
+lazy model compared to the sequence-to-sequence
+one. The attention model is focusing on the 
+main relevant vocabulary of the sentence. It
+is not going through the entire sentence. So 
+for example, it can pick up "hello" and "how
+are you" and focus on the "hola" and "cómo 
+estás". But it is still going to capture the
+meaning and the semantic representation essence 
+through the encoded and decoder. As you can see,
+the larger language models, instead of using 
+the linguistic rules and the dictionaries are
+really focusing on capturing the patterns and the 
+relationships between the data and translating it.
+It's quite obvious now that everybody wants to be 
+communicated in their own language, including our
+customers. Let's go leverage large language models 
+to meet them at the table and communicate in their
+own language. Thank you for watching. Before 
+you leave, please click subscribe and like.

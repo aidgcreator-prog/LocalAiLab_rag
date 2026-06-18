@@ -1,0 +1,95 @@
+When AI agents powered by large language models need to book a flight or check inventory or just
+query a database, they face a fundamental problem. How does a text-based AI
+reliably communicate with these external services? Well, two protocols can help. One
+of those is MCP, that's Model Context Protocol. It was introduced by
+Anthropic in late 2024, and it's purpose-built for AI agents for connecting LLMs
+to tools and to data. The second thing that might be able to help is gRPC,
+that's Google Remote Procedure Call. And that's a well-used RPC framework that's been
+connecting microservices for nearly a decade, offering really fast performance. But it wasn't
+designed with AI in mind. So, the question is: How do MCP and gRPC
+address the needs of agentic AI? Well, LLMs, they're fundamentally
+limited by something and that is their context window. This is all of the things that
+an LLM can kind of keep in mind at once. And they're also limited by what they were trained
+on, by their training data. these two things kind of limit what an LLM can do.
+And even LLMs with really big context windows, let's say this one is 200
+K, that still can't fit everything. It can't fit like an entire customer database or a code-based
+or real-time data feeds. So instead of cramming everything into context, we give
+LLMs the ability to query external systems on demand. So, let's say you need some
+customer data. Well, you could query a CRM tool and add that into the context
+window. Or maybe you need the latest weather data. Well, you could call the weather API
+and the agentic LLM becomes something of an orchestrator, intelligently deciding what
+information it needs and when to fetch it. Now, MCP approaches this
+challenge as an AI-native protocol, and it provides three primitives. So, one of those
+primitives is called tools. So that's functions like 'get weather', for example.
+Another primitive is called resources. That might be data like
+database schemas. And then the third is prompts. So we're thinking along the lines
+of kind of interaction templates. And all of these are with natural language descriptions that LLMs
+can understand. So, when an AI agent connects to an MCP server, it can ask 'Hey, what can you
+do?' And it does that via the tools/list
+command and gets back human-readable descriptions. Like, hey, this tool reports
+whether use this tool when users ask about temperature. So it's really built specifically
+around the concept of runtime discovery, of being able to find the right tool
+at the right time. Agents can adapt to new capabilities without being retrained. Now,
+gRPC takes a different approach, offering
+protocol buffers for efficient binary serialization, bidirectional
+streaming for real-time communication, and code generation. It's fast, reliable and it's proven at
+scale, but gRPC provides structural information rather than the semantic context that LLMs
+need to understand the when and the why of how to use the service. So developers might actually need
+to add an extra step here called AI translation into
+the mix. And that is kind of a layer on top. And that's because generic protocols like
+gRPC, they were designed for deterministic systems where the caller knows exactly what to call and
+when. AI agents, they're probabilistic, they need to understand not just the how, but the what, the when
+and the why of each tool. Now let's take a look at the architectural components and how they
+communicate. So in the MCP world, you might have at the top here a host
+application that manages one or more MCP
+clients. And each client, it opens a
+connection using a protocol called JSON-RPC 2.0.
+And that goes to an MCP
+server, and the server that actually wraps actual
+capabilities. So maybe it gives us access to a ... to a database, or maybe it
+goes to a API, or maybe it goes to a file system.
+Now, the communication flow here is we start at the host, and we go to the MCP client,
+which goes to the server, which goes to the external service, and then the results go all the
+way back again. Now in the gRPC ecosystem, we're going to start here
+with an AI agent. And that uses a gRPC
+client that makes direct calls using the
+protocol of HTTP/2 with protocol buffers.
+And I'll talk a bit more about those in a moment. And that all goes to gRPC
+services. Now these services, they expose
+methods that the AI can invoke. But this isn't a complete picture because you typically need an
+adapter layer in the middle here, between the AI agent and the
+client, to translate natural language intent into specific RPC calls. So the flow here is
+actually AI agent into the adapter layer, which goes to the gRPC client, which goes
+to the gRPC service. And the discovery mechanisms are quite different with these as well. So
+with MCP, discovery is built into the protocol. When an MCP client connects to a server,
+it can immediately call tool/list or resources/list or prompts/list to
+understand the available capabilities. And these are more than method signatures; they actually
+include the natural language descriptions that are designed for LLM consumption. The server might
+advertise, let's say, ten different tools and each includes guidance like use this tool for weather
+queries or call this one when the user asks for financial data. The AI agent can dynamically adapt
+to what's available. gRPC offers server reflection. You can query
+what services and methods exist, but you get protobuf definitions,
+not semantic descriptions. So, a weather service that shows a 'get weather' method signature, but it
+doesn't explain when or why to use it. That's where the adapter layer comes in. But
+gRPC does hold an advantage when it comes to speed, and that's because of differences
+in transport. Now, I already mentioned that MCP uses JSON-
+RPC 2.0. That means that it
+is text-based messages. These are messages that are human-readable
+and also LLM-readable. And a simple tool call, it might look something like this,
+it's easy to read and debug, but yeah, it's verbose. Now gRPC, that
+instead uses protocol buffers for communication. And
+those aren't text-based; they are binary. And that
+makes messages a good deal smaller and faster to parse. The same whether request
+in gRPC, that might be like 20 bytes versus 60+ when we're talking about
+JSON. But it's not just size. gRPC that runs over
+HTTP/2, which enables multiplexing, meaning multiple requests on one connection,
+streaming as well, meaning a ...a real-time data flow. So, while MCP sends one request
+and kind of waits for a response, gRPC can fire off dozens of parallel requests or maintain an
+open stream of data. So for a chatbot handling a few requests per second, meh, MCP's overhead is not a
+big deal. For an agent processing thousands of requests, well, those milliseconds add up.
+Basically, it comes down to this: MCP was born in the age of AI.
+It's built to help LLMs and agents understand what tools do and well, when to use
+them; gRPC, that brings proven speed and scale from the microservices world,
+but it needs translation layers to kind of speak AI. So as agents mature from chatbots
+to production systems, expect to see both: MCP as the front door for AI discovery,
+gRPC as the engine for high throughput workloads.

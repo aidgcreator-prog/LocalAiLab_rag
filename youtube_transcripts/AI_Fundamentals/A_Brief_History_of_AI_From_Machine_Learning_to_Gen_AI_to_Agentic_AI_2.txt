@@ -1,0 +1,129 @@
+Artificial intelligence may feel like some brand-new tech trend, but the truth is AI has been
+evolving for over 70 years. From simple math puzzles to today's powerful neural networks, each
+generation built on the previous one. Let's take a look at where we've been and where we might be
+going with this two-part AI series, beginning with A Brief History of AI.
+Let's start our tour of AI with a guy named Alan Turing, who back in
+1950, proposed what became known as the Turing Test. Now, Turing is known as the father
+of computer science. So, the guy did a lot. And one of his contributions was this as a way to
+measure if the a computer was really intelligent or not. So, this is how the Turing Test works. You have
+a human subject and they're separated it by a wall. They can't see who it is. They're typing on a
+keyboard, and they're gonna communicate with either an a computer or another
+person on the other side of this. And if they're typing messages and getting responses back with
+these two things, if this person cannot tell if they're talking to another person or a computer,
+then we will judge that this thing is considered to be intelligent. So that was what he proposed
+with this. And that was the gold standard that was taught to me back when I was in undergrad, riding
+my dinosaur to class. This is how we measured things, and this is where all of that stuff
+started off. The term AI actually was coined a little bit later in 1956, and
+then we started really progressing along this timeline.Ah. Back in the late, ah, 50s, there was a
+programing language that came out called Lisp. And Lisp was for short for list processing. And in
+my early days of AI programming, this is what we used. So, that was back in the the early 80s. That
+was really still considered to be the predominant way you you did things with AI. Now remember, I said
+programming. Our modern stuff isn't so much programmed as it is learning and will come to that
+in a few minutes. But Lisp, ah, interestingly enough, was first implemented on an IBM 704
+system. So, IBM was back there, ah, in those very early days, and it relied very heavily on this notion of
+recursion, which is something that doubles back on itself. Ah. It was very complicated to program in. But
+think about it this way if you don't know what recursion is, I I saw a definition that said the
+definition of recursion is c recursion. So again, the thing doubles back on itself. It gets very
+complicated really quickly, but it can also be very powerful and very elegant if you do it right.
+But if you wanted to change and make your system smarter, you had to go back in and write more code.
+This was programming. Now, in ah, in later in the 60s, we came out with something called ELIZA.
+And ELIZA was really the first, ah, chatbot if you wanna think of it that way, ah, well
+before the chatbots of today, and not nearly as sophisticated. It was designed to kind of be
+conversational and it talked to you very much like a psychologist would. So, it would ask you, you know,
+"How are you doing today?" You would respond and whatever you responded with, it would do the
+standard kind of "And how do you feel about that?" and, and go with those kind of of responses. But it
+gave us the first sense of a system that felt like it was understanding us. Now, it it also
+did, ah, some crude version of natural language processing. So you could put your your words not
+just in specific commands, but you could actually put it in a way that you could express yourself.
+And people started getting the sense that they were talking to an intelligent being. In the 70s
+then, we started having a different programing language that people started to, to glom on to, for
+doing AI programming, and ah I I really began ah to start using it in the 80s. And the the name
+of the language is called Prolog. It was a short for programming in logic. And the idea was instead
+of having these recursive systems that that we had with Lisp, with Prolog, we had a bunch of rules.
+And you would set down a whole bunch of rules, maybe relationships or things like that, and then
+have it run inferences against those things. But again, with both of these systems, one of the major
+hallmarks was if you wanted to make your system more intelligent, add more capability to it. You
+had to go back and add more code. So you were programming these systems. They were not really
+learning in the in the sense that we think of it today.Ah. Then in the 80s, this is when we started
+having a boom in the area of expert systems. The idea was that we could have systems that would
+learn a certain amount of things. We could put certain kind of constraints in it, and then it
+would be able to figure out ah certain advice that it could give us in particular context. Businesses
+were really big on the potential and there was a lot of hype, a lot of expectation, but it never
+really delivered on that expectation, not in the big way that everybody was thinking. So, this kinda
+went through ah, ah, if if people were getting a little bit interested. Then they started getting a
+little less interested when they saw that the expert systems were kinda brittle. They were not
+able to really be malleable and learn as quickly as we'd like them to. Then there was a big
+milestone that occurred in 1997. IBM built an AI system called Deep Blue.
+And what Deep Blue did was for the first time in history, we had a computer that beat the che the best
+chess player in the world, Garry Kasparov. Now, it had been thought that you could write a computer
+program that would be able to beat an average chess player, maybe even a very good chess player.
+But to overcome the ah intelligence, the expertise, the planning skills, the strategy,
+the creativity, the just sheer genius of what it would take to be a chess grandmaster, it was
+thought no computer would ever be able to do that. Well, again, that happened in 1997. That was
+actually a a good while back. And when it happened, it really signaled again a resurgence
+in the thoughts around AI and what this thing might be able to do. Then, ah, we moved on to
+in the in the 2000s on. Now, this technology had actually been around in research for a
+while, but it's when it really started to catch people's imagination that we started to see the
+growth of machine learning and deep learning algorithms, where machine learning was now doing
+pattern matching and deep learning was simulating human intelligence through neural networks. So, this
+thing then started to grow across. And in fact, we're still using that technology today as
+the basis for how we're doing AI. But this was a big departure from the Prologs and the Lisps
+where we were programing a system. In this case, the system was learning. We would show it a lot of
+different things and then ask it to predict what the next thing was, or I show it a bunch of things
+and ask it to tell me which one doesn't belong in this group. So it was pattern matching on steroids.
+That was machine learning, and it was learning through seeing these patterns and recognizing
+them. But it could do it on a massive scale that would be very hard for humans to be able to
+accomplish. Then we took machine learning and deep learning capabilities, and there was another huge
+milestone that happened in 2011, when the TV game show, ah, IBM used a computer called
+Watson to play Jeopardy! And Jeopardy! is a game, if you're not familiar with it, asks a lot of
+trivia questions in a lot of different areas. This was actually a very difficult problem to solve
+for a number of reasons. One, because the questions come in natural language form, and the the way we
+express ourselves with language can be varied, ah, in the great degree. There are things that we use
+like puns and idioms, figures of speech. If I say that, ah, it's raining cats and dogs outside, you know
+I don't mean that that there are small animals falling out of the sky. But those are the kinds of
+things that go into the clues that are in Jeopardy! And we had to have a computer that would
+understand those vagaries of human language and understand what to take literally and what not to.
+You couldn't just program rules or, ah, some sort of list processing that would know and anticipate
+all of those. You can't even list all of those that you know, those idioms. So this was a really
+hard problem. IBM had, ah, a, a case where we use our Watson computer to play against two of the
+all-time Jeopardy! champions. That was again in 2011, and we beat them both, ah, three nights in a row.
+This was another big milestone in AI. And it's interesting to me that this actually came along
+much later than winning at chess, ah, where, ah, it's because there's so much variability in this and
+the subject matter is so broad. So you had to be an expert in this, this system, and it couldn't
+just be going out to the internet and querying all these things. It had to be coming up with
+answers very quickly because, you know, if you've ever seen the game show Jeopardy! if you don't
+answer quickly, then someone else will answer it for you. And, if you answer if you're the first one
+that answers and you're wrong, then you lose points. So you had to calculate how confident am I
+in my answer? So, this was, ah, a lot of really important work that showed the possibility again
+for AI, after there had been a period of kind of disappointment and people hadn't really seen much
+come out of all of this. Around about 2022, we had another major inflection point where AI
+suddenly got real for a lot of people, and that was when we introduced this idea of generative AI
+based on foundation models. And here is where we started to see the rise of the chatbots. And
+that's what got everyone's imagination, because now we were seeing not a a fairly stiff natural
+language processor like ELIZA was. It was very limited in terms of what it could talk about. Now
+we had something that acted like an expert, and it would do all kinds of amazing things. seemed to
+know the answer to everything, be very conversational. And this is when for a lot of
+people, it felt like AI finally got real. And it generates more than just text. You know, we could
+have it write a report for us. We could have it summarize emails or documents, things like that.
+Also, we could use it to generate images or generate sounds And from that we could also
+generate deepfakes. So I could have something that is an impersonation of a real person that looks
+realistic enough that it would fool someone. So, a lot of good, a lot of bad, a lot of all of this
+happening, but a lot of excitement. And as I said, for a lot of people, this is when AI suddenly
+got real even though it had been happening for a long time. And then where are we going with this?
+Well, we're already seeing 2025 I think has been the year of the agents. This is when we start
+seeing agentic AI coming in, where we're taking an AI and giving it more autonomy, where it's able
+to operate on its own. We give it certain goals and things that it's supposed to accomplish, and
+then it uses different services in order to accomplish those things for us. So. we're gonna
+see a lot more of this happening as well. And now where does the future head for us? Well, the short
+version is if all of this is a sort of artificial, narrow intelligence where the intelligence is
+specific in particular areas, things that it can do, well, the next thing to be would be artificial
+general intelligence, where we have something that is as smart or smarter than a person in
+essentially every area that we could imagine. And then the next area would be artificial superintelligence,
+where we have something that far exceeds human capabilities in terms of
+intelligence across a wide variety of things. So you can see with this, basically, we've it's been a
+what felt like a snail's pace of progress as we move from these early days until we started
+adding more and more capabilities with machine learning. And then we started introducing
+generative AI, and now we're off to the moon. For decades, it felt like AI was
+just a pipe dream. Then suddenly it seems like AI can do everything. But can it really?
+Well, in the next video, in this two-part series, we'll take a look at what are the limits of AI,
+both in terms of what it can do and what it can't do, at least not yet.

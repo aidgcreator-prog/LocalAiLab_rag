@@ -1,0 +1,469 @@
+today we're going to talk about the true
+cost of generative AI for the Enterprise
+specifically focusing on large language
+models and it's important for an
+Enterprise to consider all of the costs
+Beyond simply subscribing to a chatbot
+llm like chat GPT I'd like to start with
+a a quick story last week I was at a
+wedding and no one could find the best
+man we were in the the dinner and the
+rehearsal and all of a sudden he came
+out of the back room with his laptop and
+he was in this back room
+writing his bassmen speech on his laptop
+using chat GPT and you know what it came
+out fantastic for a consumer use like
+writing a last minute speech or a funny
+poem using a consumer chatbot is awesome
+and that's why for the consumer use case
+spending under $25 a month for Access
+feels like a great deal because it is
+but we're comparing Enterprise use
+versus consumer use for the enterprise
+we have to safeguard what putting into
+production when we're dealing with
+sensitive confidential and proprietary
+data now it's essential for the business
+to evaluate working with a platform
+partner or vendor that is geared towards
+the Enterprise and this comes with very
+different cost factors than the Consumer
+today we're going to touch on seven of
+these important cost factors that
+influence how to scale generative AI
+across the Enterprise number one use
+case what is it that you actually want
+to do with generative AI number two
+model size what type and parameter size
+of the model are you leveraging three
+pre-training costs are you looking to
+build an llm from scratch four
+inferencing this is the cost of
+generating a response using the llm five
+tuning which is the cost of adapting the
+pre-train model to do new tasks six
+hosting which is the cost of deploying
+and maintaining that model and then
+seven deployment are you going to be
+deploying this in the cloud on SAS or on
+premise now these are all areas to
+consider and the first that we're going
+to cover is use case now I can't tell
+you how often I have sellers customers
+come to me and ask me to create a
+blanket statement for what generative AI
+is going to cost them for their
+Enterprise and what I say to that is
+that this is very similar to walking
+into a car dealership and asking how
+much a vehicle is going to be
+different use cases will require
+different methods and are going to drive
+different amounts of compute we need to
+understand are you looking for a
+convertible a truck off-roading leather
+interior we need some specifics and my
+recommendation here is to work with a
+partner or a vendor that allows you to
+participate in a pilot so that you can
+identify all of your pain points and
+first see if generative AI makes sense
+as a solution this will give you the
+opportunity to really Workshop out what
+it needs to test and evaluate for your
+Enterprise play around with different
+models see what delivers the best
+efficacy at the lowest cost and the
+fastest speeds if you have access to an
+entire workbench of models and numerous
+tuning methods you won't be locked in
+and you can do what's right for your
+Enterprise and truly customize that now
+we're going to move on to our second
+cost driver which is evaluating model
+size
+now when we talk about model size the
+size and complexity of the generative AI
+model can really impact pricing and what
+we see here is that the larger the model
+is the more parameters it has and that's
+going to drive compute and different
+resources so what we'll find is that
+vendors will offer different pricing
+tiers based on model size so we can look
+here at some examples right we have our
+smallest model here which is flan where
+we see this at 11 billion parameters we
+have Granite which is a midle middle
+tier size at 13 billion and then we have
+the largest of them all llama 2 at 70
+billion parameters and what's important
+to know is that different models are
+going to serve different use cases some
+are better for language translation
+others are better for Q&A and as you
+move across different models you have
+the opportunity to assess what's going
+to best suit your use case so something
+to look out for when assessing a vendor
+or partner to work with is what's their
+stance on model access specifically are
+they locking you into one model for
+every use case or do you have the option
+to select what works best for you
+another thing is to assess whether or
+not they're continuously innovating on
+their own proprietary models we found
+that Innovation at the model level can
+actually provide you with some key
+advantages when it comes to domain
+specific task generation and
+experimenting with different parameter
+sizes now we're going to go to our third
+cost driver which is pre-training
+this is the process of building and
+training a foundation model from scratch
+now if we look at what this means it's
+been very hos prohibitive for a lot of
+Enterprises to do so because it requires
+a tremendous amount of compute time and
+effort and while this does give
+Enterprises the control of the data used
+to train an llm it does come with a cost
+we can look at something that everyone's
+familiar with gpt3 and if we look at
+what some of these cost factors were it
+was over a th000 gpus
+over a 30-day period and what this
+particular 30-day period cost was over
+4.6 million so we can see that this is
+very very expensive and really why we
+only see a few key players that have
+emerged on the marketplace to take on
+that challenge of pre-training llms from
+scratch so if you're not going to
+pre-train you can certainly leverage and
+take advantage of an llm that's already
+been tree pre-trained so now we'll move
+on to the next cost factor of working
+with a pre-trained llm which is
+inferencing
+and when we talk about inferencing we
+are talking about the process that the
+model uses to understand the prompt
+question and the process that it uses to
+generate a response so essentially this
+is how the model figures out what it is
+that you want and then uses its own
+knowledge to create the answer
+inferencing operates on a discrete unit
+of information that we call a token and
+this is a common industry term where one
+token roughly equates to 3/4 of a word
+now you can expand that out to identify
+that 100 tokens would equate to roughly
+75 words and if you're still trying to
+figure out what that benchmarks into the
+entire work of Shakespeare would come
+out to roughly 900,000 words now the
+size of a token can vary depending on
+which tokenizer you use tokenizer refers
+to the tool that actually converts the
+text to a token but 3/4 of a word is a
+rough rule of thumb that you can go off
+of now when we talk about the cost for a
+single inference it's important to note
+that this includes the number of tokens
+in both the prompt
+and the completion which would be the
+output
+so important to note that it covers both
+of those now there's one other term
+that's important when we're covering
+inferencing and that is prompt
+engineering
+now when we talk about prompt
+engineering
+this is how we interact with the prompt
+itself and this is an industry term for
+really the methodology used to craft
+effective prompts with the ultimate goal
+of eliciting a desired response from the
+llm what's important to note here is
+that it does not touch the parameters of
+the model itself it's more like choosing
+the right words and formatting how you
+ask the question to really help the
+model better understand and it's a
+really cost effective way to achieve
+tailored results without extensive model
+alteration and this is different than
+tuning because it does not require the
+high compute resources or any of the
+hosting so now we're moving on to cost
+Factor number five
+which is tuning now when we talk about
+tuning we're talking about the process
+of adjusting the internal settings or
+parameters of the model itself to really
+improve performance tuning is measured
+in hours and you'll often see that there
+are different hourly rate charges
+depending on what model size you're
+using we talked earlier about how
+different parameter sizes lead to
+different cost increases now when you're
+making the decision to tune
+there maybe two reasons
+why you would choose to do so so reason
+number one maybe it's to achieve better
+performance from your base model when we
+talk about better performance
+we're going to evaluate whether or not
+tuning the model on a large number of
+labeled data could really enhance
+performance when we do this we see that
+you can actually optimize it by bringing
+in your own data the other option for
+tuning may be to evaluate whether or not
+you can lower the cost at scale by
+deploying a smaller model than maybe
+what you initially used one thing that's
+really important to keep in mind here is
+that the cost of label data acquisition
+is a really important factor now when we
+talk about tuning there are two main
+functions of tuning and two main
+methodologies of how you can tune we
+have fine tuning
+and then we have parameter efficient
+fine-tuning otherwise known as PFT
+now to cover the difference between
+these two when we talk about fine-tuning
+we're talking about extensive adaptation
+of the model itself so you're tuning all
+of the parameters and changing them
+you're going to be generating a forked
+version of this base model that actually
+requires you to then go on and host that
+and it requires
+hundreds of thousands
+of data points label data for you to
+bring in here so this is ideal for
+highly specialized tasks where
+performance is critical when we talk
+about parameter efficient fine-tuning
+this really aims to achieve task
+specific performance without the high
+costs that are associated with extensive
+fine-tuning and this is really achieved
+by avoiding any changes to the model
+itself so here you could think of this
+as tuning smaller models by adding
+additional parameters is not altering
+what exists so for this you can see this
+more around hundreds to thousands of
+label data sources uh and we see
+different types of cost-effective ways
+to apply parameter efficient fine tuning
+some of these types that you may have
+heard of may include prefix tuning
+prompt tuning ptuning Laura but these
+are all methods of parameter efficient
+fine-tuning so let's drive this home an
+analogy let's say you buy a home you
+move in congratulations everything's
+perfect but after a couple of months you
+discover that it actually snows quite a
+bit more uh in your environment than
+what you thought it would and it gets a
+lot colder and initially you had windows
+that served you quite well in the summer
+but now that it's winter they no longer
+work it's really drafty so you decide to
+go and completely change the structure
+of your windows you put new windows in
+that provide you with insulation and you
+even get some really nice curtains to go
+along with that but on top of that it
+snows so much more so now you actually
+have to go on and buy a ton of new
+equipment you have to buy snow plow snow
+shovel snow boots snow tires and
+actually build yourself a garage to
+store all of this this is an example of
+fine tuning in the sense that you are
+making structural changes to the
+architecture of your house how this
+would relate to the model making
+structural changes to the underlying
+parameters if we look at what this would
+mean for p well perhaps here you're not
+going to do anything to actually change
+the underlying structure maybe instead
+of rebuilding your windows you put a
+towel under there to block the draft
+instead of building a garage to house
+all of your new snow equipment maybe you
+reuse something you already have and you
+just use your broom and use that to
+scrape snow away so it's helpful to
+consider here that there's different
+methods that make sense for different
+use cases perhaps in some we mentioned
+earlier you can get everything you need
+in your output from prompt engineering
+as you need to make your models tuned
+for more specific use cases it's helpful
+to have different methods of doing so
+and working with a partner or vendor
+that provides you with the ability to
+explore different parameter efficient
+fine-tuning methods as well as
+fine-tuning for when you really need it
+because then you have the advantage of
+selecting the most cost effective method
+for your needs now we're going to move
+on to discuss evaluating factor six
+which is when do you need to host a
+model now there are different
+circumstances that would require you to
+actually have to host a model to then go
+back and interact with it in these ways
+that we discussed before for inferencing
+and things of that sort now if you are
+going to make an llm available for you
+use there are two ways to go about doing
+it one would be hosting it or one would
+be using an inference API Each of which
+becomes relevant depending on whether or
+not you're going to fine-tune a model so
+if you're not fine-tuning a model and
+you're going to use some of those
+earlier methods we discussed where maybe
+you're using parameter efficient
+fine-tuning or you're using prompt
+engineering this is when you can go on
+and us an API for inferencing and
+essentially what this means is that
+you're going to stay consistent with
+those initial cost factors that we
+described with the token unit of driving
+price and cost and compute and here the
+llm is predeployment as
+you need it again as I mentioned the
+cost for inference when you're using an
+API inference is based on the number of
+tokens that have been processed by The
+Prompt plus the completion of that
+prompt via the API call this again is
+used when you're not making changes to
+the underlying model so you're not
+fine-tuning and you're not bringing
+something new in that's not already
+hosted by your platform the other way we
+consider hosting is actually when it
+becomes relevant when you are
+fine-tuning or you are bringing your own
+model at that point you are required to
+then go and host that model because
+you're essentially creating either a
+forked version or bringing something new
+in and in this case the llm is actually
+made available for deployment by the
+platform Provider by taking this in and
+so for this you could think of it as
+rather than phoning a friend because
+they don't have access to a phone you
+actually build them a room in your house
+and that's where they are for easy
+access whenever you need to chat them up
+so when we're talking about how we think
+about cost factors when you are actually
+hosting a new forked version of the
+model on top of what you use with your
+tokens for prompting you also have to
+consider in the hours that are required
+for
+hosting this model and again you would
+pay for hours based off of the amount of
+time that you want to interact with the
+model so if this is something you need
+to interact with all the time you'd be
+paying the hour cost for 24x7 access to
+this model now again it's it's very
+important to realize that different use
+cases and circumstances are going to
+require different methods of connecting
+to your model it's helpful to have a
+vendor or partner that actually allows
+you to interact with your model in
+numerous ways if you do need to host it
+with fine tuning to have that option but
+you know if you can do an API inference
+to also have the ability to access it in
+that way as well
+and now we've made it to our seventh
+cost factor which is deployment
+now when we think about deployment every
+industry has different standards and
+every business has different needs so we
+are referring to where you're putting
+the platform and the cost of using
+generative AI can vary significantly
+depending on whether you choose SAS or
+an on-prem deployment so when we talk
+about SAS there are some benefits here
+when it comes to cost standpoint uh
+first of all you're using a subscription
+feed this is often a predictable and
+manage
+cost structure as you're paying that
+recurring fee to access the AI service
+you have a different approach to the
+infrastructure here you're not going out
+and procuring your own hardware and data
+centers you are um avoiding that aspect
+of the cost and when it comes to
+scalability you have the ability to
+increase or decrease usage as needed and
+again all of the maintenance and updates
+to the infrastructure are included the
+big thing here is that when it comes to
+generative AI a lot of people are
+concerned about acquiring gpus with this
+you don't need to go out and procure
+your own gpus the SAS providers are
+actually sharing those GPU resources
+across multiple users so it ends up
+being more cost effective for the end
+user on the other end we have on premise
+now for some Industries there are
+regulations that require you to do
+things on Prem and you're not allowed to
+host your data in the cloud and for that
+there are solutions out there for on
+premise deployments as well what's
+important to note here though is that
+you are required to purchase and
+maintain those gpus uh the amount of
+which would be contingent to the amount
+of compute that is required um based off
+of your inferencing tuning model
+selection but you do have the benefit
+here of having full control over the
+architecture and how your data is
+deployed there are no black boxes so
+again depending on your use case in
+Industry you might have different needs
+but the recommendation here is to find a
+partner or vendor to work with that can
+meet you where you're at that can
+provide you with the opportunity to
+leverage generative AI whether in the
+cloud or on premise thank you for
+watching if you've liked this video and
+you want to see more like it please like
+And subscribe if you have any questions
+please drop them in the comments below

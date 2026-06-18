@@ -1,0 +1,119 @@
+[Music]
+If you own a home, budgeting for big improvements can feel like you’re trying to build a castle in the sky.
+Say you want to go net-zero with solar panels and other new sustainable technologies, not just to save money,
+...but also to make your home more resilient to external events, like thousand-year storms and heatwaves.
+This challenge isn’t only relevant for domestic life.
+Business leaders budgeting for major transformational technology initiatives
+face it as well, especially when it comes to Generative AI.
+Welcome to AI Academy.
+I’m Anthony Marshall, Senior Research Director of Thought Leadership at the IBM Institute for Business Value.
+In my role, I translate data and trends into narratives that help business leaders make sense of what’s happening around them.
+We recently conducted surveys of today’s top business leaders, executives, and CEOs, gaining new insights about,
+...how they are budgeting for Generative AI and how they’re benchmarking their performance against peers.
+This episode is designed to help you sharpen your understanding of how to budget for Generative AI.
+Business leaders know they need to invest wisely in Generative AI,
+...but what are they really investing in and how are they going to pay for it?
+Let’s take our home improvement example and apply it to your business.
+Budgeting for Gen AI isn’t so different from household budgeting or even traditional business budgeting, until it is.
+But that’s what we often find when we talk to clients.
+They’re saying, we’ve run Gen AI through all our predictive and forecasting budgets,
+...and applied assumptions we’ve been using for years, but it’s not working for Gen AI.
+And that’s the tricky part.
+Budgeting for Gen AI is different for budgeting for regular capital expenditure.
+It’s thrown a wrench in traditional budgeting processes.
+If you treat Gen AI like traditional technology investment, it may never get funded.
+It’s equivalent to ceding infrastructure in a factory investment.
+If you treat Gen AI like business model innovation investment, it can be perceived as being way too risky or too remote,
+...or something that takes 10 years to produce a yield,
+...while at the same time,
+...we know that investing in Gen AI is essential for business to move forward and keep up with competitors and peers.
+Our CEO surveying is telling us that product and service innovation,
+...has jumped up to be the single most important thing on CEO’s minds today.
+They know they need to drive efficiency, but they’re also thinking,
+...how do I go from an efficiency story to a product and service innovation story, and how do I use Generative AI to get there?
+When it comes to the costs of Generative AI, a lot of attention has been directed
+to the cost of scaling AI models and cost of compute.
+Our most recent data shows that business leaders are finding infrastructure, cloud, and data to be the three,
+...biggest cost buckets associated with Gen AI, with those three things alone accounting for over 40% of Gen AI costs.
+Business leaders we’ve surveyed expect cloud costs to be double that of model costs.
+So big costs are coming from processing data through AI models, not necessarily from creating models themselves.
+But no matter what the actual spend ends up being,
+...where does the money come from to pay for things like infrastructure, data, and cloud?
+You can be forgiven for thinking that evidence today isn’t entirely clear.
+Our surveying shows perspectives and actions are a bit contradictory,
+...with very clear evidence of one thing, that investment in Gen AI is increasing.
+But when we ask leaders where the money for Gen AI investment is coming from,
+only 18% say it’s from net-new spend.
+Most tech executives are taking big portions of their Gen AI budgets from other parts of their business,
+...especially from elsewhere in the IT portfolio.
+About a third of executives tell us that money for Gen AI is coming out of budgets not even related to AI spend.
+There’s no one-size-fits-all when it comes to budgeting for Generative AI.
+But is there something that might work better?
+Some business leaders are now saying that all Generative AI spend
+should be self-funding, that AI spend should be cost neutral.
+But in practice, is a cost-neutral budget for Generative AI possible?
+And if it is, what resources and knowledge are needed to make it happen?
+Is there technology with high-potential cost savings,
+...that could be reinvested in Gen AI without sacrificing AI project or overall business performance.
+Let’s go back to our net-zero household.
+Could we reduce some of their expenses?
+Home entertainment or meals or travel, to buy some solar-ready heat pumps.
+We asked business leaders how viable this idea is for Generative AI spend today.
+While Generative AI is partially self-funding today,
+...not a single executive we surveyed said Generative AI will be at 100% self-funding before 2026.
+Yet, almost three quarters said Generative AI should be self-funding to justify its investment.
+Something has got to give, and it likely will.
+Right now, an average Gen AI investment takes almost 14 months to deliver positive ROI,
+...compared to 10 months for other technology investments.
+But that’s set to change.
+As more people embrace smaller, more targeted AI models, combined with more agile approaches,
+...it’s likely that AI investments will start beating other IT investments in terms of ROI soon.
+Even when you self-finance Generative AI projects, there’s still the matter of proving that the investment was a good one.
+It can be challenging to measure ROI of investments,
+...especially when you’re doing new things in new ways that haven’t even been conceived before,
+...as is often the case, when it comes to Generative AI.
+We are at an inflection point where some organizations are starting to see rapid ROI and others aren’t, at least for now.
+It raises an interesting question.
+Should Gen AI investment prioritize projects where strategic benefits are difficult to quantify?
+Or should they focus on more narrow tasks or workflows that are less transformational and ambitious,
+...but more likely to have immediate financial benefits?
+Because business leaders recognize that while Gen AI remains relatively new,
+...it’s an absolutely essential technology for long-term success.
+And business leaders are optimistic that obstacles of measurement in ROI will resolve over time.
+As Gen AI projects scale up beyond pilots, they will yield benefits that are easier to measure.
+And new metrics will likely emerge that are easier to gauge.
+We do a lot of surveying about Generative AI and three big budgeting mistakes consistently emerge.
+First, not addressing bias concerns, and this may seem strange when it comes to AI budgeting.
+Bias, like security, is a very big challenge for Generative AI.
+Lots of people underestimate it.
+But by not addressing bias in projects from the beginning, you’re risking major cost blowouts later on.
+So think about it early and add contingency.
+Second, underestimating total cost of ownership.
+Creating a Gen AI application is one thing,
+...but what about other more indirect costs – cost of deploying or retraining, or changing your organization.
+We already know that one of the most important aspects of Generative AI is its interaction with people.
+But have you planned for new ways of working, and have you factored in its costs?
+Third is about underestimating integration costs.
+Gen AI doesn’t sit alone.
+It often requires data from systems within and without your organization and your ecosystem.
+How is it integrated with your systems and processes into all those things that make AI useful?
+It needs to be understood right from the start.
+Business leaders are already taking leaps of faith with Generative AI, and they’re beginning to track its benefits.
+Many are reinvesting saving or revenue from today’s Generative AI successes into tomorrow’s Generative AI moonshots.
+Our data says 3 in 4 business leaders are thinking of Generative AI more like an innovation investment than traditional IT.
+So if I had one single piece of advice, it would be to take a self-funded leap.
+Take a wide-angle view,
+...to understand how Generative AI projects tap human and technical resources to more accurately budget for unexpected costs.
+To bring it all together, you can either invest in Generative AI,
+...to solve existing problems or you can invest in it to unlock new capabilities.
+Our surveying shows that about half of Generative AI investment goes toward enabling new capabilities.
+But executives would like to see that closer to 60%.
+Rethinking what Generative AI investment means to your business today and what it represents to your business tomorrow,
+...shapes how you go about funding and capturing value.
+And thinking back to our net-zero household example, what would those
+net-zero tech investments represent to your life tomorrow? More comfort,
+more peace of mind because you have more options, ...or new capabilities to better control your environment,
+...the next time a category 4 storm heads your way or the next time the electricity grid goes down for days.
+When it comes to investing in Generative AI for business, what does your business of the future really look like?
+Conceptualize your answer to that and start from there.
+[Music]

@@ -1,0 +1,5 @@
+Grounded answer rules
+
+A grounded RAG answer should cite the retrieved evidence inline using stable reference identifiers such as [R1] and [R2].
+The answer should end with a References section that repeats the source metadata for each cited chunk.
+If the retrieved context is insufficient, the answer should say so instead of inventing unsupported claims.

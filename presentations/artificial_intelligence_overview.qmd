@@ -1,0 +1,73 @@
+---
+title: "Artificial Intelligence Overview"
+format: pptx
+---
+
+## Artificial Intelligence: An Overview
+
+- Exploring the technology reshaping our world
+- From research to real-world impact
+- Current trends, applications, and future outlook
+
+## What Is Artificial Intelligence?
+
+- Simulation of human intelligence by machines
+- Encompasses learning, reasoning, and problem-solving
+- Types: Narrow AI (task-specific) vs. General AI (human-like)
+- Evolved from rule-based systems to advanced neural networks
+- Now embedded in everyday tools and enterprise systems
+
+## Key AI Technologies
+
+- Machine Learning — algorithms that learn from data
+- Deep Learning — neural networks with multiple layers
+- Natural Language Processing — understanding human language
+- Computer Vision — interpreting visual information
+- Generative AI — creating new content (text, images, code)
+- Reinforcement Learning — learning through trial and reward
+
+## Real-World Applications
+
+- Healthcare — diagnostics, drug discovery, personalized treatment
+- Finance — fraud detection, algorithmic trading, risk assessment
+- Retail — recommendation engines, inventory optimization
+- Manufacturing — predictive maintenance, quality control
+- Transportation — autonomous vehicles, route optimization
+- Education — personalized learning, automated grading
+
+## Benefits of AI
+
+- Automation of repetitive and time-consuming tasks
+- Faster, data-driven decision making
+- Improved accuracy and reduced human error
+- 24/7 availability without fatigue
+- Scalability across industries and use cases
+- Enhanced customer experiences through personalization
+- Unlocking insights from large, complex datasets
+
+## Challenges and Risks
+
+- Bias and fairness in AI decision-making
+- Job displacement and workforce transformation
+- Privacy concerns with data collection and usage
+- Lack of transparency and explainability
+- Security vulnerabilities and adversarial attacks
+- Regulatory and ethical compliance gaps
+- Over-reliance on AI systems without human oversight
+
+## Future Trends and Outlook
+
+- Multimodal AI combining text, image, audio, and video
+- AI agents that autonomously plan and execute tasks
+- Edge AI — running models on devices for low latency
+- AI-driven scientific discovery and research acceleration
+- Stricter regulation and governance frameworks
+- Human-AI collaboration as the new standard of work
+- Responsible AI development with built-in safety measures
+
+## Thank You
+
+- AI is transforming every industry — the question is how, not if
+- Stay informed, adapt quickly, and use AI responsibly
+- Questions?
+

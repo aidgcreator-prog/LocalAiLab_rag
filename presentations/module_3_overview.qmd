@@ -1,0 +1,16 @@
+---
+title: "Module 3 Overview"
+format: pptx
+---
+
+## Module 3: Using AI Responsibly – Ethical & Governance Principles
+
+- Key Learning Objectives:
+- - Understand the legal and regulatory landscape for AI in ASEAN (EU AI Act, Singapore Model AI Governance Framework) (1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline.pdf-1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline_efd5afde18_32)
+- - Identify industry standards and best practices for responsible AI deployment (1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline.pdf-1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline_efd5afde18_32)
+- - Apply transparency, explainability, and accountability principles to AI solutions (1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline.pdf-1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline_efd5afde18_23)
+- Brief Overview of Ethical Principles:
+- - Transparency & Explainability (XAI) – ability to explain AI decisions, especially with complex models (1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline.pdf-1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline_efd5afde18_23)
+- - Accountability – defining responsibility for AI outcomes and errors (1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline.pdf-1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline_efd5afde18_23)
+- - Environmental Impact – considering energy consumption of large AI models and choosing energy‑efficient solutions (1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline.pdf-1.1_AIM ASEAN Programme_ AI for MSME Advancement in ASEAN Curriculum Outline_efd5afde18_26)
+

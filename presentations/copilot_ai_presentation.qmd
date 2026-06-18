@@ -1,0 +1,59 @@
+---
+title: "Copilot AI Presentation"
+format: pptx
+---
+
+## Copilot AI: AI‑Powered LinkedIn Outbound
+
+- • AI‑powered LinkedIn outbound platform
+- • Three self‑trained agents: Strategy, Targeting, Reply
+- • Scales outbound sales without adding headcount
+
+## The Problem
+
+- • Manual SDR work is time‑consuming
+- • Low scalability and high customer acquisition cost
+- • Repetitive tasks drain resources
+
+## Copilot AI Solution
+
+- • End‑to‑end automation: Strategy → Targeting → Reply
+- • AI agents learn from each other and from your data
+- • Launch campaigns in minutes, pipeline starts in days
+
+## How It Works
+
+- 1️⃣ Strategy Agent: builds outbound plan
+- 2️⃣ Targeting Agent: creates audience segments & writes outreach
+- 3️⃣ Reply Agent: manages conversations, handles objections, books meetings
+
+## Key Results
+
+- • 2.1 M LinkedIn connections added
+- • 35 % high‑intent conversations
+- • 65 K+ high‑value meetings booked
+
+## Use Cases
+
+- • B2B Sales
+- • Business Services
+- • Financial Advisors
+- • B2B Agencies
+
+## Customer Success
+
+- \"5 new households ≈ $3.3 M in assets\" – Sheena Schreiner
+- \"200 introductions → 70 meetings\" – Aaron Curry
+- \"70 % of revenue from Copilot AI\" – Chantil Ellenburg
+
+## Pricing & Trial
+
+- • Free trial available
+- • Pricing tiers on website
+
+## Next Steps
+
+- • Sign up for free trial
+- • Schedule a demo
+- • Integrate with LinkedIn Sales Navigator
+

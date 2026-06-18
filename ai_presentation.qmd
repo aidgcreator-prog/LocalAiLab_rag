@@ -1,0 +1,45 @@
+---
+title: "Artificial Intelligence: The Future of Innovation"
+subtitle: "Exploring the Landscape, Capabilities, and Challenges of AI"
+format: pptx
+---
+
+## Introduction to AI
+
+- **What is Artificial Intelligence?**
+- The core concept: Simulating human intelligence in machines.
+- The goal: Creating systems capable of learning, reasoning, and problem-solving.
+- The impact: Transforming industries, economies, and daily life.
+
+## The Spectrum of Intelligence
+
+- **Narrow AI (ANI):** Specialized in specific tasks (e.g., facial recognition, recommendation engines).
+- **General AI (AGI):** Human-level intelligence across all domains (theoretical).
+- **Super AI (ASI):** Intelligence that surpasses human capabilities (theoretical).
+
+## The Technical Foundation
+
+- **Machine Learning (ML):** Algorithms that learn from data.
+- **Deep Learning (DL):** Neural networks inspired by the human brain.
+- **Reinforcement Learning (RL):** Learning through trial and error.
+
+## AI in Action: Industry Transformation
+
+- **Healthcare:** Disease diagnosis, drug discovery, personalized medicine.
+- **Finance:** Fraud detection, algorithmic trading, credit scoring.
+- ** $\text{Retail:}$** Personalized recommendations, inventory management, chatbots.
+- **Transportation:** Autonomous vehicles, route optimization, logistics.
+
+## The 2025–2026 Frontier
+
+- **Agentic AI:** AI Agents that can autonomously execute multi-step workflows.
+- **Multimodal AI:** Processing text, images, audio, and video simultaneously.
+- **RAG (Retrieval-Augmented Generation):** Connecting LLMs to live, trusted data.
+- **Edge AI:** Running powerful models directly on devices.
+
+## Ethical Considerations
+
+- **Bias and Fairness:** Preventing algorithmic discrimination.
+- **Transparency and Explainability:** The "Black Box" problem.
+- **Privacy and Security:** Protecting data and preventing deepfakes.
+- **Economic Impact:** Navigating job displacement and automation.

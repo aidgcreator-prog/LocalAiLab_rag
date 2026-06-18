@@ -1,0 +1,2624 @@
+[SEARCH] Found 2 result(s) for 'current weather in Phnom Penh, Cambodia':
+
+## Weather in Phnom Penh, Cambodia
+**URL:** https://www.weatherapi.com/
+
+Free Weather API - WeatherAPI.com
+
+
+
+
+[![WeatherAPI.com Logo](//cdn.weatherapi.com/v4/images/weatherapi_logo.png)](/ "Free Weather API Home")
+
+ 
+ 
+ 
+
+* [Features](/api.aspx "Weather API")
+* [Pricing](/pricing.aspx "Weather API Pricing")
+* [API Explorer](/api-explorer.aspx "Test our Weather API")
+* [Docs](/docs/ "Weather API Documentation")
+* [Weather](/weather/ "Search for weather")
+* [Contact](/contact.aspx "Contact Us")
+* [Signup](/signup.aspx "Weather API Signup")
+* [Login](/login.aspx "WeatherAPI.com Login")
+
+JSON and XML Weather API and Geolocation Developer API
+======================================================
+
+Designed for developers by developers, Weather API is the ultimate weather and geolocation API trusted by 850,000+ users worldwide. Integrate weather in .
+
+[Sign Up](/signup.aspx)
+[View Docs](/docs/)
+
+![](//cdn.weatherapi.com/v5/assets/images/promo-figure-alt.svg)
+
+### Real Time, Forecasted, Future, Marine and Historical Weather
+
+Free Weather Forecast in JSON and XML for commercial and non-commercial use
+
+##### Real-time Weather API
+
+Real-time or current JSON weather and XML weather API provides access to near real-time weather information including pollen for millions of locations worldwide by global collaborations of weather stations and high resolution local weather models.
+
+[Learn more →](/api.aspx)
+
+##### Historical and Future Weather
+
+14 day daily, hourly and 15 min interval weather forecast, future weather (upto 365 days ahead), solar irradiance, pollen, marine weather and hourly historical weather (from 2010 onwards) for millions of cities and towns around the world in JSON and XML format.
+
+[Learn more →](/api.aspx)
+
+##### Geolocation API
+
+Air Quality Data, Pollen, Time zone, Astronomy, IP lookup, Sports API, Currency API, Map API and Geo API.
+
+[Learn more →](/api.aspx)
+
+##### Technology
+
+Lightweight XML and JSON format with 200 ms average response time. Bulk request with complete weather API documentation. APIs auto select using AI and machine learning from our global weather stations and high resolution weather models to deliver most reliable weather for given location anywhere in the world.
+
+[View docs →](/docs/)
+
+[View All Features](/api.aspx)
+
+### High Resolution, Real time, Commercial and non-commercial use JSON and XML Weather API
+
+Access to real time global weather stations and millions of high resolution (1 to 11 km) weather points for Hourly, Daily and **15 min** interval weather, history, marine, astronomy, solar irradiance, air quality data, pollen, evapotranspiration, sports, bulk request and much more.
+
+![](//cdn.weatherapi.com/v5/assets/images/streamline-free/monitor-loading-progress.svg)
+
+##### 1Upgrade Anytime
+
+Signup for Free Weather API and then upgrade at anytime. No long term commitments.
+
+![](//cdn.weatherapi.com/v5/assets/images/streamline-free/monitor-window.svg)
+
+##### 2Scalable with 99.99% uptime
+
+We manage the infrastructure, hardware and network. While you simply enjoy the weather forecast data and leave rest on us.
+
+![](//cdn.weatherapi.com/v5/assets/images/streamline-free/monitor-cash-credit-card.svg)
+
+##### 3Launch
+
+All data in lightweight, simple and easy JSON and XML format. Bulk request.
+
+[Current Weather Example](#tab-content-1)
+[Forecast Example](#tab-content-2)
+[History Example](#tab-content-3)
+[Search/Autocomplete Example](#tab-content-4)
+[Astronomy Example](#tab-content-5)
+
+```
+{
+  "location": {
+    "name": "London",
+    "region": "City of London, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.52,
+    "lon": -0.11,
+    "tz_id": "Europe/London",
+    "localtime_epoch": 1613896955,
+    "localtime": "2021-02-21 8:42"
+  },
+  "current": {
+    "last_updated_epoch": 1613896210,
+    "last_updated": "2021-02-21 08:30",
+    "temp_c": 11,
+    "temp_f": 51.8,
+    "is_day": 1,
+    "condition": {
+      "text": "Partly cloudy",
+      "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+      "code": 1003
+    },
+    "wind_mph": 3.8,
+    "wind_kph": 6.1,
+    "wind_degree": 220,
+    "wind_dir": "SW",
+    "pressure_mb": 1009,
+    "pressure_in": 30.3,
+    "precip_mm": 0.1,
+    "precip_in": 0,
+    "humidity": 82,
+    "cloud": 75,
+    "feelslike_c": 9.5,
+    "feelslike_f": 49.2,
+    "vis_km": 10,
+    "vis_miles": 6,
+    "uv": 1,
+    "gust_mph": 10.5,
+    "gust_kph": 16.9,
+    "air_quality": {
+      "co": 230.3,
+      "no2": 13.5,
+      "o3": 54.3,
+      "so2": 7.9,
+      "pm2_5": 8.6,
+      "pm10": 11.3,
+      "us-epa-index": 1,
+      "gb-defra-index": 1
+    }
+  }
+}
+                                
+							
+```
+
+```
+{
+  "location": {
+    "name": "London",
+    "region": "City of London, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.52,
+    "lon": -0.11,
+    "tz_id": "Europe/London",
+    "localtime_epoch": 1572750327,
+    "localtime": "2019-11-03 3:05"
+  },
+  "current": {
+    "temp_c": 9,
+    "temp_f": 48.2,
+    "is_day": 0,
+    "condition": {
+      "text": "Clear",
+      "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+      "code": 1000
+    },
+    "wind_mph": 6.9,
+    "wind_kph": 11.2,
+    "wind_degree": 220,
+    "wind_dir": "SW",
+    "pressure_mb": 979,
+    "pressure_in": 29.4,
+    "precip_mm": 0,
+    "precip_in": 0,
+    "humidity": 81,
+    "cloud": 0,
+    "feelslike_c": 7.2,
+    "feelslike_f": 45,
+    "vis_km": 10,
+    "vis_miles": 6,
+    "uv": 0,
+    "gust_mph": 16.3,
+    "gust_kph": 26.3
+  },
+  "forecast": {
+    "forecastday": [
+      {
+        "date": "2019-11-03",
+        "date_epoch": 1572739200,
+        "day": {
+          "maxtemp_c": 13.2,
+          "maxtemp_f": 55.8,
+          "mintemp_c": 9.2,
+          "mintemp_f": 48.6,
+          "avgtemp_c": 10.9,
+          "avgtemp_f": 51.7,
+          "maxwind_mph": 12.1,
+          "maxwind_kph": 19.4,
+          "totalprecip_mm": 1.1,
+          "totalprecip_in": 0.04,
+          "avgvis_km": 10,
+          "avgvis_miles": 6,
+          "avghumidity": 73,
+          "condition": {
+            "text": "Heavy rain at times",
+            "icon": "//cdn.weatherapi.com/weather/64x64/day/305.png",
+            "code": 1192
+          },
+          "uv": 1
+        },
+        "astro": {
+          "sunrise": "06:57 AM",
+          "sunset": "04:30 PM",
+          "moonrise": "01:27 PM",
+          "moonset": "09:45 PM",
+          "moon_phase": "Waxing Crescent",
+          "moon_illumination": "39"
+        },
+        "hour": [
+          {
+            "time_epoch": 1572739200,
+            "time": "2019-11-03 00:00",
+            "temp_c": 10,
+            "temp_f": 50,
+            "is_day": 0,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/116.png",
+              "code": 1003
+            },
+            "wind_mph": 12.1,
+            "wind_kph": 19.4,
+            "wind_degree": 229,
+            "wind_dir": "SW",
+            "pressure_mb": 979,
+            "pressure_in": 29.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 69,
+            "cloud": 39,
+            "feelslike_c": 7.4,
+            "feelslike_f": 45.3,
+            "windchill_c": 7.4,
+            "windchill_f": 45.3,
+            "heatindex_c": 10,
+            "heatindex_f": 50,
+            "dewpoint_c": 4.5,
+            "dewpoint_f": 40.1,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572742800,
+            "time": "2019-11-03 01:00",
+            "temp_c": 9.9,
+            "temp_f": 49.8,
+            "is_day": 0,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/116.png",
+              "code": 1003
+            },
+            "wind_mph": 10.5,
+            "wind_kph": 16.9,
+            "wind_degree": 229,
+            "wind_dir": "SW",
+            "pressure_mb": 979,
+            "pressure_in": 29.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 69,
+            "cloud": 29,
+            "feelslike_c": 7.6,
+            "feelslike_f": 45.7,
+            "windchill_c": 7.6,
+            "windchill_f": 45.7,
+            "heatindex_c": 9.9,
+            "heatindex_f": 49.8,
+            "dewpoint_c": 4.5,
+            "dewpoint_f": 40.1,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572746400,
+            "time": "2019-11-03 02:00",
+            "temp_c": 9.8,
+            "temp_f": 49.6,
+            "is_day": 0,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/116.png",
+              "code": 1003
+            },
+            "wind_mph": 9.2,
+            "wind_kph": 14.8,
+            "wind_degree": 229,
+            "wind_dir": "SW",
+            "pressure_mb": 979,
+            "pressure_in": 29.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 70,
+            "cloud": 20,
+            "feelslike_c": 7.7,
+            "feelslike_f": 45.9,
+            "windchill_c": 7.7,
+            "windchill_f": 45.9,
+            "heatindex_c": 9.8,
+            "heatindex_f": 49.6,
+            "dewpoint_c": 4.5,
+            "dewpoint_f": 40.1,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572750000,
+            "time": "2019-11-03 03:00",
+            "temp_c": 9.7,
+            "temp_f": 49.5,
+            "is_day": 0,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/116.png",
+              "code": 1003
+            },
+            "wind_mph": 7.6,
+            "wind_kph": 12.2,
+            "wind_degree": 229,
+            "wind_dir": "SW",
+            "pressure_mb": 978,
+            "pressure_in": 29.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 70,
+            "cloud": 11,
+            "feelslike_c": 7.9,
+            "feelslike_f": 46.2,
+            "windchill_c": 7.9,
+            "windchill_f": 46.2,
+            "heatindex_c": 9.7,
+            "heatindex_f": 49.5,
+            "dewpoint_c": 4.5,
+            "dewpoint_f": 40.1,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572753600,
+            "time": "2019-11-03 04:00",
+            "temp_c": 9.5,
+            "temp_f": 49.1,
+            "is_day": 0,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/116.png",
+              "code": 1003
+            },
+            "wind_mph": 7.4,
+            "wind_kph": 11.9,
+            "wind_degree": 227,
+            "wind_dir": "SW",
+            "pressure_mb": 979,
+            "pressure_in": 29.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 71,
+            "cloud": 16,
+            "feelslike_c": 7.8,
+            "feelslike_f": 46,
+            "windchill_c": 7.8,
+            "windchill_f": 46,
+            "heatindex_c": 9.5,
+            "heatindex_f": 49.1,
+            "dewpoint_c": 4.5,
+            "dewpoint_f": 40.1,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572757200,
+            "time": "2019-11-03 05:00",
+            "temp_c": 9.4,
+            "temp_f": 48.9,
+            "is_day": 0,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/116.png",
+              "code": 1003
+            },
+            "wind_mph": 7.2,
+            "wind_kph": 11.5,
+            "wind_degree": 225,
+            "wind_dir": "SW",
+            "pressure_mb": 979,
+            "pressure_in": 29.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 71,
+            "cloud": 20,
+            "feelslike_c": 7.6,
+            "feelslike_f": 45.7,
+            "windchill_c": 7.6,
+            "windchill_f": 45.7,
+            "heatindex_c": 9.4,
+            "heatindex_f": 48.9,
+            "dewpoint_c": 4.4,
+            "dewpoint_f": 39.9,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572760800,
+            "time": "2019-11-03 06:00",
+            "temp_c": 9.2,
+            "temp_f": 48.6,
+            "is_day": 0,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/116.png",
+              "code": 1003
+            },
+            "wind_mph": 6.9,
+            "wind_kph": 11.2,
+            "wind_degree": 223,
+            "wind_dir": "SW",
+            "pressure_mb": 980,
+            "pressure_in": 29.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 72,
+            "cloud": 25,
+            "feelslike_c": 7.5,
+            "feelslike_f": 45.5,
+            "windchill_c": 7.5,
+            "windchill_f": 45.5,
+            "heatindex_c": 9.2,
+            "heatindex_f": 48.6,
+            "dewpoint_c": 4.4,
+            "dewpoint_f": 39.9,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572764400,
+            "time": "2019-11-03 07:00",
+            "temp_c": 9.5,
+            "temp_f": 49.1,
+            "is_day": 1,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+              "code": 1003
+            },
+            "wind_mph": 6.9,
+            "wind_kph": 11.2,
+            "wind_degree": 222,
+            "wind_dir": "SW",
+            "pressure_mb": 980,
+            "pressure_in": 29.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 72,
+            "cloud": 28,
+            "feelslike_c": 7.8,
+            "feelslike_f": 46,
+            "windchill_c": 7.8,
+            "windchill_f": 46,
+            "heatindex_c": 9.5,
+            "heatindex_f": 49.1,
+            "dewpoint_c": 4.6,
+            "dewpoint_f": 40.3,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572768000,
+            "time": "2019-11-03 08:00",
+            "temp_c": 9.7,
+            "temp_f": 49.5,
+            "is_day": 1,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+              "code": 1003
+            },
+            "wind_mph": 6.9,
+            "wind_kph": 11.2,
+            "wind_degree": 222,
+            "wind_dir": "SW",
+            "pressure_mb": 981,
+            "pressure_in": 29.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 71,
+            "cloud": 30,
+            "feelslike_c": 8.1,
+            "feelslike_f": 46.6,
+            "windchill_c": 8.1,
+            "windchill_f": 46.6,
+            "heatindex_c": 9.7,
+            "heatindex_f": 49.5,
+            "dewpoint_c": 4.8,
+            "dewpoint_f": 40.6,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572771600,
+            "time": "2019-11-03 09:00",
+            "temp_c": 10,
+            "temp_f": 50,
+            "is_day": 1,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+              "code": 1003
+            },
+            "wind_mph": 6.9,
+            "wind_kph": 11.2,
+            "wind_degree": 222,
+            "wind_dir": "SW",
+            "pressure_mb": 981,
+            "pressure_in": 29.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 71,
+            "cloud": 33,
+            "feelslike_c": 8.4,
+            "feelslike_f": 47.1,
+            "windchill_c": 8.4,
+            "windchill_f": 47.1,
+            "heatindex_c": 10,
+            "heatindex_f": 50,
+            "dewpoint_c": 5,
+            "dewpoint_f": 41,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572775200,
+            "time": "2019-11-03 10:00",
+            "temp_c": 11,
+            "temp_f": 51.8,
+            "is_day": 1,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+              "code": 1003
+            },
+            "wind_mph": 7.2,
+            "wind_kph": 11.5,
+            "wind_degree": 222,
+            "wind_dir": "SW",
+            "pressure_mb": 982,
+            "pressure_in": 29.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 70,
+            "cloud": 43,
+            "feelslike_c": 9.5,
+            "feelslike_f": 49.1,
+            "windchill_c": 9.5,
+            "windchill_f": 49.1,
+            "heatindex_c": 11,
+            "heatindex_f": 51.8,
+            "dewpoint_c": 5.6,
+            "dewpoint_f": 42.1,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572778800,
+            "time": "2019-11-03 11:00",
+            "temp_c": 11.9,
+            "temp_f": 53.4,
+            "is_day": 1,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+              "code": 1003
+            },
+            "wind_mph": 7.6,
+            "wind_kph": 12.2,
+            "wind_degree": 223,
+            "wind_dir": "SW",
+            "pressure_mb": 982,
+            "pressure_in": 29.5,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 68,
+            "cloud": 53,
+            "feelslike_c": 10.7,
+            "feelslike_f": 51.3,
+            "windchill_c": 10.7,
+            "windchill_f": 51.3,
+            "heatindex_c": 11.9,
+            "heatindex_f": 53.4,
+            "dewpoint_c": 6.1,
+            "dewpoint_f": 43,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572782400,
+            "time": "2019-11-03 12:00",
+            "temp_c": 12.9,
+            "temp_f": 55.2,
+            "is_day": 1,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+              "code": 1003
+            },
+            "wind_mph": 7.8,
+            "wind_kph": 12.6,
+            "wind_degree": 223,
+            "wind_dir": "SW",
+            "pressure_mb": 983,
+            "pressure_in": 29.5,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 66,
+            "cloud": 62,
+            "feelslike_c": 11.8,
+            "feelslike_f": 53.2,
+            "windchill_c": 11.8,
+            "windchill_f": 53.2,
+            "heatindex_c": 12.9,
+            "heatindex_f": 55.2,
+            "dewpoint_c": 6.7,
+            "dewpoint_f": 44.1,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572786000,
+            "time": "2019-11-03 13:00",
+            "temp_c": 13,
+            "temp_f": 55.4,
+            "is_day": 1,
+            "condition": {
+              "text": "Light rain shower",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/353.png",
+              "code": 1240
+            },
+            "wind_mph": 7.2,
+            "wind_kph": 11.5,
+            "wind_degree": 228,
+            "wind_dir": "SW",
+            "pressure_mb": 983,
+            "pressure_in": 29.5,
+            "precip_mm": 0.1,
+            "precip_in": 0,
+            "humidity": 67,
+            "cloud": 63,
+            "feelslike_c": 12,
+            "feelslike_f": 53.6,
+            "windchill_c": 12,
+            "windchill_f": 53.6,
+            "heatindex_c": 13,
+            "heatindex_f": 55.4,
+            "dewpoint_c": 7.1,
+            "dewpoint_f": 44.8,
+            "will_it_rain": 0,
+            "chance_of_rain": "23",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572789600,
+            "time": "2019-11-03 14:00",
+            "temp_c": 13.1,
+            "temp_f": 55.6,
+            "is_day": 1,
+            "condition": {
+              "text": "Partly cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+              "code": 1003
+            },
+            "wind_mph": 6.7,
+            "wind_kph": 10.8,
+            "wind_degree": 233,
+            "wind_dir": "SW",
+            "pressure_mb": 982,
+            "pressure_in": 29.5,
+            "precip_mm": 0.2,
+            "precip_in": 0.01,
+            "humidity": 69,
+            "cloud": 64,
+            "feelslike_c": 12.3,
+            "feelslike_f": 54.1,
+            "windchill_c": 12.3,
+            "windchill_f": 54.1,
+            "heatindex_c": 13.1,
+            "heatindex_f": 55.6,
+            "dewpoint_c": 7.5,
+            "dewpoint_f": 45.5,
+            "will_it_rain": 0,
+            "chance_of_rain": "47",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572793200,
+            "time": "2019-11-03 15:00",
+            "temp_c": 13.2,
+            "temp_f": 55.8,
+            "is_day": 1,
+            "condition": {
+              "text": "Light rain shower",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/353.png",
+              "code": 1240
+            },
+            "wind_mph": 6,
+            "wind_kph": 9.7,
+            "wind_degree": 238,
+            "wind_dir": "WSW",
+            "pressure_mb": 982,
+            "pressure_in": 29.5,
+            "precip_mm": 0.3,
+            "precip_in": 0.01,
+            "humidity": 70,
+            "cloud": 65,
+            "feelslike_c": 12.5,
+            "feelslike_f": 54.5,
+            "windchill_c": 12.5,
+            "windchill_f": 54.5,
+            "heatindex_c": 13.2,
+            "heatindex_f": 55.8,
+            "dewpoint_c": 7.9,
+            "dewpoint_f": 46.2,
+            "will_it_rain": 0,
+            "chance_of_rain": "70",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572796800,
+            "time": "2019-11-03 16:00",
+            "temp_c": 12.7,
+            "temp_f": 54.9,
+            "is_day": 1,
+            "condition": {
+              "text": "Light rain shower",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/353.png",
+              "code": 1240
+            },
+            "wind_mph": 5.8,
+            "wind_kph": 9.4,
+            "wind_degree": 229,
+            "wind_dir": "SW",
+            "pressure_mb": 983,
+            "pressure_in": 29.5,
+            "precip_mm": 0.4,
+            "precip_in": 0.02,
+            "humidity": 75,
+            "cloud": 65,
+            "feelslike_c": 12,
+            "feelslike_f": 53.6,
+            "windchill_c": 12,
+            "windchill_f": 53.6,
+            "heatindex_c": 12.7,
+            "heatindex_f": 54.9,
+            "dewpoint_c": 8.2,
+            "dewpoint_f": 46.8,
+            "will_it_rain": 0,
+            "chance_of_rain": "68",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572800400,
+            "time": "2019-11-03 17:00",
+            "temp_c": 12.2,
+            "temp_f": 54,
+            "is_day": 0,
+            "condition": {
+              "text": "Light rain shower",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/353.png",
+              "code": 1240
+            },
+            "wind_mph": 5.4,
+            "wind_kph": 8.6,
+            "wind_degree": 221,
+            "wind_dir": "SW",
+            "pressure_mb": 983,
+            "pressure_in": 29.5,
+            "precip_mm": 0.6,
+            "precip_in": 0.02,
+            "humidity": 79,
+            "cloud": 65,
+            "feelslike_c": 11.4,
+            "feelslike_f": 52.5,
+            "windchill_c": 11.4,
+            "windchill_f": 52.5,
+            "heatindex_c": 12.2,
+            "heatindex_f": 54,
+            "dewpoint_c": 8.6,
+            "dewpoint_f": 47.5,
+            "will_it_rain": 0,
+            "chance_of_rain": "67",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572804000,
+            "time": "2019-11-03 18:00",
+            "temp_c": 11.7,
+            "temp_f": 53.1,
+            "is_day": 0,
+            "condition": {
+              "text": "Light rain shower",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/353.png",
+              "code": 1240
+            },
+            "wind_mph": 5.1,
+            "wind_kph": 8.3,
+            "wind_degree": 212,
+            "wind_dir": "SSW",
+            "pressure_mb": 983,
+            "pressure_in": 29.5,
+            "precip_mm": 0.7,
+            "precip_in": 0.03,
+            "humidity": 83,
+            "cloud": 65,
+            "feelslike_c": 10.9,
+            "feelslike_f": 51.6,
+            "windchill_c": 10.9,
+            "windchill_f": 51.6,
+            "heatindex_c": 11.7,
+            "heatindex_f": 53.1,
+            "dewpoint_c": 8.9,
+            "dewpoint_f": 48,
+            "will_it_rain": 0,
+            "chance_of_rain": "65",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572807600,
+            "time": "2019-11-03 19:00",
+            "temp_c": 11.4,
+            "temp_f": 52.5,
+            "is_day": 0,
+            "condition": {
+              "text": "Patchy rain possible",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/176.png",
+              "code": 1063
+            },
+            "wind_mph": 5.4,
+            "wind_kph": 8.6,
+            "wind_degree": 217,
+            "wind_dir": "SW",
+            "pressure_mb": 983,
+            "pressure_in": 29.5,
+            "precip_mm": 0.5,
+            "precip_in": 0.02,
+            "humidity": 83,
+            "cloud": 69,
+            "feelslike_c": 10.4,
+            "feelslike_f": 50.7,
+            "windchill_c": 10.4,
+            "windchill_f": 50.7,
+            "heatindex_c": 11.4,
+            "heatindex_f": 52.5,
+            "dewpoint_c": 8.6,
+            "dewpoint_f": 47.5,
+            "will_it_rain": 0,
+            "chance_of_rain": "70",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572811200,
+            "time": "2019-11-03 20:00",
+            "temp_c": 11,
+            "temp_f": 51.8,
+            "is_day": 0,
+            "condition": {
+              "text": "Light rain shower",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/353.png",
+              "code": 1240
+            },
+            "wind_mph": 5.8,
+            "wind_kph": 9.4,
+            "wind_degree": 222,
+            "wind_dir": "SW",
+            "pressure_mb": 983,
+            "pressure_in": 29.5,
+            "precip_mm": 0.3,
+            "precip_in": 0.01,
+            "humidity": 84,
+            "cloud": 72,
+            "feelslike_c": 10,
+            "feelslike_f": 50,
+            "windchill_c": 10,
+            "windchill_f": 50,
+            "heatindex_c": 11,
+            "heatindex_f": 51.8,
+            "dewpoint_c": 8.4,
+            "dewpoint_f": 47.1,
+            "will_it_rain": 1,
+            "chance_of_rain": "74",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572814800,
+            "time": "2019-11-03 21:00",
+            "temp_c": 10.7,
+            "temp_f": 51.3,
+            "is_day": 0,
+            "condition": {
+              "text": "Patchy rain possible",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/176.png",
+              "code": 1063
+            },
+            "wind_mph": 6,
+            "wind_kph": 9.7,
+            "wind_degree": 227,
+            "wind_dir": "SW",
+            "pressure_mb": 984,
+            "pressure_in": 29.5,
+            "precip_mm": 0.1,
+            "precip_in": 0,
+            "humidity": 84,
+            "cloud": 76,
+            "feelslike_c": 9.5,
+            "feelslike_f": 49.1,
+            "windchill_c": 9.5,
+            "windchill_f": 49.1,
+            "heatindex_c": 10.7,
+            "heatindex_f": 51.3,
+            "dewpoint_c": 8.1,
+            "dewpoint_f": 46.6,
+            "will_it_rain": 1,
+            "chance_of_rain": "79",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1572818400,
+            "time": "2019-11-03 22:00",
+            "temp_c": 10.6,
+            "temp_f": 51.1,
+            "is_day": 0,
+            "condition": {
+              "text": "Patchy light drizzle",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/263.png",
+              "code": 1150
+            },
+            "wind_mph": 7.2,
+            "wind_kph": 11.5,
+            "wind_degree": 229,
+            "wind_dir": "SW",
+            "pressure_mb": 983,
+            "pressure_in": 29.5,
+            "precip_mm": 0.3,
+            "precip_in": 0.01,
+            "humidity": 82,
+            "cloud": 69,
+            "feelslike_c": 9.2,
+            "feelslike_f": 48.6,
+            "windchill_c": 9.2,
+            "windchill_f": 48.6,
+            "heatindex_c": 10.6,
+            "heatindex_f": 51.1,
+            "dewpoint_c": 7.6,
+            "dewpoint_f": 45.7,
+            "will_it_rain": 1,
+            "chance_of_rain": "79",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 8.3,
+            "vis_miles": 5
+          },
+          {
+            "time_epoch": 1572822000,
+            "time": "2019-11-03 23:00",
+            "temp_c": 10.6,
+            "temp_f": 51.1,
+            "is_day": 0,
+            "condition": {
+              "text": "Patchy rain possible",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/176.png",
+              "code": 1063
+            },
+            "wind_mph": 8.3,
+            "wind_kph": 13.3,
+            "wind_degree": 231,
+            "wind_dir": "SW",
+            "pressure_mb": 983,
+            "pressure_in": 29.5,
+            "precip_mm": 0.5,
+            "precip_in": 0.02,
+            "humidity": 79,
+            "cloud": 62,
+            "feelslike_c": 8.8,
+            "feelslike_f": 47.8,
+            "windchill_c": 8.8,
+            "windchill_f": 47.8,
+            "heatindex_c": 10.6,
+            "heatindex_f": 51.1,
+            "dewpoint_c": 7.1,
+            "dewpoint_f": 44.8,
+            "will_it_rain": 1,
+            "chance_of_rain": "78",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 6.7,
+            "vis_miles": 4
+          }
+        ]
+      }
+    ]
+  },
+  "alert": {}
+}
+                                
+							
+```
+
+```
+{
+  "location": {
+    "name": "London",
+    "region": "City of London, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.52,
+    "lon": -0.11,
+    "tz_id": "Europe/London",
+    "localtime_epoch": 1572750389,
+    "localtime": "2019-11-03 3:06"
+  },
+  "forecast": {
+    "forecastday": [
+      {
+        "date": "2018-01-31",
+        "date_epoch": 1517356800,
+        "day": {
+          "maxtemp_c": 9.7,
+          "maxtemp_f": 49.5,
+          "mintemp_c": 4.5,
+          "mintemp_f": 40,
+          "avgtemp_c": 7.8,
+          "avgtemp_f": 46,
+          "maxwind_mph": 17.7,
+          "maxwind_kph": 28.4,
+          "totalprecip_mm": 0.22,
+          "totalprecip_in": 0.01,
+          "avgvis_km": 9,
+          "avgvis_miles": 5,
+          "avghumidity": 69,
+          "condition": {
+            "text": "Sunny",
+            "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png",
+            "code": 1000
+          },
+          "uv": 0
+        },
+        "astro": {
+          "sunrise": "07:41 AM",
+          "sunset": "04:48 PM",
+          "moonrise": "04:55 PM",
+          "moonset": "07:33 AM",
+          "moon_phase": "Waxing Gibbous",
+          "moon_illumination": "97"
+        },
+        "hour": [
+          {
+            "time_epoch": 1517356800,
+            "time": "2018-01-31 00:00",
+            "temp_c": 9.6,
+            "temp_f": 49.3,
+            "is_day": 0,
+            "condition": {
+              "text": "Overcast",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/122.png",
+              "code": 1009
+            },
+            "wind_mph": 14.3,
+            "wind_kph": 23,
+            "wind_degree": 231,
+            "wind_dir": "SW",
+            "pressure_mb": 1013,
+            "pressure_in": 30.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 90,
+            "cloud": 100,
+            "feelslike_c": 6.6,
+            "feelslike_f": 43.9,
+            "windchill_c": 6.6,
+            "windchill_f": 43.9,
+            "heatindex_c": 9.6,
+            "heatindex_f": 49.3,
+            "dewpoint_c": 8,
+            "dewpoint_f": 46.4,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517360400,
+            "time": "2018-01-31 01:00",
+            "temp_c": 9.7,
+            "temp_f": 49.4,
+            "is_day": 0,
+            "condition": {
+              "text": "Overcast",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/122.png",
+              "code": 1009
+            },
+            "wind_mph": 15.2,
+            "wind_kph": 24.5,
+            "wind_degree": 234,
+            "wind_dir": "SW",
+            "pressure_mb": 1012,
+            "pressure_in": 30.4,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 86,
+            "cloud": 100,
+            "feelslike_c": 6.5,
+            "feelslike_f": 43.7,
+            "windchill_c": 6.5,
+            "windchill_f": 43.7,
+            "heatindex_c": 9.6,
+            "heatindex_f": 49.3,
+            "dewpoint_c": 7.4,
+            "dewpoint_f": 45.2,
+            "will_it_rain": 0,
+            "chance_of_rain": "3",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517364000,
+            "time": "2018-01-31 02:00",
+            "temp_c": 9.7,
+            "temp_f": 49.4,
+            "is_day": 0,
+            "condition": {
+              "text": "Overcast",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/122.png",
+              "code": 1009
+            },
+            "wind_mph": 16.1,
+            "wind_kph": 25.9,
+            "wind_degree": 237,
+            "wind_dir": "WSW",
+            "pressure_mb": 1011,
+            "pressure_in": 30.3,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 82,
+            "cloud": 100,
+            "feelslike_c": 6.4,
+            "feelslike_f": 43.6,
+            "windchill_c": 6.4,
+            "windchill_f": 43.6,
+            "heatindex_c": 9.7,
+            "heatindex_f": 49.4,
+            "dewpoint_c": 6.7,
+            "dewpoint_f": 44.1,
+            "will_it_rain": 0,
+            "chance_of_rain": "3",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517367600,
+            "time": "2018-01-31 03:00",
+            "temp_c": 9.7,
+            "temp_f": 49.5,
+            "is_day": 0,
+            "condition": {
+              "text": "Overcast",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/122.png",
+              "code": 1009
+            },
+            "wind_mph": 17,
+            "wind_kph": 27.4,
+            "wind_degree": 240,
+            "wind_dir": "WSW",
+            "pressure_mb": 1010,
+            "pressure_in": 30.3,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 78,
+            "cloud": 100,
+            "feelslike_c": 6.4,
+            "feelslike_f": 43.5,
+            "windchill_c": 6.4,
+            "windchill_f": 43.5,
+            "heatindex_c": 9.7,
+            "heatindex_f": 49.5,
+            "dewpoint_c": 6,
+            "dewpoint_f": 42.9,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517371200,
+            "time": "2018-01-31 04:00",
+            "temp_c": 9.3,
+            "temp_f": 48.8,
+            "is_day": 0,
+            "condition": {
+              "text": "Overcast",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/122.png",
+              "code": 1009
+            },
+            "wind_mph": 15.7,
+            "wind_kph": 25.3,
+            "wind_degree": 239,
+            "wind_dir": "WSW",
+            "pressure_mb": 1009,
+            "pressure_in": 30.3,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 78,
+            "cloud": 100,
+            "feelslike_c": 6.1,
+            "feelslike_f": 42.9,
+            "windchill_c": 6.1,
+            "windchill_f": 42.9,
+            "heatindex_c": 9.3,
+            "heatindex_f": 48.8,
+            "dewpoint_c": 5.8,
+            "dewpoint_f": 42.4,
+            "will_it_rain": 0,
+            "chance_of_rain": "3",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517374800,
+            "time": "2018-01-31 05:00",
+            "temp_c": 8.9,
+            "temp_f": 48.1,
+            "is_day": 0,
+            "condition": {
+              "text": "Overcast",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/122.png",
+              "code": 1009
+            },
+            "wind_mph": 14.5,
+            "wind_kph": 23.3,
+            "wind_degree": 239,
+            "wind_dir": "WSW",
+            "pressure_mb": 1008,
+            "pressure_in": 30.2,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 79,
+            "cloud": 100,
+            "feelslike_c": 5.8,
+            "feelslike_f": 42.4,
+            "windchill_c": 5.8,
+            "windchill_f": 42.4,
+            "heatindex_c": 9,
+            "heatindex_f": 48.1,
+            "dewpoint_c": 5.5,
+            "dewpoint_f": 41.8,
+            "will_it_rain": 0,
+            "chance_of_rain": "3",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517378400,
+            "time": "2018-01-31 06:00",
+            "temp_c": 8.6,
+            "temp_f": 47.4,
+            "is_day": 0,
+            "condition": {
+              "text": "Overcast",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/122.png",
+              "code": 1009
+            },
+            "wind_mph": 13.2,
+            "wind_kph": 21.2,
+            "wind_degree": 238,
+            "wind_dir": "WSW",
+            "pressure_mb": 1007,
+            "pressure_in": 30.2,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 79,
+            "cloud": 100,
+            "feelslike_c": 5.5,
+            "feelslike_f": 41.9,
+            "windchill_c": 5.5,
+            "windchill_f": 41.9,
+            "heatindex_c": 8.6,
+            "heatindex_f": 47.5,
+            "dewpoint_c": 5.2,
+            "dewpoint_f": 41.3,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517382000,
+            "time": "2018-01-31 07:00",
+            "temp_c": 8.6,
+            "temp_f": 47.5,
+            "is_day": 0,
+            "condition": {
+              "text": "Overcast",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/122.png",
+              "code": 1009
+            },
+            "wind_mph": 14.6,
+            "wind_kph": 23.5,
+            "wind_degree": 243,
+            "wind_dir": "WSW",
+            "pressure_mb": 1006,
+            "pressure_in": 30.2,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 78,
+            "cloud": 100,
+            "feelslike_c": 5.4,
+            "feelslike_f": 41.7,
+            "windchill_c": 5.4,
+            "windchill_f": 41.7,
+            "heatindex_c": 8.7,
+            "heatindex_f": 47.6,
+            "dewpoint_c": 5.1,
+            "dewpoint_f": 41.2,
+            "will_it_rain": 0,
+            "chance_of_rain": "3",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 7.3,
+            "vis_miles": 4
+          },
+          {
+            "time_epoch": 1517385600,
+            "time": "2018-01-31 08:00",
+            "temp_c": 8.7,
+            "temp_f": 47.7,
+            "is_day": 1,
+            "condition": {
+              "text": "Light drizzle",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/266.png",
+              "code": 1153
+            },
+            "wind_mph": 16,
+            "wind_kph": 25.8,
+            "wind_degree": 248,
+            "wind_dir": "WSW",
+            "pressure_mb": 1006,
+            "pressure_in": 30.2,
+            "precip_mm": 0.07,
+            "precip_in": 0,
+            "humidity": 77,
+            "cloud": 100,
+            "feelslike_c": 5.3,
+            "feelslike_f": 41.5,
+            "windchill_c": 5.3,
+            "windchill_f": 41.5,
+            "heatindex_c": 8.7,
+            "heatindex_f": 47.7,
+            "dewpoint_c": 5,
+            "dewpoint_f": 41,
+            "will_it_rain": 0,
+            "chance_of_rain": "51",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 4.7,
+            "vis_miles": 2
+          },
+          {
+            "time_epoch": 1517389200,
+            "time": "2018-01-31 09:00",
+            "temp_c": 8.8,
+            "temp_f": 47.8,
+            "is_day": 1,
+            "condition": {
+              "text": "Light drizzle",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/266.png",
+              "code": 1153
+            },
+            "wind_mph": 17.4,
+            "wind_kph": 28.1,
+            "wind_degree": 253,
+            "wind_dir": "WSW",
+            "pressure_mb": 1006,
+            "pressure_in": 30.2,
+            "precip_mm": 0.1,
+            "precip_in": 0,
+            "humidity": 77,
+            "cloud": 100,
+            "feelslike_c": 5.2,
+            "feelslike_f": 41.3,
+            "windchill_c": 5.2,
+            "windchill_f": 41.3,
+            "heatindex_c": 8.8,
+            "heatindex_f": 47.8,
+            "dewpoint_c": 4.9,
+            "dewpoint_f": 40.9,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 2,
+            "vis_miles": 1
+          },
+          {
+            "time_epoch": 1517392800,
+            "time": "2018-01-31 10:00",
+            "temp_c": 8.7,
+            "temp_f": 47.6,
+            "is_day": 1,
+            "condition": {
+              "text": "Light drizzle",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/266.png",
+              "code": 1153
+            },
+            "wind_mph": 16.6,
+            "wind_kph": 26.6,
+            "wind_degree": 258,
+            "wind_dir": "WSW",
+            "pressure_mb": 1005,
+            "pressure_in": 30.1,
+            "precip_mm": 0.05,
+            "precip_in": 0,
+            "humidity": 71,
+            "cloud": 95,
+            "feelslike_c": 5.1,
+            "feelslike_f": 41.2,
+            "windchill_c": 5.1,
+            "windchill_f": 41.2,
+            "heatindex_c": 8.7,
+            "heatindex_f": 47.6,
+            "dewpoint_c": 3.5,
+            "dewpoint_f": 38.4,
+            "will_it_rain": 0,
+            "chance_of_rain": "51",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 4.7,
+            "vis_miles": 2
+          },
+          {
+            "time_epoch": 1517396400,
+            "time": "2018-01-31 11:00",
+            "temp_c": 8.5,
+            "temp_f": 47.3,
+            "is_day": 1,
+            "condition": {
+              "text": "Cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/119.png",
+              "code": 1006
+            },
+            "wind_mph": 15.7,
+            "wind_kph": 25.2,
+            "wind_degree": 263,
+            "wind_dir": "W",
+            "pressure_mb": 1004,
+            "pressure_in": 30.1,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 64,
+            "cloud": 90,
+            "feelslike_c": 5,
+            "feelslike_f": 41.1,
+            "windchill_c": 5,
+            "windchill_f": 41.1,
+            "heatindex_c": 8.5,
+            "heatindex_f": 47.4,
+            "dewpoint_c": 2.1,
+            "dewpoint_f": 35.9,
+            "will_it_rain": 0,
+            "chance_of_rain": "2",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 7.3,
+            "vis_miles": 4
+          },
+          {
+            "time_epoch": 1517400000,
+            "time": "2018-01-31 12:00",
+            "temp_c": 8.4,
+            "temp_f": 47.1,
+            "is_day": 1,
+            "condition": {
+              "text": "Cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/119.png",
+              "code": 1006
+            },
+            "wind_mph": 14.8,
+            "wind_kph": 23.8,
+            "wind_degree": 268,
+            "wind_dir": "W",
+            "pressure_mb": 1004,
+            "pressure_in": 30.1,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 58,
+            "cloud": 85,
+            "feelslike_c": 5,
+            "feelslike_f": 41,
+            "windchill_c": 5,
+            "windchill_f": 41,
+            "heatindex_c": 8.4,
+            "heatindex_f": 47.1,
+            "dewpoint_c": 0.7,
+            "dewpoint_f": 33.3,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517403600,
+            "time": "2018-01-31 13:00",
+            "temp_c": 8,
+            "temp_f": 46.4,
+            "is_day": 1,
+            "condition": {
+              "text": "Cloudy",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/119.png",
+              "code": 1006
+            },
+            "wind_mph": 15.7,
+            "wind_kph": 25.3,
+            "wind_degree": 270,
+            "wind_dir": "W",
+            "pressure_mb": 1003,
+            "pressure_in": 30.1,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 56,
+            "cloud": 61,
+            "feelslike_c": 4.4,
+            "feelslike_f": 39.9,
+            "windchill_c": 4.4,
+            "windchill_f": 39.9,
+            "heatindex_c": 8,
+            "heatindex_f": 46.5,
+            "dewpoint_c": -0.3,
+            "dewpoint_f": 31.6,
+            "will_it_rain": 0,
+            "chance_of_rain": "2",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517407200,
+            "time": "2018-01-31 14:00",
+            "temp_c": 7.7,
+            "temp_f": 45.8,
+            "is_day": 1,
+            "condition": {
+              "text": "Sunny",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png",
+              "code": 1000
+            },
+            "wind_mph": 16.7,
+            "wind_kph": 26.9,
+            "wind_degree": 273,
+            "wind_dir": "W",
+            "pressure_mb": 1003,
+            "pressure_in": 30.1,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 53,
+            "cloud": 36,
+            "feelslike_c": 3.8,
+            "feelslike_f": 38.8,
+            "windchill_c": 3.8,
+            "windchill_f": 38.8,
+            "heatindex_c": 7.7,
+            "heatindex_f": 45.8,
+            "dewpoint_c": -1.2,
+            "dewpoint_f": 29.8,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517410800,
+            "time": "2018-01-31 15:00",
+            "temp_c": 7.3,
+            "temp_f": 45.2,
+            "is_day": 1,
+            "condition": {
+              "text": "Sunny",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png",
+              "code": 1000
+            },
+            "wind_mph": 17.7,
+            "wind_kph": 28.4,
+            "wind_degree": 276,
+            "wind_dir": "W",
+            "pressure_mb": 1003,
+            "pressure_in": 30.1,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 51,
+            "cloud": 12,
+            "feelslike_c": 3.2,
+            "feelslike_f": 37.7,
+            "windchill_c": 3.2,
+            "windchill_f": 37.7,
+            "heatindex_c": 7.3,
+            "heatindex_f": 45.1,
+            "dewpoint_c": -2.2,
+            "dewpoint_f": 28,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517414400,
+            "time": "2018-01-31 16:00",
+            "temp_c": 6.6,
+            "temp_f": 43.9,
+            "is_day": 1,
+            "condition": {
+              "text": "Sunny",
+              "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png",
+              "code": 1000
+            },
+            "wind_mph": 15.9,
+            "wind_kph": 25.6,
+            "wind_degree": 269,
+            "wind_dir": "W",
+            "pressure_mb": 1002,
+            "pressure_in": 30.1,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 53,
+            "cloud": 9,
+            "feelslike_c": 2.6,
+            "feelslike_f": 36.7,
+            "windchill_c": 2.6,
+            "windchill_f": 36.7,
+            "heatindex_c": 6.6,
+            "heatindex_f": 43.9,
+            "dewpoint_c": -2.2,
+            "dewpoint_f": 28,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517418000,
+            "time": "2018-01-31 17:00",
+            "temp_c": 5.9,
+            "temp_f": 42.6,
+            "is_day": 0,
+            "condition": {
+              "text": "Clear",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+              "code": 1000
+            },
+            "wind_mph": 14.1,
+            "wind_kph": 22.7,
+            "wind_degree": 263,
+            "wind_dir": "W",
+            "pressure_mb": 1002,
+            "pressure_in": 30.1,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 56,
+            "cloud": 6,
+            "feelslike_c": 2,
+            "feelslike_f": 35.7,
+            "windchill_c": 2,
+            "windchill_f": 35.7,
+            "heatindex_c": 6,
+            "heatindex_f": 42.7,
+            "dewpoint_c": -2.2,
+            "dewpoint_f": 28,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517421600,
+            "time": "2018-01-31 18:00",
+            "temp_c": 5.2,
+            "temp_f": 41.3,
+            "is_day": 0,
+            "condition": {
+              "text": "Clear",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+              "code": 1000
+            },
+            "wind_mph": 12.3,
+            "wind_kph": 19.8,
+            "wind_degree": 257,
+            "wind_dir": "WSW",
+            "pressure_mb": 1002,
+            "pressure_in": 30.1,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 58,
+            "cloud": 3,
+            "feelslike_c": 1.5,
+            "feelslike_f": 34.6,
+            "windchill_c": 1.5,
+            "windchill_f": 34.6,
+            "heatindex_c": 5.3,
+            "heatindex_f": 41.5,
+            "dewpoint_c": -2.2,
+            "dewpoint_f": 28.1,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517425200,
+            "time": "2018-01-31 19:00",
+            "temp_c": 4.9,
+            "temp_f": 40.9,
+            "is_day": 0,
+            "condition": {
+              "text": "Clear",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+              "code": 1000
+            },
+            "wind_mph": 12.9,
+            "wind_kph": 20.8,
+            "wind_degree": 257,
+            "wind_dir": "WSW",
+            "pressure_mb": 1002,
+            "pressure_in": 30.1,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 60,
+            "cloud": 6,
+            "feelslike_c": 1,
+            "feelslike_f": 33.8,
+            "windchill_c": 1,
+            "windchill_f": 33.8,
+            "heatindex_c": 5,
+            "heatindex_f": 41.1,
+            "dewpoint_c": -2.1,
+            "dewpoint_f": 28.1,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517428800,
+            "time": "2018-01-31 20:00",
+            "temp_c": 4.7,
+            "temp_f": 40.5,
+            "is_day": 0,
+            "condition": {
+              "text": "Clear",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+              "code": 1000
+            },
+            "wind_mph": 13.5,
+            "wind_kph": 21.7,
+            "wind_degree": 257,
+            "wind_dir": "WSW",
+            "pressure_mb": 1002,
+            "pressure_in": 30,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 61,
+            "cloud": 8,
+            "feelslike_c": 0.6,
+            "feelslike_f": 33,
+            "windchill_c": 0.6,
+            "windchill_f": 33,
+            "heatindex_c": 4.8,
+            "heatindex_f": 40.6,
+            "dewpoint_c": -2.1,
+            "dewpoint_f": 28.2,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517432400,
+            "time": "2018-01-31 21:00",
+            "temp_c": 4.5,
+            "temp_f": 40,
+            "is_day": 0,
+            "condition": {
+              "text": "Clear",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+              "code": 1000
+            },
+            "wind_mph": 14.1,
+            "wind_kph": 22.7,
+            "wind_degree": 257,
+            "wind_dir": "WSW",
+            "pressure_mb": 1001,
+            "pressure_in": 30,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 62,
+            "cloud": 11,
+            "feelslike_c": 0.1,
+            "feelslike_f": 32.2,
+            "windchill_c": 0.1,
+            "windchill_f": 32.2,
+            "heatindex_c": 4.5,
+            "heatindex_f": 40.1,
+            "dewpoint_c": -2.1,
+            "dewpoint_f": 28.3,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517436000,
+            "time": "2018-01-31 22:00",
+            "temp_c": 4.2,
+            "temp_f": 39.5,
+            "is_day": 0,
+            "condition": {
+              "text": "Clear",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+              "code": 1000
+            },
+            "wind_mph": 13.3,
+            "wind_kph": 21.4,
+            "wind_degree": 251,
+            "wind_dir": "WSW",
+            "pressure_mb": 1001,
+            "pressure_in": 30,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 64,
+            "cloud": 15,
+            "feelslike_c": -0.1,
+            "feelslike_f": 31.8,
+            "windchill_c": -0.1,
+            "windchill_f": 31.8,
+            "heatindex_c": 4.2,
+            "heatindex_f": 39.6,
+            "dewpoint_c": -2,
+            "dewpoint_f": 28.5,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          },
+          {
+            "time_epoch": 1517439600,
+            "time": "2018-01-31 23:00",
+            "temp_c": 3.8,
+            "temp_f": 38.9,
+            "is_day": 0,
+            "condition": {
+              "text": "Clear",
+              "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+              "code": 1000
+            },
+            "wind_mph": 12.5,
+            "wind_kph": 20,
+            "wind_degree": 246,
+            "wind_dir": "WSW",
+            "pressure_mb": 1000,
+            "pressure_in": 30,
+            "precip_mm": 0,
+            "precip_in": 0,
+            "humidity": 66,
+            "cloud": 19,
+            "feelslike_c": -0.3,
+            "feelslike_f": 31.4,
+            "windchill_c": -0.3,
+            "windchill_f": 31.4,
+            "heatindex_c": 3.9,
+            "heatindex_f": 39,
+            "dewpoint_c": -1.9,
+            "dewpoint_f": 28.7,
+            "will_it_rain": 0,
+            "chance_of_rain": "0",
+            "will_it_snow": 0,
+            "chance_of_snow": "0",
+            "vis_km": 10,
+            "vis_miles": 6
+          }
+        ]
+      }
+    ]
+  }
+}
+                                
+							
+```
+
+You can [embed your code snippets using highlight.js](https://github.com/highlightjs/highlight.js)
+
+```
+[
+  {
+    "id": 2801268,
+    "name": "London, City of London, Greater London, United Kingdom",
+    "region": "City of London, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.52,
+    "lon": -0.11,
+    "url": "london-city-of-london-greater-london-united-kingdom"
+  },
+  {
+    "id": 2796590,
+    "name": "Holborn, Camden, Greater London, United Kingdom",
+    "region": "Camden, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.52,
+    "lon": -0.12,
+    "url": "holborn-camden-greater-london-united-kingdom"
+  },
+  {
+    "id": 2812957,
+    "name": "St Giles, Camden, Greater London, United Kingdom",
+    "region": "Camden, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.52,
+    "lon": -0.12,
+    "url": "st-giles-camden-greater-london-united-kingdom"
+  },
+  {
+    "id": 2786308,
+    "name": "Clerkenwell, Islington, Greater London, United Kingdom",
+    "region": "Islington, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.53,
+    "lon": -0.11,
+    "url": "clerkenwell-islington-greater-london-united-kingdom"
+  },
+  {
+    "id": 2791655,
+    "name": "Finsbury, Islington, Greater London, United Kingdom",
+    "region": "Islington, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.53,
+    "lon": -0.11,
+    "url": "finsbury-islington-greater-london-united-kingdom"
+  },
+  {
+    "id": 2813087,
+    "name": "St Pancras, Camden, Greater London, United Kingdom",
+    "region": "Camden, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.53,
+    "lon": -0.12,
+    "url": "st-pancras-camden-greater-london-united-kingdom"
+  },
+  {
+    "id": 2781746,
+    "name": "Bloomsbury, Camden, Greater London, United Kingdom",
+    "region": "Camden, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.53,
+    "lon": -0.12,
+    "url": "bloomsbury-camden-greater-london-united-kingdom"
+  },
+  {
+    "id": 2813948,
+    "name": "Strand, Westminster, Greater London, United Kingdom",
+    "region": "Westminster, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.51,
+    "lon": -0.12,
+    "url": "strand-westminster-greater-london-united-kingdom"
+  },
+  {
+    "id": 2811665,
+    "name": "Shoreditch, Hackney, Greater London, United Kingdom",
+    "region": "Hackney, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.53,
+    "lon": -0.09,
+    "url": "shoreditch-hackney-greater-london-united-kingdom"
+  },
+  {
+    "id": 2813028,
+    "name": "St Luke's, Islington, Greater London, United Kingdom",
+    "region": "Islington, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.53,
+    "lon": -0.09,
+    "url": "st-lukes-islington-greater-london-united-kingdom"
+  }
+]
+                                
+							
+```
+
+You can [embed your code snippets using highlight.js](https://github.com/highlightjs/highlight.js)
+
+```
+{
+  "location": {
+    "name": "London",
+    "region": "City of London, Greater London",
+    "country": "United Kingdom",
+    "lat": 51.52,
+    "lon": -0.11,
+    "tz_id": "Europe/London",
+    "localtime_epoch": 1572751809,
+    "localtime": "2019-11-03 3:30"
+  },
+  "astronomy": {
+    "astro": {
+      "sunrise": "06:57 AM",
+      "sunset": "04:30 PM",
+      "moonrise": "01:27 PM",
+      "moonset": "09:45 PM",
+      "moon_phase": "Waxing Crescent",
+      "moon_illumination": "39"
+    }
+  }
+}
+                                
+							
+```
+
+[Get Started](/signup.aspx "Weather API Signup")
+
+### Quick and Easy Signup for Weather API
+
+WeatherAPI.com makes it super easy to integrate our realtime, daily, hourly and 15 min interval weather forecast data, historical weather, marine weather, bulk request, air quality data, pollen, evapotranspiration, autocomplete, time zone, astronomy and sports data into your new or existing project.
+
+[Get Started](/signup.aspx "Weather API")
+
+
+
+#### Developers
+
+* [Pricing](/pricing.aspx)
+* [APIs](/api.aspx "Free Weather API")
+* [Docs](/docs/ "Free Weather API Docs")
+* [Github](https://github.com/weatherapicom/ "Weather API Code Library")
+* [Swagger](https://app.swaggerhub.com/apis-docs/WeatherAPI.com/WeatherAPI/1.0.2 "WeatherAPI.com Swagger")
+* [Weather](/weather/)
+* [Miing.com](https://miing.com/ "Air Quality and Pollen Tracker")
+* [WeatherAI.io](https://weatherai.io/ "AI Powered Free Weather API")
+* [Azuce.com](https://azuce.com/ "Solar Production Forecasting Software for Installers")
+* [Premium Weather API](https://www.worldweatheronline.com/weather-api/ "Premium Weather API")
+* [Weather History](https://www.worldweatheronline.com/hwd/ "Historical Weather")
+
+#### 
+
+* [About Us](/about.aspx)
+* [Contact Us](/contact.aspx)
+* [Privacy](/privacy.aspx)
+* [Terms of Services](/terms.aspx)
+* [Blog](https://blog.weatherapi.com/ "WeatherAPI.com Blog")
+* [![npm version](https://img.shields.io/npm/v/weatherapi-mcp)](https://www.npmjs.com/package/weatherapi-mcp)
+* [![llms.txt](https://img.shields.io/badge/llms.txt-available-green)](https://www.weatherapi.com/llms.txt)
+* [![MCP compatible](https://img.shields.io/badge/MCP-compatible-blue)](https://glama.ai/mcp/servers/weatherapicom/weatherapi-mcp)
+
+Popular Holiday Destinations: [Gran Canaria](/weather/q/gran-canaria-canarias-spain-2777802 "Gran Canaria Weather")
+| [Tenerife](/weather/q/tenerife-canarias-spain-2777803 "Tenerife weather")
+| [Majorca](/weather/q/majorca-islas-baleares-spain-2777794 "Majorca weather")
+| [Lanzarote](/weather/q/lanzarote-canarias-spain-2777797 "Lanzarote weather")
+| [Fuerteventura](/weather/q/fuerteventura-canarias-spain-2821184 "Fuerteventura weather")
+| [Crete](/weather/q/crete-crete-greece-2864288 "Crete weather")
+| [New York](/weather/q/new-york-new-york-united-states-of-america-2618724 "New York weather")
+| [Rome](/weather/q/rome-lazio-italy-1284918 "Rome weather")
+| [Dubai](/weather/q/dubai-dubai-united-arab-emirates-384 "Dubai weather")
+| [London](/weather/q/london-city-of-london-greater-london-united-kingdom-2801268 "London weather")
+| [Sydney](/weather/q/sydney-new-south-wales-australia-136022 "Sydney weather")
+| [Moscow](/weather/q/moscow-moscow-city-russia-2145091 "Moscow weather")
+
+---
+
+Copyright © [Weather API](https://www.weatherapi.com "Weather API")
+
+---
+
+## Phnom Penh weather in April 2026 | Cambodia: How hot?
+**URL:** https://www.weather2travel.com/cambodia/phnum-penh/april/
+
+  
+
+
+
+
+
+Phnom Penh weather in April 2026 | Cambodia: How hot?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![](https://www.facebook.com/tr?id=237444546639682&ev=PageView&noscript=1)
+
+[![weather2travel.com - travel deals for your holiday in the sun](/images/weather2travel-logo.svg)](/ "weather2travel.com - travel deals for your holiday in the sun")
+
+* [Weather](/weather-comparison/)
+* [Destinations](/destinations/)
+* [Deals](/deals-and-discounts/)
+* [Inspiration](/blog/)
+* [Insights](/insights/)
+* [Search](/search/)
+
+![Click to search](/images/search-white.png)
+
+* [Home](/)
+* [Asia](/asia/april/) / [South East Asia](/south-east-asia/april/)
+* [Cambodia](/cambodia/april/)
+* [Phnom Penh](/cambodia/phnum-penh/april/)
+* Weather in April
+
+Phnom Penh weather in April 2026
+================================
+
+Expect  **daytime maximum temperatures of 34°C** in **Phnom Penh, Cambodia** in **April** and **very high heat and humidity** based on long-term weather averages. There are **8 hours of sunshine per day** on average with typically **68 mm of rainfall** in the month.
+
+* ![34°C maximum daytime temperature in April in Phnom Penh](/images_symbols/temperature16.png)34
+
+  34°C max day temperature
+* [![8 hours of sunshine per day (63% of daylight hours) in April in Phnom Penh](/images_symbols/sunshine8.png)8](/cambodia/phnum-penh/april/ "8 hours of sunshine per day (63% of daylight hours) in April in Phnom Penh")
+
+  8 hours of sunshine per day
+* ![6 days with some rainfall in April in Phnom Penh](/images_symbols/rainydays2.png)6
+
+  6 days with some rainfall
+* ![24°C minimum night-time temperature in April in Phnom Penh](/images_symbols/temperature13.png)24
+
+  24°C min night temperature
+* ![12 hours of daylight per day in April in Phnom Penh](/images_symbols/daylight12.png)12
+
+  12 hours of daylight per day
+* ![Very high heat & humidity in April in Phnom Penh](/images_symbols/heathumidity4.png)VH
+
+  Very High heat & humidity
+* ![68 mm monthly rainfall in April in Phnom Penh](/images_symbols/rainfall4.png)68
+
+  68 mm of monthly rainfall
+* ![UV (maximum) index 11+ (Extreme) in April in Phnom Penh](/images_symbols/uv-11plus.png)11
+
+  11+ (Extreme) UV index
+
+### More about Phnom Penh
+
+* [![Best time to visit Phnom Penh](/images/btn-best-time-to-go.gif)](/cambodia/phnum-penh/#best-time-to-visit "Best time to visit Phnom Penh")
+
+  [Best time to visit](/cambodia/phnum-penh/#best-time-to-visit)
+* [![Phnom Penh weather averages by month](/images/btn-climate-guide.gif)](/cambodia/phnum-penh/climate/ "Phnom Penh weather averages by month")
+
+  [Weather by month](/cambodia/phnum-penh/climate/)
+* [![Phnom Penh 5-day weather forecast](/images/btn-weather-forecast.gif)](/cambodia/phnum-penh/forecast/ "Phnom Penh 5-day weather forecast")
+
+  [Weather forecast](/cambodia/phnum-penh/forecast/)
+* [![Cambodia destinations](/images/btn-destinations.gif)](/cambodia/#destinations "Cambodia destinations")
+
+  [Destinations](/cambodia/#destinations)
+* [![Cambodia travel deals & discounts](/images/btn-discount-codes.gif)](/cambodia/#deals "Cambodia travel deals & discounts")
+
+  [Deals & discounts](/cambodia/#deals)
+
+### Phnom Penh by month
+
+[Jan](/cambodia/phnum-penh/january/)
+[Feb](/cambodia/phnum-penh/february/)
+[Mar](/cambodia/phnum-penh/march/)
+[Apr](/cambodia/phnum-penh/april/)
+[May](/cambodia/phnum-penh/may/)
+[Jun](/cambodia/phnum-penh/june/)
+[Jul](/cambodia/phnum-penh/july/)
+[Aug](/cambodia/phnum-penh/august/)
+[Sep](/cambodia/phnum-penh/september/)
+[Oct](/cambodia/phnum-penh/october/)
+[Nov](/cambodia/phnum-penh/november/)
+[Dec](/cambodia/phnum-penh/december/)
+
+### Recommended for Cambodia
+
+* [![Flights to Cambodia](/images_logos_big/jacks-flights-club.png)
+  Jack's Flight Club\*](/redirect/recommended.php?d=-2046&w=186&r=April-0-CB&p=640 "Flights to Cambodia")
+* [![Tours to Cambodia](/images_logos_big/wendy-wu-tours.png)
+  Wendy Wu Tours\*](/redirect/recommended.php?d=-2046&w=26&r=April-0-CB&p=556 "Tours to Cambodia")
+* [![Tours to Cambodia](/images_logos_big/explore.png)
+  Explore!\*](/redirect/recommended.php?d=-2046&w=16&r=April-0-CB&p=418 "Tours to Cambodia")
+* [![Tours to Cambodia](/images_logos_big/riviera-travel.png)
+  Riviera Travel\*](/redirect/recommended.php?d=-2046&w=68&r=April-0-CB&p=561 "Tours to Cambodia")
+
+The April weather guide for Cambodia (Phnom Penh) shows long term weather averages processed from data supplied by **CRU (University of East Anglia)**, the **Met Office** & the **Netherlands Meteorological Institute**. Find out more about our **[data sources](/data-sources/#monthly-weather)**.
+
+### More about Cambodia
+
+* [![A stylish guide to Phnom Penh, Cambodia](/images_blog/royal-palace-phnom-penh.jpg)](/blog/a-stylish-guide-to-phnom-penh-cambodia/)
+* [![Chic Siem Reap, Cambodia](/images_blog/chic-siem-reap-cambodia.jpg)](/blog/chic-siem-reap-cambodia/)
+
+
+
+### How hot is it in Phnom Penh in April?
+
+Daytime temperatures usually reach **34°C** in **Phnom Penh** in **April** with **very high heat and humidity**, falling to 24°C at night.
+
+
+
+### How sunny is it in Phnom Penh in April?
+
+There are normally **8 hours** of bright sunshine each day in **Phnom Penh** in **April** - that's **63% of daylight hours**.
+
+
+
+### Does it rain in Phnom Penh in April?
+
+There are usually **6 days** with some rain in **Phnom Penh** in **April** and the average monthly rainfall is **68mm**.
+
+
+
+Phnom Penh April sunrise & sunset times
+---------------------------------------
+
+Browse the sunrise and sunset times for Phnom Penh in April 2026. Select a month to view Phnom Penh sunrise and sunset times for the next 12 months.
+
+[Jan](/cambodia/phnum-penh/january/#sunrise-sunset)[Feb](/cambodia/phnum-penh/february/#sunrise-sunset)[Mar](/cambodia/phnum-penh/march/#sunrise-sunset)[Apr](/cambodia/phnum-penh/april/#sunrise-sunset)[May](/cambodia/phnum-penh/may/#sunrise-sunset)[Jun](/cambodia/phnum-penh/june/#sunrise-sunset)[Jul](/cambodia/phnum-penh/july/#sunrise-sunset)[Aug](/cambodia/phnum-penh/august/#sunrise-sunset)[Sep](/cambodia/phnum-penh/september/#sunrise-sunset)[Oct](/cambodia/phnum-penh/october/#sunrise-sunset)[Nov](/cambodia/phnum-penh/november/#sunrise-sunset)[Dec](/cambodia/phnum-penh/december/#sunrise-sunset)
+
+| Date | Sunrise times | Sunset times |
+| --- | --- | --- |
+| Wednesday, 1st April 2026 | 05:57 | 18:11 |
+| Wednesday, 15th April 2026 | 05:49 | 18:12 |
+| Thursday, 30th April 2026 | 05:42 | 18:14 |
+
+Be inspired
+-----------
+
+Get your weekly fix of holiday inspiration from some of the world's best travel writers plus save on your next trip with the latest exclusive offers
+
+We promise not to share your details
+
+Related posts
+-------------
+
+* [![10 top places with fantastic reasons to visit in 2026](/images_blog/twin-towered-guadalajara-cathedral-mexico.jpg)](/holidays/where-to-go-this-year/)
+* [![Top 10 sunny holiday destinations year round](/images_blog/top-10-sunny-holiday-destinations.jpg)](/blog/year-round-sunny-holiday-destinations/)
+* [![Top winter sun holiday destinations under £500](/images_blog/winter-sun-holidays-under-500-gbp.jpg)](/blog/top-winter-sun-destinations-for-under-500-pound/)
+
+Popular travel offers
+---------------------
+
+* [![Marella Cruises: Top deals on 2026/2027 sailings](/images_logos_big/marella-cruises-by-tui.png)](/deals-and-discounts/marella-cruises/)
+* [![Priority Pass: up to 20% off annual membership](/images_logos_big/priority-pass.png)](/deals-and-discounts/priority-pass-membership/)
+* [![Travelsphere: Top deals on escorted tours worldwide](/images_logos_big/travelsphere.png)](/deals-and-discounts/travelsphere/)
+
+### Explore holiday destinations
+
+* [Beach holidays](/beach-holidays/)
+* [City breaks](/city-breaks/)
+* [Family holidays](/family-holidays/)
+* [Half term holidays](/half-term-holidays/)
+* [Spring holidays](/spring-holidays/)
+* [Summer holidays](/summer-holidays/)
+* [Autumn holidays](/autumn-holidays/)
+* [Winter sun holidays](/winter-sun-holidays/)
+* [Honeymoons](/honeymoons/)
+* [Coolcations](/insights/coolcations-cooler-summer-holiday-destinations/)
+* [Compare places](/weather-comparison/)
+* [Ski resorts](/skiing-holidays/)
+
+[More holidays](/holidays/)
+
+### Save with latest deals & discounts
+
+* [Holiday offers](/deals-and-discounts/holidays/)
+* [Top travel brands](/deals-and-discounts/travel-brands/)
+* [Airlines & flights](/deals-and-discounts/flights/)
+* [Discount hotels](/deals-and-discounts/hotels/)
+* [TUI](/deals-and-discounts/tui/)
+* [Jet2holidays](/deals-and-discounts/jet2holidays/)
+* [Neilson](/deals-and-discounts/neilson/)
+* [Marella Cruises](/deals-and-discounts/marella-cruises/)
+* [Holiday Extras](/deals-and-discounts/holiday-extras/)
+* [Pierre & Vacances](/deals-and-discounts/pierre-and-vacances/)
+* [Caledonian Travel](/deals-and-discounts/caledonian-travel/)
+* [Club Med](/deals-and-discounts/club-med/)
+
+[More deals](/deals-and-discounts/)
+
+### Airport parking
+
+* [Manchester Airport](/deals-and-discounts/manchester-airport/parking/)
+* [Stansted Airport](/deals-and-discounts/stansted-airport/parking/)
+* [Bristol Airport](/deals-and-discounts/bristol-airport/parking/)
+* [Luton Airport](/deals-and-discounts/luton-airport/parking/)
+* [Birmingham Airport](/deals-and-discounts/birmingham-airport/parking/)
+* [Edinburgh Airport](/deals-and-discounts/edinburgh-airport/parking/)
+* [Gatwick Airport](/deals-and-discounts/gatwick-airport/parking/)
+* [Glasgow Airport](/deals-and-discounts/glasgow-airport/parking/)
+* [Newcastle Airport](/deals-and-discounts/newcastle-airport/parking/)
+
+[More parking](/airport-parking/)
+
+### Airport lounges
+
+* [Manchester Airport](/deals-and-discounts/manchester-airport/lounges/)
+* [Birmingham Airport](/deals-and-discounts/birmingham-airport/lounges/)
+* [Bristol Airport](/deals-and-discounts/bristol-airport/lounges/)
+* [Edinburgh Airport](/deals-and-discounts/edinburgh-airport/lounges/)
+* [Glasgow Airport](/deals-and-discounts/glasgow-airport/lounges/)
+* [Heathrow Airport](/deals-and-discounts/heathrow-airport/lounges/)
+* [Newcastle Airport](/deals-and-discounts/newcastle-airport/lounges/)
+* [Stansted Airport](/deals-and-discounts/stansted-airport/lounges/)
+* [Gatwick Airport](/deals-and-discounts/gatwick-airport/lounges/)
+
+[More lounges](/airport-lounges/)
+
+* [Facebook](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.weather2travel.com%2Fcambodia%2Fphnum-penh%2Fapril%2F "Facebook")
+* [Twitter](https://twitter.com/intent/tweet?text=Phnom+Penh+weather+in+April+2026+via+%40weather2travel&url=https%3A%2F%2Fwww.weather2travel.com%2Fcambodia%2Fphnum-penh%2Fapril%2F "Twitter")
+* [Pinterest (1 share)](https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.weather2travel.com%2Fcambodia%2Fphnum-penh%2Fapril%2F&media=&description=# "Pinterest (1 share)")
+
+[Top ^](#site_torso)
+
+| Cambodia - quick facts | |
+| --- | --- |
+| Flight time✝ | [15 to 16 hours](/cambodia/#flight-time) |
+| Time difference | [UK +7 hours](/cambodia/#time-difference) |
+| Language(s) | [Khmer](/cambodia/#languages) |
+| Currency | [Cambodian Riel](/cambodia/#currency) |
+| Electricity | [A + C + G plug (230V)](/cambodia/#electricity) |
+| Driving side | [Right](/cambodia/#driving-side) |
+| Visa✝ | [Yes](/cambodia/#travel-visa) |
+
+✝ = Typical flight time from the UK and visa requirements for UK travellers.
+
+### Travelling to Cambodia?
+
+Discover where to book holidays, flights, hotels and more from popular travel providers for your trip to Cambodia in 2026/2027.
+
+* [Holidays](/cambodia/#holidays "Holidays")
+* [Flights](/cambodia/#flights "Flights")
+* [Hotels](/cambodia/#hotels "Hotels")
+* [Accommodation](/cambodia/#accommodation "Accommodation")
+
+* [Airport taxis](/cambodia/#airport-taxis "Airport taxis")
+* [Car hire](/cambodia/#car-hire "Car hire")
+* [eSIMs](/cambodia/#esims "eSIMs")
+* [Ferries](/cambodia/#ferries "Ferries")
+* [Money transfers](/cambodia/#money-transfers "Money transfers")
+* [River cruises](/cambodia/#river-cruises "River cruises")
+* [Things to do](/cambodia/#things-to-do "Things to do")
+* [Tours](/cambodia/#escorted-tours "Tours")
+
+Be inspired
+-----------
+
+Get your weekly fix of holiday inspiration from leading travel writers
+
+We promise not to share your details
+
+Top online deals
+----------------
+
+* [![Marella Cruises: Top deals on 2026/2027 sailings](/images_logos_big/marella-cruises-by-tui.png)](/deals-and-discounts/marella-cruises/ "Marella Cruises: Top deals on 2026/2027 sailings")
+* [![Priority Pass: up to 20% off annual membership](/images_logos_big/priority-pass.png)Priority Pass: up to 20% off annual membership](/deals-and-discounts/priority-pass-membership/ "Priority Pass: up to 20% off annual membership")
+* [![Cathay Pacific: Latest offers on flights worldwide](/images_logos_big/cathay-pacific.png)Cathay Pacific: Latest offers on flights worldwide](/deals-and-discounts/cathay-pacific/ "Cathay Pacific: Latest offers on flights worldwide")
+* [![Just You: Top deals on solo adventures & tours](/images_logos_big/just-you.png)Just You: Top deals on solo adventures & tours](/deals-and-discounts/just-you/ "Just You: Top deals on solo adventures & tours")
+* [![Travelsphere: Top deals on escorted tours worldwide](/images_logos_big/travelsphere.png)Travelsphere: Top deals on escorted tours worldwide](/deals-and-discounts/travelsphere/ "Travelsphere: Top deals on escorted tours worldwide")
+* [![Avis: Top offers on car hire in Europe & beyond](/images_logos_big/avis.png)Avis: Top offers on car hire in Europe & beyond](/deals-and-discounts/avis/ "Avis: Top offers on car hire in Europe & beyond")
+
+[More deals & discounts >>](/deals-and-discounts/)
+
+Featured articles
+-----------------
+
+* [![10 top places with fantastic reasons to visit in 2026](/images_blog/twin-towered-guadalajara-cathedral-mexico.jpg)
+  10 top places with fantastic reasons to visit in 2026](/holidays/where-to-go-this-year/ "10 top places with fantastic reasons to visit in 2026")
+* [![Top 10 sunny holiday destinations year round](/images_blog/top-10-sunny-holiday-destinations.jpg)
+  Top 10 sunny holiday destinations year round](/blog/year-round-sunny-holiday-destinations/ "Top 10 sunny holiday destinations year round")
+* [![Top winter sun holiday destinations under £500](/images_blog/winter-sun-holidays-under-500-gbp.jpg)
+  Top winter sun holiday destinations under £500](/blog/top-winter-sun-destinations-for-under-500-pound/ "Top winter sun holiday destinations under £500")
+* [![9 exciting summer destinations you can visit with TUI](/images_blog/exciting-destinations-to-visit-for-holidays-worldwide.jpg)
+  9 exciting summer destinations you can visit with TUI](/blog/exciting-summer-holiday-destinations-with-tui/ "9 exciting summer destinations you can visit with TUI")
+* [![Where to book family holidays with free child places](/images_blog/free-child-places-for-family-holidays.jpg)
+  Where to book family holidays with free child places](/holidays/free-child-places/ "Where to book family holidays with free child places")
+* [![5 of the best short-haul winter sun holiday destinations](/images_blog/short-haul-winter-sun.jpg)
+  5 of the best short-haul winter sun holiday destinations](/holidays/top-short-haul-winter-sun-destinations/ "5 of the best short-haul winter sun holiday destinations")
+
+[More articles...](/blog/)
+
+What's trending?
+----------------
+
+* [![Where to go in 2026](/images_blog/sharks-bay-sharm.jpg)
+  **Where to go in 2026**  
+  Explore destinations to visit on holiday in 2026](/holidays/where-to-go-this-year/)
+* [![Northern Lights](/images_blog/auroral-curtains-of-light.jpg)
+  **Northern Lights**  
+  Explore best places to see the Aurora Borealis](/insights/best-places-to-see-northern-lights/)
+* [![Half term destinations](/images_blog/enjoying-the-waves.jpg)
+  **Half term destinations**  
+  Biggest brands & top tips for family breaks](/half-term-holidays/)
+* [![Coolcations in 2026](/images_blog/sauzon-belle-ile-en-mer-brittany.jpg)
+  **Coolcations in 2026**  
+  Cooler summer holiday destinations to consider](/insights/coolcations-cooler-summer-holiday-destinations/)
+* [![Cheapest places to visit](/images_blog/ksamil-beach-albania.jpg)
+  **Cheapest places to visit**  
+  Discover where to go in Europe on a budget](/holidays/cheapest-places-to-visit-in-europe/)
+* [![Cheapest city breaks](/images_blog/archaeological-museum-skopje-north-macedonia.jpg)
+  **Cheapest city breaks**  
+  Most affordable European cities to visit](/holidays/cheapest-cities-in-europe/)
+* [![Summer holiday ideas](/images_blog/konyaalti-beach-antalya.jpg)
+  **Summer holiday ideas**  
+  Search for destination ideas & inspiration](/summer-holidays/)
+* [![Winter sun in Europe](/images_blog/sunny-winter-day-costa-brava-spain.jpg)
+  **Winter sun in Europe**  
+  Best destinations for winter sun in Europe](/insights/winter-sun-in-europe/)
+
+![weather2travel.com](/images/intro-logo.png)
+
+Latest news
+-----------
+
+* [![TUI adds three French cities to its short breaks collection](/images_blog/massive-beach-santa-maria-sal-island.jpg)
+  TUI adds three French cities to its short breaks collection](/news/tui-new-routes-and-destinations-update/)
+* [![Luxury Rondoval butler villas to open at Sandals Saint Vincent](/images_blog/sandals-jamaica-south-coast-pickleball-courts.jpg)
+  Luxury Rondoval butler villas to open at Sandals Saint Vincent](/news/sandals-resorts-update-new-destinations/)
+* [![easyJet holidays adds Egypt to Edinburgh's winter sun schedule](/images_blog/easyjet-flight-take-off.jpg)
+  easyJet holidays adds Egypt to Edinburgh's winter sun schedule](/news/easyjet-new-routes-and-destinations-update/)
+* [![Jet2 & Jet2holidays to return to Egypt in 2027](/images_blog/jet2-holidays-flight.jpg)
+  Jet2 & Jet2holidays to return to Egypt in 2027](/news/jet2-new-routes-and-destinations-update/)
+* [![Vilnius tops report into Europe's cheapest Christmas markets](/images_blog/riga-christmas-market.jpg)
+  Vilnius tops report into Europe's cheapest Christmas markets](/news/cheapest-christmas-markets-in-europe/)
+* [![British Airways to offer free wifi for all from 2026](/images_blog/british-airways-a350-departing-heathrow.jpg)
+  British Airways to offer free wifi for all from 2026](/news/ba-new-routes-and-destinations-update/)
+
+[More news...](/news/)
+
+##### Weather2Travel.com
+
+* [About](/about-us/)
+* [Our data](/data-sources/)
+* [Contact](/contact-us/)
+* [Our writers](/blog/our-writers/)
+* [Privacy](/privacy-and-cookies/)
+* [Guidelines](/blog/editorial-guidelines/)
+* [Legal](/legal/)
+* [Funding](/how-we-are-funded/)
+* [Site map](/site-map/)
+* [In the Press](/news-and-press/)
+* [News](/news/)
+
+##### About travel & weather
+
+* [Holidays](/deals-and-discounts/holidays/)
+* [Canaries](/canary-islands/)
+* [Flights](/deals-and-discounts/flights/)
+* [Greece](/greece/)
+* [Hotels](/deals-and-discounts/hotels/)
+* [Spain](/spain/)
+* [Parking](/deals-and-discounts/airport-parking/)
+* [Turkey](/turkey/)
+* [Climate](/climate-guides/)
+* [USA](/usa/)
+
+##### Follow us
+
+* [Facebook](https://www.facebook.com/weather2travel)
+* [Twitter](https://twitter.com/weather2travel)
+* [Pinterest](https://uk.pinterest.com/weather2travel/)
+* [Instagram](https://www.instagram.com/weather2travel/)
+
+© 2005-2026 Weather2Travel.com    [April][]
+
+---

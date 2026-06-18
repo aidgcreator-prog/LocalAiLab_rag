@@ -1,0 +1,5 @@
+Asyncio coordination notes
+
+When multiple coroutines update shared mutable state, an asyncio.Lock is the normal primitive used to guard that state.
+An asyncio.Semaphore limits concurrency, but it does not communicate exclusive ownership of a critical section as clearly as a lock.
+Good answers should mention that a lock protects the critical section and should keep the protected region as small as practical.

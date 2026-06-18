@@ -1,0 +1,239 @@
+there's a quote that I love that's most
+often attributed to Henry Ford if I'd
+asked people what they wanted they would
+have said Faster Horses now there's a
+debate around whether Ford really said
+it but the underlying Insight is true
+most people can Envision incremental
+progress but it takes Visionary thinking
+to imagine an entirely new way to solve
+a problem and that's the crossroads that
+we're at with generative AI every
+business will jump to enhance their
+existing processes to make productivity
+gains but the companies that adopt an AI
+first mindset can innovate in ways that
+can change the world welcome to AI
+Academy my name is Matt candy and I'm
+the global managing partner for the
+generative AI Consulting business at IBM
+over the last year gen Pilots have
+popped up everywhere seite interest is
+at an all-time high and budgets are
+pouring into AI technology but at least
+40% of companies remain stuck in the
+experimentation and EXP exporation
+phases in this video I'll share how to
+move Beyond AI hype to scaling your AI
+ambition creating value for your
+organization in a responsible way so
+what do we mean when we talk about
+scaling AI the notion of change at scale
+can be overwhelming for many companies
+like changing the tire on your car while
+still driving how do you keep your
+business moving forward whilst changing
+how you do business when thinking about
+scaling AI in your organization I
+believe there's a few key opportunity
+areas the first area productivity
+impacts your employees your processes
+and the value you deliver think of gen
+at scale as a means to break down
+process silos to unleash human
+creativity and to amplify the potential
+of every person on every team by
+augmenting every role and workflow with
+tools to make them smarter gen can
+impact every touch point and interaction
+your customers have with your brand
+helping to engage engage them in more
+personalized frictionless ways it must
+Delight it must matter and it must both
+preempt and deliver on their needs now
+this one I'm very excited about the
+potential of gen powered digital
+products and services driving new
+revenue streams and business models this
+genid driven digital product and service
+boom will be key to achieving value and
+Roi and the scale of innovation will be
+massive we're going to see entire
+Industries transformed and reinvented
+and scaling gen will optimize the IT
+solutions that run the workflows and
+processes and experiences in the back
+end both in how they're built and how
+they operate and one of the greatest
+impacts of scaling gen will be
+democratizing it putting it in
+everybody's hands to build and deliver
+new Solutions in a more efficient way
+put more simply using gen to help us all
+code better faster and smarter so now
+that we know the value areas and we
+understand what the potential is now
+let's focus on how you drive this change
+within your
+organization the first key to driving
+change is defining both your Genai
+strategy and priority use cases these
+are two sides of the same coin and
+you've got to bring top down and bottom
+up together so first from a strategic
+top down perspective think about what
+really moves the needle for your
+business so let's say you're a hotel
+launching a new brand creating new
+designs flipping over properties
+executing a new marketing campaign now
+if you can create and launch a new brand
+in 5 months versus 21 months this can
+drastically increase your market share
+strategically that's a big deal then
+think about a bottomup role-based
+approach to transformation consider all
+the team members in your organization
+and the roles that they play and so for
+the hotel example this includes your
+content creators your designers and
+media teams and then ask what how do we
+create AI assistant that help launch the
+brand in a more efficient way because
+the people closest to the work have the
+best ideas about what will work and have
+the best ability to create and Infuse AI
+into those areas consider the humble
+spreadsheet when EXL came to Market it
+was a new tool that employees had to
+learn to adopt so just imagine a central
+team tasked with figuring out every use
+for a spreadsheet for every type of role
+in the company sounds a bit mad doesn't
+it instead employees experimented they
+adapted and they mastered different XL
+functions and soon it became as
+essential to productivity as coffee or
+calculators as you think through Roi
+you've got to look at the costs of
+running the AI versus what the savings
+and uplift by using it could be and in
+the long term look for savings that
+outweigh the investment long-term value
+is about going from a single workflow or
+use case to cascading the use of AI
+across the organization and driving RL I
+across multiple functions and
+departments the next step of
+transformation is building up your AI
+Control Center with scaling AI there
+will be lots of Technologies and models
+that will run in different places some
+will run in a cloud some on Prem some in
+Edge devices and you can't scale if
+there aren't consistent approaches in
+place across all models environments and
+Technologies your AI Control Center is a
+layer that connects and wraps around
+multiple models providing AI governance
+and safe secure access to your
+proprietary data this allows you to
+deliver role-based access to different
+gen models assistance and common
+capabilities in an open trusted Manner
+and having a centralized control center
+is important not just for governance and
+security but also for driving the ROI we
+talked about earlier the right size
+model running in the right place aligned
+to the use case and task is going to
+affect the financial cost and the carbon
+cost and and the choices you make around
+this will be really important another
+element is your data layer right the big
+models are trained on a small proportion
+of the world's data the other
+significant percentage is locked up
+inside the firewalls of companies like
+yours and the advantage for Enterprises
+is going to come from how you bring that
+proprietary data within your firewall
+together with the right model to unlock
+new sources of value the third step is
+to reimagine your transformation
+operating model a delivery approach that
+moves quickly from idea to concept to
+prototype to MVP to rollout to scaled
+solution always linking back to the
+benefit a multidisciplinary team and
+co-creation is at the heart of this and
+IBM we've helped clients set up gen Labs
+centered around squad-based teams with
+strategists designers developers data
+scientists working together to do the
+building making and creating anchoring
+this transformation approach Around The
+Human Experience is crucially important
+it will mean people want to use these
+new tools versus having to be pushed and
+it will take practice employees must
+unlearn old ways of working experiential
+learning through using models and
+testing out prompts a key to grasping
+gen Concepts taking us from is this
+going to steal my job to how can this
+give me superpowers at my job because
+your greatest competitive Advantage is
+your people which brings me to the the
+final key for successfully scaling gen
+the transformative power of gen goes
+beyond enabling your teams to perform
+tasks more efficiently it also drives
+individual growth and creates new jobs
+and career paths that Empower employees
+to perform higher value work Infuse this
+new approach into the culture of your
+company to return to the idea of Faster
+Horses right this is an opportunity to
+rethink how work gets done to reimagine
+what work itself looks like to encourage
+debate feedback and experimenting bring
+together diverse experience skills and
+insights and asking leaders at all
+levels to repurpose their existing skill
+sets to create a gen forward
+environments that all can thrive in the
+reality is we're moving past the peak of
+the AI hype cycle the vision technology
+and the data are all converging right
+now I'm a Believer and I told you at the
+beginning that companies that are adopt
+an AI first mindset are the ones that
+will innovate in ways that change the
+world and in ways that will also change
+our
+lives at age nine my middle daughter was
+diagnosed with type 1 diabetes early on
+it was a nightmare of Jabs and testing
+and monitoring and timing just to keep
+her blood sugar bouncing within
+reasonable parameters I was desperate
+for a way to make those processes better
+for her desperate for Faster Horses but
+instead somebody had the vision to build
+her a car and so today she has AI
+powered monitoring and an insulin pump
+that keeps her blood sugar safe and
+steady I can track it on my phone or
+Smartwatch in real time and if her
+sugars go too high the AI starts to make
+decisions seamlessly and painlessly and
+the difference that this technology has
+made in her life and my life is profound
+she will live longer and happier because
+somebody had the vision to rethink old
+processes and to solve the problem in a
+whole new way and that's the opportunity
+ahead for all of us now with Gen to
+radically rethink what is possible and
+then to go out there and make it happen

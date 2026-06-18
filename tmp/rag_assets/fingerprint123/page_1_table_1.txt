@@ -1,0 +1,3 @@
+Metric    Jan    Feb
+Sales     20     25
+Profit    5      7

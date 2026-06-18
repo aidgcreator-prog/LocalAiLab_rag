@@ -1,0 +1,327 @@
+>> MADHU KOCHAR: A few
+months ago, I went to the DMV
+to get my REAL ID.
+As the DMV employee was
+preparing to take my picture,
+she saw I was wearing
+an IBM jacket and said,
+"Do you work on AI
+and the quantum computer?
+My son in high school
+thinks it is so cool."
+I said, "It is so cool.
+I do work on AI,
+and it's related to
+what you're doing right now.
+You're taking my picture;
+the picture will get sent over
+to a system where they're
+going to issue my REAL ID.
+Those two systems
+need to be connected.
+Think of them as two
+different applications.
+I build connections
+between those two applications,
+making sure they're
+all integrated."
+That type of integration work 
+has been around for a while,
+and now, with AI, it's getting 
+faster, smarter, and better.
+Sometimes it's behind the
+scenes, but what we do at IBM
+impacts people every day.
+My name is Madhu Kochar
+and I am Vice President of
+Automation for IBM Software.
+For many businesses,
+to create the kind of
+application integration
+would take days or even weeks.
+And it would span
+across many systems
+and require specialized
+skills, but AI changes that.
+As AI moves from
+novelty to necessity,
+the rapid deployment
+of AI presents some very
+interesting new challenges
+we're already solving.
+Along with incredible
+potential for creating value,
+AI transformation is
+undoubtably making enterprise
+environments more
+complex than ever before.
+The very advancements
+that drive innovation –
+the APIs, data,
+agents, gateways, and tools –
+are creating a tangled web
+of connectivity challenges.
+The beauty is that, in fact,
+here's where AI steps in to
+help reclaim order.
+The business landscape
+has changed dramatically.
+And from where I
+sit, I would say it
+comes down to three big shifts:
+speed, scale, and intelligence.
+Gone are the days
+when automation was only
+about cutting cost or
+handling repetitive tasks.
+Now it's about building
+systems that can learn, adapt,
+and even make
+decisions on their own.
+We're seeing automation and
+AI come together in ways that
+don't just help us do things
+faster; they help us do better.
+Whether it's personalizing
+customer experience or
+responding to market shifts
+in real time, automation is
+becoming the core
+enabler of strategy.
+To effectively automate
+business processes with AI,
+AI needs to be able to
+interact with enterprise
+systems in a deep way.
+Trying to use AI without 
+understanding the underlying
+connections – sometimes
+referred to as the plumbing –
+is not going to work.
+For example, at the DMV,
+connecting one application
+to another application might
+seem like a very simple problem,
+but behind the scenes, you
+have to understand the type of
+datasets you have.
+What is your process?
+What is the outcome
+you're looking to achieve?
+How does your data
+mapping need to change?
+Regarding data, organizations
+need to worry about security,
+privacy around personal
+information, and compliance.
+For example, if your
+organization operates out
+of multiple countries,
+you must respect data
+storage and processing 
+guidelines, which are
+country- or region-specific.
+Beyond the data, there
+needs to be clarity on
+decisions to be made.
+What kind of decision
+making has to happen?
+Who in your organization needs
+to come in and say what needs to
+happen to get to the
+next part of your workflow?
+A lot of that stuff
+comes down to the plumbing
+underneath your integration.
+Connecting all those dots
+and simplifying workflows
+can take you months.
+This is where AI can help
+bring transformation faster.
+Our clients are
+looking to us at IBM asking,
+"How can you help in
+reducing the complexity?
+How can you help in untangling
+the apps, systems, and data?
+Help me adopt AI
+in a truly useful way?
+How is middleware
+evolving in the AI era?"
+For every client,
+no matter what industry
+they're in, success in
+application integration
+looks like modernization
+of their applications
+and AI transformation.
+Beneath the hype,
+starting to get value from AI
+is ultimately about
+a few basic things:
+productivity, scalability, 
+efficiency, and resiliency.
+If it takes a developer 200
+hours to build a workflow and
+you can shrink that down
+to one hour, then multiply it
+by 20 developers,
+that's an exponential
+savings in productivity.
+That's one example of
+developer productivity.
+Another example is
+around continuous analysis
+of integration workflows,
+which evolve based on changing
+patterns, data volumes,
+and system performance.
+Let me share an
+example of a client
+of ours, a pharmaceutical
+logistics company, PharmLog,
+which processes 40,000
+delivery notes daily.
+It's essential that they
+deliver medicine to people
+on time without disruption.
+But they also
+have to worry about
+compliance, safety, quality
+assurance, and so forth.
+They were using a ten-year-old
+warehouse management system that
+was prone to errors.
+It had become unsustainable,
+creating a huge risk of a single
+point of failure.
+To handle their complex,
+heterogenous IT landscape,
+we worked with
+them to create a new,
+unified integration platform.
+Instead of trying to fit their
+evolving business needs around
+a rigid system, they now
+work the other way around.
+Now their 16 manufacturers
+are seamlessly connected
+with unhindered dataflow
+for inventory, shipping,
+QA, and more.
+They're achieving 35%
+faster implementation times
+and error reduction.
+They even called our
+integration the umbilical cord
+that connects them
+to their customers.
+As we look at
+how AI is reshaping
+the integration platform,
+it's clear that it's unlocking
+new levels of
+productivity, efficiency,
+scalability, and resiliency.
+But in the rush toward
+adoption, a very real
+question becomes: How much
+can you actually trust the tech?
+That's the conversation we are
+having with clients every day.
+Before you let the system
+take autonomous actions,
+especially when it's tied
+to mission-critical data
+and processes, you have got
+to build in that layer of trust.
+In many cases, that means
+knowing when to keep a human
+in the loop.
+The goal is to get to a
+place where the system not only
+recommends the best
+next move, but takes it
+confidently and reliably.
+But to do that, we
+need to be intentional
+about governance, validation,
+and transparency from day one.
+The technology itself
+is also evolving fast,
+and it's getting more
+specialized by the day.
+Take AI agents, for example ——
+right now these agents can
+already understand context,
+make a plan, and respond
+to complex questions
+in a very humanlike way.
+That ability to reason,
+plan, act, and then learn
+from feedback is a
+huge leap forward.
+What's even more exciting
+is where it's headed next.
+It will be about
+domain specialization.
+It's not just about
+having a smart agent;
+it's about having one
+that's fluent in your world.
+If you are in banking, you
+want an agent that understands
+banking regulations,
+terminology, and workflows.
+Same thing if you are in
+insurance or healthcare ——
+the agent needs to speak your
+language, work with your data,
+and make decisions in context.
+That level of specialization
+is where AI agents are going,
+and it's going to be a
+major driver of business value
+in the near future.
+Application integration and
+middleware can't be treated as
+the back-office conversation.
+It needs to be a
+boardroom priority.
+Without seamless integration,
+organizations cannot deliver
+on the true
+potential of AI.
+Why invest in all
+these powerful new tools if
+silos and fragmentation
+slow everything down?
+The truth is AI needs
+integration to scale,
+and integration itself is being
+reimagined with AI at its core.
+It's a virtuous cycle,
+and one cannot thrive
+without the other.
+This is exactly what
+makes this moment so exciting.
+AI isn't a novelty anymore.
+It is operational.
+We're now seeing a wave of AI 
+agents being deployed at scale.
+And with that comes
+a clear need for trust,
+governance, and security.
+Good news is that these are
+integration challenges we have
+solved in the past
+and we know what to do.
+This expertise puts us in a
+collated position where we are
+not reacting to disruption;
+we're actively shaping it.
+That's the opportunity in front 
+of us with AI and integration.
+Being part of this
+disruption is nothing
+short of exhilarating.

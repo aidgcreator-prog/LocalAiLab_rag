@@ -1,0 +1,52 @@
+[Music]
+In football you have a quarterback, or in proper football you have your playmaker, your #10.
+Even a curling side has a skipper.
+In any team sport there is somebody on the field organizing the approach and calling the shots,
+...based on the specific situation in that moment – Xs and Os, 1s and 0s.
+What’s the right play?
+Welcome to AI Academy.
+My name is Nicholas Renotte. I’m the Chief AI Engineer at IBM Client Engineering.
+And if you think of implementing AI as a sport, that’s my job. I’m the captain.
+I look at the circumstances of a specific business use case, assess the reality and call the play for the team.
+What’s the right AI approach to get my clients the win?
+And winning in business means getting better outcomes and the best return on investment.
+GenAI is the hottest topic in business right now.
+But spoiler alert, it’s not always the right play for every use case. And I’m going to tell you why.
+Right now the world is hyper-focused on Generative AI.
+But if you’re implanting AI for your business, then you really need to think about your use case and whether it’s right for GenAI,
+...or whether it’s better suited to another AI technique or tool.
+Otherwise, you could be calling the wrong play or actively working against your team getting that big win.
+In business speak, that means missed opportunity, money lost and brand damage.
+That’s why it’s so important with AI that you’re implementing it correctly.
+And that starts with matching the business problem to the right tool, technique or solution, AI included.
+For example, lots of businesses want to generate a financial forecast.
+But that’s not typically going to require a GenAI solution, especially when there’s models that can do that for a fraction of the cost.
+And other businesses want to use GenAI for optimization, but there’s other well-established patterns which don’t require as much work.
+That’s a really important thing to understand.
+You need to avoid the temptation to use GenAI where existing tools already work well.
+Now you do need to be thinking about and investing in GenAI and AI in general.
+But you need to think about tech to problem and problem to tech.
+And what I mean by this is that when you have a business problem, you find the right tech to solve it.
+And if you’ve already invested in GenAI, AI or machine learning technology,
+...you explore the use cases that can be addressed, using your existing investments.
+This is the key to optimizing total cost of ownership and ROI for your AI.
+When you’re figuring all this out and working through which tech to match to what problem, you need to keep four considerations in mind.
+First, needs.
+Do you really need GenAI for this project or can your existing ML or AI technologies do the trick and offer a lower total cost of ownership?
+Second, capabilities.
+Do you have the right capabilities in place for this?
+Third, integration.
+If you adopted the technology, how would it work alongside your existing IT stack?
+And fourth, skills.
+Do you have the right mix of skills to take advantage of GenAI here?
+Ultimately picking the right use case for GenAI, AI and machine learning tools requires paying attention to a lot of moving parts.
+You need to make sure the best technology is solving the right problem.
+Be on the lookout for repeatable patterns.
+Consider your existing data architecture and look at what’s happening elsewhere in your business.
+And you need to do all of these things at the same time.
+That’s why finding a use case is like making the right call for a play on the field.
+You go out there with all the information you can gather,
+...but you need to be prepared to assess conditions on the ground and make changes as you face reality.
+That’s how you win.
+Check out the AI Academy archives for deep dives into other aspects of AI for Business and watch this space for future episodes.
+[Music]

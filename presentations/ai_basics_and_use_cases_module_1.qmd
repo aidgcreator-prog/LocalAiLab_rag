@@ -1,0 +1,63 @@
+---
+title: "AI_Basics_and_Use_Cases_Module_1"
+format: pptx
+---
+
+## Artificial Intelligence (AI) - The Basics and Use Cases
+
+- Module 1: AIM (AI for MSME Advancement) Training
+
+## Learning Objectives
+
+- Understand AI Fundamentals
+- Distinguish AI Types
+- Articulate Business Value
+- Identify Functional Use Cases
+- Evaluate Business Opportunities
+
+## Understanding AI Fundamentals
+
+- Definition: The simulation of human intelligence through machines.
+- Key Requirements:
+- - Good Quality Data (the \"fuel\")
+- - Selection of Algorithms
+- - Structured Output
+
+## Distinguishing AI Types (The AI Landscape)
+
+- Machine Learning (ML): Learning from data without explicit programming (e.g., Recommendation engines, Fraud detection)
+- Deep Learning (DL): Using neural networks for complex patterns (e.g., Image recognition)
+- Natural Language Processing (NLP): Understanding/generating human language (e.g., Chatbots, Translation)
+- Computer Vision (CV): Interpreting visual information (e.g., Facial recognition, Quality control)
+- Generative AI (GenAI): Creating new content (e.g., Content creation, Design)
+
+## Articulating Business Value
+
+- Increased Efficiency: Automating repetitive tasks
+- Improved Decision-Making: Data-driven insights
+- Enhanced Customer Experience: 24/7 support
+- Personalization: Tailoring services to individual needs
+- Gaining a Competitive Edge: Staying ahead in the market
+
+## Identifying Functional Use Cases
+
+- Customer Service: Chatbots, automated inquiry handling
+- Marketing: Personalized messages, content creation, design
+- Operations: Quality control (CV), supply chain optimization
+- Finance: Fraud detection, automated financial reporting
+- Human Resources: Candidate screening, personalized learning
+
+## Evaluating Business Opportunities (The Roadmap)
+
+- Identify Value Areas: Find functions where AI can generate value.
+- Assess Feasibility: Check for necessary data and $infrastructure.
+- Start Small: Focus on high-impact, specific use cases before scaling.
+
+## Summary
+
+- Recap of AI Fundamentals
+- Overview of AI Types (ML, DL, NLP, CV, GenAI)
+- Value Proposition for MSMEs
+- Functional Use Case Identification
+- Framework for Evaluating Opportunities
+

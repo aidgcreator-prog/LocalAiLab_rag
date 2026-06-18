@@ -1,0 +1,55 @@
+What do coffee and
+AI have in common? Well, a few years ago, grabbing
+coffee and working out were simple. You'd order a regular coffee. You'd maybe hit the treadmill and
+you'd call it a day. Well, now you walk into a cafe and you see oat milk lattes,
+cold brews, nitro shots, and at the gym, it's HIIT classes, macro training and intermittent
+fasting. While the fundamentals of AI remain the same. Build models and solve problems.
+But the terminology has expanded. And now, staying updated is key for developers
+and practitioners. AI is really going through this same transformation now. Those simple
+words like robots and automation have expanded, and you hear terms like machine learning,
+deep learning and LLMs. So today, we're going to decode that language so
+you can stay in the game because AI, it's all around us. Now let's start with the
+foundation. The three big topics of AI. Our first subset
+of AI is machine learning. And
+machine learning means teaching computers to learn patterns from data
+instead of hardcoding rules. An example, machine
+learning powers recommendation systems, identifying patterns in user behavior to
+suggest the most relevant content. Now a type of machine learning
+is deep learning. And deep learning, it's a subset
+that uses artificial neural networks. So that's different layers of nodes that mimic how our
+brains process information to learn patterns from large amounts of data. Common
+theme, and it can handle huge datasets and learn very complex relationships. Deep
+learning powers things like image recognition and even games beating world champions.
+Now another type of AI is natural language
+processing. And NLP
+is another acronym that you'll hear commonly used for natural language processing. It
+helps AI understand and generate human language. So think about generative AI or voice assistants
+answering questions or even translation tools. So, NLP uses algorithms and
+models to break down sentences into different parts and to understand
+the meaning and to generate those responses. Now let's go deeper into the building blocks. First,
+we have algorithms versus models. So,
+algorithms are the recipes, while models are the finished dish.
+Algorithms are the step-by-step instructions. Just like step by step to bake a
+cake. And the model is that cake that trained system created by applying an algorithm
+to data, which is our second topic. Data
+is the fuel. So, big data means massive datasets. But beware
+of bias. Bias can skew your results and it can exist
+in your data. And finally, we have training,
+validation and testing. And you can think of it as practice, midterms and
+finals for AI models. Let's take a peek into what's coming next and the innovations shaping
+tomorrow's AI. We have generative AI,
+a very widely known term today. And that's actually AI that's creating new
+content. So, things like images, text or even code. Generative AI
+enables this creation, enhancing workflows across domains. Imagine designing
+something like a logo or writing a song with even just a prompt.
+That's the power of generative AI. We also have
+reinforcement learning. And
+reinforcement learning, it's a type of machine learning, and it's AI that learns by trial and
+error. So this repetitive process. It's like teaching a robot to walk or an AI agent to
+complete a task. Instead of being told what to do, the agent or robot figures it out by trying
+different actions and learning what leads to good outcomes and what leads to bad outcomes.
+finally, we have explainable AI. And explainable AI,
+it helps us to understand why AI makes a decision, and that
+transparency truly matters. So how do you keep up? Well, you can follow trusted
+sources. You can take courses, and you can experiment and try things out for yourself
+responsibly. AI is powerful, but it's up to us to use it wisely.

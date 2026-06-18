@@ -1,0 +1,4 @@
+[server]
+# Streamlit's local source watcher can trigger transformers lazy imports,
+# which causes noisy torchvision-related stack traces during app startup.
+fileWatcherType = "none"

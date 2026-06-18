@@ -1,0 +1,228 @@
+I think all of you will know the Beloved
+childhood game called hide-and seek I'm
+sure it goes by different names around
+different parts of the world but in
+today's era of generative AI your data
+and your models are going to be two of
+your most important assets however
+finding those assets in a complex it
+environment sometimes can feel a lot
+like playing a game of hide-and seek and
+it really doesn't need to be that way
+you don't want to spend months trying to
+make sense of your different it and
+Cloud environments and wrestle through
+different data governance systems before
+you can actually access and gather the
+data that you need to become productive
+with AI because there's no AI without
+data after all but a disjointed chaotic
+it environment creates silos that make
+it difficult to seek out and collect the
+data that you need to train tune and
+leverage your AI welcome to AI Academy
+my name is Hillary Hunter and I'm the
+chief technology officer of the IBM
+infrastructure unit I oversee the
+technical strategy and the development
+and deployment of platform capabilities
+for our clients in our hardware systems
+and Cloud families and these days my
+mission is to identify how we can use
+infrastructure and platform capabilities
+to enable Ai and maximize its value for
+our clients that work starts with making
+intentional consistent architectural
+decisions that eliminate silos and
+strategically bring data and AI together
+each component of your it infrastructure
+should fit together like a puzzle but
+gaining access to your data or finding
+your models shouldn't feel like solving
+one a decade ago we had the first round
+of ai's emergence in the broader
+commercial space it was an ERA marked by
+extensive experimentation lots of proofs
+of concept but relatively limited
+adoption early AI couldn't do more than
+identify objects in a picture and add a
+caption perhaps or deliver responses to
+predetermined questions built with
+rule-based systems these use cases
+weren't pervasive enough to justify
+adoption for many Enterprise
+organizations s those who did adopt
+could find the latest AI capabilities
+usually in the cloud and only in the
+cloud in order to use it adopters had to
+ship all their relevant data to the
+specific Cloud environment that housed
+that Ai and with so few architectural
+options available organizations had to
+put a lot of trust in their Cloud
+providers and in many cases invest in
+the high cost of moving large amounts of
+data to the cloud Ai and Cloud
+architecture look very different today
+gen AI is powered by a class of deep
+learning algorithms including Foundation
+models large language models which
+enable rapid solutions to be built in
+the areas of things like natural
+processing simplifying Enterprise
+operations and enabling Enterprises to
+take application modernization and
+workflow automation to the next level
+gen can perform important tasks on the
+Enterprise level like creating and
+understanding code authoring marketing
+materials detecting fraudulent activity
+and extracting insights from
+unstructured Text data
+with commercial use cases multiplying by
+the day and the growing potential to
+maximize business value organizations
+are eager to start adopting and
+deploying AI rightfully so however Cloud
+technology has also expanded
+significantly we're now in the era of
+what we refer to as hybrid cloud in
+which Cloud Technologies are available
+across the multicloud landscape and
+spanning into un promises environment so
+traditional it Estates private Cloud
+public cloud and even the edge become a
+part of the hybrid Cloud conversation
+critical business data often resides on
+premises in the data center it's siloed
+but it's kept secure which is why many
+organizations store their most sensitive
+data on servers on premises the problem
+is that traditional management of
+servers without a unifying platform
+approach lacks the flexibility needed to
+integrate and create AI at scale a 2023
+study IBM conducted with the Harris
+organization recently found that 65% of
+organizations are using a combination of
+on-premises Hardware with multiple
+private and public Cloud capabilities
+creating a hybrid environment and
+complicating their it landscape many
+organizations have fallen victim to what
+we can call a Franken Cloud it's a
+monster of each organization's own
+creation the Franken Cloud essentially
+is a concept that says you have a very
+muddled incidental hybrid Cloud
+architecture it has all the right
+components to meet the definition of
+hybrid it has some cloud CL on premises
+and public Cloud usage but it lacks the
+structure and intentionality to be a
+hybrid Cloud a consistent environment
+for example a large Enterprise may have
+several business units working with the
+same data with no centralized place to
+access and analyze this data each
+business unit creates its own cloud
+environment and moves a copy of the data
+to that environment the organization is
+then left with umen isolated Cloud
+deployments that increase data silos
+increase storage costs increase security
+risk and effectively add architectural
+complexity to the overall landscape
+trying to run and build AI models in so
+many different locations only worsens
+these problems so what's the solution
+well it's not to choose between on
+premises infrastructure where you may
+have limited access to AI capabilities
+or choose between Cloud environments
+that put your data privacy and Security
+in a totally different comp context
+instead businesses need to adopt an
+infrastructure strategy that's hybrid by
+Design and work with an AI vendor that
+offers choice in AI deployment location
+a hybrid by Design approach eliminates
+the challenges born from random acts of
+cloud usage by establishing consistency
+across the various functions tools data
+sources platforms and systems that make
+up your whole it environment you're not
+simply adopting hybrid technology you're
+making intentional architectural
+decisions that unify every part of your
+business you're sharing the same data
+applications and policies between on
+premises infrastructure private Cloud
+public clouds and even out to the edge
+you're bringing critical data and
+applications into a consistent
+environment which means different
+business units can access the data they
+need without causing fragmentation or
+adding
+complexity essentially hybrid by Design
+means less Frank clouds more
+enterprise-wide alignment less time
+trying to access your data and more time
+actually using it to successfully build
+fine-tune integrate and deploy AI into
+your business now that we've defined the
+power of a hybrid by design it
+infrastructure let's answer some of the
+common questions around Ai and how does
+this topic even relate to hybrid Cloud
+first off can current technology provide
+a strong foundation for today's
+unparalleled AI capabil ities absolutely
+it can an intentionally designed hybrid
+Cloud architecture allows you to
+facilitate rapid scalability by tuning
+and deploying AI wherever your data
+resides this is a central step towards
+more efficient cost effective value
+creation second what does that
+infrastructure look like it looks like a
+hybrid Cloud environment but with a
+consistent platform and a consistent set
+of AI capabilities and governance across
+that full span it's a strategic coupling
+of public and private cloud scalability
+and on premises like security how can a
+hybrid by Design architecture help
+businesses gain the most value from AI
+well an intentionally designed hybrid
+Cloud architecture allows you to train
+modify and integrate AI capabilities
+into your business right alongside your
+most critical data that means that
+Solutions like Advanced automation
+real-time analysis and around the-clock
+customer engagement are right at your
+fingertips ready to be deployed when and
+where you need the most you're doing AI
+where your critical data is in all the
+places that you're doing business and
+where your customers are organizations
+need an integrated open and intentional
+hybrid Cloud architecture to enable AI
+deployment at scale hybrid by Design is
+all about deliberately building a
+cohesive it architecture that offers the
+combined benefit of multiple systems and
+services when your hyb Cloud
+architecture is strategically selected
+carefully structured and you leverage an
+AI vendor who meets you where you are
+your Enterprise can run AI workloads
+with the operational agility and
+scalability of the cloud underpinned by
+the robust security resilience and
+governance traditionally expected of on-
+premises
+infrastructure that is how you unlock
+the full value of AI

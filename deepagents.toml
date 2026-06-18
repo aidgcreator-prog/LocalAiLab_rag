@@ -1,0 +1,29 @@
+[agent]
+name = "lv-combined-agents"
+description = "Multi-specialist agent orchestrator with 8 subagents, user memory, content writing, GPU analytics, Agent Protocol server, and autonomous Ralph Mode"
+model = "ollama:gemma4:26b"
+
+[features]
+# New capabilities adopted from DeepAgents examples
+agent_protocol_server = true  # server.py — uvicorn server:app --port 2024
+ralph_mode = true             # ralph_mode.py — autonomous agent loop
+package_export = true         # package_agent.py — zip agent config for sharing
+user_memory = true            # memories/user/ — persistent user preferences
+mcp_docs = true               # mcp.json — MCP docs server integration
+
+[skills]
+# Skills available to subagents
+blog_post = "skills/blog-post/SKILL.md"
+social_media = "skills/social-media/SKILL.md"
+planning = "skills/planning/SKILL.md"
+code_review = "skills/code-review/SKILL.md"
+cudf_analytics = "skills/cudf-analytics/SKILL.md"
+cuml_ml = "skills/cuml-machine-learning/SKILL.md"
+data_viz = "skills/data-visualization/SKILL.md"
+docs_research = "skills/docs-research/SKILL.md"
+
+[sandbox]
+# Optional: Configure sandbox provider for remote execution
+# provider = "langsmith"
+# template = "coding-agent"
+# image = "python:3.12"

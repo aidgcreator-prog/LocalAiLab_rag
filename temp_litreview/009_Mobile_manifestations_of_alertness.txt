@@ -1,0 +1,9 @@
+Title: Mobile manifestations of alertness
+Authors: Elizabeth L. Murnane; Saeed Abdullah; Mark Matthews; Matthew Kay; Julie A. Kientz; Tanzeem Choudhury; Geri Gay; Dan Cosley
+Year: 2016
+Journal: 
+DOI: 10.1145/2935334.2935383
+Citations: 70
+
+Abstract:
+Our body clock causes considerable variations in our behavioral, mental, and physical processes, including alertness, throughout the day. While much research has studied technology usage patterns, the potential impact of underlying biological processes on these patterns is under-explored. Using data from 20 participants over 40 days, this paper presents the first study to connect patterns of mobile application usage with these contributing biological factors. Among other results, we find that usage patterns vary for individuals with different body clock types, that usage correlates with rhythms of alertness, that app use features such as duration and switching can distinguish periods of low and high alertness, and that app use reflects sleep interruptions as well as sleep duration. We conclude by discussing how our findings inform the design of biologically-friendly technology that can better support personal rhythms of performance.

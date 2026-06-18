@@ -1,0 +1,103 @@
+[Music]
+When you hear the term legacy technology,
+...you might picture something old and outdated, like a crumbled road map that’s stuffed into your car’s console.
+But in this episode, I’ll explain how your existing technology,
+...as part of a hybrid-cloud-by-design architecture can be the engine that powers your AI strategy.
+Your existing technology holds your data, and your data is the basis for your AI.
+Welcome to AI Academy.
+I’m Hillery Hunter, CTO of the IBM Infrastructure unit and General Manager of Innovation.
+I work on the computers that you likely never see and ideally shouldn’t even know exist because they just work.
+Let’s explore how to design a hybrid cloud architecture that works for and with your AI and your data.
+Often, IT leaders think about their legacy technology, for example, older applications,
+...mainframe and uncoordinated instances of public cloud usage as a hindrance to innovation.
+It can be viewed as being not agile, as a drain on budgets and incapable of keeping up with the pace of change.
+But AI doesn’t exist in a vacuum.
+It gets it’s smarts from historical information, combined with current and instantaneous data to work effectively.
+That’s why breaking down data silos and creating consistent environments across your IT estate,
+...are key to realizing the true potential of AI.
+Let’s go back to that map analogy that I started with.
+Imagine you’re on a road trip, trying to get from point A to point B in your journey.
+But imagine that there’s big ink blots all over the map,
+...removing critical information and making it impossible to decipher the roads that connect you to your destination.
+In this situation, you simply don’t have all the information to be effective and efficient.
+Alternately, if your systems aren’t integrated, if your data isn’t integrated,
+...if legacy IT isn’t modernized and brought to the table in this AI conversation, that’s like removing all of the interstates.
+You no longer have the superhighway to get you where you need to be.
+You’re stuck on the back roads and you can easily lose your way,
+...because you’re not able to utilize the best technologies and all of your data.
+You lose macro opportunities to solve big and bigger problems and get your business where it needs to go.
+Simply put, don’t think about your existing tech as legacy,
+...think about it as legendary, how each piece can help lead the AI journey to goal if it’s used properly.
+In this AI era, it’s time to rethink your cloud strategies.
+By choosing an intentional hybrid cloud architecture, you can bring your AI to wherever your data and applications already reside.
+You’ll have the ability to analyze the data in an optimized, organized way,
+...in the cloud and on premises, with governance built in and integrated across this landscape from day one.
+Your data can be organized and governed without moving it, avoiding data movement costs and potential security compromises.
+But if instead you don’t leverage an intentional hybrid approach, then your data is constantly being moved to where the AI is.
+Training to your desired outcomes,
+...tuning to your historical insights and applying AI to your current information takes time, money and work.
+Moving all of this scattered data can become arduous and expensive very fast,
+...like a GPS trying to decipher the best route in a constantly changing, underlying map.
+Implementing an intentional hybrid architecture lets you tackle AI with confidence,
+...consistency and enables you to course correct when needed.
+The result is substantially different.
+Latency improvements that can change business outcomes, meaning being able to get on and use the superhighway.
+Cost efficiencies, meaning taking the most efficient route from point A to point B, and better insights.
+This is then far beyond just having a paper road map.
+This is providing your company with a GPS.
+A system which is adaptable and understands the 3rd and 4th dimensions,
+...like traffic and road conditions that don’t even exist on a 2D map.
+Here are four considerations that come to my mind.
+First, make sure your systems are stable and ready for AI.
+The most important elements for system stability are elasticity, resiliency and security.
+For elasticity, be sure your environments have appropriate capacity for expansion.
+For resiliency, have high availability and disaster recovery in place, because AI applications will become essential to your business.
+As you plan for AI to begin to operate on and leverage key data,
+...this is an important time to check up on your cybersecurity management.
+Next, adopt modern operations techniques.
+When we talk about modernizing your operations,
+...we’re talking about implementing platform engineering practices, formally DevOps, DevSecOps, etcetera.
+Getting good at these will help the speed of AI creation and deployment.
+Other crucial steps to modernizing your operations are to leverage infrastructure as code,
+...compliance as code, modern application observability and automated workload rebalancing.
+These steps will help you spend less on IT management and give you more time to focus on building smarter applications.
+Be sure to provide access for the data.
+While many enterprises have been through multiple rounds of data management efforts in the past,
+...the time is truly now to put in place robust data cataloging and data governance systems.
+These provide appropriate and seamless access for data, for creation of AI capabilities.
+API-based modernization inserting points into an application where data and capabilities can be accessed is essential.
+Lastly, optimize end-to-end deployment.
+AI deployment is often feared to cause cost increases, but I want to put those fears to rest.
+There are answers.
+We’ve seen that automated workload optimization can help take out 30% or more of GPU usage,
+...through management of system resources alone.
+And use of smaller, tailor-fit AI models is key to cost management.
+Most importantly, having hybrid cloud solutions that enable you to choose where your AI runs,
+...means you can match up data with AI for a cost-efficient, latency-optimized solution.
+What are the biggest roadblocks for technology leaders when it comes to AI?
+First, it can certainly take some imagination to see that you don’t need to rewrite and rework everything.
+That AI can be integrated into existing systems and workflows.
+But it’s indeed very likely that your existing systems have powerful, secure and data rich capabilities,
+...that can give you a competitive edge.
+Today, AI can be deployed to great effect, even within a mainframe-hosted application.
+It can be deployed on premises, on systems hosting your critical data, in the cloud or at the edge.
+When you power your enterprise with hybrid cloud capabilities,
+...tailor-fit models, governance and best practices, you can drive real value with AI.
+Implementing intentional hybrid cloud architecture is a business-critical decision,
+...that ensures your systems are well protected, streamlined and optimized.
+Every new journey has its risk, but if you don’t go, you’ll never grow.
+In IBM’s CEO Arvind Krishna’s 2024 Think keynote,
+...he gave us a preview of a new class of generative AI assistants for advising and helping users of the mainframe.
+Helping the IT operator to do their job better and making these systems smarter.
+Across the enterprise IT landscape, new AI assistants will range from helping coders to transform enterprise applications;
+...to hybrid cloud assistants that facilitate system optimization;
+...to code explainers that help developers understand and document applications through natural language.
+These are some of the many innovations and accelerations your company can take advantage of,
+...by adopting a hybrid-cloud-by-design architecture for your AI.
+And the time is now.
+Being able to get from point A to point B is the beginning of any road trip.
+So is making the most out of your existing IT resources to get the most from your AI.
+Whether on well-traveled routes or lands beyond your imagination,
+...with the right tools and the ability to see the road ahead with clarity and confidence, it’s going to be a legendary journey.
+Ready? Let’s go.
+[Music]

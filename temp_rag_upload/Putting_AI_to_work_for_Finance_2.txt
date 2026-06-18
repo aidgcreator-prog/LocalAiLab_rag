@@ -1,0 +1,261 @@
+[Music]
+coming from a family of doctors I often
+find myself trying to explain to them
+what I do for a living during one such
+conversation with my niece she came up
+with the perfect way to describe my role
+as a consultant she said Consultants are
+like doctors for companies doctors help
+people improve their health by
+diagnosing and treating their medical
+issues and Consultants help
+organizations achieve success by finding
+solutions for their business challenges
+ultimately both roles aim to improve the
+overall well being of their respective
+clients let's say today's client is your
+Finance organization and it's time for a
+checkup welcome to AI Academy my name is
+Monica pry and I'm the global Finance
+transformation leader or the finance
+company doctor for IBM Consulting during
+your initial screening I assessed
+several pain points inflation
+geopolitical uncertainty and rapidly
+changing regulatory standards may be
+hurting your business if we don't find a
+solution your productivity and
+profitability will be negatively
+impacted how can we address these issues
+and protect your organization's health
+for an embattled Finance function AI
+optimization is the optimal treatment
+plan research shows that when
+organizations scale AI across the
+finance function they tend to become top
+performers and Achieve higher Roi this
+should come as no surprise as Finance
+plays a vital role in the Enterprise
+it's the Beating Heart of your
+organization allocating resources across
+the business to power your operations AI
+technology helps to optimize the
+workflows and processes that drive the
+finance function through Automation and
+content generation traditional AI
+automates routine labor intensive tasks
+such as data collection document
+summarization and pattern recognition
+traditional AI systems are designed to
+perform specific tasks based on
+deterministic algorithms set by your
+organization for example an AI infused
+tool like robotic process automation or
+RPA follows predefined scripts and
+workflows that represent the task
+process from start to finish in doing so
+the AI performs these simple repetitive
+tests at an exponentially faster rate
+offering Finance organizations an
+overwhelming competitive advantage or
+you might use RPA to automate data
+collection for financial reports RPA can
+capture and make sense of key
+information in an instant allowing you
+to quickly gain new insights and make
+informed decisions traditional AI does
+routine tasks for you so you don't have
+to generative AI on the other hand does
+complex tasks with you so you can work
+more efficiently gen helps you create
+content using deep learning models these
+models analyze your existing data learn
+its common patterns and structures then
+use that information to generate
+something brand new using prompts like
+specific queries or instructions you can
+guide and refine your gen content as
+needed consider how much time you might
+spend creating a financial analysis in
+Excel you have to gather and input data
+from multiple sources build charts and
+pivot tables to visualize the results
+then format it all into a stakeholder
+ready presentation that's roughly half a
+days worth of work minimum you could
+spend 50% of your day sorting through
+spreadsheets or you could spend 10% of
+your day prompting a gen model to help
+you create what you would need in a
+fraction of the time instead of spending
+hours on data entry and Designs let's
+say you decided to use geni it quickly
+ingests and structures your financial
+data provides you with relevant insights
+and packages everything in a presentable
+sharable format how much time do you
+think it took to create your financial
+anal Anis using gen even if you spent a
+few hours coming up with different
+prompts and polishing your presentation
+to suit your preferences you've still
+saved days of Labor by augmenting your
+work with Gen and that's not the only
+value it brings to the table geni is
+completely revolutionizing the role of
+Finance across Industries it's
+accelerating the abilities of
+traditional Ai and making this seemingly
+impossible possible gen can rapidly
+detect anomalies explain variant es
+generate scenarios create reports and
+manage accounts for the first time ever
+we're able to automate complex workflows
+tasks and processes at speed AI
+technology is capable of so much more
+and if you're searching for use cases to
+prove its value to your Finance
+organization the wealth of opportunities
+may seem like Choice overload so where
+should you start where's the best place
+to focus your efforts of the four key
+Finance workflows order to cash
+Financial Planning and Analysis record
+to report and procure to pay Financial
+Planning and Analysis will see the
+biggest impact from AI technology this
+domain is where you budget forecast and
+analyze your financial performance
+through a combination of traditional Ai
+and geni capabilities you can make
+faster more accurate decisions the
+faster you're able to make decisions the
+faster you can create action plans that
+impact sales marketing and Supply chains
+traditional AI can automate the data
+aggregation process which is often
+tedious and labor intensive Genai can
+provide cost cutting recommendations
+detect patterns and anomalies and create
+Dynamic scenarios and market performance
+comparisons these capabilities allow you
+to explore simulated outcomes without
+impacting your business to get the most
+out of your AI Investments it may be why
+wise to start your journey with the
+financial planning and Analysis use case
+speaking of Journeys the further along
+you are in your AI Journey the more you
+gain from your Investments organizations
+that have implemented AI report an 18%
+Roi those that have operationalized ai
+report a 24% Roi and organizations that
+have optimized AI report a whopping 51%
+Roi despite its Quantified able benefits
+Finance organizations have been slow to
+integrate AI into their daily operations
+many CFOs are skeptical of AI technology
+they're concerned about data security
+risk governance biases inaccuracies and
+the potential for significant loss of
+shareholder value the truth is AI isn't
+perfect but by implementing robust
+security protocols establishing clear
+governance structures and monitoring and
+adjusting AI models as needed CFOs can
+mitigate the risks that come with
+incorporating new technology
+professionals across every industry are
+also skeptical due to fears of being
+replaced by gen aai on the contrary the
+purpose of AI technology optimization is
+to help humans do their jobs more
+effectively AI adopters attribute 40% of
+Finance function Workforce redeployment
+to gen as a result human workers are
+more empowered to learn new skills and
+focus on higher value strategic tasks
+organizations looking to adopt AI need
+to heavily invest in training to equip
+their Finance teams with knowledge about
+machine learning data science and agile
+techniques the goal is not to turn
+Finance professionals into technology
+experts it's to help humans work in
+concert with technology AI democratizes
+information and expertise it's
+essentially a form of digital labor
+designed to ease the jobs of human
+workers
+with training on how to properly use AI
+technology Finance professionals can use
+it for human augmented value creation to
+optimize Genai and become an AI first
+Finance organization you're going to
+need buyin from your team stakeholders
+and Business Leaders presenting a use
+case like AI for financial planning and
+Analysis is an effective step towards
+facilitating digital transformation
+finding the best use case depends on
+strategic alignment the impact of AI the
+opportunity to scale pervasively and the
+team's Readiness to transform before you
+begin your search you'll want to ask a
+few questions what are you trying to
+achieve with AI is it growth
+productivity control accuracy will the
+use case Advance your strategic goals
+will AI have an impact that leads to
+better decisions will applying AI change
+decision-making and finally how will
+adopting a hybrid operating Model A
+human and digital Workforce impact your
+business most often this is where
+organizations fail answering these
+questions will help you map out your
+strategic vision and with that you can
+pilot AI technology that aligns with
+your business needs this is your chance
+to start using an understanding AI
+before you scale Finance leaders ready
+to scale should build their traditional
+AI technology around key financial
+workflows processes and initiatives then
+add gen to supercharge these new
+capabilities oftentimes Finance
+organizations can't keep up with the
+rapidly changing Ambitions of a business
+that's always trying to stay competitive
+in the market think about cloud-based
+subscription organizations marketing and
+business functions are coming up with
+new services and adding new business
+models it becomes a nightmare for
+finance to try consuming and parsing
+through data while keeping up with a
+changing Revenue models and different
+fee structures all of which imp Revenue
+recognition this is a good place to
+start using gen AI something in the low
+variability box like an agent or an
+assistant to help ingest and summarize
+documents gen AI can parse through this
+information answer questions generate
+insights and explain the patterns that
+work and those that don't now you know
+how and where AI can benefit your
+organization so let's wrap up your visit
+with the finance company doctor a
+healthy heart circulates blood
+throughout your body to supply you with
+oxygen and nutrients in much the same
+way a strong Finance function
+distributes resources across your
+organization to fund key initiatives and
+improve strategic decision-making AI
+technology optimizes The crucial
+workflows and processes at the Strategic
+core of the finance function which leads
+to faster more successful outcomes for
+the rest of your business

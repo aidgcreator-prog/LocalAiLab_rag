@@ -1,0 +1,962 @@
+[SEARCH] Found 2 result(s) for 'structural equation modelling key concepts estimation methods fit indices applications':
+
+## The Effect of Estimation Methods on SEM Fit Indices - PMC
+**URL:** https://pmc.ncbi.nlm.nih.gov/articles/PMC7221491/
+
+The Effect of Estimation Methods on SEM Fit Indices - PMC
+
+
+[Skip to main content](#main-content)
+
+![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/us_flag.svg)
+
+An official website of the United States government
+
+Here's how you know
+
+Here's how you know
+
+![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/icon-dot-gov.svg)
+
+**Official websites use .gov**
+  
+A
+**.gov** website belongs to an official
+government organization in the United States.
+
+![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/icon-https.svg)
+
+**Secure .gov websites use HTTPS**
+  
+A **lock** (
+
+Lock
+
+Locked padlock icon
+
+) or **https://** means you've safely
+connected to the .gov website. Share sensitive
+information only on official, secure websites.
+
+[![NCBI home page](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/ncbi-logos/nih-nlm-ncbi--white.svg)](https://www.ncbi.nlm.nih.gov/)
+
+
+
+
+
+
+
+
+![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/search.svg)
+Search
+
+
+![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/person.svg)
+Log in
+
+![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/expand_less.svg)
+
+![](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/expand_more.svg)
+
+
+* [Dashboard](https://www.ncbi.nlm.nih.gov/myncbi/)
+* [Publications](https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/)
+* [Account settings](https://www.ncbi.nlm.nih.gov/account/settings/)
+* Log out
+
+Search…
+
+
+
+Search NCBI
+
+Primary site navigation
+
+
+![Close](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/usa-icons/close.svg)
+
+
+
+Search
+
+
+
+![Search](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg==)
+
+
+
+Logged in as:
+
+* [Dashboard](https://www.ncbi.nlm.nih.gov/myncbi/)
+* [Publications](https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/)
+* [Account settings](https://www.ncbi.nlm.nih.gov/account/settings/)
+
+Log in
+
+![PMC search open icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/search.svg)
+![PMC search close ison](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/close.svg)
+
+Search PMC Full-Text Archive
+
+
+
+
+Search in PMC
+![Search](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/usa-icons-bg/search--white.svg)
+
+* [Journal List](/journals/)
+* [User Guide](/about/userguide/)
+
+* ![Open resources icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/more_vert.svg)
+* [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/launch.svg)](https://doi.org/10.1177/0013164419885164 "View on publisher site")
+* [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/file_download.svg)](pdf/10.1177_0013164419885164.pdf "Download PDF")
+* ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/action-bookmark-full.svg)
+  ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/action-bookmark-empty.svg)
+* ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/format_quote.svg)
+* ![Show article permalink icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/share.svg)
+
+  PERMALINK
+  ---------
+
+  ![Copy icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/content_copy.svg)
+  Copy
+
+![Open article navigation icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/list.svg)
+
+As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+the contents by NLM or the National Institutes of Health.  
+Learn more:
+[PMC Disclaimer](/about/disclaimer/)
+|
+[PMC Copyright Notice](/about/copyright/)
+
+![Educational and Psychological Measurement logo](https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-epmea.gif)
+
+Educ Psychol Meas
+
+. 2019 Nov 10;80(3):421–445. doi: [10.1177/0013164419885164](https://doi.org/10.1177/0013164419885164)
+
+* [Search in PMC](https://pmc.ncbi.nlm.nih.gov/search/?term="Educ%20Psychol%20Meas"[jour])
+* [Search in PubMed](https://pubmed.ncbi.nlm.nih.gov/?term="Educ%20Psychol%20Meas"[jour])
+* [View in NLM Catalog](https://www.ncbi.nlm.nih.gov/nlmcatalog?term="Educ%20Psychol%20Meas"[Title%20Abbreviation])
+* [Add to search](?term="Educ%20Psychol%20Meas"[jour])
+
+The Effect of Estimation Methods on SEM Fit Indices
+===================================================
+
+[Dexin Shi](https://pubmed.ncbi.nlm.nih.gov/?term="Shi%20D"[Author])
+
+### Dexin Shi
+
+1University of South Carolina, Columbia, SC, USA
+
+Find articles by [Dexin Shi](https://pubmed.ncbi.nlm.nih.gov/?term="Shi%20D"[Author])
+
+1,✉, [Alberto Maydeu-Olivares](https://pubmed.ncbi.nlm.nih.gov/?term="Maydeu-Olivares%20A"[Author])
+
+### Alberto Maydeu-Olivares
+
+1University of South Carolina, Columbia, SC, USA
+
+2University of Barcelona, Barcelona, Spain
+
+Find articles by [Alberto Maydeu-Olivares](https://pubmed.ncbi.nlm.nih.gov/?term="Maydeu-Olivares%20A"[Author])
+
+1,2
+
+* Author information
+* Article notes
+* Copyright and License information
+
+1University of South Carolina, Columbia, SC, USA
+
+2University of Barcelona, Barcelona, Spain
+
+✉
+
+Dexin Shi, Department of Psychology, Barnwell College, University of South Carolina, 1512 Pendleton Street, Columbia, SC 29208, USA. Email: shid@mailbox.sc.edu
+
+Issue date 2020 Jun.
+
+© The Author(s) 2019
+
+[PMC Copyright notice](/about/copyright/)
+
+PMCID: PMC7221491  PMID: [32425213](https://pubmed.ncbi.nlm.nih.gov/32425213/)
+
+Abstract
+--------
+
+We examined the effect of estimation methods, maximum likelihood (ML), unweighted least squares (ULS), and diagonally weighted least squares (DWLS), on three population SEM (structural equation modeling) fit indices: the root mean square error of approximation (RMSEA), the comparative fit index (CFI), and the standardized root mean square residual (SRMR). We considered different types and levels of misspecification in factor analysis models: misspecified dimensionality, omitting cross-loadings, and ignoring residual correlations. Estimation methods had substantial impacts on the RMSEA and CFI so that different cutoff values need to be employed for different estimators. In contrast, SRMR is robust to the method used to estimate the model parameters. The same criterion can be applied at the population level when using the SRMR to evaluate model fit, regardless of the choice of estimation method.
+
+**Keywords:** structural equation modeling (SEM), fit indices, estimation methods, close fit
+
+---
+
+In many applications of structural equation modeling (SEM), the model under consideration is to some degree misspecified, or in more plain terms, incorrect ([Box, 1979](#bibr6-0013164419885164); [MacCallum, 2003](#bibr21-0013164419885164)). In these situations, it is of interest whether the model fits closely or, more precisely, whether the misfit is substantively ignorable ([Shi, Maydeu-Olivares, & DiStefano, 2018](#bibr46-0013164419885164)). A host of goodness-of-fit indices have been developed in an attempt to assess the size of a model’s misfit. As [MacCallum, Browne, and Sugawara (1996)](#bibr22-0013164419885164) put it,
+
+> If the model is truly a good model in terms of its fit in the population, we wish to avoid concluding that the model is a bad one. Alternatively, if the model is truly a bad one, we wish to avoid concluding that it is a good one. (p. 131)
+
+However, in reality, the goodness-of-fit indices reflect not just the “size” of model misspecification in the population. Rather, fit indices can be influenced by other variables that are unrelated to the level of the model misfit ([Saris, Satorra, & van der Veld, 2009](#bibr35-0013164419885164)).
+
+One of these variables is the choice of estimation method ([Beauducel & Herzberg, 2006](#bibr3-0013164419885164); [Savalei, 2017](#bibr39-0013164419885164); [Xia & Yang, 2019](#bibr53-0013164419885164)). When fitting SEM models with continuous outcomes, maximum likelihood (ML) is the most commonly used estimation method ([Jöreskog, 1969](#bibr16-0013164419885164); [Maydeu-Olivares, 2017b](#bibr25-0013164419885164)). On the other hand, when the data are ordinal, estimators based on least squares, such as the unweighted least squares (ULS) and diagonally weighted least squares (DWLS) are generally recommended when ordinal data are present[1](#fn1-0013164419885164) ([Forero, Maydeu-Olivares, & Gallardo-Pujol, 2009](#bibr13-0013164419885164); [Jöreskog & Sörbom, 1988](#bibr17-0013164419885164); [Muthén, 1993](#bibr30-0013164419885164); [Muthén, du Toit, & Spisic, 1997](#bibr31-0013164419885164); [Savalei & Rhemtulla, 2013](#bibr41-0013164419885164); [Shi, DiStefano, McDaniel, & Jiang, 2018](#bibr42-0013164419885164)).
+
+Understanding the effect of estimation methods on SEM fit indices is important when fitting SEM models to ordinal data for two reasons. First, conclusions and conventional cutoffs obtained using an estimator cannot be generalized to applications in which a different estimator has been used. Most previous studies on SEM fit indices used ML estimation, and conclusions and conventional cutoffs obtained using ML with continuous data (e.g., [Hu & Bentler, 1999](#bibr15-0013164419885164)) cannot be generalized to situations where categorical estimation methods (e.g., ULS and DWLS) are used. Second, a number of studies ([DiStefano & Morgan, 2014](#bibr10-0013164419885164); [Maydeu-Olivares, Cai, & Hernández, 2011](#bibr26-0013164419885164); [Rhemtulla, Brosseau-Liard, & Savalei, 2012](#bibr33-0013164419885164)) suggest that ordinal data with a large number of response categories (five or more categories) *can* be treated approximately as continuous. In these situations, using ML estimation when treating data as continuous or least squares methods when treating the data as ordinal will lead to substantially different fit indices across estimators, even when the same structural model is fitted to the data.[2](#fn2-0013164419885164)
+
+Previous studies (e.g., [Beauducel & Herzberg, 2006](#bibr3-0013164419885164); [Savalei, 2017](#bibr39-0013164419885164); [Xia & Yang, 2019](#bibr53-0013164419885164)) have examined the impact of estimation methods on SEM fit indices. In particular, a recent study by [Xia and Yang (2019](#bibr53-0013164419885164), see also [Xia, 2016](#bibr51-0013164419885164)) has systematically examined the behavior of the root mean square error of approximation (RMSEA; [Steiger, 1989](#bibr48-0013164419885164), [1990](#bibr49-0013164419885164); [Steiger & Lind, 1980](#bibr50-0013164419885164)**)** and the comparative fit index (CFI; [Bentler, 1990](#bibr4-0013164419885164)) across estimation methods. Using simulation and empirical examples, these authors found that DWLS and ULS consistently yield smaller RMSEA and larger CFI than those obtained using ML, suggesting that the model fits better. The above pattern held at both the population and sample levels. Based on the findings, the authors concluded that the RMSEA and CFI tell different stories depending on the estimation method; the ML-based conventional cutoffs should not be applied under categorical estimators.
+
+However, [Xia and Yang (2019)](#bibr53-0013164419885164) did not consider in their study goodness-of-fit indices that may be unaffected by the choice of estimator, such as the standardized root mean square residual (SRMR; [Bentler, 1995](#bibr5-0013164419885164); [Jöreskog & Sörbom, 1988](#bibr17-0013164419885164); [Maydeu-Olivares, 2017a](#bibr24-0013164419885164)). The SRMR depends solely on the parameter estimates, and not on the fit function used. Under model misspecification, parameter estimates using the methods considered in this article are consistent as long as the fitted model is not too far from the true model ([Satorra, 1990](#bibr36-0013164419885164)). As a result, provided that sample size is large enough, the estimated SRMR is expected to be relatively robust to the choice of estimation method. However, there is no empirical evidence to support this supposition.
+
+To fill this gap in the literature, this article aims to understand the effects of estimation methods on the SRMR under different types and levels of model misspecification. To avoid the confounding of sample fluctuations, the *population* SRMR is examined.[3](#fn3-0013164419885164) More specifically, the behavior of the population SRMR across three estimation methods (i.e., ML, ULS, and DWLS) is compared with that of two commonly used fit-function–based indices: the RMSEA and CFI.
+
+The RMSEA, CFI, and SRMR Population Parameters
+----------------------------------------------
+
+The population RMSEA measures the discrepancy due to approximation per degree of freedom as follows:
+
+|  |  |
+| --- | --- |
+| RMSEA=F0df, | (1) |
+
+where F0 denotes the discrepancy between the fitted model and the data-generating process, and *df* denote the degrees of freedom of the proposed model.
+
+In turn, the CFI ([Bentler, 1990](#bibr4-0013164419885164)) measures the improvement in fit of the postulated model in relation to a baseline model. The population CFI can be expressed as follows:
+
+|  |  |
+| --- | --- |
+| CFI=1−F0FB, | (2) |
+
+where *F*0 and *FB* represent the fit function for the postulated model and the baseline model, respectively. The baseline model is the “worst possible” model. The usual convention for a baseline model is the independence model in which all observed variables are assumed to be uncorrelated.
+
+Both the RMSEA and CFI are concomitant on the fit function (*F*; i.e., estimation method) used. For example, when ML is applied to (mean-centered) continuous outcomes, *F*0 can be written as
+
+|  |  |
+| --- | --- |
+| FML=ln|Σ0|−ln|Σ|+tr(ΣΣ0−1)−p, | (3) |
+
+where *p* is the number of observed variables in the fitted model, and Σ and Σ0 denote the population and model implied covariance matrices, respectively.
+
+When the data are treated as categorical, correlation structures are involved, instead of covariance structures. More specifically, the model is fitted to polychoric correlations. In this case, the population diagonally least squares (*FDWLS*) and unweighted least squares (*FULS*) fit functions can be expressed as
+
+|  |  |
+| --- | --- |
+| FDWLS=ε′r(diag(Γ))−1εr, | (4) |
+
+|  |  |
+| --- | --- |
+| FULS=ε′rεr, | (5) |
+
+where εr=κ-κ0 denotes the difference between the population thresholds and polychoric correlations and those implied by the model and Γ is the probability limit of the covariance matrix of the estimated thresholds and polychoric correlations.
+
+Therefore, the RMSEA and CFI are not uniquely defined; their population values change depending on the choice of estimation method. This idea has been emphasized by several researchers (e.g., [Maydeu-Olivares, 2017a](#bibr24-0013164419885164); [Savalei, 2012](#bibr38-0013164419885164)).
+
+In turn, the population SRMR is defined as
+
+|  |  |
+| --- | --- |
+| SRMR=ε′sεst. | (6) |
+
+Here, εs is the vector of the population standardized residual covariances and t=p(p+1)/2 indicates the number of unique elements in the residual covariance (correlation) matrix. The SRMR is a standardized effect size measure of model misfit and can be crudely interpreted as the average standardized residual covariance ([Maydeu-Olivares, 2017a](#bibr24-0013164419885164); Shi, [Maydeu-Olivares, et al., 2018](#bibr27-0013164419885164)).
+
+Simulation Study
+----------------
+
+We conducted an extensive simulation study to investigate the effects of estimation methods on three *population* SEM fit indices (i.e., RMSEA, CFI, and SRMR) across different types and levels of model misspecification in factor analysis models. The population model was a confirmatory factor analysis (CFA) model with two correlated factors. We considered the following three types of model misspecification, which are commonly observed in practice when fitting CFA models:
+
+* (a) *Misspecified dimensionality*. The population model has two correlated factors, but a one-factor model was fit to the two-factor structure.
+* (b) *Omitting cross-loadings*. The population model has two correlated factors with independent clusters structure; however, one or multiple items cross-load on both factors. The fitted model assumed an independent clusters structure, where the cross-loading value(s) are incorrectly fixed to zero.
+* (c) *Ignoring residual correlations*. One or multiple residual terms were correlated in the population model. In the fitted model, the residuals’ correlations were ignored and incorrectly fixed to zero.
+
+For all three types of model misspecification, the population factor variances were set to 1. The error variances were set such that the population covariance matrices were in fact correlation matrices. This implies that all factor loadings (including cross-loadings) are on a standardized scale. Other characteristics that were manipulated are as follows.
+
+* *Magnitude of factor loadings*. The population factor loadings (λ) included low (.40), medium (.60), and high (.80) values.
+* *Model size*. The model size is indicated by the number of observed variables (*p*; [Moshagen, 2012](#bibr29-0013164419885164); [Shi, Lee, & Terry, 2015](#bibr44-0013164419885164), [2018](#bibr45-0013164419885164)). Model size (*p*) included 10, 20, and 30 variables. An equal number of items loaded on each factor of the population model.
+* *Magnitude of model misspecification*. Under misspecified dimensionality, the level of misspecification was manipulated by altering the interfactor correlations (ρ) in the population model. The true correlation coefficients (ρ) considered in the current study included .60, .80, and .90. Provided that the model was misspecified by ignoring the multidimensional structure, a smaller interfactor correlation indicated a greater level of misspecification. When the model misspecifications were introduced by omitting the cross-loading(s) or the correlated residual(s), the population correlation between the two factors was set to be .20, and the level of misfit was determined by the population value of the omitted parameters. The population values of the cross-loading(s) or residual correlation(s) included .20 or .40, with larger values indicating more severe model misspecification.
+
+It is noted that we considered a wide range of levels of model misspecification that might occur in real data analysis (Shi, [Maydeu-Olivares, et al., 2018](#bibr27-0013164419885164)). For example, most researchers would agree that the model misfit is substantively ignorable when fitting a one-factor model to two-factor data with interfactor correlation ρ = .90 or omitting a cross-loading or residual correlation of .20. On the other hand, most researchers will agree that fitting a one-factor model to a two-dimensional structure with ρ = .60 or ignoring cross-loading(s) or residual correlation(s) of .40 cannot be substantively ignored.
+
+* *Number of omitted parameters*. Under scenarios of omitting cross-loadings or residual correlations, we also manipulated the number of omitted parameters. Either one or four parameters were omitted from the fitted model.
+
+A total of 99 conditions were investigated (27 + 36 + 36). Under misspecified dimensionality, the number of conditions considered was 27 = 3 (factor loading levels) × 3 (model size levels) × 3 (factor intercorrelation levels). For model misfit with cross-loadings or residual correlations, the number of conditions investigated was 36 = 3 (factor loading levels) × 3 (model size levels) × 2 (magnitudes of omitted parameters) × 2 (number of omitted parameters).
+
+For each simulated condition, we computed the population fit indices (i.e., RMSEA, CFI, and SRMR) using three different estimation methods, including maximum likelihood (ML), diagonally weighted least squares (DWLS), and unweighted least squares (ULS). All computations are conducted using the *lavaan* package in R ([R Core Team, 2019](#bibr32-0013164419885164); [Rosseel, 2012](#bibr34-0013164419885164)).
+
+More specifically, when using ML and ULS, the population values of the fit indices were computed by fitting the misspecified model to the population correlation matrices. Under DWLS, however, the diagonal of the asymptotic covariance matrix (of thresholds and polychoric correlations) were utilized as the weight matrices in the fit function. Therefore, following the approach used in [Xia (2016](#bibr51-0013164419885164); see also [Xia & Yang, 2018](#bibr52-0013164419885164), [2019](#bibr53-0013164419885164)), the population values of the fit indices were approximated by fitting the misspecified model to a generated large sample (i.e., *N* = 1,000,000) data. It is noted that under DWLS, the population values of the fit indices may depend on the number of response categories (see [Xia & Yang, 2018](#bibr52-0013164419885164)). In the current study, we used ordinal data with five response categories. We set the number of response categories to *five* to reflect the scenario where the data can be *either* treated as continuous *or* categorical. In addition, threshold values are required to calculate the weight matrix. In this study, we considered two types of threshold distributions: symmetric and asymmetric. The symmetric data with five categories were generated so that the expected areas under the curve[4](#fn4-0013164419885164) were 7%, 24%, 38%, 24%, and 7% of the response options 0 through 4, respectively. Under asymmetric conditions, 52%, 15%, 13%, 11%, and 9% of the normally distributed data fell into each category. The threshold values used were based on previous simulation studies in ordinal factor analysis ([Rhemtulla, Brosseau-Liard, & Savalei, 2012](#bibr33-0013164419885164)).
+
+### RMSEA Results
+
+The population values of RMSEA for all simulated conditions obtained using different estimation methods are reported in [Tables 1](#table1-0013164419885164) to [3](#table3-0013164419885164). Using the conventional cutoff ([Browne & Cudeck, 1993](#bibr9-0013164419885164)), we highlighted cases where the population RMSEA was greater than .05 (i.e., the model did not fit closely). Across all simulated conditions, the population RMSEA ranged from .005 to .206 (ML), from .004 to .144 (ULS), and from .003 to .177 (DWLS). Consistent with findings from previous studies ([Feinian et al., 2008](#bibr11-0013164419885164); [Kenny, Kaniskan, & McCoach, 2015](#bibr18-0013164419885164); [Maydeu-Olivares, Shi, & Rosseel, 2018](#bibr27-0013164419885164); [McNeish, An, & Hancock, 2018](#bibr28-0013164419885164); [Savalei, 2012](#bibr38-0013164419885164); [Shi, Lee, & Maydeu-Olivares, 2019](#bibr43-0013164419885164)), under all three estimation methods, the population RMSEA increased as the level of model misspecification increased, the magnitude of factor loadings increased, and the size of the model decreased.
+
+#### Table 1.
+
+The Impact of Estimation Methods on the Population RMSEA: Misspecified Dimensionality.
+
+| *p* | LD | ρ | RMSEAML | RMSEAULS | RMSEADWLS\_sym\_ | RMSEADWLS\_asym |
+| --- | --- | --- | --- | --- | --- | --- |
+| 10 | .40 | .90 | .010 | .009 | .008 | .007 |
+|  |  | .80 | .020 | .018 | .017 | .015 |
+|  |  | .60 | .038 | .036 | .034 | .029 |
+|  | .60 | .90 | .029 | .020 | .021 | .018 |
+|  |  | .80 | **.053** | .041 | .041 | .035 |
+|  |  | .60 | **.094** | **.081** | **.081** | **.070** |
+|  | .80 | .90 | **.078** | .036 | .050 | .043 |
+|  |  | .80 | **.131** | **.072** | **.095** | **.081** |
+|  |  | .60 | **.206** | **.144** | **.177** | **.151** |
+| 20 | .40 | .90 | .009 | .008 | .008 | .007 |
+|  |  | .80 | .018 | .017 | .016 | .013 |
+|  |  | .60 | .033 | .034 | .031 | .027 |
+|  | .60 | .90 | .025 | .019 | .019 | .017 |
+|  |  | .80 | .045 | .038 | .038 | .033 |
+|  |  | .60 | **.075** | **.076** | **.075** | **.065** |
+|  | .80 | .90 | **.063** | .034 | .047 | .040 |
+|  |  | .80 | **.101** | **.068** | **.088** | **.076** |
+|  |  | .60 | **.152** | **.135** | **.164** | **.140** |
+| 30 | .40 | .90 | .009 | .008 | .008 | .007 |
+|  |  | .80 | .017 | .017 | .015 | .013 |
+|  |  | .60 | .030 | .033 | .031 | .027 |
+|  | .60 | .90 | .023 | .019 | .019 | .016 |
+|  |  | .80 | .040 | .037 | .038 | .032 |
+|  |  | .60 | **.065** | **.075** | **.074** | **.063** |
+|  | .80 | .90 | **.056** | .033 | .046 | .039 |
+|  |  | .80 | **.087** | **.066** | **.087** | **.075** |
+|  |  | .60 | **.128** | **.133** | **.161** | **.138** |
+
+[Open in a new tab](table/table1-0013164419885164/)
+
+*Note. p* = number of observed variables; LD = factor loadings, ρ = interfactor correlation. RMSEA = root mean square error of approximation; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares. Cases where the population RMSEA was greater than .05 are in boldface.
+
+#### Table 3.
+
+The Impact of Estimation Methods on the Population RMSEA: Ignoring Residual Correlations.
+
+| *p* | LD | mg | *n* | RMSEAML | RMSEAULS | RMSEADWLS\_sym\_ | RMSEADWLS\_asym |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 10 | .40 | .20 | 1 | .031 | .028 | .026 | .022 |
+|  |  |  | 4 | **.062** | **.052** | .049 | .043 |
+|  |  | .40 | 1 | **.064** | **.055** | **.056** | .048 |
+|  |  |  | 4 | **.128** | **.104** | **.105** | **.090** |
+|  | .60 | .20 | 1 | .029 | .021 | .020 | .017 |
+|  |  |  | 4 | **.061** | .040 | .037 | .032 |
+|  |  | .40 | 1 | **.060** | .042 | .043 | .036 |
+|  |  |  | 4 | **.126** | **.080** | **.079** | **.068** |
+|  | .80 | .20 | 1 | .028 | .012 | .011 | .010 |
+|  |  |  | 4 | **.061** | .023 | .021 | .018 |
+|  |  | .40 | 1 | **.058** | .024 | .024 | .020 |
+|  |  |  | 4 | **.125** | .045 | .044 | .038 |
+| 20 | .40 | .20 | 1 | .013 | .013 | .012 | .011 |
+|  |  |  | 4 | .025 | .025 | .024 | .021 |
+|  |  | .40 | 1 | .026 | .026 | .027 | .023 |
+|  |  |  | 4 | .050 | .050 | **.052** | .045 |
+|  | .60 | .20 | 1 | .010 | .010 | .009 | .008 |
+|  |  |  | 4 | .019 | .019 | .018 | .016 |
+|  |  | .40 | 1 | .020 | .020 | .020 | .017 |
+|  |  |  | 4 | .038 | .038 | .039 | .033 |
+|  | .80 | .20 | 1 | .005 | .005 | .005 | .004 |
+|  |  |  | 4 | .011 | .011 | .010 | .009 |
+|  |  | .40 | 1 | .011 | .011 | .011 | .009 |
+|  |  |  | 4 | .022 | .022 | .021 | .018 |
+| 30 | .40 | .20 | 1 | .010 | .008 | .008 | .007 |
+|  |  |  | 4 | .019 | .017 | .016 | .014 |
+|  |  | .40 | 1 | .020 | .017 | .017 | .015 |
+|  |  |  | 4 | .040 | .033 | .034 | .029 |
+|  | .60 | .20 | 1 | .009 | .006 | .006 | .005 |
+|  |  |  | 4 | .019 | .013 | .012 | .010 |
+|  |  | .40 | 1 | .019 | .013 | .013 | .011 |
+|  |  |  | 4 | .039 | .025 | .025 | .022 |
+|  | .80 | .20 | 1 | .009 | .004 | .004 | .003 |
+|  |  |  | 4 | .019 | .007 | .007 | .006 |
+|  |  | .40 | 1 | .019 | .007 | .007 | .006 |
+|  |  |  | 4 | .039 | .014 | .014 | .012 |
+
+[Open in a new tab](table/table3-0013164419885164/)
+
+*Note. p* = Number of observed variables; LD = factor loadings; mg = magnitude of the (omitted) residual correlation(s); *n* = number of (omitted) residual correlation(s). RMSEA = root mean square error of approximation; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares. Cases where the population RMSEA was greater than .05 are in boldface.
+
+In addition, regardless of the types of model misspecification, keeping all other manipulated variables fixed, the population values for RMSEA can be noticeably different across estimation methods. For example, when fitting a one-factor model to a two-factor data with ρ = .90 (*p* = 30, λ = .80), the population values are .056 (ML), .033 (ULS), .045 (DWLS with asymmetric thresholds), and .046 (DWLS with asymmetric thresholds), respectively. It is noted that the direction of the effect of estimation methods on RMSEA was not consistent. That is, the ML-based RMSEA can be either smaller or greater than the population RMSEA obtained using least squares estimators (i.e., ULS or DWLS).
+
+To better demonstrate the effect of estimation methods on the population RMSEA, we plotted the population RMSEAML versus the population RMSEAs obtained using least squares estimation methods across all simulated conditions. The bivariate scatter plots are shown in [Figure 1](#fig1-0013164419885164). There is large proportion of shared variability between RMSEAML and RMSEAULS (*R*2 = 82.8%) and RMSEADWLS (*R*2 = 84.1% under asymmetric thresholds and *R*2 = 83.9% under asymmetric thresholds). However, we also observed in these plots that the relationship substantially weakened when RMSEAML > .05 and that the RMSEAML can be noticeably different from RMSEAULS and RMSEADWLS beyond this cutoff.
+
+#### Figure 1.
+
+![Figure 1.](https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9a4d/7221491/acccb83526a0/10.1177_0013164419885164-fig1.jpg)
+
+[Open in a new tab](figure/fig1-0013164419885164/)
+
+The relationships between the population RMSEAML, RMSEAULS, and RMSEADWLS.*Note*. RMSEA = root mean square error of approximation; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares.
+
+Finally, as shown in [Tables 1](#table1-0013164419885164) to [3](#table3-0013164419885164), the population values for RMSEA based on ULS and DWLS are closer than those obtained using ML. Nevertheless, ULS and DWLS can still yield noticeably different population RMSEA values. For example, when *p* = 10, λ = .60 and four cross-loadings of .40 were omitted, the population RMSEA under ULS and DWLS (with asymmetric thresholds) were .054 and .045, respectively. When using DWLS, the population RMSEA values are dependent on the distribution of the thresholds. That is, holding everything else constant, the population RMSEADWLS are consistently larger when thresholds are symmetric than when they are asymmetric.
+
+#### Table 2.
+
+The Impact of Estimation Methods on the Population RMSEA: Omitting Cross-Loadings.
+
+| *p* | LD | mg | *n* | RMSEAML | RMSEAULS | RMSEADWLS\_sym\_ | RMSEADWLS\_asym |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 10 | .40 | .20 | 1 | .022 | .024 | .022 | .019 |
+|  |  |  | 4 | .031 | .031 | .029 | .025 |
+|  |  | .40 | 1 | .041 | .041 | .038 | .033 |
+|  |  |  | 4 | .042 | .041 | .038 | .032 |
+|  | .60 | .20 | 1 | .033 | .037 | .035 | .030 |
+|  |  |  | 4 | **.053** | **.054** | **.052** | .045 |
+|  |  | .40 | 1 | **.069** | **.069** | **.068** | **.058** |
+|  |  |  | 4 | **.090** | **.080** | **.082** | **.071** |
+|  | .80 | .20 | 1 | **.052** | .049 | .049 | .043 |
+|  |  |  | 4 | **.086** | **.077** | **.083** | **.071** |
+|  |  | .40 | 1 | **.129** | **.095** | **.105** | **.090** |
+|  |  |  | 4 | **.183** | **.125** | **.168** | **.146** |
+| 20 | .40 | .20 | 1 | .017 | .017 | .015 | .013 |
+|  |  |  | 4 | .029 | .029 | .027 | .023 |
+|  |  | .40 | 1 | .032 | .032 | .030 | .026 |
+|  |  |  | 4 | .047 | .047 | .043 | .037 |
+|  | .60 | .20 | 1 | .026 | .026 | .024 | .021 |
+|  |  |  | 4 | .046 | .046 | .044 | .038 |
+|  |  | .40 | 1 | .050 | .050 | .050 | .043 |
+|  |  |  | 4 | **.081** | **.081** | **.084** | **.072** |
+|  | .80 | .20 | 1 | .034 | .034 | .034 | .029 |
+|  |  |  | 4 | **.062** | **.062** | **.065** | **.055** |
+|  |  | .40 | 1 | **.067** | **.067** | **.075** | **.064** |
+|  |  |  | 4 | **.115** | **.115** | **.156** | **.135** |
+| 30 | .40 | .20 | 1 | .009 | .014 | .013 | .011 |
+|  |  |  | 4 | .017 | .025 | .023 | .020 |
+|  |  | .40 | 1 | .019 | .027 | .025 | .022 |
+|  |  |  | 4 | .034 | .044 | .042 | .036 |
+|  | .60 | .20 | 1 | .012 | .021 | .020 | .017 |
+|  |  |  | 4 | .022 | .039 | .037 | .032 |
+|  |  | .40 | 1 | .026 | .041 | .041 | .035 |
+|  |  |  | 4 | .049 | **.073** | **.075** | **.065** |
+|  | .80 | .20 | 1 | .017 | .028 | .028 | .024 |
+|  |  |  | 4 | .033 | **.052** | **.054** | .046 |
+|  |  | .40 | 1 | .047 | **.055** | **.061** | **.053** |
+|  |  |  | 4 | **.091** | **.100** | **.134** | **.116** |
+
+[Open in a new tab](table/table2-0013164419885164/)
+
+*Note. p* = Number of observed variables; LD = factor loadings; mg = magnitude of the (omitted) cross-loading(s); *n* = number of (omitted) cross-loading(s). RMSEA = root mean square error of approximation; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares. Cases where the population RMSEA was greater than .05 are in boldface.
+
+### CFI Results
+
+[Tables 4](#table4-0013164419885164) to [6](#table6-0013164419885164) summarize the behavior of the population CFI under the three estimation methods across the simulated conditions. We highlighted cases where the population CFI was smaller than the commonly used cutoff for a close fit model (i.e., CFI < .95; [Hu & Bentler, 1999](#bibr15-0013164419885164)). Across all simulated conditions, the population CFI ranged from .464 to .999 (ML), from .658 to .999 (ULS), and from .643 to .999 (DWLS). As we expected, the population CFI decreased, suggesting that the model fit worse, as the level of model misspecification increased.
+
+#### Table 4.
+
+The Impact of Estimation Methods on the Population CFI: Misspecified Dimensionality.
+
+| *p* | LD | ρ | CFIML | CFIULS | CFIDWLS\_sym\_ | CFIDWLS\_asym |
+| --- | --- | --- | --- | --- | --- | --- |
+| 10 | .40 | .90 | .994 | .997 | .997 | .997 |
+|  |  | .80 | .975 | .988 | .987 | .988 |
+|  |  | .60 | **.898** | **.939** | **.939** | **.939** |
+|  | .60 | .90 | .988 | .997 | .997 | .997 |
+|  |  | .80 | .955 | .988 | .988 | .988 |
+|  |  | .60 | **.847** | **.939** | **.940** | **.940** |
+|  | .80 | .90 | .968 | .997 | .997 | .997 |
+|  |  | .80 | **.906** | .988 | .988 | .988 |
+|  |  | .60 | **.752** | **.939** | **.949** | **.949** |
+| 20 | .40 | .90 | .991 | .997 | .997 | .997 |
+|  |  | .80 | .968 | .988 | .988 | .988 |
+|  |  | .60 | **.881** | **.940** | **.941** | **.940** |
+|  | .60 | .90 | .982 | .997 | .997 | .997 |
+|  |  | .80 | **.941** | .988 | .988 | .988 |
+|  |  | .60 | **.826** | **.940** | **.942** | **.942** |
+|  | .80 | .90 | .957 | .997 | .997 | .997 |
+|  |  | .80 | **.887** | .988 | .989 | .988 |
+|  |  | .60 | **.736** | **.940** | .951 | .951 |
+| 30 | .40 | .90 | .989 | .997 | .997 | .997 |
+|  |  | .80 | .962 | .988 | .988 | .988 |
+|  |  | .60 | **.870** | **.940** | **.941** | **.940** |
+|  | .60 | .90 | .978 | .997 | .997 | .997 |
+|  |  | .80 | **.932** | .988 | .988 | .988 |
+|  |  | .60 | **.814** | **.940** | **.942** | **.943** |
+|  | .80 | .90 | .951 | .997 | .997 | .997 |
+|  |  | .80 | **.878** | .988 | .989 | .988 |
+|  |  | .60 | **.729** | **.940** | .952 | .952 |
+
+[Open in a new tab](table/table4-0013164419885164/)
+
+*Note. p* = number of observed variables; LD = factor loadings, ρ = interfactor correlation. CFI = comparative fit index; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares. Cases where the population CFI was less than .95 are in boldface.
+
+#### Table 5.
+
+The Impact of Estimation Methods on the Population CFI: Omitting Cross-Loadings.
+
+| *p* | LD | mg | *n* | CFIML | CFIULS | CFIDWLS\_sym\_ | CFIDWLS\_asym |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 10 | .40 | .20 | 1 | 965 | .969 | .969 | .970 |
+|  |  |  | 4 | **.949** | .965 | .967 | .967 |
+|  |  | .40 | 1 | **.897** | **.924** | **.925** | **.924** |
+|  |  |  | 4 | **.949** | .971 | .975 | .975 |
+|  | .60 | .20 | 1 | .981 | .985 | .987 | .987 |
+|  |  |  | 4 | .959 | .974 | .978 | .977 |
+|  |  | .40 | 1 | **.923** | .952 | .956 | .957 |
+|  |  |  | 4 | **.917** | .964 | .972 | .972 |
+|  | .80 | .20 | 1 | .984 | .991 | .996 | .995 |
+|  |  |  | 4 | .963 | .982 | .990 | .990 |
+|  |  | .40 | 1 | **.914** | .969 | .982 | .982 |
+|  |  |  | 4 | **.892** | .965 | .986 | .988 |
+| 20 | .40 | .20 | 1 | .981 | .981 | .982 | .982 |
+|  |  |  | 4 | .956 | .956 | .957 | .957 |
+|  |  | .40 | 1 | **.938** | **.938** | **.938** | **.939** |
+|  |  |  | 4 | **.923** | **.923** | **.927** | **.928** |
+|  | .60 | .20 | 1 | .991 | .991 | .993 | .993 |
+|  |  |  | 4 | .975 | .975 | .978 | .979 |
+|  |  | .40 | 1 | .969 | .969 | .971 | .971 |
+|  |  |  | 4 | **.939** | **.939** | **.944** | **.944** |
+|  | .80 | .20 | 1 | .995 | .995 | .998 | .998 |
+|  |  |  | 4 | .985 | .985 | .992 | .992 |
+|  |  | .40 | 1 | .981 | .981 | .989 | .989 |
+|  |  |  | 4 | .956 | .956 | .972 | .974 |
+| 30 | .40 | .20 | 1 | .988 | .987 | .987 | .987 |
+|  |  |  | 4 | .959 | .962 | .963 | .962 |
+|  |  | .40 | 1 | **.949** | .954 | .953 | .953 |
+|  |  |  | 4 | **.866** | **.911** | **.913** | **.912** |
+|  | .60 | .20 | 1 | .994 | .994 | .995 | .995 |
+|  |  |  | 4 | .979 | .981 | .983 | .983 |
+|  |  | .40 | 1 | .972 | .978 | .979 | .979 |
+|  |  |  | 4 | **.911** | **.942** | **.945** | **.944** |
+|  | .80 | .20 | 1 | .995 | .997 | .998 | .998 |
+|  |  |  | 4 | .982 | .989 | .994 | .994 |
+|  |  | .40 | 1 | .965 | .987 | .992 | .992 |
+|  |  |  | 4 | **.887** | .962 | .973 | .973 |
+
+[Open in a new tab](table/table5-0013164419885164/)
+
+*Note. p* = number of observed variables; LD = factor loadings; mg = magnitude of the (omitted) cross-loading(s); *n* = number of (omitted) cross-loading(s). CFI = comparative fit index; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares. Cases where the population CFI was less than .95 are in boldface.
+
+#### Table 6.
+
+The Impact of Estimation Methods on the Population CFI: Ignoring Residual Correlations.
+
+| *p* | LD | mg | *n* | CFIML | CFIULS | CFIDWLS\_sym\_ | CFIDWLS\_asym |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 10 | .40 | .20 | 1 | **.928** | .955 | .953 | .955 |
+|  |  |  | 4 | **.771** | **.866** | **.864** | **.863** |
+|  |  | .40 | 1 | **.756** | **.848** | **.829** | **.830** |
+|  |  |  | 4 | **.464** | **.658** | **.645** | **.643** |
+|  | .60 | .20 | 1 | .984 | .994 | .995 | .995 |
+|  |  |  | 4 | **.935** | .981 | .984 | .984 |
+|  |  | .40 | 1 | **.936** | .978 | .979 | .979 |
+|  |  |  | 4 | **.772** | **.931** | **.935** | **.935** |
+|  | .80 | .20 | 1 | .995 | .999 | .999 | .999 |
+|  |  |  | 4 | .978 | .998 | .999 | .999 |
+|  |  | .40 | 1 | .980 | .998 | .999 | .999 |
+|  |  |  | 4 | **.914** | .992 | .996 | .996 |
+| 20 | .40 | .20 | 1 | .989 | .989 | .988 | .988 |
+|  |  |  | 4 | .958 | .958 | .957 | .957 |
+|  |  | .40 | 1 | .957 | .957 | **.947** | **.948** |
+|  |  |  | 4 | **.855** | **.855** | **.831** | **.830** |
+|  | .60 | .20 | 1 | .999 | .999 | .999 | .999 |
+|  |  |  | 4 | .995 | .995 | .996 | .996 |
+|  |  | .40 | 1 | .995 | .995 | .995 | .995 |
+|  |  |  | 4 | .980 | .980 | .981 | .981 |
+|  | .80 | .20 | 1 | .999 | .999 | .999 | .999 |
+|  |  |  | 4 | .999 | .999 | .999 | .999 |
+|  |  | .40 | 1 | .999 | .999 | .999 | .999 |
+|  |  |  | 4 | .998 | .998 | .999 | .999 |
+| 30 | .40 | .20 | 1 | .986 | .995 | .995 | .995 |
+|  |  |  | 4 | **.945** | .981 | .980 | .980 |
+|  |  | .40 | 1 | **.942** | .981 | .976 | .976 |
+|  |  |  | 4 | **.802** | **.928** | **.913** | **.914** |
+|  | .60 | .20 | 1 | .996 | .999 | .999 | .999 |
+|  |  |  | 4 | .984 | .998 | .998 | .998 |
+|  |  | .40 | 1 | .983 | .998 | .998 | .998 |
+|  |  |  | 4 | **.935** | .991 | .992 | .991 |
+|  | .80 | .20 | 1 | .999 | .999 | .999 | .999 |
+|  |  |  | 4 | .994 | .999 | .999 | .999 |
+|  |  | .40 | 1 | .994 | .999 | .999 | .999 |
+|  |  |  | 4 | .975 | .999 | .999 | .999 |
+
+[Open in a new tab](table/table6-0013164419885164/)
+
+*Note. p* = number of observed variables; LD = factor loadings; mg = magnitude of the (omitted) residual correlation(s); *n* = number of (omitted) residual correlation(s). CFI = comparative fit index; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares. Cases where the population CFI was less than .95 are in boldface.
+
+The population CFI was also influenced by estimation methods. For the conditions considered in the current study, the ML-based CFIs were generally smaller than those obtained using ULS and DWLS. For example, when *p* = 10, λ = .60 and four cross-loadings of .40 were omitted, the ML-based population CFI was .892, implying that the model fits poorly. However, for the same condition, the population CFIs based on ULS and DWLS suggested that the model fits well: CFIULS = .965, CFIDWLS = .986 under symmetric thresholds, and CFIDWLS = .988 under asymmetric thresholds.
+
+The bivariate relationships between the CFIML and the CFI based on ULS and DWLS are shown in [Figure 2](#fig2-0013164419885164). The coefficient of determination (*R*2) between CFIML and CFIULS was 79.92%, between CFIML and CFIDWLS was 76.38% (under both asymmetric and asymmetric thresholds). As observed in the figures, for several conditions where the least squares–based CFI suggested the model fit well (i.e., CFIULS or CFIDWLS was greater than .95), the CFIML could be below the .95 cutoff.
+
+#### Figure 2.
+
+![Figure 2.](https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9a4d/7221491/272e033563ff/10.1177_0013164419885164-fig2.jpg)
+
+[Open in a new tab](figure/fig2-0013164419885164/)
+
+The relationships between the population CFIML, CFIULS, and CFIDWLS.CFI = comparative fit index; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares.
+
+Similar to what we found for the RMSEA, the difference between CFIULS and CFIDWLS was smaller than the differences observed between ML-based and least squares–based CFI. Using DWLS, in general, the population CFIDWLS under asymmetric thresholds are slightly larger than those computed under asymmetric thresholds. However, the differences were ignorable (in the third decimal place).
+
+### SRMR Results
+
+In [Tables 7](#table7-0013164419885164) to [9](#table9-0013164419885164), we presented the impact of estimation methods on the population SRMR across the simulated conditions. To make it comparable with the RMSEA, we highlighted the cases where population SRMR values were larger than .05. Across all simulated conditions, the population SRMR ranged from .003 to .140 (ML), from .003 to .124 (ULS), and from .003 to .130 (DWLS). We also plotted the bivariate relationships between the SRMRML and the SRMR based on ULS and DWLS in [Figure 3](#fig3-0013164419885164). As shown in the tables, the population SRMR increased as the level of model misspecification increased, and as the magnitude of factor loadings increased. In addition, the population SRMR was less sensitive to misspecification introduced by omitting residual correlations. The above patterns are consistent with findings reported in previous studies ([Maydeu-Olivares et al., 2018](#bibr27-0013164419885164); Shi, [Maydeu-Olivares, et al., 2018](#bibr27-0013164419885164)).
+
+#### Table 7.
+
+The Impact of Estimation Methods on the Population SRMR: Misspecified Dimensionality.
+
+| *p* | LD | ρ | SRMRML | SRMRULS | SRMRDWLS\_sym\_ | SRMRDWLS\_asym |
+| --- | --- | --- | --- | --- | --- | --- |
+| 10 | .40 | .90 | .007 | .007 | .007 | .007 |
+|  |  | .80 | .014 | .014 | .015 | .014 |
+|  |  | .60 | .029 | .029 | .029 | .029 |
+|  | .60 | .90 | .016 | .016 | .016 | .016 |
+|  |  | .80 | .032 | .032 | .032 | .033 |
+|  |  | .60 | **.065** | **.065** | **.065** | **.065** |
+|  | .80 | .90 | .029 | .029 | .029 | .029 |
+|  |  | .80 | .058 | .058 | .059 | .058 |
+|  |  | .60 | **.115** | **.115** | **.121** | **.120** |
+| 20 | .40 | .90 | .008 | .008 | .008 | .008 |
+|  |  | .80 | .015 | .015 | .015 | .015 |
+|  |  | .60 | .030 | .030 | .030 | .030 |
+|  | .60 | .90 | .017 | .017 | .017 | .017 |
+|  |  | .80 | .034 | .034 | .034 | .034 |
+|  |  | .60 | **.068** | **.068** | **.069** | **.068** |
+|  | .80 | .90 | .030 | .030 | .031 | .031 |
+|  |  | .80 | **.061** | **.061** | **.062** | **.062** |
+|  |  | .60 | **.122** | **.122** | **.127** | **.127** |
+| 30 | .40 | .90 | .008 | .008 | .008 | .008 |
+|  |  | .80 | .015 | .015 | .016 | .015 |
+|  |  | .60 | .031 | .031 | .031 | .031 |
+|  | .60 | .90 | .017 | .017 | .017 | .017 |
+|  |  | .80 | .035 | .035 | .035 | .035 |
+|  |  | .60 | **.070** | **.070** | **.070** | **.070** |
+|  | .80 | .90 | .031 | .031 | .031 | .031 |
+|  |  | .80 | **.062** | **.062** | **.063** | **.063** |
+|  |  | .60 | **.124** | **.124** | **.130** | **.130** |
+
+[Open in a new tab](table/table7-0013164419885164/)
+
+*Note. p* = number of observed variables; LD = factor loadings; ρ = interfactor correlation. SRMR = standardized root mean square residual; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares. Cases where the population SRMR was greater than .05 are in boldface.
+
+#### Table 8.
+
+The Impact of Estimation Methods on the Population SRMR: Omitting Cross-Loadings.
+
+| *p* | LD | mg | *n* | SRMRML | SRMRULS | SRMRDWLS\_sym\_ | SRMRDWLS\_asym |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 10 | .40 | .20 | 1 | .019 | .019 | .019 | .019 |
+|  |  |  | 4 | .025 | .024 | .024 | .024 |
+|  |  | .40 | 1 | .033 | .032 | .032 | .033 |
+|  |  |  | 4 | .032 | .032 | .032 | .032 |
+|  | .60 | .20 | 1 | .030 | .029 | .029 | .029 |
+|  |  |  | 4 | .046 | .042 | .042 | .043 |
+|  |  | .40 | 1 | **.058** | **.054** | **.054** | **.054** |
+|  |  |  | 4 | **.069** | **.063** | **.064** | **.064** |
+|  | .80 | .20 | 1 | .041 | .039 | .040 | .040 |
+|  |  |  | 4 | **.068** | **.060** | **.063** | **.063** |
+|  |  | .40 | 1 | **.084** | **.075** | **.078** | **.077** |
+|  |  |  | 4 | **.140** | **.098** | **.116** | **.118** |
+| 20 | .40 | .20 | 1 | .015 | .015 | .015 | .015 |
+|  |  |  | 4 | .026 | .026 | .026 | .026 |
+|  |  | .40 | 1 | .029 | .029 | .029 | .029 |
+|  |  |  | 4 | .042 | .042 | .042 | .042 |
+|  | .60 | .20 | 1 | .023 | .023 | .023 | .023 |
+|  |  |  | 4 | .041 | .041 | .041 | .041 |
+|  |  | .40 | 1 | .045 | .045 | .045 | .045 |
+|  |  |  | 4 | **.073** | **.073** | **.074** | **.074** |
+|  | .80 | .20 | 1 | .031 | .031 | .031 | .031 |
+|  |  |  | 4 | **.056** | **.056** | **.057** | **.057** |
+|  |  | .40 | 1 | **.060** | **.060** | **.062** | **.062** |
+|  |  |  | 4 | **.103** | **.103** | **.118** | **.119** |
+| 30 | .40 | .20 | 1 | .013 | .013 | .013 | .013 |
+|  |  |  | 4 | .024 | .023 | .023 | .023 |
+|  |  | .40 | 1 | .026 | .025 | .025 | .025 |
+|  |  |  | 4 | .044 | .041 | .041 | .041 |
+|  | .60 | .20 | 1 | .020 | .019 | .019 | .019 |
+|  |  |  | 4 | .038 | .036 | .036 | .036 |
+|  |  | .40 | 1 | .039 | .038 | .038 | .038 |
+|  |  |  | 4 | .073 | .068 | .069 | .069 |
+|  | .80 | .20 | 1 | .027 | .026 | .026 | .026 |
+|  |  |  | 4 | **.051** | .049 | .050 | .049 |
+|  |  | .40 | 1 | **.054** | **.051** | **.052** | **.052** |
+|  |  |  | 4 | **.113** | **.094** | **.102** | **.103** |
+
+[Open in a new tab](table/table8-0013164419885164/)
+
+*Note. p* = number of observed variables; LD = factor loadings; mg = magnitude of the (omitted) cross-loading(s); *n* = number of (omitted) cross-loading(s). SRMR = standardized root mean square residual; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares. Cases where the population SRMR was greater than .05 are in boldface.
+
+#### Table 9.
+
+The Impact of Estimation Methods on the Population SRMR: Ignoring Residual Correlations.
+
+| *p* | LD | mg | *n* | SRMRML | SRMRULS | SRMRDWLS\_sym\_ | SRMRDWLS\_asym |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 10 | .40 | .20 | 1 | .022 | .022 | .022 | .022 |
+|  |  |  | 4 | .041 | .041 | .041 | .041 |
+|  |  | .40 | 1 | .043 | .043 | .044 | .044 |
+|  |  |  | 4 | **.082** | **.082** | **.082** | **.083** |
+|  | .60 | .20 | 1 | .017 | .017 | .017 | .017 |
+|  |  |  | 4 | .032 | .031 | .031 | .031 |
+|  |  | .40 | 1 | .034 | .033 | .034 | .033 |
+|  |  |  | 4 | **.063** | **.063** | **.063** | **.063** |
+|  | .80 | .20 | 1 | .009 | .009 | .009 | .009 |
+|  |  |  | 4 | .018 | .018 | .018 | .018 |
+|  |  | .40 | 1 | .019 | .019 | .019 | .019 |
+|  |  |  | 4 | .036 | .035 | .036 | .036 |
+|  |  |  |  |  |  |  |  |
+| 20 | .40 | .20 | 1 | .011 | .011 | .012 | .012 |
+|  |  |  | 4 | .023 | .023 | .023 | .023 |
+|  |  | .40 | 1 | .023 | .023 | .023 | .023 |
+|  |  |  | 4 | .045 | .045 | .045 | .045 |
+|  | .60 | .20 | 1 | .009 | .009 | .009 | .009 |
+|  |  |  | 4 | .017 | .017 | .017 | .017 |
+|  |  | .40 | 1 | .017 | .017 | .018 | .018 |
+|  |  |  | 4 | .034 | .034 | .035 | .035 |
+|  | .80 | .20 | 1 | .005 | .005 | .005 | .005 |
+|  |  |  | 4 | .010 | .010 | .010 | .010 |
+|  |  | .40 | 1 | .010 | .010 | .010 | .010 |
+|  |  |  | 4 | .019 | .019 | .019 | .019 |
+|  |  |  |  |  |  |  |  |
+| 30 | .40 | .20 | 1 | .008 | .008 | .008 | .008 |
+|  |  |  | 4 | .015 | .015 | .015 | .015 |
+|  |  | .40 | 1 | .016 | .015 | .016 | .016 |
+|  |  |  | 4 | .031 | .031 | .031 | .031 |
+|  | .60 | .20 | 1 | .006 | .006 | .006 | .006 |
+|  |  |  | 4 | .012 | .012 | .012 | .012 |
+|  |  | .40 | 1 | .012 | .012 | .012 | .012 |
+|  |  |  | 4 | .024 | .023 | .023 | .024 |
+|  | .80 | .20 | 1 | .003 | .003 | .003 | .003 |
+|  |  |  | 4 | .007 | .007 | .007 | .007 |
+|  |  | .40 | 1 | .007 | .007 | .007 | .007 |
+|  |  |  | 4 | .013 | .013 | .013 | .013 |
+
+[Open in a new tab](table/table9-0013164419885164/)
+
+*Note. p* = Number of observed variables; LD = factor loadings; mg = magnitude of the (omitted) residual correlation(s); *n* = number of (omitted) residual correlation(s). SRMR = standardized root mean square residual; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares. Cases where the population SRMR was greater than .05 are in boldface.
+
+#### Figure 3.
+
+![Figure 3.](https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9a4d/7221491/a655716740fa/10.1177_0013164419885164-fig3.jpg)
+
+[Open in a new tab](figure/fig3-0013164419885164/)
+
+The relationships between the population SRMRML, SRMRULS, and SRMRDWLS.SRMR = standardized root mean square residual; ML = maximum likelihood; DWLS = diagonally weighted least squares; ULS = unweighted least squares.
+
+The results showed that across all simulated conditions, the population values of SRMR are generally quite robust to the choice of different estimation methods. The *R*2 of population SRMR between any two of the estimation methods were larger than 99%. As shown in the tables and figures, under all simulated conditions, the differences of population SRMR across estimation methods were ignorable (in the third decimal place), except when the models were severely misspecified (SRMR ≥ .10). However, in general, the difference would not impact the practical interpretation of the model fit results. For example, when fitting a one-factor model to a two-factor data with ρ = .60 (*p* = 10, λ = .80), the population SRMR were .115 (ML), .115 (ULS), .121 (DWLS with asymmetric thresholds), and .120 (DWLS with asymmetric thresholds), respectively; all population SRMR values suggested that the model fitted the data poorly.
+
+Discussion and Conclusions
+--------------------------
+
+The current study examined the effect of estimation methods on the population SEM fit indices (i.e., RMSEA, CFI, and SRMR). Consistent with previous studies ([Xia, 2016](#bibr51-0013164419885164); [Xia & Yang, 2018](#bibr52-0013164419885164), [2019](#bibr53-0013164419885164)), our results showed that given the same type and level of model misspecification, the choice of estimation methods had an important impact on the population values of the RMSEA and CFI. Specifically, for the RMSEA, the population values based on ML can be either greater or smaller than those computed using least squares (i.e., ULS and DWLS). The RMSEAULS was found to be closer to RMSEADWLS than RMSEAML, but noticeable differences can still be observed between RMSEAULS and RMSEADWLS. When using DWLS, the population values of RMSEA also depend on the distribution of the thresholds; RMSEADWLS in models with asymmetric thresholds are consistently larger than RMSEADWLS with symmetric thresholds.
+
+With regard to the CFI, across the simulated conditions considered in the current study, CFIML were generally smaller than those obtained using ULS or DWLS, suggesting that the model fit worse. The difference between CFIULS and CFIDWLS was smaller than the difference between CFIML and CFIULS (or between CFIML and CFIDWLS). Under DWLS, the impact of the distribution of thresholds on population CFI was negligible.
+
+The findings of the current study also expand on conclusions from previous methodological research regarding the influence of estimation methods on the SRMR. The results indicated that given the same type and level of model misspecification, the population values of SRMR are very similar across different estimation methods (i.e., ML, ULS, and DWLS). Why is population SRMR robust to the choice of different estimation methods? As discussed earlier, the population SRMR is computed based on the residual covariance, which is the difference between the population covariance matrix and the model-implied covariance matrix. For any given population covariance matrix, the population SRMR depends on the model-implied covariance matrix. Given the same misspecified model, the model-implied covariance matrix, and thus, the population SRMR is solely determined by the population parameter estimates. Methodological studies have shown that for the same model, the difference in parameter estimates across estimation methods (e.g., ML, ULS, and DWLS) can be trivial, even when the model is misspecified (e.g., [Yang-Wallentin, Jöreskog, & Luo, 2010](#bibr54-0013164419885164)). As a result, the population SRMR is quite insensitive to choices of estimators.
+
+The results of the current research offer implications for empirical studies. Under the situations where the observed data can be treated *either* as continuous *or* ordinal (e.g., the number of response categories ≥5), researchers should be aware that the model fit based on RMSEA and CFI can change substantially when different estimation methods are employed. An additional implication of this and previous studies is that the conventional cutoffs for RMSEA and CFI (based on ML) cannot be generalized to situations where categorical estimation methods (e.g., ULS and DWLS) are used. To address this issue, researchers have advocated (a) developing different cutoff values when least squares methods are used ([Beauducel & Herzberg, 2006](#bibr3-0013164419885164)), or (b) computing RMSEAML and CFIML after least squares estimates have been obtained so that cutoff values developed using ML may be used ([Savalei, 2017](#bibr39-0013164419885164)). Our study suggested a third, simpler avenue to overcome this problem: to use the SRMR. We have found in this study that the population SRMR is generally robust to the choice of estimation methods. Therefore, the same *population* cutoff can be applied when using the SRMR to evaluate model fit, regardless of the choice of estimation method.
+
+This study is not without limitations. First, we only considered three types of model misspecification under factor analysis models. Additional studies should explore the generalizability of the findings to other types of misspecified SEM models. Additionally, we focused on behaviors of the fit indices at the *population* level. In practice, researchers would only obtain and interpret the *sample* estimates of the fit indices. Statistical theory enables researchers to construct confidence intervals and tests of close fit for all three population parameters.[5](#fn5-0013164419885164) For example, researchers may test the hypothesis SRMR≤c, where *c* is the reference cutoff in the *population* suggesting close fit.
+
+An alternative, but less rigorous approach, is to directly compare the values on the fit indices with a fixed cutoff value at the *sample* level. As a reviewer pointed out, even though the population value SRMR is almost the same between ML applied to continuous data and ULS applied to ordinal data, the sample values can be different, because categorical data yield larger sample fluctuations than continuous data. In addition, it is worth noting that for the RMSEA and CFI, when robust corrections are used (e.g., denoted as MLMV, ULSMV in Mplus; [Asparouhov & Muthén, 2010](#bibr1-0013164419885164); [Satorra & Bentler, 1994](#bibr37-0013164419885164)) to adjust the chi-square test statistics, researchers should pay close attention to the selection of the formula used to compute the sample values. That is, using the current version of most SEM software (e.g., Mplus), the sample RMSEA and CFI based on ML, DWLS, and ULS estimation with robust corrections do not consistently estimate their population values, and they estimate different parameters. To produce relatively unbiased estimates, the unbiased (correct) formula should be used ([Brosseau-Liard & Savalei, 2014](#bibr7-0013164419885164); [Brosseau-Liard, Savalei, & Li, 2012](#bibr8-0013164419885164); [Gao, Shi, & Maydeu-Olivares, 2019](#bibr14-0013164419885164); [Li & Bentler, 2006](#bibr20-0013164419885164); [Savalei, 2018](#bibr40-0013164419885164); [Xia, 2016](#bibr51-0013164419885164)). For the SRMR, an unbiased formula has also been developed, which yields more accurate estimates than the RMSEA ([Maydeu-Olivares, 2017a](#bibr24-0013164419885164); [Maydeu-Olivares et al., 2018](#bibr27-0013164419885164); [Shi, Maydeu-Olivares, & Rosseel, 2019](#bibr47-0013164419885164)). Future research should investigate the effects of estimation methods on sample SEM fit indices.
+
+Acknowledgments
+---------------
+
+We acknowledge the Research Computing Center at the University of South Carolina for providing the computing resources that contributed to the results of this article.
+
+1.
+
+It is noted that full-weighted least squares (WLS) is also an available choice for estimating structural equation models for ordinal outcomes. Despite its asymptotic elegance, previous studies have shown that full WLS only perform well when the sample size is very large, and the usage of full WLS is limited in real data analysis ([Bandalos, 2014](#bibr2-0013164419885164); [DiStefano & Morgan, 2014](#bibr10-0013164419885164); [Flora & Curran, 2004](#bibr12-0013164419885164)). Therefore, in the current study, we only focus on ULS and DWLS estimators.
+
+2.
+
+When ordinal data are estimated using polychoric correlations, there are two possible sources of misspecifications ([Maydeu-Olivares, 2006](#bibr23-0013164419885164); [Muthén, 1993](#bibr30-0013164419885164)): distributional and structural. The model may not fit because the assumption of categorized multivariate normality is violated (distributional misspecification) and/or because the structural model (e.g., a one-factor model) is incorrect.
+
+3.
+
+In addition, the SRMR can be estimated very accurately even in small samples ([Maydeu-Olivares et al., 2018](#bibr27-0013164419885164); [Shi, Maydeu-Olivares, et al., 2019](#bibr47-0013164419885164)).
+
+4.
+
+Recall that the variance of each observed variable is 1.
+
+5.
+
+For the RMSEA, see [Browne and Cudeck (1993)](#bibr9-0013164419885164); for the CFI, see [Lai (2019)](#bibr19-0013164419885164); and for the SRMR, see [Maydeu-Olivares (2017a)](#bibr24-0013164419885164).
+
+Footnotes
+---------
+
+**Declaration of Conflicting Interests:** The author(s) declared no potential conflicts of interest with respect to the research, authorship, and/or publication of this article.
+
+**Funding:** The author(s) disclosed receipt of the following financial support for the research, authorship, and/or publication of this article: This research is supported in part by the Institute of Education Sciences, U.S. Department of Education, through Grant No. R324A190066, and the National Science Foundation through Grant No. SES-1659936. The opinions expressed are those of the authors. The contents of this paper do not represent the policy of the Department of Education, and you should not assume endorsement by the Federal Government.
+
+**ORCID iD:** Dexin Shi ![Inline graphic](https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9a4d/7221491/24b8bd7b534e/10.1177_0013164419885164-img1.jpg)<https://orcid.org/0000-0002-4120-6756>
+
+References
+----------
+
+1. Asparouhov T., Muthén B. (2010, May). Simple second order chi-square correction scaled chi-square statistics (Technical appendix). Los Angeles, CA: Muthén & Muthén. [[Google Scholar](https://scholar.google.com/scholar_lookup?title=Simple%20second%20order%20chi-square%20correction%20scaled%20chi-square%20statistics&author=T.%20Asparouhov&author=B.%20Muth%C3%A9n&publication_year=2010&)]
+2. Bandalos D. L. (2014). Relative performance of categorical diagonally weighted least squares and robust maximum likelihood estimation. Structural Equation Modeling: A Multidisciplinary Journal, 21, 102-116. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=Relative%20performance%20of%20categorical%20diagonally%20weighted%20least%20squares%20and%20robust%20maximum%20likelihood%20estimation&author=D.%20L.%20Bandalos&volume=21&publication_year=2014&pages=102-116&)]
+3. Beauducel A., Herzberg P. Y. (2006). On the performance of maximum likelihood versus means and variance adjusted weighted least squares estimation in CFA. Structural Equation Modeling: A Multidisciplinary Journal, 13, 186-203. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=On%20the%20performance%20of%20maximum%20likelihood%20versus%20means%20and%20variance%20adjusted%20weighted%20least%20squares%20estimation%20in%20CFA&author=A.%20Beauducel&author=P.%20Y.%20Herzberg&volume=13&publication_year=2006&pages=186-203&)]
+4. Bentler P. M. (1990). Comparative fit indexes in structural models. Psychological Bulletin, 107, 238-246. [[DOI](https://doi.org/10.1037/0033-2909.107.2.238)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/2320703/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Psychological%20Bulletin&title=Comparative%20fit%20indexes%20in%20structural%20models&author=P.%20M.%20Bentler&volume=107&publication_year=1990&pages=238-246&pmid=2320703&doi=10.1037/0033-2909.107.2.238&)]
+5. Bentler P. M. (1995). EQS 5 [Computer program]. Encino, CA: Multivariate Software. [[Google Scholar](https://scholar.google.com/scholar_lookup?Bentler%20P.%20M.%20(1995).%20EQS%205%20[Computer%20program].%20Encino,%20CA:%20Multivariate%20Software.)]
+6. Box G. E. P. (1979). Some problems of statistics and everyday life. Journal of the American Statistical Association, 74(365), 1-4. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Journal%20of%20the%20American%20Statistical%20Association&title=Some%20problems%20of%20statistics%20and%20everyday%20life&author=G.%20E.%20P.%20Box&volume=74&issue=365&publication_year=1979&pages=1-4&)]
+7. Brosseau-Liard P. E., Savalei V. (2014). Adjusting incremental fit indices for nonnormality. Multivariate Behavioral Research, 49, 460-470. [[DOI](https://doi.org/10.1080/00273171.2014.933697)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/26732359/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Multivariate%20Behavioral%20Research&title=Adjusting%20incremental%20fit%20indices%20for%20nonnormality&author=P.%20E.%20Brosseau-Liard&author=V.%20Savalei&volume=49&publication_year=2014&pages=460-470&pmid=26732359&doi=10.1080/00273171.2014.933697&)]
+8. Brosseau-Liard P. E., Savalei V., Li L. (2012). An investigation of the sample performance of two nonnormality corrections for RMSEA. Multivariate Behavioral Research, 47, 904-930. [[DOI](https://doi.org/10.1080/00273171.2012.715252)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/26735008/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Multivariate%20Behavioral%20Research&title=An%20investigation%20of%20the%20sample%20performance%20of%20two%20nonnormality%20corrections%20for%20RMSEA&author=P.%20E.%20Brosseau-Liard&author=V.%20Savalei&author=L.%20Li&volume=47&publication_year=2012&pages=904-930&pmid=26735008&doi=10.1080/00273171.2012.715252&)]
+9. Browne M. W., Cudeck R. (1993). Alternative ways of assessing model fit. In Bollen K. A., Long J. S. (Eds.), Testing structural equation models (pp. 136-162). Newbury Park, CA: Sage. [[Google Scholar](https://scholar.google.com/scholar_lookup?title=Testing%20structural%20equation%20models&author=M.%20W.%20Browne&author=R.%20Cudeck&publication_year=1993&)]
+10. DiStefano C., Morgan G. B. (2014). A comparison of diagonal weighted least squares robust estimation techniques for ordinal data. Structural Equation Modeling: A Multidisciplinary Journal, 21, 425-438. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=A%20comparison%20of%20diagonal%20weighted%20least%20squares%20robust%20estimation%20techniques%20for%20ordinal%20data&author=C.%20DiStefano&author=G.%20B.%20Morgan&volume=21&publication_year=2014&pages=425-438&)]
+11. Feinian C., Curran P. J., Bollen K. A., Kirby J., Paxton P., Chen F., . . . Paxton P. (2008). An empirical evaluation of the use of fixed cutoff points in RMSEA test statistic in structural equation models. Sociological Methods & Research, 36, 462-494. [[DOI](https://doi.org/10.1177/0049124108314720)] [[PMC free article](/articles/PMC2743032/)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/19756246/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Sociological%20Methods%20&%20Research&title=An%20empirical%20evaluation%20of%20the%20use%20of%20fixed%20cutoff%20points%20in%20RMSEA%20test%20statistic%20in%20structural%20equation%20models&author=C.%20Feinian&author=P.%20J.%20Curran&author=K.%20A.%20Bollen&author=J.%20Kirby&author=P.%20Paxton&volume=36&publication_year=2008&pages=462-494&pmid=19756246&doi=10.1177/0049124108314720&)]
+12. Flora D. B., Curran P. J. (2004). An empirical evaluation of alternative methods of estimation for confirmatory factor analysis with ordinal data. Psychological Methods, 9, 466-491. [[DOI](https://doi.org/10.1037/1082-989X.9.4.466)] [[PMC free article](/articles/PMC3153362/)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/15598100/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Psychological%20Methods&title=An%20empirical%20evaluation%20of%20alternative%20methods%20of%20estimation%20for%20confirmatory%20factor%20analysis%20with%20ordinal%20data&author=D.%20B.%20Flora&author=P.%20J.%20Curran&volume=9&publication_year=2004&pages=466-491&pmid=15598100&doi=10.1037/1082-989X.9.4.466&)]
+13. Forero C. G., Maydeu-Olivares A., Gallardo-Pujol D. (2009). Factor analysis with ordinal indicators: A Monte Carlo study comparing DWLS and ULS estimation. Structural Equation Modeling: A Multidisciplinary Journal, 16, 625-641. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=Factor%20analysis%20with%20ordinal%20indicators:%20A%20Monte%20Carlo%20study%20comparing%20DWLS%20and%20ULS%20estimation&author=C.%20G.%20Forero&author=A.%20Maydeu-Olivares&author=D.%20Gallardo-Pujol&volume=16&publication_year=2009&pages=625-641&)]
+14. Gao C., Shi D., Maydeu-Olivares A. (2019). Estimating the maximum likelihood root mean square error of approximation (RMSEA) with non-normal data: A Monte-Carlo study. Structural Equation Modeling: A Multidisciplinary Journal, 27(2), 192-201. doi: 10.1080/10705511.2019.1637741 [[DOI](https://doi.org/10.1080/10705511.2019.1637741)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=Estimating%20the%20maximum%20likelihood%20root%20mean%20square%20error%20of%20approximation%20(RMSEA)%20with%20non-normal%20data:%20A%20Monte-Carlo%20study&author=C.%20Gao&author=D.%20Shi&author=A.%20Maydeu-Olivares&volume=27&issue=2&publication_year=2019&pages=192-201&doi=10.1080/10705511.2019.1637741&)]
+15. Hu L., Bentler P. M. (1999). Cutoff criteria for fit indexes in covariance structure analysis: Conventional criteria versus new alternatives. Structural Equation Modeling: A Multidisciplinary Journal, 6, 1-55. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=Cutoff%20criteria%20for%20fit%20indexes%20in%20covariance%20structure%20analysis:%20Conventional%20criteria%20versus%20new%20alternatives&author=L.%20Hu&author=P.%20M.%20Bentler&volume=6&publication_year=1999&pages=1-55&)]
+16. Jöreskog K. G. (1969). A general approach to confirmatory maximum likelihood factor analysis. Psychometrika, 34, 183-202. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Psychometrika&title=A%20general%20approach%20to%20confirmatory%20maximum%20likelihood%20factor%20analysis&author=K.%20G.%20J%C3%B6reskog&volume=34&publication_year=1969&pages=183-202&)]
+17. Jöreskog K. G., Sörbom D. (1988). LISREL 7. A guide to the program and applications (2nd ed.). Chicago, IL: International Education Services. [[Google Scholar](https://scholar.google.com/scholar_lookup?title=LISREL%207.%20A%20guide%20to%20the%20program%20and%20applications&author=K.%20G.%20J%C3%B6reskog&author=D.%20S%C3%B6rbom&publication_year=1988&)]
+18. Kenny D. A., Kaniskan B., McCoach D. B. (2015). The performance of RMSEA in models with small degrees of freedom. Sociological Methods & Research, 44, 486-507. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Sociological%20Methods%20&%20Research&title=The%20performance%20of%20RMSEA%20in%20models%20with%20small%20degrees%20of%20freedom&author=D.%20A.%20Kenny&author=B.%20Kaniskan&author=D.%20B.%20McCoach&volume=44&publication_year=2015&pages=486-507&)]
+19. Lai K., (2019). A Simple Analytic Confidence Interval for CFI Given Non-normal Data. Structural Equation Modeling: A Multidisciplinary Journal, 26(5), 757-777. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=A%20Simple%20Analytic%20Confidence%20Interval%20for%20CFI%20Given%20Non-normal%20Data&author=K.%20Lai&volume=26&issue=5&publication_year=2019&pages=757-777&)]
+20. Li L., Bentler P. M. (2006). Robust statistical tests for evaluating the hypothesis of close fit of misspecified mean and covariance structural models (UCLA Statistics Preprint No. 506). Los Angeles: University of California, Los Angeles. [[Google Scholar](https://scholar.google.com/scholar_lookup?title=Robust%20statistical%20tests%20for%20evaluating%20the%20hypothesis%20of%20close%20fit%20of%20misspecified%20mean%20and%20covariance%20structural%20models&author=L.%20Li&author=P.%20M.%20Bentler&publication_year=2006&)]
+21. MacCallum R. C. (2003). Working with imperfect models. Multivariate Behavioral Research, 38, 113-139. [[DOI](https://doi.org/10.1207/S15327906MBR3801_5)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/26771126/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Multivariate%20Behavioral%20Research&title=Working%20with%20imperfect%20models&author=R.%20C.%20MacCallum&volume=38&publication_year=2003&pages=113-139&pmid=26771126&doi=10.1207/S15327906MBR3801_5&)]
+22. MacCallum R. C., Browne M. W., Sugawara H. M. (1996). Power analysis and determination of sample size for covariance structure modeling. Psychological Methods, 1, 130-149. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Psychological%20Methods&title=Power%20analysis%20and%20determination%20of%20sample%20size%20for%20covariance%20structure%20modeling&author=R.%20C.%20MacCallum&author=M.%20W.%20Browne&author=H.%20M.%20Sugawara&volume=1&publication_year=1996&pages=130-149&)]
+23. Maydeu-Olivares A. (2006). Limited information estimation and testing of discretized multivariate normal structural models. Psychometrika, 71, 57-77. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Psychometrika&title=Limited%20information%20estimation%20and%20testing%20of%20discretized%20multivariate%20normal%20structural%20models&author=A.%20Maydeu-Olivares&volume=71&publication_year=2006&pages=57-77&)]
+24. Maydeu-Olivares A. (2017. a). Assessing the size of model misfit in structural equation models. Psychometrika, 82, 533-558. [[DOI](https://doi.org/10.1007/s11336-016-9552-7)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/28176040/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Psychometrika&title=Assessing%20the%20size%20of%20model%20misfit%20in%20structural%20equation%20models&author=A.%20Maydeu-Olivares&volume=82&publication_year=2017&pages=533-558&pmid=28176040&doi=10.1007/s11336-016-9552-7&)]
+25. Maydeu-Olivares A. (2017. b). Maximum likelihood estimation of structural equation models for continuous data: Standard errors and goodness of fit. Structural Equation Modeling: A Multidisciplinary Journal, 24, 383-394. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=Maximum%20likelihood%20estimation%20of%20structural%20equation%20models%20for%20continuous%20data:%20Standard%20errors%20and%20goodness%20of%20fit&author=A.%20Maydeu-Olivares&volume=24&publication_year=2017&pages=383-394&)]
+26. Maydeu-Olivares A., Cai L., Hernández A. (2011). Comparing the fit of item response theory and factor analysis models. Structural Equation Modeling: A Multidisciplinary Journal, 18, 333-356. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=Comparing%20the%20fit%20of%20item%20response%20theory%20and%20factor%20analysis%20models&author=A.%20Maydeu-Olivares&author=L.%20Cai&author=A.%20Hern%C3%A1ndez&volume=18&publication_year=2011&pages=333-356&)]
+27. Maydeu-Olivares A., Shi D., Rosseel Y. (2018). Assessing fit in structural equation models: A Monte-Carlo evaluation of RMSEA versus SRMR confidence intervals and tests of close fit. Structural Equation Modeling: A Multidisciplinary Journal, 25, 389-402. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=Assessing%20fit%20in%20structural%20equation%20models:%20A%20Monte-Carlo%20evaluation%20of%20RMSEA%20versus%20SRMR%20confidence%20intervals%20and%20tests%20of%20close%20fit&author=A.%20Maydeu-Olivares&author=D.%20Shi&author=Y.%20Rosseel&volume=25&publication_year=2018&pages=389-402&)]
+28. McNeish D., An J., Hancock G. R. (2018). The thorny relation between measurement quality and fit index cutoffs in latent variable models. Journal of Personality Assessment, 100, 43-52. [[DOI](https://doi.org/10.1080/00223891.2017.1281286)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/28631976/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Journal%20of%20Personality%20Assessment&title=The%20thorny%20relation%20between%20measurement%20quality%20and%20fit%20index%20cutoffs%20in%20latent%20variable%20models&author=D.%20McNeish&author=J.%20An&author=G.%20R.%20Hancock&volume=100&publication_year=2018&pages=43-52&pmid=28631976&doi=10.1080/00223891.2017.1281286&)]
+29. Moshagen M. (2012). The model size effect in SEM: Inflated goodness-of-fit statistics are due to the size of the covariance matrix. Structural Equation Modeling: A Multidisciplinary Journal, 19, 86-98. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=The%20model%20size%20effect%20in%20SEM:%20Inflated%20goodness-of-fit%20statistics%20are%20due%20to%20the%20size%20of%20the%20covariance%20matrix&author=M.%20Moshagen&volume=19&publication_year=2012&pages=86-98&)]
+30. Muthén B. (1993). Goodness of fit with categorical and other nonnormal variables. In Bollen K. A., Long J. S. (Eds.), Testing structural equation models (pp. 205-234). Newbury Park, CA: Sage. [[Google Scholar](https://scholar.google.com/scholar_lookup?title=Testing%20structural%20equation%20models&author=B.%20Muth%C3%A9n&publication_year=1993&)]
+31. Muthén B. O., du Toit S. H. C., Spisic D. (1997, November
+    18). Robust inference using weighted least squares and quadratic estimating equations in latent variable modeling with categorical and continuous outcomes. Retrieved from <https://www.statmodel.com/download/Article_075.pdf>
+32. R Core Team. (2019). R: A language and environment for statistical computing. Vienna, Austria: R Foundation for Statistical Computing. [[Google Scholar](https://scholar.google.com/scholar_lookup?title=R:%20A%20language%20and%20environment%20for%20statistical%20computing&publication_year=2019&)]
+33. Rhemtulla M., Brosseau-Liard P. É., Savalei V. (2012). When can categorical variables be treated as continuous? A comparison of robust continuous and categorical SEM estimation methods under suboptimal conditions. Psychological Methods, 17, 354-373. [[DOI](https://doi.org/10.1037/a0029315)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/22799625/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Psychological%20Methods&title=When%20can%20categorical%20variables%20be%20treated%20as%20continuous?%20A%20comparison%20of%20robust%20continuous%20and%20categorical%20SEM%20estimation%20methods%20under%20suboptimal%20conditions&author=M.%20Rhemtulla&author=P.%20%C3%89.%20Brosseau-Liard&author=V.%20Savalei&volume=17&publication_year=2012&pages=354-373&pmid=22799625&doi=10.1037/a0029315&)]
+34. Rosseel Y. (2012). lavaan: An R package for structural equation modeling. Journal of Statistical Software, 48(2), 1-36. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Journal%20of%20Statistical%20Software&title=lavaan:%20An%20R%20package%20for%20structural%20equation%20modeling&author=Y.%20Rosseel&volume=48&issue=2&publication_year=2012&pages=1-36&)]
+35. Saris W. E., Satorra A., van der Veld W. M. (2009). Testing structural equation models or detection of misspecifications?
+    Structural Equation Modeling: A Multidisciplinary Journal, 16, 561-582. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=Testing%20structural%20equation%20models%20or%20detection%20of%20misspecifications?&author=W.%20E.%20Saris&author=A.%20Satorra&author=W.%20M.%20van%20der%20Veld&volume=16&publication_year=2009&pages=561-582&)]
+36. Satorra A. (1990). Robustness issues in structural equation modeling: A review of recent developments. Quality and Quantity, 24, 367-386. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Quality%20and%20Quantity&title=Robustness%20issues%20in%20structural%20equation%20modeling:%20A%20review%20of%20recent%20developments&author=A.%20Satorra&volume=24&publication_year=1990&pages=367-386&)]
+37. Satorra A., Bentler P. M. (1994). Corrections to test statistics and standard errors in covariance structure analysis. In Von Eye A., Clogg C. C. (Eds.), Latent variable analysis. Applications for developmental research (pp. 399-419). Thousand Oaks, CA: Sage. [[Google Scholar](https://scholar.google.com/scholar_lookup?title=Latent%20variable%20analysis.%20Applications%20for%20developmental%20research&author=A.%20Satorra&author=P.%20M.%20Bentler&publication_year=1994&)]
+38. Savalei V. (2012). The relationship between root mean square error of approximation and model misspecification in confirmatory factor analysis models. Educational and Psychological Measurement, 72, 910-932. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Educational%20and%20Psychological%20Measurement&title=The%20relationship%20between%20root%20mean%20square%20error%20of%20approximation%20and%20model%20misspecification%20in%20confirmatory%20factor%20analysis%20models&author=V.%20Savalei&volume=72&publication_year=2012&pages=910-932&)]
+39. Savalei V. (2017). Reconstructing fit indices in SEM with categorical data: Borrowing insights from nonnormal data. Paper presented at the Annual Meeting of the Society of Multivariate Experimental Psychology, Minneapolis, MN. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Reconstructing%20fit%20indices%20in%20SEM%20with%20categorical%20data:%20Borrowing%20insights%20from%20nonnormal%20data&author=V.%20Savalei&publication_year=2017&)]
+40. Savalei V. (2018). On the computation of the RMSEA and CFI from the mean-and-variance corrected test statistic with nonnormal data in SEM. Multivariate Behavioral Research, 53, 419-429. [[DOI](https://doi.org/10.1080/00273171.2018.1455142)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/29624085/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Multivariate%20Behavioral%20Research&title=On%20the%20computation%20of%20the%20RMSEA%20and%20CFI%20from%20the%20mean-and-variance%20corrected%20test%20statistic%20with%20nonnormal%20data%20in%20SEM&author=V.%20Savalei&volume=53&publication_year=2018&pages=419-429&pmid=29624085&doi=10.1080/00273171.2018.1455142&)]
+41. Savalei V., Rhemtulla M. (2013). The performance of robust test statistics with categorical data. British Journal of Mathematical and Statistical Psychology, 66, 201-223. [[DOI](https://doi.org/10.1111/j.2044-8317.2012.02049.x)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/22568535/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=British%20Journal%20of%20Mathematical%20and%20Statistical%20Psychology&title=The%20performance%20of%20robust%20test%20statistics%20with%20categorical%20data&author=V.%20Savalei&author=M.%20Rhemtulla&volume=66&publication_year=2013&pages=201-223&pmid=22568535&doi=10.1111/j.2044-8317.2012.02049.x&)]
+42. Shi D., DiStefano C., McDaniel H. L., Jiang Z. (2018). Examining chi-square test statistics under conditions of large model size and ordinal data. Structural Equation Modeling: A Multidisciplinary Journal, 25, 924-945. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=Examining%20chi-square%20test%20statistics%20under%20conditions%20of%20large%20model%20size%20and%20ordinal%20data&author=D.%20Shi&author=C.%20DiStefano&author=H.%20L.%20McDaniel&author=Z.%20Jiang&volume=25&publication_year=2018&pages=924-945&)]
+43. Shi D., Lee T., Maydeu-Olivares A. (2019). Understanding the model size effect on SEM fit indices. Educational and Psychological Measurement, 79, 310-334. [[DOI](https://doi.org/10.1177/0013164418783530)] [[PMC free article](/articles/PMC6425088/)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/30911195/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Educational%20and%20Psychological%20Measurement&title=Understanding%20the%20model%20size%20effect%20on%20SEM%20fit%20indices&author=D.%20Shi&author=T.%20Lee&author=A.%20Maydeu-Olivares&volume=79&publication_year=2019&pages=310-334&pmid=30911195&doi=10.1177/0013164418783530&)]
+44. Shi D., Lee T., Terry R. A. (2015). Abstract: Revisiting the model size effect in structural equation modeling (SEM). Multivariate Behavioral Research, 50, 142-142. [[DOI](https://doi.org/10.1080/00273171.2014.989012)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/26609760/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Multivariate%20Behavioral%20Research&title=Abstract:%20Revisiting%20the%20model%20size%20effect%20in%20structural%20equation%20modeling%20(SEM)&author=D.%20Shi&author=T.%20Lee&author=R.%20A.%20Terry&volume=50&publication_year=2015&pages=142-142&pmid=26609760&doi=10.1080/00273171.2014.989012&)]
+45. Shi D., Lee T., Terry R. A. (2018). Revisiting the model size effect in structural equation modeling. Structural Equation Modeling: A Multidisciplinary Journal, 25, 21-40. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=Revisiting%20the%20model%20size%20effect%20in%20structural%20equation%20modeling&author=D.%20Shi&author=T.%20Lee&author=R.%20A.%20Terry&volume=25&publication_year=2018&pages=21-40&)]
+46. Shi D., Maydeu-Olivares A., DiStefano C. (2018). The relationship between the standardized root mean square residual and model misspecification in factor analysis models. Multivariate Behavioral Research, 53, 676-694. [[DOI](https://doi.org/10.1080/00273171.2018.1476221)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/30596259/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Multivariate%20Behavioral%20Research&title=The%20relationship%20between%20the%20standardized%20root%20mean%20square%20residual%20and%20model%20misspecification%20in%20factor%20analysis%20models&author=D.%20Shi&author=A.%20Maydeu-Olivares&author=C.%20DiStefano&volume=53&publication_year=2018&pages=676-694&pmid=30596259&doi=10.1080/00273171.2018.1476221&)]
+47. Shi D., Maydeu-Olivares A., Rosseel Y. (2019). Assessing fit in ordinal factor analysis models: SRMR vs. RMSEA. Structural Equation Modeling: A Multidisciplinary Journal, 27(1), 1-15. doi: 10.1080/10705511.2019.1611434 [[DOI](https://doi.org/10.1080/10705511.2019.1611434)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling:%20A%20Multidisciplinary%20Journal&title=Assessing%20fit%20in%20ordinal%20factor%20analysis%20models:%20SRMR%20vs.%20RMSEA&author=D.%20Shi&author=A.%20Maydeu-Olivares&author=Y.%20Rosseel&volume=27&issue=1&publication_year=2019&pages=1-15&doi=10.1080/10705511.2019.1611434&)]
+48. Steiger J. H. (1989). EzPATH: A supplementary module for SYSTAT and SYGRAPH. Evanston, IL: Systat. [[Google Scholar](https://scholar.google.com/scholar_lookup?title=EzPATH:%20A%20supplementary%20module%20for%20SYSTAT%20and%20SYGRAPH&author=J.%20H.%20Steiger&publication_year=1989&)]
+49. Steiger J. H. (1990). Structural model evaluation and modification: An interval estimation approach. Multivariate Behavioral Research, 25, 173-180. [[DOI](https://doi.org/10.1207/s15327906mbr2502_4)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/26794479/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Multivariate%20Behavioral%20Research&title=Structural%20model%20evaluation%20and%20modification:%20An%20interval%20estimation%20approach&author=J.%20H.%20Steiger&volume=25&publication_year=1990&pages=173-180&pmid=26794479&doi=10.1207/s15327906mbr2502_4&)]
+50. Steiger J., Lind J. C. (1980). Statistically based tests for the number of common factors. Paper presented at the annual Spring Meeting of the Psychometric Society, Iowa City. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Statistically%20based%20tests%20for%20the%20number%20of%20common%20factors&author=J.%20Steiger&author=J.%20C.%20Lind&publication_year=1980&)]
+51. Xia Y. (2016). Investigating the chi-square-based model-fit indexes for WLSMV and ULSMV estimators (Unpublished doctoral dissertation). Florida State University, Tallahassee, FL. [[Google Scholar](https://scholar.google.com/scholar_lookup?title=Investigating%20the%20chi-square-based%20model-fit%20indexes%20for%20WLSMV%20and%20ULSMV%20estimators&author=Y.%20Xia&publication_year=2016&)]
+52. Xia Y., Yang Y. (2018). The influence of number of categories and threshold values on fit indices in structural equation modeling with ordered categorical data. Multivariate Behavioral Research, 53, 731-755. [[DOI](https://doi.org/10.1080/00273171.2018.1480346)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/30477318/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Multivariate%20Behavioral%20Research&title=The%20influence%20of%20number%20of%20categories%20and%20threshold%20values%20on%20fit%20indices%20in%20structural%20equation%20modeling%20with%20ordered%20categorical%20data&author=Y.%20Xia&author=Y.%20Yang&volume=53&publication_year=2018&pages=731-755&pmid=30477318&doi=10.1080/00273171.2018.1480346&)]
+53. Xia Y., Yang Y. (2019). RMSEA, CFI, and TLI in structural equation modeling with ordered categorical data: The story they tell depends on the estimation methods. Behavior Research Methods, 51, 409-428. [[DOI](https://doi.org/10.3758/s13428-018-1055-2)] [[PubMed](https://pubmed.ncbi.nlm.nih.gov/29869222/)] [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Behavior%20Research%20Methods&title=RMSEA,%20CFI,%20and%20TLI%20in%20structural%20equation%20modeling%20with%20ordered%20categorical%20data:%20The%20story%20they%20tell%20depends%20on%20the%20estimation%20methods&author=Y.%20Xia&author=Y.%20Yang&volume=51&publication_year=2019&pages=409-428&pmid=29869222&doi=10.3758/s13428-018-1055-2&)]
+54. Yang-Wallentin F., Jöreskog K. G., Luo H. (2010). Confirmatory factor analysis of ordinal variables with misspecified models. Structural Equation Modeling, 17, 392-423. [[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Structural%20Equation%20Modeling&title=Confirmatory%20factor%20analysis%20of%20ordinal%20variables%20with%20misspecified%20models&author=F.%20Yang-Wallentin&author=K.%20G.%20J%C3%B6reskog&author=H.%20Luo&volume=17&publication_year=2010&pages=392-423&)]
+
+---
+
+Articles from Educational and Psychological Measurement are provided here courtesy of **SAGE Publications**
+
+![Close](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/usa-icons/close.svg)
+
+ACTIONS
+-------
+
+* [![View on publisher site icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/launch.svg)](https://doi.org/10.1177/0013164419885164)
+* [![Download PDF icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/file_download.svg)](pdf/10.1177_0013164419885164.pdf)
+* ![Cite icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/format_quote.svg)
+* ![Collections icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/action-bookmark-full.svg)
+* ![Permalink icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/share.svg)
+  Permalink
+
+  PERMALINK
+  ---------
+
+  ![Copy icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/content_copy.svg)
+  Copy
+
+RESOURCES
+---------
+
+### Similar articles
+
+### Cited by other articles
+
+### Links to NCBI Databases
+
+Cite
+----
+
+![Close icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/close.svg)
+
+* ![Copy icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/content_copy.svg)
+  Copy
+* [![Download icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/file_download.svg)
+  Download .nbib
+  .nbib](# "Download a file for external citation management software")
+* Format:
+
+
+  AMA
+
+  APA
+
+  MLA
+
+  NLM
+
+Add to Collections
+------------------
+
+Create a new collection
+
+Add to an existing collection
+
+
+
+Name your collection
+\*
+
+Choose a collection
+
+
+
+Unable to load your collection due to an error  
+[Please try again](#)
+
+Add
+
+Cancel
+
+Follow NCBI
+
+[NCBI on X (formerly known as Twitter)](https://twitter.com/ncbi)
+[NCBI on Facebook](https://www.facebook.com/ncbi.nlm)
+[NCBI on LinkedIn](https://www.linkedin.com/company/ncbinlm)
+[NCBI on GitHub](https://github.com/ncbi)
+[NCBI RSS feed](https://ncbiinsights.ncbi.nlm.nih.gov/)
+
+Connect with NLM
+
+[NLM on X (formerly known as Twitter)](https://twitter.com/nlm_nih)
+[NLM on Facebook](https://www.facebook.com/nationallibraryofmedicine)
+[NLM on YouTube](https://www.youtube.com/user/NLMNIH)
+
+[National Library of Medicine](https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323)
+
+* [Web Policies](https://www.nlm.nih.gov/web_policies.html)
+* [FOIA](https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office)
+* [HHS Vulnerability Disclosure](https://www.hhs.gov/vulnerability-disclosure-policy/index.html)
+
+* [Help](https://support.nlm.nih.gov/)
+* [Accessibility](https://www.nlm.nih.gov/accessibility.html)
+* [Careers](https://www.nlm.nih.gov/careers/careers.html)
+
+* [NLM](https://www.nlm.nih.gov/)
+* [NIH](https://www.nih.gov/)
+* [HHS](https://www.hhs.gov/)
+* [USA.gov](https://www.usa.gov/)
+
+
+
+Back to Top
+![back to top icon](https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/a2b04810/var/data/static/img/arrow_upward.svg)
+
+---
+
+## Structural equations modeling: Fit Indices, sample size, and ...
+**URL:** https://myscp.onlinelibrary.wiley.com/doi/10.1016/j.jcps.2009.09.003
+
+Error fetching content from https://myscp.onlinelibrary.wiley.com/doi/10.1016/j.jcps.2009.09.003: Client error '403 Forbidden' for url 'https://myscp.onlinelibrary.wiley.com/doi/10.1016/j.jcps.2009.09.003'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+
+---

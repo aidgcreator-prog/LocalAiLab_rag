@@ -1,0 +1,62 @@
+---
+title: "AI_Fundamentals_Presentation"
+format: pptx
+---
+
+## AI Fundamentals
+
+- Exploring the History, Pillars, and Diverse Types of Artificial Intelligence
+
+## Table of Contents
+
+- 1. Introduction to AI Fundamentals
+- 2. The 3 Pillars of AI
+- 3. Distinguishing AI Types (ML, DL, NLP, CV, GenAI, and AI Agents)
+- 4. Summary & Key Takeaways
+
+## Understanding AI Fundamentals
+
+- What is 'underneath' AI?
+- Key Components:
+- • Good Quality Data: The essential raw material for AI learning.
+- • Selection of Algorithms: Choosing the appropriate mathematical models.
+- • Structuring the Output: Ensuring results are actionable.
+- Practical Example: Using high-quality customer feedback data to train a sentiment analysis model.
+
+## The 3 Pillars of AI
+
+- Three distinct types of AI based on functionality:
+- 1. Predictive AI: Analyzing data to predict future outcomes.
+- 2. Generative AI: Creating new content.
+- 3. Agentic AI (AI Agents): Focused on autonomous action and task execution.
+- Practical Example: A retail company using Predictive AI for inventory, GenAI for product descriptions, and Agentic AI for automated order processing.
+
+## Distinguishing AI Types (Part 1: ML & DL)
+
+- Machine Learning (ML): Learning from data without explicit programming.
+- • Example: Netflix recommendation engines or fraud detection.
+- Deep Learning (DL): A subset of ML using neural networks for complex patterns.
+- • Example: Advanced image recognition or complex pattern detection in medical imaging.
+
+## Distinguishing AI Types (Part 2: NLP & CV)
+
+- Natural Language Processing (NLP): Understanding and generating human language.
+- • Example: Chatbots, sentiment analysis, and language translation.
+- Computer Vision (CV): Enabling computers to 'see' and interpret visual info.
+- • Example: Facial recognition or quality control in manufacturing.
+
+## Distinguishing AI Types (Part 3: GenAI & AI Agents)
+
+- Generative AI (GenAI): Creating entirely new content (text, images, audio, code).
+- • Example: Using tools like ChatGPT for content creation or Midability for design.
+- AI Agents (Agentic AI): AI designed to act autonomously to achieve goals.
+- • Example: An autonomous travel agent that books flights, hotels, and manages itineraries.
+
+## Summary & Key Takeaways
+
+- Recap:
+- • AI relies on quality data, algorithms, and structured output.
+- • The 3 Pillars: Predictive, Generative, and Agentic AI.
+- • The spectrum of AI ranges from simple ML to complex GenAI and autonomous Agents.
+- Final Thought: Understanding these fundamentals is the first step toward strategic AI adoption.
+

@@ -1,0 +1,35 @@
+Act as an Kobotoolbox XLSForm expert and Quantitative Research and Statistic Professor. 
+
+Create a comprehensive KoboToolbox quiz based strictly on the uploaded file.
+
+1) Topics:
+Price ceilings
+Price Floor
+Taxation
+Tax on Goods
+Tax on labor market
+
+
+2) Questions: Generate 5 multiple-choice questions for each topic inside their respective groups. Use practical problem solving questions with multiple choices.
+
+3) Structure & Logic:
+Topic Selection: Start with a select_multiple question that allows the user to choose which topics to test (e.g., 'Elasticity', 'Calculating PED', etc.), including an option for 'Select All'.
+Grouping & Skip Logic: Create a begin_group for each of the topics listed below. In the relevant column for each group, write the logic so the group only appears if that topic was selected in the opening question.
+
+4) Output Format (Excel file): 1. Survey Sheet:
+Columns: type, name, label, required (TRUE for all questions), appearance(put field-list for begin_group), relevant, calculation.
+Scoring: Immediately after each question, insert a calculate type row. 
+In its calculation column, use an if-statement (e.g., if(${q1}='a', 1, 0)) to assign 1 point for correct answers.
+calculate the total score for each topic and other overall total score.
+
+include Personal Information Section in the beginning of questionnaire, including:
+Name
+Major
+ID
+Date of Birth
+Which class?
+
+5) Choices Sheet:
+Columns: list_name, name, label.
+Naming Convention: For list_name, use the format topic1_q1, topic1_q2, etc. Ensure choice name values are unique (e.g., a, b, c, d).
+Output Format: Please provide the output as an Excel-ready file formatted for KoboToolbox (XLSForm).
