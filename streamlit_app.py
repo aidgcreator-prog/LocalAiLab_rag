@@ -1831,14 +1831,14 @@ st.set_page_config(
 st.markdown("""
     <style>
     :root {
-        --app-bg: #f6f8fb;
-        --panel-bg: rgba(255, 255, 255, 0.92);
-        --panel-border: rgba(148, 163, 184, 0.20);
-        --text-primary: #0f172a;
-        --text-secondary: #475569;
-        --text-muted: #64748b;
-        --accent: #2563eb;
-        --accent-soft: rgba(37, 99, 235, 0.10);
+        --app-bg: #0b1120;
+        --panel-bg: #111827;
+        --panel-border: rgba(148, 163, 184, 0.18);
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --accent: #60a5fa;
+        --accent-soft: rgba(96, 165, 250, 0.16);
     }
 
     html, body, [class*="stApp"] {
@@ -1846,8 +1846,9 @@ st.markdown("""
             Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
         color: var(--text-primary);
         background:
-            radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 24%),
-            linear-gradient(180deg, #fbfdff 0%, var(--app-bg) 100%);
+            radial-gradient(circle at top left, rgba(96, 165, 250, 0.14), transparent 24%),
+            radial-gradient(circle at bottom right, rgba(15, 118, 110, 0.12), transparent 22%),
+            linear-gradient(180deg, #0f172a 0%, var(--app-bg) 100%);
     }
 
     .block-container {
@@ -1870,19 +1871,19 @@ st.markdown("""
         background: var(--panel-bg);
         border: 1px solid var(--panel-border);
         border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
-        backdrop-filter: blur(10px);
+        box-shadow: 0 16px 40px rgba(2, 6, 23, 0.35);
     }
 
     .page-shell {
         padding: 1.2rem 1.4rem;
         margin-bottom: 1rem;
+        color: var(--text-primary);
     }
 
     .page-kicker {
         display: inline-block;
         margin-bottom: 0.35rem;
-        color: var(--text-muted);
+        color: var(--accent);
         font-size: 0.72rem;
         font-weight: 700;
         letter-spacing: 0.12em;
@@ -1895,6 +1896,7 @@ st.markdown("""
         font-weight: 750;
         line-height: 1.15;
         letter-spacing: -0.03em;
+        color: var(--text-primary);
     }
 
     .page-subtitle {
@@ -1943,9 +1945,9 @@ st.markdown("""
         gap: 0.35rem;
         padding: 0.34rem 0.7rem;
         border-radius: 999px;
-        border: 1px solid rgba(148, 163, 184, 0.24);
-        background: rgba(255, 255, 255, 0.78);
-        color: var(--text-secondary);
+        border: 1px solid rgba(96, 165, 250, 0.24);
+        background: rgba(96, 165, 250, 0.10);
+        color: var(--text-primary);
         font-size: 0.8rem;
         font-weight: 600;
     }
@@ -1975,6 +1977,67 @@ st.markdown("""
     .stButton > button:hover {
         transform: translateY(-1px);
         box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+    }
+
+    .hero-shell {
+        background:
+            linear-gradient(180deg, rgba(37, 99, 235, 0.16), rgba(17, 24, 39, 1)),
+            var(--panel-bg);
+        border-color: rgba(96, 165, 250, 0.22);
+    }
+
+    .hero-shell h1,
+    .hero-shell .page-subtitle,
+    .hero-shell .hero-meta {
+        color: var(--text-primary);
+    }
+
+    .hero-shell .hero-meta {
+        margin-top: 0.75rem;
+        color: var(--text-secondary);
+        font-size: 0.84rem;
+        font-weight: 600;
+    }
+
+    .feature-card {
+        background: #0f172a;
+    }
+
+    .feature-card h3 {
+        color: var(--text-primary);
+        font-size: 1rem;
+        margin: 0 0 0.35rem;
+        font-weight: 700;
+    }
+
+    .feature-card p {
+        color: var(--text-secondary);
+        font-size: 0.92rem;
+        line-height: 1.55;
+        margin: 0;
+    }
+
+    .stExpander {
+        border-color: var(--panel-border);
+    }
+
+    .stExpander [data-testid="stExpanderDetails"] {
+        background: rgba(15, 23, 42, 0.28);
+        border-radius: 0 0 16px 16px;
+    }
+
+    [data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+    }
+
+    [data-testid="stSidebar"] * {
+        color: var(--text-primary);
+    }
+
+    [data-testid="stSidebar"] .stCaption,
+    [data-testid="stSidebar"] .stMarkdown p,
+    [data-testid="stSidebar"] label {
+        color: var(--text-secondary);
     }
     </style>
     """, unsafe_allow_html=True)
@@ -2107,6 +2170,8 @@ if "rag_file_summary_context" not in st.session_state:
     st.session_state.rag_file_summary_context = ""
 if "rag_ocr_engine_mode" not in st.session_state:
     st.session_state.rag_ocr_engine_mode = "Auto"
+if "rag_image_ingest_mode" not in st.session_state:
+    st.session_state.rag_image_ingest_mode = "OCR only"
 if "model_main" not in st.session_state:
     st.session_state.model_main = get_agent_model("main")
 if "model_rag" not in st.session_state:
@@ -2261,55 +2326,6 @@ def _render_welcome_screen() -> None:
                 The controls on this page shape how the main agent behaves.
             </p>
             <p class="hero-meta">Built with LangGraph · Local-first · Privacy-conscious</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        """
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>Research</h3>
-                <p>Web search, document analysis, and synthesis for multi-source tasks.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Analysis</h3>
-                <p>Practical data science support, visualization, and statistical workflows.</p>
-            </div>
-            <div class="feature-card">
-                <h3>RAG</h3>
-                <p>Document-grounded retrieval and answer generation with citations.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Presentations</h3>
-                <p>Reports and slide decks with a cleaner, executive-ready structure.</p>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.metric("Specialists", "5", help="Research, Data Science, RAG, Presentation, Custom")
-    with col2:
-        st.metric("Model Support", "Multi", help="Ollama, LlamaServer, OpenAI, Anthropic")
-    with col3:
-        st.metric("File Types", "15+", help="PDF, CSV, images, docs, presentations, and more")
-    with col4:
-        st.metric("Voice", "Ready", help="Voice input and speech output support")
-
-    st.markdown(
-        """
-        <div class="page-shell about-shell">
-            <div class="section-header">
-                <p class="section-title">Start here</p>
-                <p class="section-note">Choose a mode, then begin chatting.</p>
-            </div>
-            <p class="clean-caption" style="margin: 0;">
-                The orchestrator routes each request to the most appropriate specialist while keeping the interface lightweight and easy to scan.
-            </p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -5327,8 +5343,7 @@ def _mode_rag() -> None:
         """
         <div class="page-shell">
             <div class="page-kicker">Knowledge Base</div>
-            <h1 class="page-title" style="font-size: 1.55rem; margin-bottom: 0.2rem;">RAG</h1>
-            <p class="page-subtitle" style="margin-bottom: 0;">Configure retrieval, ingest content, and review stored documents from one place.</p>
+            <h1 class="page-title" style="font-size: 1.55rem; margin-bottom: 0;">RAG</h1>
         </div>
         """,
         unsafe_allow_html=True,
@@ -5400,13 +5415,11 @@ def _mode_rag() -> None:
     user_input = None
 
     with transcript_tab:
-        st.markdown("Single video")
         yt_url = st.text_input(
             "YouTube video URL",
             key="rag_youtube_url_mode",
             placeholder="https://www.youtube.com/watch?v=...",
         )
-        st.caption("Saves the transcript into `youtube_transcripts/` using the video title as the filename.")
         if st.button("Download", key="rag_youtube_transcript_btn", width="stretch"):
             if not yt_url.strip():
                 st.warning("Enter a YouTube URL first.")
@@ -5422,14 +5435,10 @@ def _mode_rag() -> None:
                     st.error(f"Unable to download transcript: {exc}")
 
         st.markdown("---")
-        st.markdown("Playlist")
         yt_playlist_url = st.text_input(
             "YouTube playlist URL",
             key="rag_youtube_playlist_url_mode",
             placeholder="https://www.youtube.com/playlist?list=...",
-        )
-        st.caption(
-            "Saves one transcript per video into `youtube_transcripts/<playlist_name>/`."
         )
         if st.button("Download playlist", key="rag_youtube_playlist_transcript_btn", width="stretch"):
             if not yt_playlist_url.strip():
@@ -5563,11 +5572,6 @@ def _mode_rag() -> None:
             if st.button("Reset", key="rag_embed_reset", use_container_width=True):
                 _apply_rag_embed_config("llama_server", "")
         
-        st.markdown("---")
-        
-        # Warning about re-ingesting
-        st.caption("Changing the embedding provider or model requires re-ingesting documents.")
-
         if selected_embed_provider == "llama_server":
             _emb_ok, _emb_msg = _probe_llama_server_embeddings(current_embed_model or os.getenv("LLAMA_SERVER_MODEL", "local"))
             if not _emb_ok:
@@ -5589,6 +5593,26 @@ def _mode_rag() -> None:
         with st.expander("Vision & OCR", expanded=False):
             vision_col1, vision_col2 = st.columns(2)
             with vision_col1:
+                st.session_state.rag_image_ingest_mode = st.selectbox(
+                    "Image handling",
+                    ["OCR only", "OCR + vision caption", "Multimodal vision"],
+                    index=[
+                        "OCR only",
+                        "OCR + vision caption",
+                        "Multimodal vision",
+                    ].index(st.session_state.rag_image_ingest_mode)
+                    if st.session_state.rag_image_ingest_mode in [
+                        "OCR only",
+                        "OCR + vision caption",
+                        "Multimodal vision",
+                    ]
+                    else 0,
+                    key="rag_image_ingest_mode_selector",
+                    help=(
+                        "OCR only stores extracted text. OCR + vision caption stores OCR text plus a generated description. "
+                        "Multimodal vision uses the vision model first, but the current RAG store still indexes text."
+                    ),
+                )
                 _active_vision = _render_model_selector(
                     "Vision model",
                     session_key="model_rag_vision",
@@ -5596,7 +5620,7 @@ def _mode_rag() -> None:
                     widget_key="rag_vision_model_selector",
                     allow_inherit=False,
                 )
-                st.caption("Used for multimodal document processing and image captioning.")
+                st.caption("Images are indexed as text.")
             
             with vision_col2:
                 if get_multimodal_ocr_status:
@@ -5714,9 +5738,9 @@ def _mode_rag() -> None:
                         elif _ocr_remediation:
                             st.caption(_ocr_remediation)
                     if _ocr_status.get("enabled"):
-                        st.caption(f"✅ OCR: {_ocr_status.get('message', '')}")
+                        st.caption(f"OCR: {_ocr_status.get('message', '')}")
                     else:
-                        st.caption(f"⚠️ OCR: {_ocr_status.get('message', '')}")
+                        st.caption(f"OCR: {_ocr_status.get('message', '')}")
                         _ocr_configured = str(_ocr_status.get("configured_path") or "").strip()
                         _ocr_detected = str(_ocr_status.get("detected_path") or "").strip()
                         _ocr_remediation = str(_ocr_status.get("remediation") or "").strip()
@@ -5728,9 +5752,13 @@ def _mode_rag() -> None:
                             st.code(
                                 "TESSERACT_CMD=C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
                                 language="text",
-                        )
-
-        st.markdown("---")
+                            )
+                    if st.session_state.rag_image_ingest_mode == "OCR only":
+                        st.caption("Path: image -> OCR text -> embeddings.")
+                    elif st.session_state.rag_image_ingest_mode == "OCR + vision caption":
+                        st.caption("Path: image -> OCR text + vision caption -> embeddings.")
+                    else:
+                        st.caption("Path: image -> vision extraction -> embeddings.")
 
         col_proj, col_theme = st.columns(2)
         with col_proj:
@@ -5765,7 +5793,7 @@ def _mode_rag() -> None:
         if _needs_semantic:
             rag_bp = st.slider("Breakpoint threshold", 50, 99, 95, 1, key="rag_bp_mode")
             rag_cs, rag_co = 1500, 300
-            if _needs_llm:
+                if _needs_llm:
                 _ctx_model = _render_model_selector(
                     "Context LLM",
                     session_key="model_rag_context",
@@ -5778,19 +5806,9 @@ def _mode_rag() -> None:
                     AGENT_MODEL_ENV_KEYS["main"],
                     get_agent_model("main"),
                 )
-                st.caption(
-                    f"⚠️ Each chunk calls the LLM (`{_ctx_model_label}`) — ingestion will be slow."
-                )
-                st.caption(
-                    "Use `↔️ Use Main Model` to fall back to `DEEPAGENT_MODEL`. Thinking models are supported; "
-                    "if they return reasoning-only output, RAG will fall back to topic tags for that chunk."
-                )
+                st.caption(f"Each chunk calls the LLM (`{_ctx_model_label}`).")
             if rag_chunk_method in ("late_chunking", "semantic_contextual_late"):
-                st.caption(
-                    "ℹ️ **Late chunking**: each chunk is enriched with sentences from its "
-                    "neighbouring chunks (±2 window) before embedding, giving each vector "
-                    "document-level context awareness without requiring token-level pooling."
-                )
+                st.caption("Late chunking adds neighboring context before embedding.")
         else:
             rag_bp = 95
             cs_col, co_col = st.columns(2)
@@ -5821,7 +5839,6 @@ def _mode_rag() -> None:
                 for filename, file_kind in file_kinds:
                     st.caption(f"`{filename}` -> {file_kind}")
 
-        st.markdown("---")
         with st.expander("Web ingest", expanded=False):
             web_col1, web_col2 = st.columns(2)
             with web_col1:
@@ -5837,7 +5854,6 @@ def _mode_rag() -> None:
                     options=["general", "news", "finance"],
                     index=0,
                     key="rag_web_topic_mode",
-                    help="Topic filter passed to Tavily during the web search step.",
                 )
             web_col3, web_col4 = st.columns(2)
             with web_col3:
@@ -5845,14 +5861,12 @@ def _mode_rag() -> None:
                     "Project",
                     value=rag_project or "Default",
                     key="rag_web_project_mode",
-                    help="Project bucket for the ingested web results.",
                 )
             with web_col4:
                 rag_web_theme = st.text_input(
                     "Theme",
                     value=rag_theme,
                     key="rag_web_theme_mode",
-                    help="Optional theme label for the ingested web results.",
                 )
             web_col5, web_col6 = st.columns(2)
             with web_col5:
