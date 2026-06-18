@@ -65,6 +65,18 @@ dev = [
 Repository = "https://github.com/langchain-ai/deepagents"
 Documentation = "https://docs.langchain.com/oss/python/deepagents/overview"
 
+[tool.setuptools]
+packages = [
+  "data_scientist_agent",
+  "presentation_agent",
+  "ragsub_agent",
+  "research_agent",
+  "websearch_agent",
+]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.yml", "*.json"]
+
 [tool.uv]
 dev-dependencies = ["lv-combined-agents[dev]"]
 

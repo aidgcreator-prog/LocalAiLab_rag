@@ -7,9 +7,10 @@ setlocal enabledelayedexpansion
 REM Set UTF-8 encoding for Python to handle Unicode characters properly
 set PYTHONIOENCODING=utf-8
 
-REM Get the directory where this script is located
+REM Get the directory where this script is located (scripts folder)
 set SCRIPT_DIR=%~dp0
-cd /d "%SCRIPT_DIR%"
+REM Navigate to project root (parent of scripts folder)
+cd /d "%SCRIPT_DIR%.."
 
 echo.
 echo ============================================
@@ -17,7 +18,7 @@ echo  Agent Orchestrator - Streamlit App
 echo ============================================
 echo.
 echo Starting Streamlit application...
-echo Project: %SCRIPT_DIR%
+echo Project: %CD%
 echo.
 echo The app will open in your browser at:
 echo   http://localhost:8501
@@ -29,7 +30,10 @@ echo.
 REM Force local .venv for consistent runtime (avoid uv picking a different env)
 if not exist ".venv\Scripts\python.exe" (
     echo ERROR: Missing .venv\Scripts\python.exe
-    echo Run setup-dependencies.bat first.
+    echo.
+    echo The virtual environment was not found at: %CD%\.venv
+    echo Run: scripts\install-all.bat
+    echo.
     pause
     exit /b 1
 )
