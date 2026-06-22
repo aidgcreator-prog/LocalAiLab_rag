@@ -26,6 +26,7 @@ def render_sidebar(
     st: Any,
     session_state: Any,
     project_dir: Path,
+    render_mode_controls: Callable[[str], Any] | None,
     load_chat_sessions: Callable[..., Any],
     save_current_session: Callable[..., Any],
     new_chat_session: Callable[[], Any],
@@ -36,10 +37,13 @@ def render_sidebar(
     with st.sidebar:
         st.markdown(
             """
-        **Developed by**  
-        👤 *Ven Seyhah*
-        ## 🚀 Orchestration      
-        """
+        <div class="sidebar-shell">
+            <div class="sidebar-kicker">LocalAiLab</div>
+            <div class="sidebar-title">Orchestration</div>
+            <div class="sidebar-meta">Ven Seyhah · Mode routing, sessions, and tools</div>
+        </div>
+        """,
+            unsafe_allow_html=True,
         )
 
         mode_labels = [
@@ -62,6 +66,11 @@ def render_sidebar(
         if new_mode != session_state.active_mode:
             session_state.active_mode = new_mode
             st.rerun()
+
+        st.divider()
+
+        if callable(render_mode_controls):
+            render_mode_controls(session_state.active_mode)
 
         st.divider()
 
